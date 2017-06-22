@@ -8,7 +8,8 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>RobberJJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="keywords" content="iOS,oc,object-c,swift,mac,ipad,前端,js,,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验">
+<meta property="og:type" content="website">
 <meta property="og:title" content="RobberJJ">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="RobberJJ">
@@ -55,6 +56,10 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/iOS/">iOS</a></li>
+	        
+				<li><a href="/categories/常用命令/">常用命令</a></li>
 	        
 			</ul>
 		</nav>
@@ -108,6 +113,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -125,10 +134,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/iOS/">iOS</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/常用命令/">常用命令</a></li>
 		        
 				</ul>
 			</nav>
@@ -168,21 +181,9 @@
         <p>比如，想要用命令行指定特定程序打开文件。</p>
 <p>如果文件已被指定默认程序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open httpd.conf</div></pre></td></tr></table></figure>
-<p>指定一个特定程序打开文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 用 sublime text 打开 httpd.conf</div><div class="line">open -a /Applications/Sublime\ Text.app/ httpd.conf</div></pre></td></tr></table></figure>
-<p>如果使用频繁，还可以添加软连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/sublime</div></pre></td></tr></table></figure>
-<p>输入<code>sublime httpd.conf</code>就可以用 <code>sublime text</code> 打开文件</p>
-<p>mac Mac OS X 11之后的版本，上述操作你可能会遇到下面的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln: /usr/bin/sublime: Operation not permitted</div></pre></td></tr></table></figure></p>
-<p>使用管理员sudo命令,依旧失败!</p>
-<p>原来MacOS 10.11开始apple引入了Rootless机制,你再也不能随心所欲的改写很多关键路径了,就算你是Root用户也不行,除非是Apple自身签名的软件（含命令行工具）才可以!用Apple的话来说:</p>
-<p>Rootless机制将成为对抗恶意程序的最后防线。</p>
-<p>Mac OS X 11中的<code>/usr/bin</code> 的“Operation not permitted”</p>
-<p>如果要关闭Rootless必须重启Mac进入恢复模式,然而关闭它意味着你的MacOS安全大门变得有些薄弱,这并不是什么好消息!!!!!</p>
-<p>那么有没有什么办法即可以不用关闭Rootless又可以设置Sublime Text3的快捷方式呢!?</p>
-<p>答案是:必须的!!!</p>
-<p>我们只需要将其路径添加到<code>/usr/local/bin</code>下即可,Rootless并没有限制该目录的修改,而且bash也会从该目录中寻找可执行的bin!YES!!!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime</div></pre></td></tr></table></figure></p>
-
+        
+          <a class="article-more-a" href="/2017/06/22/commandLine_softconnection/#more">more >></a>
+        
       
 
       
@@ -190,7 +191,37 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">常用命令</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">软连接</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Open File</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/常用命令/" class="article-tag-list-link color5">常用命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -230,32 +261,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>创建一个UIImageView对象：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIImageView</span> * poImgView = [[<span class="built_in">UIImageView</span> alloc] init];</div></pre></td></tr></table></figure></p>
-<h6>第一种方法</h6>
-
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">poImgView.layer.cornerRadius = poImgView.frame.size.width/<span class="number">2.0</span>;</div><div class="line">poImgView.layer.masksToBounds = <span class="literal">YES</span>;</div><div class="line">（或者 poImgView.clipsToBounds = <span class="literal">YES</span>;）</div></pre></td></tr></table></figure>
-<blockquote>
-<p>clipsToBounds是对view的切割，masksToBounds是对layer的切割。</p>
-</blockquote>
-<p>性能消耗：<br>这个是离屏渲染（off-screen-rendering），对性能消耗比较大。<br>fps大致在45帧左右（每个cell 做2个imageview）（正常fps是60帧，越小，用户体验越差）。</p>
-<blockquote>
-<p>离屏渲染，指的是GPU在当前屏幕缓冲区以外新开辟一个缓冲区进行渲染操作。由上面的一个结论视图和圆角的大小对帧率并没有什么卵影响，数量才是伤害的核心输出啊。可以知道离屏渲染耗时是发生在离屏这个动作上面，而不是渲染。为什么离屏这么耗时？原因主要有创建缓冲区和上下文切换。创建新的缓冲区代价都不算大，付出最大代价的是上下文切换。</p>
-</blockquote>
-<h6>第二种方法</h6>
-
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAShapeLayer</span> *layer = [<span class="built_in">CAShapeLayer</span> layer];</div><div class="line"><span class="built_in">UIBezierPath</span> *aPath = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:aImageView.bounds];</div><div class="line">layer.path = aPath.CGPath;</div><div class="line">poImgView.layer.mask = layer;</div></pre></td></tr></table></figure>
-<p>性能消耗：<br>测试fps大致在20帧左右，比方案A的消耗更大。</p>
-<h6>第三种方法</h6>
-
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UIImage</span> *)imageWithCornerRadius:(<span class="built_in">CGFloat</span>)radius &#123;</div><div class="line">    <span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="number">0.</span>f, <span class="number">0.</span>f, <span class="keyword">self</span>.size&#125;;</div><div class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="built_in">UIScreen</span>.mainScreen.scale);</div><div class="line">    <span class="built_in">CGContextAddPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(),[<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);</div><div class="line">    <span class="built_in">CGContextClip</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>());</div><div class="line">    [<span class="keyword">self</span> drawInRect:rect];</div><div class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">    <span class="keyword">return</span> image;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>性能消耗：<br>这个是on-screen-rendering<br>相当于时时去做渲染，相比于A.B方案的离线渲染，此方法对性能消耗最低，推荐用此方案。</p>
-<p></p><h6>值得一提</h6><br>第一种跟第二种方法都是比较常见的方式，但是都不推荐，对此的优化方案是是用第三种方式，但是如果非要使用第一种跟第二种，补救措施是：<p></p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.layer.shouldRasterize = <span class="literal">YES</span>;</div><div class="line"><span class="keyword">self</span>.layer.rasterizationScale = [<span class="built_in">UIScreen</span> mainScreen].scale;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>当shouldRasterize设成true时，layer被渲染成一个bitmap，并缓存起来，等下次使用时不会再重新去渲染了。</p>
-<p>实现圆角本身就是在做颜色混合（blending），如果每次页面出来时都blending，消耗太大，这时shouldRasterize = yes，下次就只是简单的从渲染引擎的cache里读取那张bitmap，节约系统资源。</p>
-<p>如果在滚动tableView时，每次都执行圆角设置，肯定会阻塞UI，设置这个将会使滑动更加流畅。</p>
-</blockquote>
-
+        
+          <a class="article-more-a" href="/2017/06/22/UIImageView_layer_corner/#more">more >></a>
+        
       
 
       
@@ -263,7 +271,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">UIImageView</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/iOS/" class="article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -303,54 +337,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>GCD中获取各种类型的队列：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取串行的队列  </span></div><div class="line"><span class="built_in">dispatch_queue_t</span> singalQueue = dispatch_queue_create(<span class="string">"single"</span>,DISPATCH_QUEUE_SERIAL);</div><div class="line"><span class="comment">//获取并发执行的队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> concrtQueue = dispatch_queue_create(<span class="string">"queue"</span>, DISPATCH_QUEUE_CONCURRENT);</div><div class="line"><span class="comment">//获取主队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line"><span class="comment">//获取全局的队列（并发的）</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> gobalqueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
-<h6>串行队列异步执行任务</h6>
-
-<blockquote>
-<ol>
-<li>异步具有创建新线程的能力，会开辟新线程去执行任务；</li>
-<li>按照串行的方式去执行任务。</li>
-</ol>
-</blockquote>
-<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)singalAsynQueue&#123;</div><div class="line">    <span class="comment">//创建串行队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> singalQueue =   dispatch_queue_create(<span class="string">"singal"</span>, DISPATCH_QUEUE_SERIAL);</div><div class="line">    <span class="comment">//在singalQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue: singalQueue];  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h6>串行队列同步执行任务</h6>
-
-<blockquote>
-<ol>
-<li>同步不具有创建新的线程的能力， 不会开辟新的线程去执行任务，会在当前的程序的主线程中去执行任务；</li>
-<li>按照串行的方式去执行任务。</li>
-</ol>
-</blockquote>
-<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)singalSynQueue&#123;</div><div class="line">    <span class="comment">//创建串行队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> singalQueue =   dispatch_queue_create(<span class="string">"singal"</span>, DISPATCH_QUEUE_SERIAL);</div><div class="line">    <span class="comment">//在singalQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue: singalQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h6>并发队列异步执行任务（常用）</h6>
-
-<blockquote>
-<ol>
-<li>异步具有创建新的线程的能力，会开辟新的线程去执行任务，不会在当前的程序的主线程中去执行任务；</li>
-<li>按照并发的方式去执行任务。</li>
-</ol>
-</blockquote>
-<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)concrtAsynQueue&#123;</div><div class="line">    <span class="comment">//创建并发执行的队列</span></div><div class="line"><span class="comment">//    dispatch_queue_t concrtQueue = dispatch_queue_create("concrtQueue", DISPATCH_QUEUE_CONCURRENT);</span></div><div class="line">    <span class="comment">//获取全局的队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> concrtQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">    <span class="comment">//在concrtQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue:concrtQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h6>并发队列同步执行任务</h6>
-
-<blockquote>
-<ol>
-<li>同步不具有创建新的线程的能力， 不会开辟新的线程去执行任务，会在当前的程序的主线程中去执行任务；</li>
-<li>按照同步的方式去执行任务。</li>
-</ol>
-</blockquote>
-<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)concrtSynQueue&#123;</div><div class="line">    <span class="comment">//创建并发执行的队列</span></div><div class="line"><span class="comment">//    dispatch_queue_t concrtQueue = dispatch_queue_create("concrtQueue", DISPATCH_QUEUE_CONCURRENT);</span></div><div class="line">    <span class="comment">//获取全局的队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> concrtQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">    <span class="comment">//在concrtQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue:concrtQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h6>主队列的同步(会造成程序的死锁)</h6>
-
-<p>如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)mainSynQueue&#123;</div><div class="line">    <span class="comment">//获取主队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line">    <span class="comment">//在mainQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue:mainQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h6>主队列的异步(在主线程中顺序执行)</h6>
-
-<blockquote>
-<p>新添加到主队列中的任务会放到队列的最尾部，等到当前主线程中的任务结束之后然后再从队列的头部取出依次执行（FIFO）先进先出。</p>
-</blockquote>
-<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)mainAsynQueue&#123;</div><div class="line">    <span class="comment">//获取主队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line">    <span class="comment">//在mainQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue:mainQueue];        </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p></p><h6>异步方法的实现</h6><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)asynWithQueue:(<span class="built_in">dispatch_queue_t</span>)queue&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----1----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----2----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----3----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----4----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--------end------------"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
-<p></p><h6>同步方法的实现</h6><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)synWithQueue:(<span class="built_in">dispatch_queue_t</span>)queue&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----1----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----2----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----3----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----4----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--------end------------"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
-
+        
+          <a class="article-more-a" href="/2017/06/22/GCD_syn_asyn/#more">more >></a>
+        
       
 
       
@@ -358,7 +347,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/iOS/" class="article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -461,6 +476,30 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UIImageView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">常用命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">软连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Open File</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

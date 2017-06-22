@@ -9,12 +9,13 @@
   <title>GCD：串行/并行/主队列下，同步/异步的执行方式 | RobberJJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="GCD中获取各种类型的队列：12345678//获取串行的队列  dispatch_queue_t singalQueue = dispatch_queue_create(&quot;single&quot;,DISPATCH_QUEUE_SERIAL);//获取并发执行的队列dispatch_queue_t concrtQueue = dispatch_queue_create(&quot;queue&quot;, DISPATCH_">
+<meta name="keywords" content="iOS,GCD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GCD：串行&#x2F;并行&#x2F;主队列下，同步&#x2F;异步的执行方式">
 <meta property="og:url" content="http://yoursite.com/2017/06/22/GCD_syn_asyn/index.html">
 <meta property="og:site_name" content="RobberJJ">
 <meta property="og:description" content="GCD中获取各种类型的队列：12345678//获取串行的队列  dispatch_queue_t singalQueue = dispatch_queue_create(&quot;single&quot;,DISPATCH_QUEUE_SERIAL);//获取并发执行的队列dispatch_queue_t concrtQueue = dispatch_queue_create(&quot;queue&quot;, DISPATCH_">
-<meta property="og:updated_time" content="2017-06-22T05:42:45.000Z">
+<meta property="og:updated_time" content="2017-06-22T07:41:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GCD：串行&#x2F;并行&#x2F;主队列下，同步&#x2F;异步的执行方式">
 <meta name="twitter:description" content="GCD中获取各种类型的队列：12345678//获取串行的队列  dispatch_queue_t singalQueue = dispatch_queue_create(&quot;single&quot;,DISPATCH_QUEUE_SERIAL);//获取并发执行的队列dispatch_queue_t concrtQueue = dispatch_queue_create(&quot;queue&quot;, DISPATCH_">
@@ -59,6 +60,10 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/iOS/">iOS</a></li>
+	        
+				<li><a href="/categories/常用命令/">常用命令</a></li>
 	        
 			</ul>
 		</nav>
@@ -112,6 +117,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -129,10 +138,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/iOS/">iOS</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/常用命令/">常用命令</a></li>
 		        
 				</ul>
 			</nav>
@@ -168,6 +181,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>GCD中获取各种类型的队列：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取串行的队列  </span></div><div class="line"><span class="built_in">dispatch_queue_t</span> singalQueue = dispatch_queue_create(<span class="string">"single"</span>,DISPATCH_QUEUE_SERIAL);</div><div class="line"><span class="comment">//获取并发执行的队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> concrtQueue = dispatch_queue_create(<span class="string">"queue"</span>, DISPATCH_QUEUE_CONCURRENT);</div><div class="line"><span class="comment">//获取主队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line"><span class="comment">//获取全局的队列（并发的）</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> gobalqueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h6>串行队列异步执行任务</h6>
 
 <blockquote>
@@ -254,7 +268,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/iOS/" class="article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -424,6 +464,30 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UIImageView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">常用命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">软连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Open File</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

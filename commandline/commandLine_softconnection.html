@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/6 | RobberJJ</title>
+  <title>命令行常用命令--软连接 | RobberJJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="iOS,oc,object-c,swift,mac,ipad,前端,js,,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验">
+  <meta name="description" content="比如，想要用命令行指定特定程序打开文件。 如果文件已被指定默认程序： 1open httpd.conf 指定一个特定程序打开文件 12# 用 sublime text 打开 httpd.confopen -a /Applications/Sublime\ Text.app/ httpd.conf 如果使用频繁，还可以添加软连接 1sudo ln -s /Applications/Sublime\">
+<meta name="keywords" content="iOS,oc,object-c,swift,mac,ipad,前端,js,,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验">
 <meta property="og:type" content="website">
-<meta property="og:title" content="RobberJJ">
-<meta property="og:url" content="http://yoursite.com/archives/2017/06/index.html">
+<meta property="og:title" content="命令行常用命令--软连接">
+<meta property="og:url" content="http://yoursite.com/commandline/commandLine_softconnection.html">
 <meta property="og:site_name" content="RobberJJ">
+<meta property="og:description" content="比如，想要用命令行指定特定程序打开文件。 如果文件已被指定默认程序： 1open httpd.conf 指定一个特定程序打开文件 12# 用 sublime text 打开 httpd.confopen -a /Applications/Sublime\ Text.app/ httpd.conf 如果使用频繁，还可以添加软连接 1sudo ln -s /Applications/Sublime\">
+<meta property="og:updated_time" content="2017-06-22T07:12:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RobberJJ">
+<meta name="twitter:title" content="命令行常用命令--软连接">
+<meta name="twitter:description" content="比如，想要用命令行指定特定程序打开文件。 如果文件已被指定默认程序： 1open httpd.conf 指定一个特定程序打开文件 12# 用 sublime text 打开 httpd.confopen -a /Applications/Sublime\ Text.app/ httpd.conf 如果使用频繁，还可以添加软连接 1sudo ln -s /Applications/Sublime\">
   
     <link rel="alternative" href="/atom.xml" title="RobberJJ" type="application/atom+xml">
   
@@ -156,185 +160,155 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      命令行常用命令--软连接
+    </h1>
+  
+
+        
+        <a href="/commandline/commandLine_softconnection.html" class="archive-article-date">
+  	<time datetime="2017-06-22T07:13:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>比如，想要用命令行指定特定程序打开文件。</p>
+<p>如果文件已被指定默认程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open httpd.conf</div></pre></td></tr></table></figure>
+<p>指定一个特定程序打开文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 用 sublime text 打开 httpd.conf</div><div class="line">open -a /Applications/Sublime\ Text.app/ httpd.conf</div></pre></td></tr></table></figure>
+<p>如果使用频繁，还可以添加软连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/sublime</div></pre></td></tr></table></figure>
+<p>输入<code>sublime httpd.conf</code>就可以用 <code>sublime text</code> 打开文件</p>
+<p>mac Mac OS X 11之后的版本，上述操作你可能会遇到下面的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln: /usr/bin/sublime: Operation not permitted</div></pre></td></tr></table></figure></p>
+<p>使用管理员sudo命令,依旧失败!</p>
+<p>原来MacOS 10.11开始apple引入了Rootless机制,你再也不能随心所欲的改写很多关键路径了,就算你是Root用户也不行,除非是Apple自身签名的软件（含命令行工具）才可以!用Apple的话来说:</p>
+<p>Rootless机制将成为对抗恶意程序的最后防线。</p>
+<p>Mac OS X 11中的<code>/usr/bin</code> 的“Operation not permitted”</p>
+<p>如果要关闭Rootless必须重启Mac进入恢复模式,然而关闭它意味着你的MacOS安全大门变得有些薄弱,这并不是什么好消息!!!!!</p>
+<p>那么有没有什么办法即可以不用关闭Rootless又可以设置Sublime Text3的快捷方式呢!?</p>
+<p>答案是:必须的!!!</p>
+<p>我们只需要将其路径添加到<code>/usr/local/bin</code>下即可,Rootless并没有限制该目录的修改,而且bash也会从该目录中寻找可执行的bin!YES!!!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/robberjj_zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/robberjj_weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/22/commandLine_softconnection/" class="archive-article-date">
-  	<time datetime="2017-06-22T05:53:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/22/commandLine_softconnection/">命令行常用命令--软连接</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">常用命令</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">软连接</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Open File</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/commandline/commandLine_softconnection.html" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/常用命令/" class="article-tag-list-link color5">常用命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/22/UIImageView_layer_corner/" class="archive-article-date">
-  	<time datetime="2017-06-22T05:49:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/22/UIImageView_layer_corner/">UIImageView添加圆角的几种方法</a>
-    </h1>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">UIImageView</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS/" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/22/GCD_syn_asyn/" class="archive-article-date">
-  	<time datetime="2017-06-22T04:48:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/22/GCD_syn_asyn/">GCD：串行/并行/主队列下，同步/异步的执行方式</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS/" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -360,7 +334,7 @@
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
