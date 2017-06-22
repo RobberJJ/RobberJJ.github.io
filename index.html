@@ -145,35 +145,43 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-commandLine_softconnection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/22/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/06/22/commandLine_softconnection/">命令行常用命令--软连接</a>
     </h1>
   
 
         
-        <a href="/2017/06/22/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-22T02:26:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
+        <a href="/2017/06/22/commandLine_softconnection/" class="archive-article-date">
+  	<time datetime="2017-06-22T05:53:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>比如，想要用命令行指定特定程序打开文件。</p>
+<p>如果文件已被指定默认程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open httpd.conf</div></pre></td></tr></table></figure>
+<p>指定一个特定程序打开文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 用 sublime text 打开 httpd.conf</div><div class="line">open -a /Applications/Sublime\ Text.app/ httpd.conf</div></pre></td></tr></table></figure>
+<p>如果使用频繁，还可以添加软连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/sublime</div></pre></td></tr></table></figure>
+<p>输入<code>sublime httpd.conf</code>就可以用 <code>sublime text</code> 打开文件</p>
+<p>mac Mac OS X 11之后的版本，上述操作你可能会遇到下面的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln: /usr/bin/sublime: Operation not permitted</div></pre></td></tr></table></figure></p>
+<p>使用管理员sudo命令,依旧失败!</p>
+<p>原来MacOS 10.11开始apple引入了Rootless机制,你再也不能随心所欲的改写很多关键路径了,就算你是Root用户也不行,除非是Apple自身签名的软件（含命令行工具）才可以!用Apple的话来说:</p>
+<p>Rootless机制将成为对抗恶意程序的最后防线。</p>
+<p>Mac OS X 11中的<code>/usr/bin</code> 的“Operation not permitted”</p>
+<p>如果要关闭Rootless必须重启Mac进入恢复模式,然而关闭它意味着你的MacOS安全大门变得有些薄弱,这并不是什么好消息!!!!!</p>
+<p>那么有没有什么办法即可以不用关闭Rootless又可以设置Sublime Text3的快捷方式呢!?</p>
+<p>答案是:必须的!!!</p>
+<p>我们只需要将其路径添加到<code>/usr/local/bin</code>下即可,Rootless并没有限制该目录的修改,而且bash也会从该目录中寻找可执行的bin!YES!!!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime</div></pre></td></tr></table></figure></p>
 
       
 
@@ -186,7 +194,175 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/22/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/06/22/commandLine_softconnection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-UIImageView_layer_corner" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/22/UIImageView_layer_corner/">UIImageView添加圆角的几种方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/22/UIImageView_layer_corner/" class="archive-article-date">
+  	<time datetime="2017-06-22T05:49:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>创建一个UIImageView对象：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIImageView</span> * poImgView = [[<span class="built_in">UIImageView</span> alloc] init];</div></pre></td></tr></table></figure></p>
+<h6>第一种方法</h6>
+
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">poImgView.layer.cornerRadius = poImgView.frame.size.width/<span class="number">2.0</span>;</div><div class="line">poImgView.layer.masksToBounds = <span class="literal">YES</span>;</div><div class="line">（或者 poImgView.clipsToBounds = <span class="literal">YES</span>;）</div></pre></td></tr></table></figure>
+<blockquote>
+<p>clipsToBounds是对view的切割，masksToBounds是对layer的切割。</p>
+</blockquote>
+<p>性能消耗：<br>这个是离屏渲染（off-screen-rendering），对性能消耗比较大。<br>fps大致在45帧左右（每个cell 做2个imageview）（正常fps是60帧，越小，用户体验越差）。</p>
+<blockquote>
+<p>离屏渲染，指的是GPU在当前屏幕缓冲区以外新开辟一个缓冲区进行渲染操作。由上面的一个结论视图和圆角的大小对帧率并没有什么卵影响，数量才是伤害的核心输出啊。可以知道离屏渲染耗时是发生在离屏这个动作上面，而不是渲染。为什么离屏这么耗时？原因主要有创建缓冲区和上下文切换。创建新的缓冲区代价都不算大，付出最大代价的是上下文切换。</p>
+</blockquote>
+<h6>第二种方法</h6>
+
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAShapeLayer</span> *layer = [<span class="built_in">CAShapeLayer</span> layer];</div><div class="line"><span class="built_in">UIBezierPath</span> *aPath = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:aImageView.bounds];</div><div class="line">layer.path = aPath.CGPath;</div><div class="line">poImgView.layer.mask = layer;</div></pre></td></tr></table></figure>
+<p>性能消耗：<br>测试fps大致在20帧左右，比方案A的消耗更大。</p>
+<h6>第三种方法</h6>
+
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UIImage</span> *)imageWithCornerRadius:(<span class="built_in">CGFloat</span>)radius &#123;</div><div class="line">    <span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="number">0.</span>f, <span class="number">0.</span>f, <span class="keyword">self</span>.size&#125;;</div><div class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="built_in">UIScreen</span>.mainScreen.scale);</div><div class="line">    <span class="built_in">CGContextAddPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(),[<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);</div><div class="line">    <span class="built_in">CGContextClip</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>());</div><div class="line">    [<span class="keyword">self</span> drawInRect:rect];</div><div class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">    <span class="keyword">return</span> image;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>性能消耗：<br>这个是on-screen-rendering<br>相当于时时去做渲染，相比于A.B方案的离线渲染，此方法对性能消耗最低，推荐用此方案。</p>
+<p></p><h6>值得一提</h6><br>第一种跟第二种方法都是比较常见的方式，但是都不推荐，对此的优化方案是是用第三种方式，但是如果非要使用第一种跟第二种，补救措施是：<p></p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.layer.shouldRasterize = <span class="literal">YES</span>;</div><div class="line"><span class="keyword">self</span>.layer.rasterizationScale = [<span class="built_in">UIScreen</span> mainScreen].scale;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当shouldRasterize设成true时，layer被渲染成一个bitmap，并缓存起来，等下次使用时不会再重新去渲染了。</p>
+<p>实现圆角本身就是在做颜色混合（blending），如果每次页面出来时都blending，消耗太大，这时shouldRasterize = yes，下次就只是简单的从渲染引擎的cache里读取那张bitmap，节约系统资源。</p>
+<p>如果在滚动tableView时，每次都执行圆角设置，肯定会阻塞UI，设置这个将会使滑动更加流畅。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/22/UIImageView_layer_corner/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-GCD_syn_asyn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/22/GCD_syn_asyn/">GCD：串行/并行/主队列下，同步/异步的执行方式</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/22/GCD_syn_asyn/" class="archive-article-date">
+  	<time datetime="2017-06-22T04:48:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>GCD中获取各种类型的队列：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取串行的队列  </span></div><div class="line"><span class="built_in">dispatch_queue_t</span> singalQueue = dispatch_queue_create(<span class="string">"single"</span>,DISPATCH_QUEUE_SERIAL);</div><div class="line"><span class="comment">//获取并发执行的队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> concrtQueue = dispatch_queue_create(<span class="string">"queue"</span>, DISPATCH_QUEUE_CONCURRENT);</div><div class="line"><span class="comment">//获取主队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line"><span class="comment">//获取全局的队列（并发的）</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> gobalqueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<h6>串行队列异步执行任务</h6>
+
+<blockquote>
+<ol>
+<li>异步具有创建新线程的能力，会开辟新线程去执行任务；</li>
+<li>按照串行的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)singalAsynQueue&#123;</div><div class="line">    <span class="comment">//创建串行队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> singalQueue =   dispatch_queue_create(<span class="string">"singal"</span>, DISPATCH_QUEUE_SERIAL);</div><div class="line">    <span class="comment">//在singalQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue: singalQueue];  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>串行队列同步执行任务</h6>
+
+<blockquote>
+<ol>
+<li>同步不具有创建新的线程的能力， 不会开辟新的线程去执行任务，会在当前的程序的主线程中去执行任务；</li>
+<li>按照串行的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)singalSynQueue&#123;</div><div class="line">    <span class="comment">//创建串行队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> singalQueue =   dispatch_queue_create(<span class="string">"singal"</span>, DISPATCH_QUEUE_SERIAL);</div><div class="line">    <span class="comment">//在singalQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue: singalQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>并发队列异步执行任务（常用）</h6>
+
+<blockquote>
+<ol>
+<li>异步具有创建新的线程的能力，会开辟新的线程去执行任务，不会在当前的程序的主线程中去执行任务；</li>
+<li>按照并发的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)concrtAsynQueue&#123;</div><div class="line">    <span class="comment">//创建并发执行的队列</span></div><div class="line"><span class="comment">//    dispatch_queue_t concrtQueue = dispatch_queue_create("concrtQueue", DISPATCH_QUEUE_CONCURRENT);</span></div><div class="line">    <span class="comment">//获取全局的队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> concrtQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">    <span class="comment">//在concrtQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue:concrtQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>并发队列同步执行任务</h6>
+
+<blockquote>
+<ol>
+<li>同步不具有创建新的线程的能力， 不会开辟新的线程去执行任务，会在当前的程序的主线程中去执行任务；</li>
+<li>按照同步的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)concrtSynQueue&#123;</div><div class="line">    <span class="comment">//创建并发执行的队列</span></div><div class="line"><span class="comment">//    dispatch_queue_t concrtQueue = dispatch_queue_create("concrtQueue", DISPATCH_QUEUE_CONCURRENT);</span></div><div class="line">    <span class="comment">//获取全局的队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> concrtQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">    <span class="comment">//在concrtQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue:concrtQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>主队列的同步(会造成程序的死锁)</h6>
+
+<p>如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)mainSynQueue&#123;</div><div class="line">    <span class="comment">//获取主队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line">    <span class="comment">//在mainQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue:mainQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>主队列的异步(在主线程中顺序执行)</h6>
+
+<blockquote>
+<p>新添加到主队列中的任务会放到队列的最尾部，等到当前主线程中的任务结束之后然后再从队列的头部取出依次执行（FIFO）先进先出。</p>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)mainAsynQueue&#123;</div><div class="line">    <span class="comment">//获取主队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line">    <span class="comment">//在mainQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue:mainQueue];        </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p></p><h6>异步方法的实现</h6><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)asynWithQueue:(<span class="built_in">dispatch_queue_t</span>)queue&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----1----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----2----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----3----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----4----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--------end------------"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
+<p></p><h6>同步方法的实现</h6><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)synWithQueue:(<span class="built_in">dispatch_queue_t</span>)queue&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----1----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----2----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----3----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----4----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--------end------------"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/22/GCD_syn_asyn/">展开全文 >></a>
         </p>
       
 
@@ -213,9 +389,11 @@
     	<div class="footer-left">
     		&copy; 2017 RobberJJ
     	</div>
+      <!--
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
+        -->
     </div>
   </div>
 </footer>

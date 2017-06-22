@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | RobberJJ</title>
+  <title>GCD：串行/并行/主队列下，同步/异步的执行方式 | RobberJJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="RobberJJ">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="GCD中获取各种类型的队列：12345678//获取串行的队列  dispatch_queue_t singalQueue = dispatch_queue_create(&quot;single&quot;,DISPATCH_QUEUE_SERIAL);//获取并发执行的队列dispatch_queue_t concrtQueue = dispatch_queue_create(&quot;queue&quot;, DISPATCH_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GCD：串行&#x2F;并行&#x2F;主队列下，同步&#x2F;异步的执行方式">
+<meta property="og:url" content="http://yoursite.com/2017/06/22/GCD_syn_asyn/index.html">
 <meta property="og:site_name" content="RobberJJ">
+<meta property="og:description" content="GCD中获取各种类型的队列：12345678//获取串行的队列  dispatch_queue_t singalQueue = dispatch_queue_create(&quot;single&quot;,DISPATCH_QUEUE_SERIAL);//获取并发执行的队列dispatch_queue_t concrtQueue = dispatch_queue_create(&quot;queue&quot;, DISPATCH_">
+<meta property="og:updated_time" content="2017-06-22T05:42:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RobberJJ">
+<meta name="twitter:title" content="GCD：串行&#x2F;并行&#x2F;主队列下，同步&#x2F;异步的执行方式">
+<meta name="twitter:description" content="GCD中获取各种类型的队列：12345678//获取串行的队列  dispatch_queue_t singalQueue = dispatch_queue_create(&quot;single&quot;,DISPATCH_QUEUE_SERIAL);//获取并发执行的队列dispatch_queue_t concrtQueue = dispatch_queue_create(&quot;queue&quot;, DISPATCH_">
   
     <link rel="alternative" href="/atom.xml" title="RobberJJ" type="application/atom+xml">
   
@@ -143,103 +147,200 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-GCD_syn_asyn" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/22/commandLine_softconnection/" class="archive-article-date">
-  	<time datetime="2017-06-22T05:53:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/22/commandLine_softconnection/">命令行常用命令--软连接</a>
+    <h1 class="article-title" itemprop="name">
+      GCD：串行/并行/主队列下，同步/异步的执行方式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/22/UIImageView_layer_corner/" class="archive-article-date">
-  	<time datetime="2017-06-22T05:49:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/22/UIImageView_layer_corner/">UIImageView添加圆角的几种方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/22/GCD_syn_asyn/" class="archive-article-date">
+        
+        <a href="/2017/06/22/GCD_syn_asyn/" class="archive-article-date">
   	<time datetime="2017-06-22T04:48:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/22/GCD_syn_asyn/">GCD：串行/并行/主队列下，同步/异步的执行方式</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>GCD中获取各种类型的队列：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取串行的队列  </span></div><div class="line"><span class="built_in">dispatch_queue_t</span> singalQueue = dispatch_queue_create(<span class="string">"single"</span>,DISPATCH_QUEUE_SERIAL);</div><div class="line"><span class="comment">//获取并发执行的队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> concrtQueue = dispatch_queue_create(<span class="string">"queue"</span>, DISPATCH_QUEUE_CONCURRENT);</div><div class="line"><span class="comment">//获取主队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line"><span class="comment">//获取全局的队列（并发的）</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> gobalqueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<h6>串行队列异步执行任务</h6>
 
-        <div class="article-info info-on-right">
-          
-          
+<blockquote>
+<ol>
+<li>异步具有创建新线程的能力，会开辟新线程去执行任务；</li>
+<li>按照串行的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)singalAsynQueue&#123;</div><div class="line">    <span class="comment">//创建串行队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> singalQueue =   dispatch_queue_create(<span class="string">"singal"</span>, DISPATCH_QUEUE_SERIAL);</div><div class="line">    <span class="comment">//在singalQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue: singalQueue];  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>串行队列同步执行任务</h6>
 
+<blockquote>
+<ol>
+<li>同步不具有创建新的线程的能力， 不会开辟新的线程去执行任务，会在当前的程序的主线程中去执行任务；</li>
+<li>按照串行的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)singalSynQueue&#123;</div><div class="line">    <span class="comment">//创建串行队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> singalQueue =   dispatch_queue_create(<span class="string">"singal"</span>, DISPATCH_QUEUE_SERIAL);</div><div class="line">    <span class="comment">//在singalQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue: singalQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>并发队列异步执行任务（常用）</h6>
+
+<blockquote>
+<ol>
+<li>异步具有创建新的线程的能力，会开辟新的线程去执行任务，不会在当前的程序的主线程中去执行任务；</li>
+<li>按照并发的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)concrtAsynQueue&#123;</div><div class="line">    <span class="comment">//创建并发执行的队列</span></div><div class="line"><span class="comment">//    dispatch_queue_t concrtQueue = dispatch_queue_create("concrtQueue", DISPATCH_QUEUE_CONCURRENT);</span></div><div class="line">    <span class="comment">//获取全局的队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> concrtQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">    <span class="comment">//在concrtQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue:concrtQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>并发队列同步执行任务</h6>
+
+<blockquote>
+<ol>
+<li>同步不具有创建新的线程的能力， 不会开辟新的线程去执行任务，会在当前的程序的主线程中去执行任务；</li>
+<li>按照同步的方式去执行任务。</li>
+</ol>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)concrtSynQueue&#123;</div><div class="line">    <span class="comment">//创建并发执行的队列</span></div><div class="line"><span class="comment">//    dispatch_queue_t concrtQueue = dispatch_queue_create("concrtQueue", DISPATCH_QUEUE_CONCURRENT);</span></div><div class="line">    <span class="comment">//获取全局的队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> concrtQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">    <span class="comment">//在concrtQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue:concrtQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>主队列的同步(会造成程序的死锁)</h6>
+
+<p>如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)mainSynQueue&#123;</div><div class="line">    <span class="comment">//获取主队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line">    <span class="comment">//在mainQueue中同步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> synWithQueue:mainQueue];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6>主队列的异步(在主线程中顺序执行)</h6>
+
+<blockquote>
+<p>新添加到主队列中的任务会放到队列的最尾部，等到当前主线程中的任务结束之后然后再从队列的头部取出依次执行（FIFO）先进先出。</p>
+</blockquote>
+<p>如下调用方式可参考：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)mainAsynQueue&#123;</div><div class="line">    <span class="comment">//获取主队列</span></div><div class="line">    <span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line">    <span class="comment">//在mainQueue中异步执行任务(该方法实现在本文后续中)</span></div><div class="line">    [<span class="keyword">self</span> asynWithQueue:mainQueue];        </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p></p><h6>异步方法的实现</h6><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)asynWithQueue:(<span class="built_in">dispatch_queue_t</span>)queue&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----1----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----2----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----3----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----4----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--------end------------"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
+<p></p><h6>同步方法的实现</h6><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)synWithQueue:(<span class="built_in">dispatch_queue_t</span>)queue&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----1----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----2----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----3----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----4----%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--------end------------"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/robberjj_zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/robberjj_weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/22/GCD_syn_asyn/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/22/UIImageView_layer_corner/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          UIImageView添加圆角的几种方法
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -264,8 +365,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
