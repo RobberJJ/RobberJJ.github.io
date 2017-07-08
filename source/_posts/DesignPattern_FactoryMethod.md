@@ -7,7 +7,7 @@ tags:
 categories: "iOS"
 ---
 
-### 工厂模式(factory method)
+### 工厂方法模式(factory method)
 >工厂方法模式最初的定义出现于《设计模式》(Addison-Wesley,1994)
 
 >__工厂方法模式：定义创建对象的接口，让子类决定实例化哪一个类。工厂方法使得一个类的实例化延迟到其子类。__
