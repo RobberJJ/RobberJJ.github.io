@@ -7,6 +7,7 @@ tags:
 	- NSString
 	- iOS
 categories: "iOS"
+thumbnail: /imgs/iOS.png
 ---
 
 在iOS 9.0之后，以前常用的`NSString`编码的方法`stringByAddingPercentEscapesUsingEncoding:`被弃用了，项目中可能会出现一堆如下⚠️：

@@ -6,7 +6,8 @@ tags:
 	- 闭包
 	- swift
 	- iOS
-categories: "iOS"
+categories: "swift"
+thumbnail: /imgs/swift.png
 ---
 <h3>闭包(Closures)</h3>
 

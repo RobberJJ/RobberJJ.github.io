@@ -6,6 +6,7 @@ tags:
 	- iOS
 	- GCD
 categories: "iOS"
+thumbnail: /imgs/iOS.png
 ---
 
 GCD中获取各种类型的队列：

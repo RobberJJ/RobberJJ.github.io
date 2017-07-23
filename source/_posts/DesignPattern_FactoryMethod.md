@@ -5,6 +5,7 @@ comments: true
 tags:
 	- 设计模式
 categories: "iOS"
+thumbnail: /imgs/pattern.png
 ---
 
 ### 工厂方法模式(factory method)

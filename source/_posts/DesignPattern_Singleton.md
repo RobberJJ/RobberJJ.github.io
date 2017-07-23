@@ -5,6 +5,7 @@ comments: true
 tags:
 	- 设计模式
 categories: "iOS"
+thumbnail: /imgs/pattern.png
 ---
 
 ### 单例模式(singleton)

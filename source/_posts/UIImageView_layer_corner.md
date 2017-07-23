@@ -6,6 +6,7 @@ tags:
 	- iOS
 	- UIImageView
 categories: "iOS"
+thumbnail: /imgs/iOS.png
 ---
 创建一个UIImageView对象：
 ``` mm
