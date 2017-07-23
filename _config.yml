@@ -75,6 +75,17 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: icarus
 
+algolia:
+  applicationID: 'F9I2JBMKVF'
+  apiKey: '9f52c4d56eaf76618beb1bb78c9939c6'
+  adminApiKey: 'e3e9be8ebdc934be6414bde5ed54769c'
+  indexName: 'RobberJJ'
+  chunkSize: 5000
+  fields:
+    - title
+    - slug
+    - path
+    - content:strip
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
