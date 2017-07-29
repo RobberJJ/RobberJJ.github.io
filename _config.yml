@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: RobberJJ
-subtitle:  未来的不可知，是我前进的源动力~
+title: RobberJJ.Blog
+subtitle: 未来的不可知，是我前进的源动力~
 description:
-author: RobberJJ
+author: Ro_bber
 language: zh-Hans
 timezone:
 keywords: "iOS,oc,object-c,swift,mac,ipad,前端,js,,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://robberjj.github.io
+url: http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -70,22 +70,24 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+#algolia:
+#  applicationID: 'F9I2JBMKVF'
+#  apiKey: '9f52c4d56eaf76618beb1bb78c9939c6'
+#  adminApiKey: 'e3e9be8ebdc934be6414bde5ed54769c'
+#  indexName: 'robberjj'
+#  chunkSize: 5000
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: icarus
+theme: next
 
-algolia:
-  applicationID: 'F9I2JBMKVF'
-  apiKey: '9f52c4d56eaf76618beb1bb78c9939c6'
-  adminApiKey: 'e3e9be8ebdc934be6414bde5ed54769c'
-  indexName: 'RobberJJ'
-  chunkSize: 5000
-  fields:
-    - title
-    - slug
-    - path
-    - content:strip
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
