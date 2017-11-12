@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 一行命令搞定node.js升级
+date: 2017-06-25 17:00:06
 comments: true
 tags:
 	- 常用命令

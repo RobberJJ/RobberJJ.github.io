@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 设计模式--原型模式
+date: 2017-07-02 15:16:06
 comments: true
 tags:
 	- 设计模式

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: UIImageView添加圆角的几种方法
+date: 2017-06-22 15:26:06
 comments: true
 tags:
 	- iOS

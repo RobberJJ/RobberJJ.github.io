@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 设计模式--抽象工厂
+date: 2017-07-08 14:55:06
 comments: true
 tags:
 	- 设计模式

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: iOS脚本自动编译静态包/静态库
+date: 2017-07-22 10:50:01
 comments: true
 tags:
 	- iOS

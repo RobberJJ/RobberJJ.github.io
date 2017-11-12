@@ -1,6 +1,7 @@
 ---
 layout: post
 title: GCD：串行/并行/主队列下，同步/异步的执行方式
+date: 2017-06-22 09:26:06
 comments: true
 tags:
 	- iOS

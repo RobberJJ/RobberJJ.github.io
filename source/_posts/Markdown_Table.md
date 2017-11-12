@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Markdown中插入表格/图表，位置居中/左/右，这一篇就够了！
+date: 2017-07-08 12:56:49
 comments: true
 tags:
 	- Markdown

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 设计模式--生成器(建造者)
+date: 2017-07-09 10:46:16
 comments: true
 tags:
 	- 设计模式

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 设计模式--单例模式
+date: 2017-07-16 15:35:06
 comments: true
 tags:
 	- 设计模式

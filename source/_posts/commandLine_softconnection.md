@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 命令行常用命令--软连接
+date: 2017-06-23 14:36:26
 comments: true
 tags:
 	- 常用命令

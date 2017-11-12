@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 设计模式--工厂方法
+date: 2017-07-02 16:06:01
 comments: true
 tags:
 	- 设计模式
