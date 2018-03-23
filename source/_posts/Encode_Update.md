@@ -30,9 +30,9 @@ thumbnail: /imgs/iOS.png
 这个方法官方文档是这么说的：
 >// Returns a new string made from the receiver by replacing all characters not in the allowedCharacters set with percent encoded characters. UTF-8 encoding is used to determine the correct percent encoded characters. Entire URL strings cannot be percent-encoded. This method is intended to percent-encode an URL component or subcomponent string, NOT the entire URL string. Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.
 
-最后一句` Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.`，意思就是说，任何非7-bit ASCII字符将不被''allowed"，也就是说非ASCII字符将始终被编码，比如中文。
+最后一句` Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.`，意思就是说，任何非7-bit ASCII字符搁到`allowedCharacters`里面也将被忽略，也就是`allowedCharacters`里面的字符跟7-bit ASCII字符不会被编码，比如中文。
 
-那么问题来了，`(NSCharacterSet *)allowedCharacters`这个参数是什么鬼？研究摸索最终闹明白了，上面方法在处理的时候不会编码url的保留字符，如果需要编码之，需要通过`(NSCharacterSet *)allowedCharacters`这个参数指定。总结如下
+换句话说，上面方法在处理的时候会编码url的中的非7-bit ASCII字符，如这些【\`#%^{}\"[]|\\<>】，如果需要忽略之，需要通过`(NSCharacterSet *)allowedCharacters`这个参数指定。总结如下
 
 ```
 [aString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
