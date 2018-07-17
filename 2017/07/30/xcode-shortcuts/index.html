@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="xcode,快捷键," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RobberJJ.Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="常言道，工欲善其事必先利其器。 了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。 快速搜索跳转文件快捷键：cmd + shift + o  这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。 注意：o是表示惊讶的哦..😯，不是考试得到的零蛋0，o == open。">
+<meta name="keywords" content="xcode,快捷键">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xcode快捷键你知多少？">
+<meta property="og:url" content="https://robberjj.github.io/2017/07/30/xcode-shortcuts/index.html">
+<meta property="og:site_name" content="RobberJJ.Blog">
+<meta property="og:description" content="常言道，工欲善其事必先利其器。 了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。 快速搜索跳转文件快捷键：cmd + shift + o  这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。 注意：o是表示惊讶的哦..😯，不是考试得到的零蛋0，o == open。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://robberjj.github.io/imgs/vimCommod.png">
+<meta property="og:updated_time" content="2018-07-17T09:05:43.369Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xcode快捷键你知多少？">
+<meta name="twitter:description" content="常言道，工欲善其事必先利其器。 了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。 快速搜索跳转文件快捷键：cmd + shift + o  这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。 注意：o是表示惊讶的哦..😯，不是考试得到的零蛋0，o == open。">
+<meta name="twitter:image" content="https://robberjj.github.io/imgs/vimCommod.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://robberjj.github.io/2017/07/30/xcode-shortcuts/"/>
+
+
+
+
+
+  <title>xcode快捷键你知多少？ | RobberJJ.Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?84a8493060bb41ba8f8f301abc1e51be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">RobberJJ.Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">未来的不可知，是我前进的源动力~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://robberjj.github.io/2017/07/30/xcode-shortcuts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ro_bber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RobberJJ.Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">xcode快捷键你知多少？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T10:00:58+08:00">
+                2017-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/30/xcode-shortcuts/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/30/xcode-shortcuts/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>人次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>常言道，工欲善其事必先利其器。</p>
+<p>了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。</p>
+<h3 id="快速搜索跳转文件"><a href="#快速搜索跳转文件" class="headerlink" title="快速搜索跳转文件"></a>快速搜索跳转文件</h3><p>快捷键：<strong>cmd + shift + o</strong></p>
+<blockquote>
+<p>这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。</p>
+<p>注意：<code>o</code>是表示惊讶的<code>哦..😯</code>，不是考试得到的零蛋<code>0</code>，<code>o == open</code>。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="快速跳至某行"><a href="#快速跳至某行" class="headerlink" title="快速跳至某行"></a>快速跳至某行</h3><p>快捷键：<strong>cmd + l</strong></p>
+<blockquote>
+<p>常用这个快捷键，首先你要留意一下行号。</p>
+<p>注意：字母<code>l</code>并不是大写的<code>I</code>，也不是数字<code>1</code>，是大写字母<code>L</code>的小写，<code>l == line</code>。</p>
+</blockquote>
+<h3 id="代码块上下移动"><a href="#代码块上下移动" class="headerlink" title="代码块上下移动"></a>代码块上下移动</h3><p>快捷键：<strong>option + cmd + [(or ])</strong></p>
+<blockquote>
+<p>很多时候，你需要将某几行代码交换位子顺序，或者某几行代码前移/后移几行，那么这个快捷键就有了用武之地了。</p>
+<p>注意：移动前选中你要移动的所有行。</p>
+</blockquote>
+<h3 id="h-m文件之间快速切换"><a href="#h-m文件之间快速切换" class="headerlink" title=".h/.m文件之间快速切换"></a>.h/.m文件之间快速切换</h3><p>快捷键：<strong>ctrl + cmd + ↑(or ↓)</strong></p>
+<blockquote>
+<p><code>↑</code>(or <code>↓</code>)效果一样</p>
+</blockquote>
+<h3 id="前进-后退"><a href="#前进-后退" class="headerlink" title="前进/后退"></a>前进/后退</h3><p>快捷键：<strong>ctrl + cmd + ←(or →)</strong></p>
+<blockquote>
+<p><code>←</code>(or <code>→</code>)跟浏览器<code>上一页</code>or<code>下一页</code>类似。</p>
+</blockquote>
+<h3 id="显示当前类的方法列表，可搜索"><a href="#显示当前类的方法列表，可搜索" class="headerlink" title="显示当前类的方法列表，可搜索"></a>显示当前类的方法列表，可搜索</h3><p>快捷键：<strong>ctrl + 6</strong></p>
+<blockquote>
+<p>上述快捷键之后，可方向键选择后回车，也可触摸板滑动选择。</p>
+<p>最重要的是显示列表之后，可直接输入相关字符搜索。</p>
+</blockquote>
+<h3 id="搜索、替换"><a href="#搜索、替换" class="headerlink" title="搜索、替换"></a>搜索、替换</h3><p>文件类搜索：<strong>cmd + f</strong></p>
+<p>文件类替换：<strong>cmd + option + f</strong></p>
+<p>全局搜索：<strong>cmd + shift + f</strong></p>
+<p>全局替换：<strong>cmd + shift + option + f</strong></p>
+<blockquote>
+<p>注意：全局搜索替换可以指定目录，也可以选择匹配格式，这个选择在搜索框与替换框之间。</p>
+<p>文件类与全局都可以在搜索框最前面的<code>🔍</code>位置点击切换搜索/替换。</p>
+</blockquote>
+<h3 id="打开Related-Items列表"><a href="#打开Related-Items列表" class="headerlink" title="打开Related Items列表"></a>打开Related Items列表</h3><p>快捷键：<strong>ctrl + 1</strong></p>
+<blockquote>
+<p>光标停留在相应的关键词中，此快捷键可查看父类，调用者，被调用者，includes，included by等诸多信息。</p>
+</blockquote>
+<h3 id="收起-展开代码块"><a href="#收起-展开代码块" class="headerlink" title="收起/展开代码块"></a>收起/展开代码块</h3><p>快捷键：<strong>option + cmd + ←(or →)</strong></p>
+<h3 id="在左侧目录中快速定位当前文件位置"><a href="#在左侧目录中快速定位当前文件位置" class="headerlink" title="在左侧目录中快速定位当前文件位置"></a>在左侧目录中快速定位当前文件位置</h3><p>快捷键：<strong>cmd + shift + j</strong></p>
+<h3 id="快速切换左边导航栏"><a href="#快速切换左边导航栏" class="headerlink" title="快速切换左边导航栏"></a>快速切换左边导航栏</h3><p>快捷键：<strong>cmd + 1~8</strong></p>
+<blockquote>
+<p>注意：<code>cmd + 0</code>是‘显示/隐藏左侧栏’，<code>cmd + cmd + option + 0</code>是‘显示/隐藏右侧栏’。</p>
+</blockquote>
+<h3 id="全局修改局部变量"><a href="#全局修改局部变量" class="headerlink" title="全局修改局部变量"></a>全局修改局部变量</h3><p>快捷键：<strong>ctrl + cmd + e</strong></p>
+<blockquote>
+<p>当你想要将button换一个变量名的时候，这个快捷键绝对能爽死你，当然你也能用鼠标或者触摸板实现这个功能，选中变量名，移动光标会出现一个小箭头，点开会有快捷菜单，选择<code>Edit All in Scope</code>。</p>
+</blockquote>
+<p>当然还有一些基础的快捷键在这里就不一一列举了，相信大家也都知道，比如，编译(<code>cmd + b</code>)，运行(<code>cmd + r</code>)，clean(<code>cmd + shift + k</code>)，快速移动光标(<code>cmd + 方向键</code>)，快速选择代码(<code>cmd + shift + 方向键</code>)等。</p>
+<p>值得注意的是，除了上述快捷键之外，右键快捷菜单也是很有用处的，举个栗子：</p>
+<p>光标置于类名中，右键(或者触摸板两手指头单击)显示快捷菜单，选择<code>Refactor -- Rename</code>，全局替换类名。</p>
+<h3 id="XVim"><a href="#XVim" class="headerlink" title="XVim"></a>XVim</h3><p>最后，我想说的是，想要快捷键运用的炉火纯青，而且不会因为软件间系统间的各种差异出现很大的变化，vim！！</p>
+<p>这个绝对是神器，xcode可以安装vim插件<a href="https://github.com/XVimProject/XVim" target="_blank" rel="noopener">XVim</a>。</p>
+<p><strong>注意：</strong> xcode 8之后，需要先<a href="https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md" target="_blank" rel="noopener">安装证书</a>.</p>
+<p>下载下来编译不过的话，是因为类<code>IDEPlaygroundEditor</code>没实现(IDEPlaygroundEditor+XVim.h中)，加上实现<code>@implementation</code>即可，或者直接删除报错的文件以及引用此文件头文件的地方。</p>
+<p>XVim快捷键使用见<a href="https://github.com/XVimProject/XVim/blob/master/Documents/Users/FeatureList.md" target="_blank" rel="noopener">这里</a>。</p>
+<p>放出一张vim命令图解：</p>
+<p><img src="/imgs/vimCommod.png" alt="vim命令图解"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/xcode/" rel="tag"># xcode</a>
+          
+            <a href="/tags/快捷键/" rel="tag"># 快捷键</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/24/NSScrollViewSliding/" rel="prev" title="mac中NSScrollView滑动监测">
+                mac中NSScrollView滑动监测 <i class="fa fa-chevron-left"></i>
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/22/Closures/" rel="next" title="Swift闭包--简不简洁？！优不优雅？！">
+                <i class="fa fa-chevron-right"></i> Swift闭包--简不简洁？！优不优雅？！
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Ro_bber" />
+          <p class="site-author-name" itemprop="name">Ro_bber</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/RobberJJ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ddb6b7f61f04" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-fw fa-folder"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Ro__bber" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100015070143697" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速搜索跳转文件"><span class="nav-number">1.</span> <span class="nav-text">快速搜索跳转文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速跳至某行"><span class="nav-number">2.</span> <span class="nav-text">快速跳至某行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块上下移动"><span class="nav-number">3.</span> <span class="nav-text">代码块上下移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#h-m文件之间快速切换"><span class="nav-number">4.</span> <span class="nav-text">.h/.m文件之间快速切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前进-后退"><span class="nav-number">5.</span> <span class="nav-text">前进/后退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示当前类的方法列表，可搜索"><span class="nav-number">6.</span> <span class="nav-text">显示当前类的方法列表，可搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索、替换"><span class="nav-number">7.</span> <span class="nav-text">搜索、替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开Related-Items列表"><span class="nav-number">8.</span> <span class="nav-text">打开Related Items列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收起-展开代码块"><span class="nav-number">9.</span> <span class="nav-text">收起/展开代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在左侧目录中快速定位当前文件位置"><span class="nav-number">10.</span> <span class="nav-text">在左侧目录中快速定位当前文件位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速切换左边导航栏"><span class="nav-number">11.</span> <span class="nav-text">快速切换左边导航栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局修改局部变量"><span class="nav-number">12.</span> <span class="nav-text">全局修改局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XVim"><span class="nav-number">13.</span> <span class="nav-text">XVim</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ro_bber</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://robberjj.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://robberjj.github.io/2017/07/30/xcode-shortcuts/';
+          this.page.identifier = '2017/07/30/xcode-shortcuts/';
+          this.page.title = 'xcode快捷键你知多少？';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://robberjj.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

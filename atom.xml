@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>RobberJJ.Blog</title>
+  <subtitle>未来的不可知，是我前进的源动力~</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://robberjj.github.io/"/>
+  <updated>2018-07-17T09:57:15.035Z</updated>
+  <id>https://robberjj.github.io/</id>
+  
+  <author>
+    <name>Ro_bber</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Development cannot be enabled while your device is locked.</title>
+    <link href="https://robberjj.github.io/2018/07/17/DeviceConnotEnableWithLocked/"/>
+    <id>https://robberjj.github.io/2018/07/17/DeviceConnotEnableWithLocked/</id>
+    <published>2018-07-17T09:51:30.000Z</published>
+    <updated>2018-07-17T09:57:15.035Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候我们真机调试的时候，会遇到这样的报错：</p>
+<blockquote>
+<p>Development cannot be enabled while your device is locked.</p>
+</blockquote>
+<p>但是！我TM手机明明解锁了啊，指纹解的锁不是？密码解的锁不是？没感应到？换个姿势再来一次？还是不行？？</p>
+<p>哈哈，有同样经历的点个赞吧。</p>
+<a id="more"></a>
+<p>估计是有这么个不经意的瞬间，手机首次插上mac的时候，苹果给你弹了个框框，让你<code>trust (信任)</code>它，然后我们手欠的点了<code>不trust (信任)</code>，然后它生气了，不让你用了，就是上面的局面。</p>
+<p>关键的是，它从此以后就不再弹了。。。</p>
+<p>我TM错了，还不行么？你回来再给我弹一次啊！！</p>
+<p>后悔药：</p>
+<blockquote>
+<p>设置 –&gt; 通用 –&gt; 还原  –&gt; 还原位置和隐私 </p>
+</blockquote>
+<p>按照上面的操作之后，重插，就会弹了~~~ 不用谢我~</p>
+<p>后遗症：</p>
+<blockquote>
+<p>位置和隐私被重置了，之前已经设置位置和隐私的APP们，你再次进去的时候，都开始积极的弹框让你赏口饭了。</p>
+</blockquote>
+<p>【/笑哭】🤣</p>
+<p>这块儿官网其实是有说明的：<br><a href="https://support.apple.com/en-us/HT202778" target="_blank" rel="noopener">https://support.apple.com/en-us/HT202778</a></p>
+<p>划重点:<br><img src="https://upload-images.jianshu.io/upload_images/6080248-2b5548a95f804bac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候我们真机调试的时候，会遇到这样的报错：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Development cannot be enabled while your device is locked.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;但是！我TM手机明明解锁了啊，指纹解的锁不是？密码解的锁不是？没感应到？换个姿势再来一次？还是不行？？&lt;/p&gt;
+&lt;p&gt;哈哈，有同样经历的点个赞吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="xcode" scheme="https://robberjj.github.io/tags/xcode/"/>
+    
+      <category term="Locked" scheme="https://robberjj.github.io/tags/Locked/"/>
+    
+      <category term="真机运行" scheme="https://robberjj.github.io/tags/%E7%9C%9F%E6%9C%BA%E8%BF%90%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不升级XCode越版本真机Debug</title>
+    <link href="https://robberjj.github.io/2018/07/17/DeviceDebugWithoutUploadXcode/"/>
+    <id>https://robberjj.github.io/2018/07/17/DeviceDebugWithoutUploadXcode/</id>
+    <published>2018-07-17T09:47:38.000Z</published>
+    <updated>2018-07-17T09:49:25.614Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候我们的iPhone紧跟apple的步伐升级最新的版本了，但是Xcode并没有及时更新到最新版本(Xcode是在很大，而且有时候是需要最新的beta版本的)，这时候真机调试的时候就会出现下面这样的问题：</p>
+<blockquote>
+<p>报错：<br>Could not locate device support files.<br>This iPhone 7 (Model 1660, 1778, 1779, 1780) is running iOS 11.3 (15E216), which may not be supported by this version of Xcode.</p>
+</blockquote>
+<p>当然，我们升级Xcode到适当的版本(iPhone是release版本，一般Xcode升级到最新的release版本，iPhone是beta版本，一般Xcode升级到最新的beta版本)，但是上面提到升级Xcode时间实在太长，急性子的我们表示等不及。</p>
+<a id="more"></a>
+<p>下面介绍一种不用升级Xcode就是真机调试的方法：</p>
+<p><strong>更新Xcode真机运行支持包</strong></p>
+<p>Xcode真机运行支持包path在这里：Xcode路径/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport，打开后能看到这样的界面：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-37130952acca05d7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DeviceSupport.jpg"></p>
+<p>支持包这里下载：链接: <a href="https://pan.baidu.com/s/1eS20QS6" target="_blank" rel="noopener">https://pan.baidu.com/s/1eS20QS6</a> 密码: 5v35</p>
+<p>之后要做的就是，需要哪一个iPhone系统的支持包，下载解压，放进去就可以了，然后插入你的手机，等Xcode解析好你的手机文件就可以真机运行了。</p>
+<ul>
+<li>有时候可能不生效，重启大法重启下Xcode再试试。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候我们的iPhone紧跟apple的步伐升级最新的版本了，但是Xcode并没有及时更新到最新版本(Xcode是在很大，而且有时候是需要最新的beta版本的)，这时候真机调试的时候就会出现下面这样的问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;报错：&lt;br&gt;Could not locate device support files.&lt;br&gt;This iPhone 7 (Model 1660, 1778, 1779, 1780) is running iOS 11.3 (15E216), which may not be supported by this version of Xcode.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当然，我们升级Xcode到适当的版本(iPhone是release版本，一般Xcode升级到最新的release版本，iPhone是beta版本，一般Xcode升级到最新的beta版本)，但是上面提到升级Xcode时间实在太长，急性子的我们表示等不及。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="XCode" scheme="https://robberjj.github.io/tags/XCode/"/>
+    
+      <category term="Debug" scheme="https://robberjj.github.io/tags/Debug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github超过100M的大文件上传</title>
+    <link href="https://robberjj.github.io/2018/07/17/BigFileUploadToGithub/"/>
+    <id>https://robberjj.github.io/2018/07/17/BigFileUploadToGithub/</id>
+    <published>2018-07-17T09:43:53.000Z</published>
+    <updated>2018-07-17T09:45:49.096Z</updated>
+    
+    <content type="html"><![CDATA[<p>通常我们commit完成之后，往Github上push的时候，单个文件大小不会超过100M，所以基本不会遇到这种情况。<br>但是，总会遇到的，当单个文件超过100M的时候，push的时候会出现下面这样的Error：</p>
+<blockquote>
+<p>remote: Resolving deltas: 100% (472/472), done.<br>remote: error: GH001: Large files detected.<br>You may want to try Git Large File Storage - <a href="https://git-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a>.</p>
+</blockquote>
+<p>或者：</p>
+<blockquote>
+<p>Total 3007 (delta 664), reused 0 (delta 0)<br>remote: error: GH001: Large files detected.<br>remote: error: Trace: 7b7de6b9372ee392e0f3961b05ea6f33<br>remote: error: See <a href="http://git.io/iEPt8g" target="_blank" rel="noopener">http://git.io/iEPt8g</a> for more information.<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB。</p>
+</blockquote>
+<a id="more"></a>
+<p>上面错误的原因很好理解就是GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库：<a href="https://link.jianshu.com/?t=https%3A%2F%2Fgit-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a><br>LFS使用的简单步骤：</p>
+<ul>
+<li>安装git - lfs到本机<br>这里没有什么难度，根据官网安装就好。</li>
+</ul>
+<p>之后就是提交大文件的顺序，下面是官网的顺序：</p>
+<ol>
+<li><p>安装Git命令行扩展。只需要设置一次Git LFS。<br>在项目目录下，执行以下命令：</p>
+<blockquote>
+<p>git lfs install</p>
+</blockquote>
+</li>
+<li><p>选择您希望Git LFS管理的文件类型（或直接编辑.gitattributes）。您可以随时配置其他文件扩展名。这一步成功后会生成一个gitattributes文件</p>
+<blockquote>
+<p>git lfs track “<em> .a” –这里的 “ </em>.a “就是你要上传的大文件的路径</p>
+</blockquote>
+</li>
+<li><p>添加并commit gitattributes文件</p>
+<blockquote>
+<p>git add .gitattributes</p>
+</blockquote>
+</li>
+<li><p>然后再添加大文件到本地缓存区</p>
+<blockquote>
+<p>git add demo.a<br>git commit -m “提交.a大文件”<br>git push</p>
+</blockquote>
+</li>
+</ol>
+<p>以上，按照上述的方法，第一次上传大文件基本还是会报错，而且百思不得其解~<br>尼玛，新手入坑总是这个尿性。。</p>
+<p>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-b5b22f1f9d1a1f7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2200042-a1a69b95caa64404.png"></p>
+<p>出现上述问题，先reset 到你刚才commit的前一个commit,(意思就是撤销刚才的commit，回到起点再来一次。)</p>
+<p>第一、二步同上，第三步的时候，先将 .gitattributes文件，单独commit，然后push，完成之后，在进行第四部(第四部add 之后 执行<code>git lfs ls-files</code>应该能看见东西了)。<br>到这里应该就没问题了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通常我们commit完成之后，往Github上push的时候，单个文件大小不会超过100M，所以基本不会遇到这种情况。&lt;br&gt;但是，总会遇到的，当单个文件超过100M的时候，push的时候会出现下面这样的Error：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;remote: Resolving deltas: 100% (472/472), done.&lt;br&gt;remote: error: GH001: Large files detected.&lt;br&gt;You may want to try Git Large File Storage - &lt;a href=&quot;https://git-lfs.github.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://git-lfs.github.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;或者：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Total 3007 (delta 664), reused 0 (delta 0)&lt;br&gt;remote: error: GH001: Large files detected.&lt;br&gt;remote: error: Trace: 7b7de6b9372ee392e0f3961b05ea6f33&lt;br&gt;remote: error: See &lt;a href=&quot;http://git.io/iEPt8g&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://git.io/iEPt8g&lt;/a&gt; for more information.&lt;br&gt;remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB&lt;br&gt;remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Github" scheme="https://robberjj.github.io/tags/Github/"/>
+    
+      <category term="大文件" scheme="https://robberjj.github.io/tags/%E5%A4%A7%E6%96%87%E4%BB%B6/"/>
+    
+      <category term="git-lfs" scheme="https://robberjj.github.io/tags/git-lfs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上的那些效率神器</title>
+    <link href="https://robberjj.github.io/2018/07/17/ArtifactOnMac/"/>
+    <id>https://robberjj.github.io/2018/07/17/ArtifactOnMac/</id>
+    <published>2018-07-17T09:37:48.000Z</published>
+    <updated>2018-07-17T09:45:46.687Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了提高效率，我们必须不择手段！！</p>
+<p>这里为大家推荐一波Mac上的神器。</p>
+<a id="more"></a>
+<p>####No.1  <em>Alfred</em> <a href="https://www.alfredapp.com/" target="_blank" rel="noopener">点我装备</a></p>
+<p>这顶神奇的魔法帽到底能干啥？<br>这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。</p>
+<p>哈哈~~是不是很夸张？！  一会儿再来下定论</p>
+<p>在这里我只是举一个简单的栗子，通常我们遇到不懂的英文单词，基本是这么一个操作过程：</p>
+<ul>
+<li>copy单词</li>
+<li>打开翻译应用（比如自带词典）</li>
+<li>输入或粘贴查询单词</li>
+<li>翻译应用输出查询结果</li>
+<li>查询过后，一般都需要 Cmd+Q 退出应用（或者 Cmd+H 隐藏词典，亦或 Cmd+Tab 切换回上一个应用）</li>
+</ul>
+<p>或者是下面的步骤：</p>
+<ul>
+<li>copy单词</li>
+<li>手动打开浏览器</li>
+<li>进入谷歌首页</li>
+<li>选中输入框</li>
+<li>输入或粘贴查询单词，然后空格并加上「翻译」两个字，然后再回车</li>
+<li>等待浏览器展示查询结果;</li>
+</ul>
+<p>而用Alfred是只需要：</p>
+<ul>
+<li>选中单词</li>
+<li>CMD+Y（假如快捷键你设置的是这个）</li>
+</ul>
+<p>Done！！</p>
+<h5 id="那么问题来了，Alfred到底具体能做什么？"><a href="#那么问题来了，Alfred到底具体能做什么？" class="headerlink" title="那么问题来了，Alfred到底具体能做什么？"></a>那么问题来了，Alfred到底具体能做什么？</h5><p>默认情况下，Alfred 至少能胜任 15 项工作：</p>
+<ol>
+<li>应用搜索</li>
+<li>文件或目录搜索</li>
+<li>文本内容搜索</li>
+<li>标记搜索</li>
+<li>快捷网页搜索</li>
+<li>书签搜索</li>
+<li>计算器</li>
+<li>词典搜索</li>
+<li>通讯录搜索</li>
+<li>剪切板搜索</li>
+<li>代码片段搜索</li>
+<li>iTunes 管理</li>
+<li>1Password 搜索</li>
+<li>系统常用命令快捷操作</li>
+<li>直接唤起指定终端并执行命令</li>
+</ol>
+<p><a href="https://sspai.com/post/44624" target="_blank" rel="noopener">这里</a>做了很详细的说明。</p>
+<p>当然，Alfred真正核心的功能在于——<strong>Workflow</strong> 。</p>
+<p>Alfred 几乎可以做任何自动化工作流的事情（只要能用代码描述这个工作流就行），它能彻底改变了你对 Mac 的认知。</p>
+<p>网上有很多大神们写好的<code>workflow</code>，可以搜一搜，然后体验体验，在我们可以自己为所欲为之前，坚定一下信心。</p>
+<h4 id="No-2-Things-3-点我装备"><a href="#No-2-Things-3-点我装备" class="headerlink" title="No.2 Things 3 点我装备"></a>No.2 <em>Things 3</em> <a href="https://culturedcode.com/things/" target="_blank" rel="noopener">点我装备</a></h4><p>一句话总结：<strong>GTD神器，简洁但不简单。</strong></p>
+<h4 id="No-3-Moom-点我装备"><a href="#No-3-Moom-点我装备" class="headerlink" title="No.3 Moom 点我装备"></a>No.3 <em>Moom</em> <a href="https://manytricks.com/moom/" target="_blank" rel="noopener">点我装备</a></h4><p>一款窗口布局的神器。<br>支持自定义快捷键实现相应的窗口布局。</p>
+<h4 id="No-3-CheatSheet-点我装备"><a href="#No-3-CheatSheet-点我装备" class="headerlink" title="No.3 CheatSheet 点我装备"></a>No.3 <em>CheatSheet</em> <a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">点我装备</a></h4><p>一键直观查看App的快捷键列表。</p>
+<p>说道快捷键，是的，快捷键会很大程度上提高你的效率，Mac上就自带了很多的快捷键，记住这些快捷键招式，就能立马神装出山了。<br>具体可以参见<a href="https://www.jianshu.com/p/00bb1b9189c0" target="_blank" rel="noopener">这里</a>。</p>
+<h4 id="No-4-Vim"><a href="#No-4-Vim" class="headerlink" title="No.4 Vim"></a>No.4 <em>Vim</em></h4><p>细心一些我们会发现，当前主流的IDE，或者以前曾经主流过的，或者未来即将成为主流的，总会有一套Vim相关的插件。<br>其实，这就已经很能说明问题了。</p>
+<p>Vim在手，天下我有的赶脚，有木有？！</p>
+<p>Vim各类IDE的插件安装在这里就不详细阐述了，推荐几个Atom上神装吧，仅供参考：</p>
+<ul>
+<li><a href="https://github.com/t9md/atom-vim-mode-plus" target="_blank" rel="noopener">Vim Mode Plus</a><blockquote>
+<p>Vim主要功能插件，不多说，究竟怎么爽，谁用谁知道。</p>
+<ul>
+<li><a href="https://atom.io/packages/relative-numbers" target="_blank" rel="noopener">relative-numbers</a><br>相对行数在Vim中的重要地位不言而喻了，这款插件能够直观的看出彼此的相对行数。</li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://atom.io/packages/minimap" target="_blank" rel="noopener">minimap</a><blockquote>
+<p>Sublime 右侧的mini视图，对，就是这货。</p>
+</blockquote>
+</li>
+<li><a href="https://atom.io/packages/activate-power-mode" target="_blank" rel="noopener">activate-power-mode</a><blockquote>
+<p>这款插件绝对会让你有一种敲代码如同跳舞的动感，呃，提醒一句，注意休息眼睛。哈哈~~</p>
+</blockquote>
+</li>
+</ul>
+<p>当然，Atom的插件还有很多，可以去他的<a href="https://atom.io/packages/" target="_blank" rel="noopener">官网</a>淘出你需要的。</p>
+<h4 id="No-5-iTerm-点击装备"><a href="#No-5-iTerm-点击装备" class="headerlink" title="No.5 iTerm 点击装备"></a>No.5 <em>iTerm</em> <a href="https://www.iterm2.com/" target="_blank" rel="noopener">点击装备</a></h4><p><code>iTerm2</code>+ <code>oh my zsh</code>的组合，为你打造最强Mac终端便不只是梦。<br>个性化的主题，私人订制属于自己的格调。<br>一堆定义好的<code>alias</code>，省心省力，爽的飞起！</p>
+<h4 id="No-6-Vimium"><a href="#No-6-Vimium" class="headerlink" title="No.6 Vimium"></a>No.6 <em>Vimium</em></h4><ul>
+<li>chrome下的Vim插件，让你浏览网页也能有Vim操作的快感。<br>点击<a href="https://sspai.com/post/27723" target="_blank" rel="noopener">这里</a>了解</li>
+</ul>
+<p>最后，放上Vim快捷键的几张图，欢迎收藏：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-804fa34b20f5d806.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim文字版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-b631711cd75dff0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim入门版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-693a8cccf9e14a5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim进阶版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-ebf562cde5fbc69c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim增强版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-29e1a78e12cfdca9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vim.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为了提高效率，我们必须不择手段！！&lt;/p&gt;
+&lt;p&gt;这里为大家推荐一波Mac上的神器。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
+    
+      <category term="效率" scheme="https://robberjj.github.io/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="神器" scheme="https://robberjj.github.io/tags/%E7%A5%9E%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上的那些个快捷键们</title>
+    <link href="https://robberjj.github.io/2018/07/17/ShortCutsOnMac/"/>
+    <id>https://robberjj.github.io/2018/07/17/ShortCutsOnMac/</id>
+    <published>2018-07-17T09:09:14.000Z</published>
+    <updated>2018-07-17T09:28:02.177Z</updated>
+    
+    <content type="html"><![CDATA[<p>入了Mac的坑，在为其魅力折服的同时，不免时不时的会有一些挥之不去的痛点。</p>
+<p>其实在Mac上有一大堆的快捷键，可以让你的效率有一个质的提高。</p>
+<p>在这里官方给出了快捷键的说明。<a href="https://support.apple.com/zh-cn/ht201236" target="_blank" rel="noopener">点我直达</a><br>显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。</p>
+<a id="more"></a>
+<p>当然，<code>CMD + Q(W/O/N)</code>、<code>CMD + X(C/V/F/S/A)</code>之流就不说了，太常用，大家都知道。<br>下面主要列举一下我自己感觉比较效率，但是又容易被忽视的快捷键：<br><code>CMD + ` </code>在同一个应用的各个标签页中切换。<br><code>CMD + Tab</code>在打开的应用中切换到下一个最近使用的应用,按住可切换到其他应用，亦可配合触摸板或者鼠标选中某个应用<br><code>CMD + T</code>打开新的标签<br><code>CMD + H</code>隐藏当前应用<br><code>CMD + Alt + H</code>隐藏除了当前应用外的其他应用<br><code>CMD + M</code>最小化当前应用<br><code>CMD + Alt + M</code>最小化除了当前应用外的其他应用<br><code>CMD + Shift + 3</code> 截取整个屏幕，并保存图片到桌面<br><code>CMD + Shift + 4</code> 自定义截图大小，按下 Space 键，可以选择窗口截图<br><code>Ctrl + ←(→)</code>可以切换屏幕<br><code>CMD + ,</code>打开偏好设置<br>……</p>
+<p>类似的快捷键其实还有很多很多，根据自身的习惯取舍吧。</p>
+<p>快捷键的初衷，其实是想让效率能够提升，是想工作(娱乐)起来更有效率。<br>但是问题来了，快捷键记少了总感觉不够用，而想要记更多的快捷键，难免成为一种负担。</p>
+<p><code>CheatSheet</code>，一款App，一键查看所有快捷键的App。<a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">点我速度装备</a></p>
+<p>其实在Mac上还要一些隐藏的或者说是并没有明说的快捷键。(Apple经常干这事儿，发现的时候总有些喜怒交加)。</p>
+<p>在mac上，很多时候在文本输入时，总想着能有一些快捷键，能让光标快速移动，殊不知，mac本身就自带这个能力。</p>
+<p>如：iTerm2, 终端, safari, Chrome, QQ, SourceTree, Xcode, MindNode Pro, Pages, Keynote, 便签,  邮件等，几乎有文本输入的地方似乎都是支持的~~~</p>
+<p>在这里我列举一下平时比较常用的快捷键以及帮助记忆的方法：</p>
+<blockquote>
+<p>注：为与emacs教程习惯一致，<code>Ctrl</code> 简写成 <code>C</code></p>
+</blockquote>
+<ul>
+<li><code>C - a</code> 光标移到行首（abcde，a是开头）</li>
+<li><code>C - e</code> 光标移到行尾（abcde，e是结尾）</li>
+<li><code>C - f</code> 光标向文档结尾方向移（Forward首字母）</li>
+<li><code>C - b</code> 光标向文档开头方向移（Back首字母）</li>
+<li><code>C - p</code> 光标移向上一行（Previous首字母）</li>
+<li><code>C - n</code> 光标移向下一行（Next首字母）</li>
+<li><code>C - l</code> 使当前编辑的行居中（safari, qq）或清屏（iTerm2,终端）</li>
+<li><code>C - d</code> 删除光标后的一个字符（Delete首字母）</li>
+<li><code>C - k</code> 删除光标到行尾的内容（Kill首字母）</li>
+<li><code>C - y</code> 将C-k删除的东西粘贴出来（Yank首字母）</li>
+<li><code>C - o</code> 在光标后插入一个换行符</li>
+<li><code>C - t</code> 交换光标前和光标后的字符，同时光标后移（Transpose首字母）</li>
+<li><code>C - h</code> 删除光标前的一个字符</li>
+</ul>
+<p>Mac其实也可以很简单的输入一些特殊字符。</p>
+<p>输入特殊符号：<br>版权符号: Option + G = ©<br>人民币符号: Option + Y = ¥<br>商标符号: Option + 2 = ™<br>已经注册的商标: Option + R = ®   </p>
+<p>数学符号：<br>约等于: <code>Option + X</code> = ≈<br>度数: <code>Shift + Option + 8</code> = °<br>除号: <code>Option + /</code> = ÷<br>无穷: <code>Option + 5</code> = ∞<br>大于等于和小于等于: <code>Option + ,</code> 和 <code>Option + .</code> = ≤ 和 ≥<br>不等于: <code>Option + =</code> = ≠<br>圆周率: <code>Option + P</code> = π<br>加减: <code>Shift + Option + =</code> = ±<br>开方: <code>Option + V</code> = √<br>求和符号: <code>Option + W</code> = ∑</p>
+<p><strong>是不是很神奇？！</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;入了Mac的坑，在为其魅力折服的同时，不免时不时的会有一些挥之不去的痛点。&lt;/p&gt;
+&lt;p&gt;其实在Mac上有一大堆的快捷键，可以让你的效率有一个质的提高。&lt;/p&gt;
+&lt;p&gt;在这里官方给出了快捷键的说明。&lt;a href=&quot;https://support.apple.com/zh-cn/ht201236&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点我直达&lt;/a&gt;&lt;br&gt;显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
+    
+      <category term="效率" scheme="https://robberjj.github.io/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="shortcut" scheme="https://robberjj.github.io/tags/shortcut/"/>
+    
+      <category term="快捷键" scheme="https://robberjj.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+      <category term="键盘党" scheme="https://robberjj.github.io/tags/%E9%94%AE%E7%9B%98%E5%85%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OC追根溯源之Class</title>
+    <link href="https://robberjj.github.io/2017/11/12/oc-class/"/>
+    <id>https://robberjj.github.io/2017/11/12/oc-class/</id>
+    <published>2017-11-12T04:22:55.000Z</published>
+    <updated>2018-07-17T09:05:43.369Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天碰到一面试题：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分辨下面res的是非</span></span><br><span class="line"><span class="built_in">BOOL</span> res1 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isKindOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res2 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isMemberOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res3 = [[Sark <span class="keyword">class</span>] isKindOfClass:[Sark <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res4 = [[Sark <span class="keyword">class</span>] isMemberOfClass:[Sark <span class="keyword">class</span>]];</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>在这之前，我们先了解一下相关的定义：</p>
+<p><strong>Class</strong></p>
+<p>在<code>objc.h</code>中<code>Class</code>是这么定义的：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// An opaque type that represents an Objective-C class.</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;</span><br></pre></td></tr></table></figure></p>
+<p><code>objc_class</code>又是啥呢？在<code>runtime.h</code>中能看见：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_class &#123;</span><br><span class="line">    Class isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line"><span class="meta">#if !__OBJC2__</span></span><br><span class="line">    Class super_class                                        OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name                                         OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_ivar_list *ivars                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_method_list **methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_cache *cache                                 OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_protocol_list *protocols                     OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+<p><strong>MetaClass</strong></p>
+<p>上面能看到<code>Class</code>中有个<code>isa</code>参数，它是指向<code>Class</code>的<code>元类（MetaClass）</code>的指针。</p>
+<p>注意到<code>isa</code>也是一个<code>Class</code>的结构体，也就是说<code>MetaClass</code>其本质也是一个<code>Class</code>。</p>
+<blockquote>
+<p>我们可以把Meta Class理解为 一个Class对象的Class。简单的说：</p>
+<ul>
+<li>当我们发送一个消息给一个NSObject对象时，这条消息会在对象的类的方法列表里查找</li>
+<li>当我们发送一个消息给一个类时，这条消息会在类的Meta Class的方法列表里查找</li>
+</ul>
+</blockquote>
+<p>之后就有了下面的这张图：</p>
+<p><img src="/imgs/ocClass.jpg" alt="Class&amp;MetaClass"></p>
+<p>能看到：</p>
+<ul>
+<li>每个<code>Class</code>都有一个<code>isa</code>指针指向一个唯一的<code>MetaClass</code></li>
+<li>每一个<code>MetaClass</code>的<code>isa</code>指针都指向最上层的<code>MetaClass</code>（图中的<code>NSObject</code>的<code>MetaClass</code>）</li>
+<li>最上层的<code>MetaClass</code>的<code>isa</code>指针指向自己，形成一个回路</li>
+<li>每一个<code>MetaClass</code>的<code>super class</code>指针指向它原本<code>Class</code>的 <code>Super Class</code>的<code>MetaClass</code>。</li>
+<li>最上层的<code>MetaClass</code>的 <code>Super Class</code>指向<code>NSObject</code> <code>Class</code>本身</li>
+<li>最上层的<code>NSObject</code> <code>Class</code>的<code>super class</code>指向 <code>nil</code></li>
+</ul>
+<p>接下来我们看看<code>objc</code>源码中(源码可到<a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">这里下载</a>)，在文件<code>Object.mm</code>内，上面相关方法的定义：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (Class)<span class="keyword">class</span> &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)isKindOf:aClass</span><br><span class="line">&#123;</span><br><span class="line">	Class cls;</span><br><span class="line">	<span class="keyword">for</span> (cls = isa; cls; cls = cls-&gt;superclass)</span><br><span class="line">		<span class="keyword">if</span> (cls == (Class)aClass)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)isMemberOf:aClass</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> isa == (Class)aClass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么，<code>BOOL res1 = [[NSObject class] isKindOfClass:[NSObject class]];</code>就可以这样对应起来理解了：</p>
+<p><code>[NSObject class]</code>拿到的是<code>self</code>，类方法的<code>return self</code>,即上图紫色的<code>NSObject(Class)</code>。</p>
+<p>根据上面<code>- (BOOL)isKindOf:aClass</code>的实现，<code>for</code>循环首先拿到的<code>cls = isa</code>,也就是<code>cls</code>为<code>NSObject(Class)</code>的<code>MetaClass</code>。显然这时候<code>cls == (Class)aClass</code>不成立。</p>
+<p>随后，<code>cls = cls-&gt;superclass</code>，即<code>cls</code>变成了<code>NSObject(Class)</code>的<code>MetaClass</code>的<code>superclass</code>,根据图示可以，<code>superclass</code>指向的是<code>NSObject(Class)</code>，至此<code>cls == (Class)aClass</code>成立，返回<code>YES</code>。</p>
+<p>同样的道理，分析<code>BOOL res3 = [[Sark class] isKindOfClass:[Sark class]];</code>:</p>
+<p><code>[Sark class]</code>拿到的是<code>Sark(Class)</code>,而<code>- (BOOL)isKindOf:aClass</code>中<code>cls</code>拿到的值依次是<code>Sark Meta Class</code>-&gt;<code>NSObject Meta Class</code>-&gt;<code>NSObject Class</code> -&gt; <code>nil</code>,没有相等的，<code>return NO</code>。</p>
+<p>剩下两个，根据<code>- (BOOL)isMemberOf:aClass</code>的实现，很容易得出结论会<code>return NO</code>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前两天碰到一面试题：&lt;br&gt;&lt;figure class=&quot;highlight mm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//分辨下面res的是非&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; res1 = [[&lt;span class=&quot;built_in&quot;&gt;NSObject&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;] isKindOfClass:[&lt;span class=&quot;built_in&quot;&gt;NSObject&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;]];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; res2 = [[&lt;span class=&quot;built_in&quot;&gt;NSObject&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;] isMemberOfClass:[&lt;span class=&quot;built_in&quot;&gt;NSObject&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;]];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; res3 = [[Sark &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;] isKindOfClass:[Sark &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;]];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; res4 = [[Sark &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;] isMemberOfClass:[Sark &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt;]];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="OC" scheme="https://robberjj.github.io/tags/OC/"/>
+    
+      <category term="Class" scheme="https://robberjj.github.io/tags/Class/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac开发之监听拦截键盘输入keycode</title>
+    <link href="https://robberjj.github.io/2017/11/04/KeyCodes/"/>
+    <id>https://robberjj.github.io/2017/11/04/KeyCodes/</id>
+    <published>2017-11-04T03:56:06.000Z</published>
+    <updated>2018-07-17T09:05:43.364Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在自己写一个mac上图片预览的功能，仿系统的预览，想要在预览的时候，加入快捷键，实现放大、缩小、前一张、后一张等功能。</p>
+<p>因为总感觉，弄个鼠标啪啪的点，很土。。。</p>
+<blockquote>
+<p>PS:不上源码你说个JJ 。。。 源码在<a href="https://github.com/RobberJJ/JJImageQuickLook" target="_blank" rel="noopener">这里</a></p>
+</blockquote>
+<a id="more"></a>
+<p>查阅相关资料，其实并不难实现，只需要在预览的<code>window</code>里面实现键盘的监听就好，具体如下：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//overriding  -[NSWindow keyDown:].</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)keyDown:(<span class="built_in">NSEvent</span> *)theEvent&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span>  keycode = [theEvent keyCode];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//是否同时按下CMD</span></span><br><span class="line">    <span class="keyword">int</span> flags = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">BOOL</span> cmdkeydown = ([[<span class="built_in">NSApp</span> currentEvent] modifierFlags] &amp; <span class="built_in">NSCommandKeyMask</span>) == <span class="built_in">NSCommandKeyMask</span>;</span><br><span class="line">    <span class="keyword">if</span> (cmdkeydown) &#123;</span><br><span class="line">        flags = flags | <span class="built_in">NSCommandKeyMask</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (keycode == <span class="number">49</span>) &#123; <span class="comment">//space</span></span><br><span class="line">            <span class="comment">//空格键去干点啥。。</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以拿到键盘对应的 <code>key code</code>，这个值其实是固定的，比如上面的空格键键值是49。</p>
+<p>那么问题来了，总不能每个键去输入一下，打个断点看看值是多少吧，太土了。。。</p>
+<p>其实SDK里面是有相应的 <code>enum</code>的，位置在这里：</p>
+<blockquote>
+<p>Virtual key codes 在 Carbon framework 的这个文件里面 <hitoolbox events.h=""></hitoolbox></p>
+</blockquote>
+<p>果断add <code>Carbon.framework</code>,但是并不能<code>import &lt;HIToolbox/Events.h&gt;</code>。很奇怪，没明白。。。</p>
+<p>好在这样就可以：<code>#import &lt;Carbon/Carbon.h&gt;</code></p>
+<p>你就可以这样搞了：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (keycode == kVK_Space) &#123; <span class="comment">//space</span></span><br><span class="line">      <span class="comment">//空格键去干点啥。。</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以在这里找到<code>HIToolbox/Events.h</code>文件：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Events.h</span><br></pre></td></tr></table></figure></p>
+<p>然后你就能看见下面的这些ENUM了：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	 *  Summary:</span></span><br><span class="line"><span class="comment">	 *    Virtual keycodes</span></span><br><span class="line"><span class="comment">	 *  </span></span><br><span class="line"><span class="comment">	 *  Discussion:</span></span><br><span class="line"><span class="comment">	 *    These constants are the virtual keycodes defined originally in</span></span><br><span class="line"><span class="comment">	 *    Inside Mac Volume V, pg. V-191. They identify physical keys on a</span></span><br><span class="line"><span class="comment">	 *    keyboard. Those constants with "ANSI" in the name are labeled</span></span><br><span class="line"><span class="comment">	 *    according to the key position on an ANSI-standard US keyboard.</span></span><br><span class="line"><span class="comment">	 *    For example, kVK_ANSI_A indicates the virtual keycode for the key</span></span><br><span class="line"><span class="comment">	 *    with the letter 'A' in the US keyboard layout. Other keyboard</span></span><br><span class="line"><span class="comment">	 *    layouts may have the 'A' key label on a different physical key;</span></span><br><span class="line"><span class="comment">	 *    in this case, pressing 'A' will generate a different virtual</span></span><br><span class="line"><span class="comment">	 *    keycode.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">enum</span> &#123;</span><br><span class="line">	  kVK_ANSI_A                    = <span class="number">0x00</span>,</span><br><span class="line">	  kVK_ANSI_S                    = <span class="number">0x01</span>,</span><br><span class="line">	  kVK_ANSI_D                    = <span class="number">0x02</span>,</span><br><span class="line">	  kVK_ANSI_F                    = <span class="number">0x03</span>,</span><br><span class="line">	  kVK_ANSI_H                    = <span class="number">0x04</span>,</span><br><span class="line">	  kVK_ANSI_G                    = <span class="number">0x05</span>,</span><br><span class="line">	  kVK_ANSI_Z                    = <span class="number">0x06</span>,</span><br><span class="line">	  kVK_ANSI_X                    = <span class="number">0x07</span>,</span><br><span class="line">	  kVK_ANSI_C                    = <span class="number">0x08</span>,</span><br><span class="line">	  kVK_ANSI_V                    = <span class="number">0x09</span>,</span><br><span class="line">	  kVK_ANSI_B                    = <span class="number">0x0B</span>,</span><br><span class="line">	  kVK_ANSI_Q                    = <span class="number">0x0C</span>,</span><br><span class="line">	  kVK_ANSI_W                    = <span class="number">0x0D</span>,</span><br><span class="line">	  kVK_ANSI_E                    = <span class="number">0x0E</span>,</span><br><span class="line">	  kVK_ANSI_R                    = <span class="number">0x0F</span>,</span><br><span class="line">	  kVK_ANSI_Y                    = <span class="number">0x10</span>,</span><br><span class="line">	  kVK_ANSI_T                    = <span class="number">0x11</span>,</span><br><span class="line">	  kVK_ANSI_1                    = <span class="number">0x12</span>,</span><br><span class="line">	  kVK_ANSI_2                    = <span class="number">0x13</span>,</span><br><span class="line">	  kVK_ANSI_3                    = <span class="number">0x14</span>,</span><br><span class="line">	  kVK_ANSI_4                    = <span class="number">0x15</span>,</span><br><span class="line">	  kVK_ANSI_6                    = <span class="number">0x16</span>,</span><br><span class="line">	  kVK_ANSI_5                    = <span class="number">0x17</span>,</span><br><span class="line">	  kVK_ANSI_Equal                = <span class="number">0x18</span>,</span><br><span class="line">	  kVK_ANSI_9                    = <span class="number">0x19</span>,</span><br><span class="line">	  kVK_ANSI_7                    = <span class="number">0x1A</span>,</span><br><span class="line">	  kVK_ANSI_Minus                = <span class="number">0x1B</span>,</span><br><span class="line">	  kVK_ANSI_8                    = <span class="number">0x1C</span>,</span><br><span class="line">	  kVK_ANSI_0                    = <span class="number">0x1D</span>,</span><br><span class="line">	  kVK_ANSI_RightBracket         = <span class="number">0x1E</span>,</span><br><span class="line">	  kVK_ANSI_O                    = <span class="number">0x1F</span>,</span><br><span class="line">	  kVK_ANSI_U                    = <span class="number">0x20</span>,</span><br><span class="line">	  kVK_ANSI_LeftBracket          = <span class="number">0x21</span>,</span><br><span class="line">	  kVK_ANSI_I                    = <span class="number">0x22</span>,</span><br><span class="line">	  kVK_ANSI_P                    = <span class="number">0x23</span>,</span><br><span class="line">	  kVK_ANSI_L                    = <span class="number">0x25</span>,</span><br><span class="line">	  kVK_ANSI_J                    = <span class="number">0x26</span>,</span><br><span class="line">	  kVK_ANSI_Quote                = <span class="number">0x27</span>,</span><br><span class="line">	  kVK_ANSI_K                    = <span class="number">0x28</span>,</span><br><span class="line">	  kVK_ANSI_Semicolon            = <span class="number">0x29</span>,</span><br><span class="line">	  kVK_ANSI_Backslash            = <span class="number">0x2A</span>,</span><br><span class="line">	  kVK_ANSI_Comma                = <span class="number">0x2B</span>,</span><br><span class="line">	  kVK_ANSI_Slash                = <span class="number">0x2C</span>,</span><br><span class="line">	  kVK_ANSI_N                    = <span class="number">0x2D</span>,</span><br><span class="line">	  kVK_ANSI_M                    = <span class="number">0x2E</span>,</span><br><span class="line">	  kVK_ANSI_Period               = <span class="number">0x2F</span>,</span><br><span class="line">	  kVK_ANSI_Grave                = <span class="number">0x32</span>,</span><br><span class="line">	  kVK_ANSI_KeypadDecimal        = <span class="number">0x41</span>,</span><br><span class="line">	  kVK_ANSI_KeypadMultiply       = <span class="number">0x43</span>,</span><br><span class="line">	  kVK_ANSI_KeypadPlus           = <span class="number">0x45</span>,</span><br><span class="line">	  kVK_ANSI_KeypadClear          = <span class="number">0x47</span>,</span><br><span class="line">	  kVK_ANSI_KeypadDivide         = <span class="number">0x4B</span>,</span><br><span class="line">	  kVK_ANSI_KeypadEnter          = <span class="number">0x4C</span>,</span><br><span class="line">	  kVK_ANSI_KeypadMinus          = <span class="number">0x4E</span>,</span><br><span class="line">	  kVK_ANSI_KeypadEquals         = <span class="number">0x51</span>,</span><br><span class="line">	  kVK_ANSI_Keypad0              = <span class="number">0x52</span>,</span><br><span class="line">	  kVK_ANSI_Keypad1              = <span class="number">0x53</span>,</span><br><span class="line">	  kVK_ANSI_Keypad2              = <span class="number">0x54</span>,</span><br><span class="line">	  kVK_ANSI_Keypad3              = <span class="number">0x55</span>,</span><br><span class="line">	  kVK_ANSI_Keypad4              = <span class="number">0x56</span>,</span><br><span class="line">	  kVK_ANSI_Keypad5              = <span class="number">0x57</span>,</span><br><span class="line">	  kVK_ANSI_Keypad6              = <span class="number">0x58</span>,</span><br><span class="line">	  kVK_ANSI_Keypad7              = <span class="number">0x59</span>,</span><br><span class="line">	  kVK_ANSI_Keypad8              = <span class="number">0x5B</span>,</span><br><span class="line">	  kVK_ANSI_Keypad9              = <span class="number">0x5C</span></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* keycodes for keys that are independent of keyboard layout*/</span></span><br><span class="line">	<span class="keyword">enum</span> &#123;</span><br><span class="line">	  kVK_Return                    = <span class="number">0x24</span>,</span><br><span class="line">	  kVK_Tab                       = <span class="number">0x30</span>,</span><br><span class="line">	  kVK_Space                     = <span class="number">0x31</span>,</span><br><span class="line">	  kVK_Delete                    = <span class="number">0x33</span>,</span><br><span class="line">	  kVK_Escape                    = <span class="number">0x35</span>,</span><br><span class="line">	  kVK_Command                   = <span class="number">0x37</span>,</span><br><span class="line">	  kVK_Shift                     = <span class="number">0x38</span>,</span><br><span class="line">	  kVK_CapsLock                  = <span class="number">0x39</span>,</span><br><span class="line">	  kVK_Option                    = <span class="number">0x3A</span>,</span><br><span class="line">	  kVK_Control                   = <span class="number">0x3B</span>,</span><br><span class="line">	  kVK_RightShift                = <span class="number">0x3C</span>,</span><br><span class="line">	  kVK_RightOption               = <span class="number">0x3D</span>,</span><br><span class="line">	  kVK_RightControl              = <span class="number">0x3E</span>,</span><br><span class="line">	  kVK_Function                  = <span class="number">0x3F</span>,</span><br><span class="line">	  kVK_F17                       = <span class="number">0x40</span>,</span><br><span class="line">	  kVK_VolumeUp                  = <span class="number">0x48</span>,</span><br><span class="line">	  kVK_VolumeDown                = <span class="number">0x49</span>,</span><br><span class="line">	  kVK_Mute                      = <span class="number">0x4A</span>,</span><br><span class="line">	  kVK_F18                       = <span class="number">0x4F</span>,</span><br><span class="line">	  kVK_F19                       = <span class="number">0x50</span>,</span><br><span class="line">	  kVK_F20                       = <span class="number">0x5A</span>,</span><br><span class="line">	  kVK_F5                        = <span class="number">0x60</span>,</span><br><span class="line">	  kVK_F6                        = <span class="number">0x61</span>,</span><br><span class="line">	  kVK_F7                        = <span class="number">0x62</span>,</span><br><span class="line">	  kVK_F3                        = <span class="number">0x63</span>,</span><br><span class="line">	  kVK_F8                        = <span class="number">0x64</span>,</span><br><span class="line">	  kVK_F9                        = <span class="number">0x65</span>,</span><br><span class="line">	  kVK_F11                       = <span class="number">0x67</span>,</span><br><span class="line">	  kVK_F13                       = <span class="number">0x69</span>,</span><br><span class="line">	  kVK_F16                       = <span class="number">0x6A</span>,</span><br><span class="line">	  kVK_F14                       = <span class="number">0x6B</span>,</span><br><span class="line">	  kVK_F10                       = <span class="number">0x6D</span>,</span><br><span class="line">	  kVK_F12                       = <span class="number">0x6F</span>,</span><br><span class="line">	  kVK_F15                       = <span class="number">0x71</span>,</span><br><span class="line">	  kVK_Help                      = <span class="number">0x72</span>,</span><br><span class="line">	  kVK_Home                      = <span class="number">0x73</span>,</span><br><span class="line">	  kVK_PageUp                    = <span class="number">0x74</span>,</span><br><span class="line">	  kVK_ForwardDelete             = <span class="number">0x75</span>,</span><br><span class="line">	  kVK_F4                        = <span class="number">0x76</span>,</span><br><span class="line">	  kVK_End                       = <span class="number">0x77</span>,</span><br><span class="line">	  kVK_F2                        = <span class="number">0x78</span>,</span><br><span class="line">	  kVK_PageDown                  = <span class="number">0x79</span>,</span><br><span class="line">	  kVK_F1                        = <span class="number">0x7A</span>,</span><br><span class="line">	  kVK_LeftArrow                 = <span class="number">0x7B</span>,</span><br><span class="line">	  kVK_RightArrow                = <span class="number">0x7C</span>,</span><br><span class="line">	  kVK_DownArrow                 = <span class="number">0x7D</span>,</span><br><span class="line">	  kVK_UpArrow                   = <span class="number">0x7E</span></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* ISO keyboards only*/</span></span><br><span class="line">	<span class="keyword">enum</span> &#123;</span><br><span class="line">	  kVK_ISO_Section               = <span class="number">0x0A</span></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* JIS keyboards only*/</span></span><br><span class="line">	<span class="keyword">enum</span> &#123;</span><br><span class="line">	  kVK_JIS_Yen                   = <span class="number">0x5D</span>,</span><br><span class="line">	  kVK_JIS_Underscore            = <span class="number">0x5E</span>,</span><br><span class="line">	  kVK_JIS_KeypadComma           = <span class="number">0x5F</span>,</span><br><span class="line">	  kVK_JIS_Eisu                  = <span class="number">0x66</span>,</span><br><span class="line">	  kVK_JIS_Kana                  = <span class="number">0x68</span></span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在自己写一个mac上图片预览的功能，仿系统的预览，想要在预览的时候，加入快捷键，实现放大、缩小、前一张、后一张等功能。&lt;/p&gt;
+&lt;p&gt;因为总感觉，弄个鼠标啪啪的点，很土。。。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS:不上源码你说个JJ 。。。 源码在&lt;a href=&quot;https://github.com/RobberJJ/JJImageQuickLook&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
+    
+      <category term="shortcuts" scheme="https://robberjj.github.io/tags/shortcuts/"/>
+    
+      <category term="KeyCodes" scheme="https://robberjj.github.io/tags/KeyCodes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>This app was unable to be installed.</title>
+    <link href="https://robberjj.github.io/2017/10/28/UnableInstalled-md/"/>
+    <id>https://robberjj.github.io/2017/10/28/UnableInstalled-md/</id>
+    <published>2017-10-28T12:31:36.000Z</published>
+    <updated>2018-07-17T09:05:43.368Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天升级XCode 9.1 beta，编译项目正常，模拟器运行出现以下错误弹框：</p>
+<p><img src="/imgs/UnableInstalled.jpg" alt="UnableInstalled"></p>
+<a id="more"></a>
+<p>APP无法安装到模拟器上，也看不见任何提示，由于mac中存在多个XCode 版本，尝试下面命令：</p>
+<blockquote>
+<p>sudo xcode-select -s /Applications/Xcode-beta.app</p>
+</blockquote>
+<p>并不好使。</p>
+<p>这种问题看不见任何其他的问题提示，有点无从查起的赶脚。</p>
+<p><code>stackoverflow</code>上找到下面的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl spawn booted log show</span><br><span class="line"></span><br><span class="line">//或者可以标出这个错误提示相关的，很容易看到相关的错误提示</span><br><span class="line">xcrun simctl spawn booted log show | grep &quot;This app was unable to be installed.</span><br></pre></td></tr></table></figure>
+<p>然后，基本就能定位问题了，我这里出现的问题是：<br><img src="/imgs/UnableInstalled2.jpg" alt="reason"></p>
+<p>Info.plist文件中缺少<code>CFBundleExecutable</code>，加上即可。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天升级XCode 9.1 beta，编译项目正常，模拟器运行出现以下错误弹框：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imgs/UnableInstalled.jpg&quot; alt=&quot;UnableInstalled&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="xcode" scheme="https://robberjj.github.io/tags/xcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>High Sierra bad interpreter</title>
+    <link href="https://robberjj.github.io/2017/10/28/PodError-md/"/>
+    <id>https://robberjj.github.io/2017/10/28/PodError-md/</id>
+    <published>2017-10-28T12:22:11.000Z</published>
+    <updated>2018-07-17T09:05:43.366Z</updated>
+    
+    <content type="html"><![CDATA[<p>升级到mac OS High Sierra之后，pod失败，错误如下：</p>
+<blockquote>
+<p>-bash: /usr/local/bin/pod: /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby: bad interpreter: No such file or directory</p>
+</blockquote>
+<p>解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo gem update --system</span><br><span class="line">sudo gem install -n /usr/local/bin cocoapods</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;升级到mac OS High Sierra之后，pod失败，错误如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-bash: /usr/local/bin/pod: /System/Library/Frameworks/Ruby.framework/Versions/2.0
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="cocoapods" scheme="https://robberjj.github.io/tags/cocoapods/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS build error framework not found FileProvider for architecture x86_64</title>
+    <link href="https://robberjj.github.io/2017/10/28/NotFoundFileProvider-md/"/>
+    <id>https://robberjj.github.io/2017/10/28/NotFoundFileProvider-md/</id>
+    <published>2017-10-28T12:17:38.000Z</published>
+    <updated>2018-07-17T09:05:43.366Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近升级mac OS 到 High Sierra之后 XCode并没有立马升级，还是xcode 8.x，编译的时候，出现这样的问题：</p>
+<blockquote>
+<p>iOS build error: framework not found FileProvider for architecture x86_64</p>
+</blockquote>
+<p>解决办法：<strong>update XCode to 9.x即可</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近升级mac OS 到 High Sierra之后 XCode并没有立马升级，还是xcode 8.x，编译的时候，出现这样的问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;iOS build error: framework not found FileProvider 
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="xcode" scheme="https://robberjj.github.io/tags/xcode/"/>
+    
+      <category term="FileProvider" scheme="https://robberjj.github.io/tags/FileProvider/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The document  could not be autosaved. The file doesn’t exist.</title>
+    <link href="https://robberjj.github.io/2017/09/24/DocumentNotAutosaved/"/>
+    <id>https://robberjj.github.io/2017/09/24/DocumentNotAutosaved/</id>
+    <published>2017-09-24T01:32:22.000Z</published>
+    <updated>2018-07-17T09:05:43.362Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候莫名其妙的<code>pod update</code>之后(可能是拖拽文件到pod子项目导致的，具体忘了，出现问题的时候已经忘了之前干啥了。。。囧~)，然后某一个或者几个文件就不能编辑保存了，编译不过，如下：</p>
+<blockquote>
+<p>The document  could not be autosaved. The file doesn’t exist.</p>
+</blockquote>
+<p><img src="/imgs/fileNotExist.jpg" alt="fileNotExist"></p>
+<a id="more"></a>
+<p>而且，这个文件并没有路径显示：</p>
+<p><img src="/imgs/pathError.jpg" alt="pathError"></p>
+<p>从左侧栏右键<code>Show in Finder</code>，之后可以看到该文件在项目根目录下面的<code>ProjectRootPath/Pods/Headers/Public/IMSDK/QCIMChatRoomVC.h</code></p>
+<p>各种尝试不好使啊，重新pod也不管用，最终将子项目的该文件覆盖copy到上面的pods路径(<code>ProjectRootPath/Pods/Headers/Public/IMSDK/QCIMChatRoomVC.h</code>)下面，好使了。</p>
+<p>以上，记一笔，出现好几次了，每次都是莫名其妙的出现了，然后莫名其妙的好了。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候莫名其妙的&lt;code&gt;pod update&lt;/code&gt;之后(可能是拖拽文件到pod子项目导致的，具体忘了，出现问题的时候已经忘了之前干啥了。。。囧~)，然后某一个或者几个文件就不能编辑保存了，编译不过，如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The document  could not be autosaved. The file doesn’t exist.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/imgs/fileNotExist.jpg&quot; alt=&quot;fileNotExist&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="autosaved" scheme="https://robberjj.github.io/tags/autosaved/"/>
+    
+      <category term="exist" scheme="https://robberjj.github.io/tags/exist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>resource fork, Finder information, or similar detritus not allowed</title>
+    <link href="https://robberjj.github.io/2017/09/24/ResourceFork/"/>
+    <id>https://robberjj.github.io/2017/09/24/ResourceFork/</id>
+    <published>2017-09-24T01:29:37.000Z</published>
+    <updated>2018-07-17T09:05:43.367Z</updated>
+    
+    <content type="html"><![CDATA[<p>XCode 8之后，上传AppStore可能会出现下面的错误：</p>
+<p><img src="/imgs/resourceFork.png" alt="CodeSignError.png"></p>
+<a id="more"></a>
+<blockquote>
+<p>CodeSign /Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Products/Debug-iphoneos/Super\ Flow\ Flip.app<br>    cd “/Volumes/Development/Project/Top Best Games/19. Lets Flow/35/let’s FLOW - source/proj.ios_mac”<br>    export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate<br>    export PATH=”/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin”<br>Signing Identity:     “iPhone Distribution: New Free Games (2CHN583K4J)”<br>Provisioning Profile: “Super Flow Flipp AppStore”<br>                      (c6c30d2a-1025-4a23-8d12-1863ff684a05)</p>
+</blockquote>
+<pre><code>/usr/bin/codesign --force --sign E48B98966150110E55EAA9B149F731901A41B37F --entitlements /Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Intermediates/Flow.build/Debug-iphoneos/Super\ Flow\ Flip.build/Super\ Flow\ Flip.app.xcent --timestamp=none /Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Products/Debug-iphoneos/Super\ Flow\ Flip.app
+</code></pre><p>/Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Products/Debug-iphoneos/Super Flow Flip.app: resource fork, Finder information, or similar detritus not allowed<br>Command /usr/bin/codesign failed with exit code 1</p>
+<p>用下面的方法解决：<br>终端，cd 到项目的根目录，然后依次执行下面的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -name &apos;*.jpeg&apos; -exec xattr -c &#123;&#125; \;</span><br><span class="line">find . -type f -name &apos;*.jpg&apos; -exec xattr -c &#123;&#125; \;</span><br><span class="line">find . -type f -name &apos;*.png&apos; -exec xattr -c &#123;&#125; \;</span><br><span class="line">find . -type f -name &apos;*.json&apos; -exec xattr -c &#123;&#125; \;</span><br></pre></td></tr></table></figure></p>
+<p>Clean Xcode and Re Build. Done.</p>
+<p>如果还是未解决，请参考<a href="https://stackoverflow.com/questions/39652867/code-sign-error-in-macos-sierra-xcode-8-3-3-resource-fork-finder-information" target="_blank" rel="noopener">这里</a>Â</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;XCode 8之后，上传AppStore可能会出现下面的错误：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imgs/resourceFork.png&quot; alt=&quot;CodeSignError.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
+    
+    
+      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
+    
+      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
+    
+      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
+    
+      <category term="resource fork" scheme="https://robberjj.github.io/tags/resource-fork/"/>
+    
+      <category term="Finder information" scheme="https://robberjj.github.io/tags/Finder-information/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Compile warning:Embedded binary&#39;s NSExtensionActivationRule is TRUEPREDICATE</title>
+    <link href="https://robberjj.github.io/2017/09/24/NSExtensionActivationRule/"/>
+    <id>https://robberjj.github.io/2017/09/24/NSExtensionActivationRule/</id>
+    <published>2017-09-24T01:19:58.000Z</published>
+    <updated>2018-07-17T09:05:43.365Z</updated>
+    
+    <content type="html"><![CDATA[<p>上传AppStore的时候出现如下BUG：</p>
+<blockquote>
+<p>warning: Embedded binary’s NSExtensionActivationRule is TRUEPREDICATE. Before you submit your containing app to the App Store, be sure to replace all uses of TRUEPREDICATE with specific predicate statements or NSExtensionActivationRule keys. If any extensions in your containing app include TRUEPREDICATE, the app will be rejected.</p>
+</blockquote>
+<a id="more"></a>
+<p>ShareExtnesion的plist文件中 NSExtensionActivationRule属性值为TRUEPREDICATE。</p>
+<p>官方文档中提到：</p>
+<blockquote>
+<p>During development only, you can use the TRUEPREDICATE constant (which always evaluates to true) as a stub predicate statement, to test your code path before you implement your predicate statement.</p>
+<p>注意: development only,所以上架的时候不能用。</p>
+</blockquote>
+<p>可以参考下图修改</p>
+<p><img src="/imgs/NSExtension.png" alt="NSExtension"></p>
+<p>NSExtensionActivationRule的属性值可以参考<a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW12" target="_blank" rel="noopener">这里</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上传AppStore的时候出现如下BUG：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;warning: Embedded binary’s NSExtensionActivationRule is TRUEPREDICATE. Before you submit your containing app to the App Store, be sure to replace all uses of TRUEPREDICATE with specific predicate statements or NSExtensionActivationRule keys. If any extensions in your containing app include TRUEPREDICATE, the app will be rejected.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
+    
+    
+      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
+    
+      <category term="NSExtensionActivationRule" scheme="https://robberjj.github.io/tags/NSExtensionActivationRule/"/>
+    
+      <category term="TRUEPREDICATE" scheme="https://robberjj.github.io/tags/TRUEPREDICATE/"/>
+    
+      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
+    
+      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac中NSScrollView自定义滑动条NSScroller</title>
+    <link href="https://robberjj.github.io/2017/09/24/NSScroller/"/>
+    <id>https://robberjj.github.io/2017/09/24/NSScroller/</id>
+    <published>2017-09-24T01:00:15.000Z</published>
+    <updated>2018-07-17T09:05:43.366Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>最近在捣鼓mac上开发app，本以为iOS、mac开发本是同根生，弄起来应该差不多，上手之后才发现iOS是多么的优雅自在，而mac是干啥都觉得不太顺手，UIKit跟AppKit差别还真是不一般的大。</p>
+</blockquote>
+<p>最近，感觉NSScrollView右侧的滑动条长得不好看，想把滑动条的背景去掉，本想着设置个某个属性就能轻而易举的搞定，谁不知捣鼓半天没弄出来，mac开发的相关资料也着实太少，在这里记一笔，加深一下印象。</p>
+<a id="more"></a>
+<blockquote>
+<p>Tips：需要的同学，可以直接前往<a href="https://github.com/RobberJJ/JJScroller" target="_blank" rel="noopener">这里</a>指点批评，或者为我转身点亮一颗小星星。</p>
+</blockquote>
+<p>滑动条需要瞒住一下几个方面的需求：</p>
+<ul>
+<li>滑动页面时候，显现滑动条，跟随滑动；</li>
+<li>停止滑动页面的时候，自动隐藏滑动条；</li>
+<li>任何时候滑动条背景色为透明；</li>
+</ul>
+<p>下面直接上一下，NSScroller子类 JJScroller的<code>.m</code>文件<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">JJScroller</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithFrame:(<span class="built_in">NSRect</span>)frameRect</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frameRect];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="keyword">self</span> commonInitializer];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)awakeFromNib</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> awakeFromNib];</span><br><span class="line">    [<span class="keyword">self</span> commonInitializer];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)commonInitializer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSTrackingArea</span> *trackingArea = [[<span class="built_in">NSTrackingArea</span> alloc] initWithRect:<span class="keyword">self</span>.bounds options:(</span><br><span class="line"><span class="built_in">NSTrackingMouseEnteredAndExited</span> | <span class="built_in">NSTrackingActiveInActiveApp</span> | <span class="built_in">NSTrackingMouseMoved</span></span><br><span class="line">) owner:<span class="keyword">self</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    [<span class="keyword">self</span> addTrackingArea:trackingArea];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">NSRect</span>)dirtyRect &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do some custom drawing...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Call NSScroller's drawKnob method (or your own if you overrode it)</span></span><br><span class="line">    [<span class="keyword">self</span> drawKnob];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)drawKnobSlotInRect:(<span class="built_in">NSRect</span>)slotRect highlight:(<span class="built_in">BOOL</span>)flag</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Don't draw the background. Should only be invoked when using overlay scrollers</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)mouseExited:(<span class="built_in">NSEvent</span> *)theEvent</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> mouseExited:theEvent];</span><br><span class="line">    [<span class="keyword">self</span> fadeOut];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)mouseEntered:(<span class="built_in">NSEvent</span> *)theEvent</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> mouseEntered:theEvent];</span><br><span class="line">    [<span class="built_in">NSAnimationContext</span> runAnimationGroup:^(<span class="built_in">NSAnimationContext</span> *context) &#123;</span><br><span class="line">        context.duration = <span class="number">0.1</span>f;</span><br><span class="line">        [<span class="keyword">self</span>.animator setAlphaValue:<span class="number">1.0</span>f];</span><br><span class="line">    &#125; completionHandler:^&#123;</span><br><span class="line">    &#125;];</span><br><span class="line">    [<span class="built_in">NSObject</span> cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(fadeOut) object:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)mouseMoved:(<span class="built_in">NSEvent</span> *)theEvent</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> mouseMoved:theEvent];</span><br><span class="line">    <span class="keyword">self</span>.alphaValue = <span class="number">1.0</span>f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setFloatValue:(<span class="keyword">float</span>)aFloat</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> setFloatValue:aFloat];</span><br><span class="line">    [<span class="keyword">self</span>.animator setAlphaValue:<span class="number">1.0</span>f];</span><br><span class="line">    [<span class="built_in">NSObject</span> cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(fadeOut) object:<span class="literal">nil</span>];</span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(fadeOut) withObject:<span class="literal">nil</span> afterDelay:<span class="number">1.5</span>f];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)fadeOut</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="built_in">NSAnimationContext</span> runAnimationGroup:^(<span class="built_in">NSAnimationContext</span> *context) &#123;</span><br><span class="line">        context.duration = <span class="number">0.3</span>f;</span><br><span class="line">        [<span class="keyword">self</span>.animator setAlphaValue:<span class="number">0.0</span>f];</span><br><span class="line">    &#125; completionHandler:^&#123;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+(<span class="built_in">CGFloat</span>)scrollerWidthForControlSize:(<span class="built_in">NSControlSize</span>)controlSize scrollerStyle:(<span class="built_in">NSScrollerStyle</span>)scrollerStyle&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">15</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)isCompatibleWithOverlayScrollers</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span> == [JJScroller <span class="keyword">class</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近在捣鼓mac上开发app，本以为iOS、mac开发本是同根生，弄起来应该差不多，上手之后才发现iOS是多么的优雅自在，而mac是干啥都觉得不太顺手，UIKit跟AppKit差别还真是不一般的大。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最近，感觉NSScrollView右侧的滑动条长得不好看，想把滑动条的背景去掉，本想着设置个某个属性就能轻而易举的搞定，谁不知捣鼓半天没弄出来，mac开发的相关资料也着实太少，在这里记一笔，加深一下印象。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
+    
+    
+      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
+    
+      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
+    
+      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
+    
+      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
+    
+      <category term="NSScroller" scheme="https://robberjj.github.io/tags/NSScroller/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac中NSScrollView滑动监测</title>
+    <link href="https://robberjj.github.io/2017/09/24/NSScrollViewSliding/"/>
+    <id>https://robberjj.github.io/2017/09/24/NSScrollViewSliding/</id>
+    <published>2017-09-24T00:30:33.000Z</published>
+    <updated>2018-07-17T09:05:43.365Z</updated>
+    
+    <content type="html"><![CDATA[<p>不同于iOS中的UIScrollView，mac中的NSScrollView并没有一堆靠谱好用的delegate来帮助我们方便的监控ScrollView的状态。</p>
+<p>iOS中我们可以通过UIScrollView的<code>contentOffset</code>属性来获知滑动的位置，而在mac中我们是通过NSScrollView的<code>contentView</code>(NSClipView的实例)的<code>documentVisibleRect.origin</code>来获知滑动的相对位置。</p>
+<a id="more"></a>
+<p>在iOS中我们可以通过UISCrollView的<code>delegate</code>方法<code>- (void)scrollViewDidScroll:(UIScrollView *)scrollView;</code>来在滑动的过程中做一些我们爱做的事儿呢。</p>
+<p>那么在mac中NSScrollView我们有没有同样的东西来做我们爱做的事儿呢？<br>当然是有的，只是跟iOS中有些许的区别，NSScrollView是通过通知来实现的，直接上代码：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找个合适的地儿，注册通知</span></span><br><span class="line"><span class="built_in">NSNotificationCenter</span> *center = [<span class="built_in">NSNotificationCenter</span> defaultCenter] ;</span><br><span class="line">    [center addObserver: <span class="keyword">self</span></span><br><span class="line">               selector: <span class="keyword">@selector</span>(boundsDidChangeNotification:)</span><br><span class="line">                   name: <span class="built_in">NSViewBoundsDidChangeNotification</span></span><br><span class="line">                 object: [<span class="keyword">self</span>.scrollView contentView]];</span><br></pre></td></tr></table></figure>
+<p>需要注意的是 ，在上面通知注册之前，你需要加上这么一句：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span>.scrollView contentView] setPostsBoundsChangedNotifications: <span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<p>然后在NSScrollView滑动的时候，你就能在你实现下面这个方法的地方，做你想做的爱做的事儿了：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) boundsDidChangeNotification: (<span class="built_in">NSNotification</span> *) notification</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在这里进行处理</span></span><br><span class="line">    <span class="built_in">NSClipView</span> *changedContentView=[notification object];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the origin of the NSClipView of the scroll view that</span></span><br><span class="line">    <span class="comment">// we're watching</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSPoint</span> changedBoundsOrigin = [changedContentView documentVisibleRect].origin;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上，欢迎典藏。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不同于iOS中的UIScrollView，mac中的NSScrollView并没有一堆靠谱好用的delegate来帮助我们方便的监控ScrollView的状态。&lt;/p&gt;
+&lt;p&gt;iOS中我们可以通过UIScrollView的&lt;code&gt;contentOffset&lt;/code&gt;属性来获知滑动的位置，而在mac中我们是通过NSScrollView的&lt;code&gt;contentView&lt;/code&gt;(NSClipView的实例)的&lt;code&gt;documentVisibleRect.origin&lt;/code&gt;来获知滑动的相对位置。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
+    
+    
+      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
+    
+      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
+    
+      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
+    
+      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>xcode快捷键你知多少？</title>
+    <link href="https://robberjj.github.io/2017/07/30/xcode-shortcuts/"/>
+    <id>https://robberjj.github.io/2017/07/30/xcode-shortcuts/</id>
+    <published>2017-07-30T02:00:58.000Z</published>
+    <updated>2018-07-17T09:05:43.369Z</updated>
+    
+    <content type="html"><![CDATA[<p>常言道，工欲善其事必先利其器。</p>
+<p>了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。</p>
+<h3 id="快速搜索跳转文件"><a href="#快速搜索跳转文件" class="headerlink" title="快速搜索跳转文件"></a>快速搜索跳转文件</h3><p>快捷键：<strong>cmd + shift + o</strong></p>
+<blockquote>
+<p>这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。</p>
+<p>注意：<code>o</code>是表示惊讶的<code>哦..😯</code>，不是考试得到的零蛋<code>0</code>，<code>o == open</code>。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="快速跳至某行"><a href="#快速跳至某行" class="headerlink" title="快速跳至某行"></a>快速跳至某行</h3><p>快捷键：<strong>cmd + l</strong></p>
+<blockquote>
+<p>常用这个快捷键，首先你要留意一下行号。</p>
+<p>注意：字母<code>l</code>并不是大写的<code>I</code>，也不是数字<code>1</code>，是大写字母<code>L</code>的小写，<code>l == line</code>。</p>
+</blockquote>
+<h3 id="代码块上下移动"><a href="#代码块上下移动" class="headerlink" title="代码块上下移动"></a>代码块上下移动</h3><p>快捷键：<strong>option + cmd + [(or ])</strong></p>
+<blockquote>
+<p>很多时候，你需要将某几行代码交换位子顺序，或者某几行代码前移/后移几行，那么这个快捷键就有了用武之地了。</p>
+<p>注意：移动前选中你要移动的所有行。</p>
+</blockquote>
+<h3 id="h-m文件之间快速切换"><a href="#h-m文件之间快速切换" class="headerlink" title=".h/.m文件之间快速切换"></a>.h/.m文件之间快速切换</h3><p>快捷键：<strong>ctrl + cmd + ↑(or ↓)</strong></p>
+<blockquote>
+<p><code>↑</code>(or <code>↓</code>)效果一样</p>
+</blockquote>
+<h3 id="前进-后退"><a href="#前进-后退" class="headerlink" title="前进/后退"></a>前进/后退</h3><p>快捷键：<strong>ctrl + cmd + ←(or →)</strong></p>
+<blockquote>
+<p><code>←</code>(or <code>→</code>)跟浏览器<code>上一页</code>or<code>下一页</code>类似。</p>
+</blockquote>
+<h3 id="显示当前类的方法列表，可搜索"><a href="#显示当前类的方法列表，可搜索" class="headerlink" title="显示当前类的方法列表，可搜索"></a>显示当前类的方法列表，可搜索</h3><p>快捷键：<strong>ctrl + 6</strong></p>
+<blockquote>
+<p>上述快捷键之后，可方向键选择后回车，也可触摸板滑动选择。</p>
+<p>最重要的是显示列表之后，可直接输入相关字符搜索。</p>
+</blockquote>
+<h3 id="搜索、替换"><a href="#搜索、替换" class="headerlink" title="搜索、替换"></a>搜索、替换</h3><p>文件类搜索：<strong>cmd + f</strong></p>
+<p>文件类替换：<strong>cmd + option + f</strong></p>
+<p>全局搜索：<strong>cmd + shift + f</strong></p>
+<p>全局替换：<strong>cmd + shift + option + f</strong></p>
+<blockquote>
+<p>注意：全局搜索替换可以指定目录，也可以选择匹配格式，这个选择在搜索框与替换框之间。</p>
+<p>文件类与全局都可以在搜索框最前面的<code>🔍</code>位置点击切换搜索/替换。</p>
+</blockquote>
+<h3 id="打开Related-Items列表"><a href="#打开Related-Items列表" class="headerlink" title="打开Related Items列表"></a>打开Related Items列表</h3><p>快捷键：<strong>ctrl + 1</strong></p>
+<blockquote>
+<p>光标停留在相应的关键词中，此快捷键可查看父类，调用者，被调用者，includes，included by等诸多信息。</p>
+</blockquote>
+<h3 id="收起-展开代码块"><a href="#收起-展开代码块" class="headerlink" title="收起/展开代码块"></a>收起/展开代码块</h3><p>快捷键：<strong>option + cmd + ←(or →)</strong></p>
+<h3 id="在左侧目录中快速定位当前文件位置"><a href="#在左侧目录中快速定位当前文件位置" class="headerlink" title="在左侧目录中快速定位当前文件位置"></a>在左侧目录中快速定位当前文件位置</h3><p>快捷键：<strong>cmd + shift + j</strong></p>
+<h3 id="快速切换左边导航栏"><a href="#快速切换左边导航栏" class="headerlink" title="快速切换左边导航栏"></a>快速切换左边导航栏</h3><p>快捷键：<strong>cmd + 1~8</strong></p>
+<blockquote>
+<p>注意：<code>cmd + 0</code>是‘显示/隐藏左侧栏’，<code>cmd + cmd + option + 0</code>是‘显示/隐藏右侧栏’。</p>
+</blockquote>
+<h3 id="全局修改局部变量"><a href="#全局修改局部变量" class="headerlink" title="全局修改局部变量"></a>全局修改局部变量</h3><p>快捷键：<strong>ctrl + cmd + e</strong></p>
+<blockquote>
+<p>当你想要将button换一个变量名的时候，这个快捷键绝对能爽死你，当然你也能用鼠标或者触摸板实现这个功能，选中变量名，移动光标会出现一个小箭头，点开会有快捷菜单，选择<code>Edit All in Scope</code>。</p>
+</blockquote>
+<p>当然还有一些基础的快捷键在这里就不一一列举了，相信大家也都知道，比如，编译(<code>cmd + b</code>)，运行(<code>cmd + r</code>)，clean(<code>cmd + shift + k</code>)，快速移动光标(<code>cmd + 方向键</code>)，快速选择代码(<code>cmd + shift + 方向键</code>)等。</p>
+<p>值得注意的是，除了上述快捷键之外，右键快捷菜单也是很有用处的，举个栗子：</p>
+<p>光标置于类名中，右键(或者触摸板两手指头单击)显示快捷菜单，选择<code>Refactor -- Rename</code>，全局替换类名。</p>
+<h3 id="XVim"><a href="#XVim" class="headerlink" title="XVim"></a>XVim</h3><p>最后，我想说的是，想要快捷键运用的炉火纯青，而且不会因为软件间系统间的各种差异出现很大的变化，vim！！</p>
+<p>这个绝对是神器，xcode可以安装vim插件<a href="https://github.com/XVimProject/XVim" target="_blank" rel="noopener">XVim</a>。</p>
+<p><strong>注意：</strong> xcode 8之后，需要先<a href="https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md" target="_blank" rel="noopener">安装证书</a>.</p>
+<p>下载下来编译不过的话，是因为类<code>IDEPlaygroundEditor</code>没实现(IDEPlaygroundEditor+XVim.h中)，加上实现<code>@implementation</code>即可，或者直接删除报错的文件以及引用此文件头文件的地方。</p>
+<p>XVim快捷键使用见<a href="https://github.com/XVimProject/XVim/blob/master/Documents/Users/FeatureList.md" target="_blank" rel="noopener">这里</a>。</p>
+<p>放出一张vim命令图解：</p>
+<p><img src="/imgs/vimCommod.png" alt="vim命令图解"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;常言道，工欲善其事必先利其器。&lt;/p&gt;
+&lt;p&gt;了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。&lt;/p&gt;
+&lt;h3 id=&quot;快速搜索跳转文件&quot;&gt;&lt;a href=&quot;#快速搜索跳转文件&quot; class=&quot;headerlink&quot; title=&quot;快速搜索跳转文件&quot;&gt;&lt;/a&gt;快速搜索跳转文件&lt;/h3&gt;&lt;p&gt;快捷键：&lt;strong&gt;cmd + shift + o&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。&lt;/p&gt;
+&lt;p&gt;注意：&lt;code&gt;o&lt;/code&gt;是表示惊讶的&lt;code&gt;哦..😯&lt;/code&gt;，不是考试得到的零蛋&lt;code&gt;0&lt;/code&gt;，&lt;code&gt;o == open&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="xcode" scheme="https://robberjj.github.io/tags/xcode/"/>
+    
+      <category term="快捷键" scheme="https://robberjj.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift闭包--简不简洁？！优不优雅？！</title>
+    <link href="https://robberjj.github.io/2017/07/22/Closures/"/>
+    <id>https://robberjj.github.io/2017/07/22/Closures/</id>
+    <published>2017-07-22T03:56:06.000Z</published>
+    <updated>2018-07-17T09:05:43.360Z</updated>
+    
+    <content type="html"><![CDATA[<h3>闭包(Closures)</h3>
+
+<p>闭包是自包含的函数代码块，可以在代码中被传递和使用。</p>
+<blockquote>
+<p>Closures are self-contained blocks of functionality that can be passed around and used in your code.<br>–摘自<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94" target="_blank" rel="noopener">官方文档</a></p>
+</blockquote>
+<p>相信大家都熟悉C 和 Objective-C 中的代码块(blocks)或者其他一些编程语言中的匿名函数，Swift中的闭包与之相类似。</p>
+<a id="more"></a>
+<p>闭包可以捕获和存储其所在上下文中任意常量和变量的引用。被称为包裹常量和变量。</p>
+<blockquote>
+<p><strong>注意:</strong></p>
+<ol>
+<li>如果你不熟悉捕获(capturing)这个概念也不用担心，在后面文章会对其进行详细介绍(<a href="https://robberjj.github.io">我要尾随</a>)。</li>
+<li>Swift会为你管理在捕获过程中涉及到的所有内存操作。(PS:类似于Objective-C,不会让你过多的经历花费在内存管理上，而应该更过的考虑其他更重要的事情，本该如此!)</li>
+</ol>
+</blockquote>
+<p>闭包一般采取以下三种形式：</p>
+<ul>
+<li>全局函数是一个有名字但不会捕获任何值的闭包</li>
+<li>嵌套函数是一个有名字并可以捕获其封闭函数域内值的闭包</li>
+<li>闭包表达式是一个利用轻量级语法所写的可以捕获其上下文中变量或常量值的匿名闭包<br><br></li>
+</ul>
+<p>Swift简洁优雅的个性在闭包中有很好的体现，主要优化如下：</p>
+<ul>
+<li>利用上下文推断参数和返回值类型</li>
+<li>隐式返回单表达式闭包，即单表达式闭包可以省略<code>return</code>关键字</li>
+<li>参数名称缩写</li>
+<li>尾随闭包语法<br><br></li>
+</ul>
+<h3>闭包表达式</h3>
+
+<p>闭包表达式是一种利用简洁语法构建内联闭包的方式。闭包表达式提供了一些语法优化，使得撰写闭包变得简单明了。</p>
+<p>下面我们来看一个例子：</p>
+<p>Swift标准库提供了名为<code>sorted(by:)</code>的方法，它会根据你所提供的用于排序的闭包函数将已知类型数组中的值进行排序。一旦排序完成，<code>sorted(by:)</code>方法会返回一个与原数组大小相同，包含同类型元素且元素已正确排序的新数组。原数组不会被<code>sorted(by:)</code>方法修改。</p>
+<p>举个栗子：闭包表达式示例使用<code>sorted(by:)</code>方法对一个<code>String</code>类型的数组进行字母逆序排序。</p>
+<p>通常我们会这样写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化一个字符串类型数组</span></span><br><span class="line"><span class="keyword">let</span> names = [<span class="string">"Chris"</span>, <span class="string">"Alex"</span>, <span class="string">"Ewa"</span>, <span class="string">"Barry"</span>, <span class="string">"Daniella"</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义排序闭包函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">backward</span><span class="params">(<span class="number">_</span> s1: String, <span class="number">_</span> s2: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行排序操作</span></span><br><span class="line"><span class="keyword">var</span> reversedNames = names.sorted(by: backward)</span><br><span class="line"><span class="comment">// reversedNames 为 ["Ewa", "Daniella", "Chris", "Barry", "Alex"]</span></span><br></pre></td></tr></table></figure>
+<p><code>sorted(by:)</code>方法接受一个闭包(其实就是一个函数指针)，该闭包函数需要传入与数组元素类型相同的两个值，并返回一个布尔类型值来表明当排序结束后传入的第一个参数排在第二个参数前面还是后面。如果第一个参数值出现在第二个参数值前面，排序闭包函数需要返回<code>true</code>，反之返回<code>false</code>。</p>
+<p>该例子对一个<code>String</code>类型的数组进行排序，因此排序闭包函数(<code>func backward</code>)类型需为<code>(String, String) -&gt; Bool</code>(即函数指针类型，两个参数<code>String</code>类型，返回值是<code>Bool</code>类型的函数指针)。</p>
+<p>如果第一个字符串(<code>s1</code>)大于第二个字符串(<code>s2</code>)，<code>backward(_:_:)</code>函数会返回<code>true</code>，表示在新的数组中<code>s1</code>应该出现在<code>s2</code>前。对于字符串中的字符来说，“大于”表示“按照字母顺序较晚出现”。这意味着字母<code>&quot;B&quot;</code>大于字母<code>&quot;A&quot;</code>，字符串<code>&quot;Tom&quot;</code>大于字符串<code>&quot;Tim&quot;</code>。该闭包将进行字母逆序排序，<code>&quot;Barry&quot;</code>将会排在<code>&quot;Alex&quot;</code>之前。</p>
+<p>然而，以这种方式来编写一个实际上很简单的表达式(<code>a &gt; b</code>)，确实太过繁琐了。对于这个例子来说，利用闭包 表达式语法可以更好地构造一个内联排序闭包。</p>
+<p><em>闭包表达式语法有如下的一般形式:</em></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; (parameters) -&gt; returnType <span class="keyword">in</span></span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>闭包表达式参数可以是<code>in-out</code>参数，但不能设定默认值。也可以使用具名的可变参数(注意:但是如果可变参数不放在参数列表的最后一位的话，调用闭包的时时编译器将报错。)。元组也可以作为参数和返回值。</p>
+</blockquote>
+<p>于是，我们可以将之前<code>backward(_:_:)</code>函数用闭包表达式优化，如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个闭包的函数体部分如此短，以至于可以将其改写成一行代码:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure></p>
+<p>该例中<code>sorted(by:)</code>方法的整体调用保持不变，一对圆括号仍然包裹住了方法的整个参数。然而，参数现在变成了内联闭包。</p>
+<p>写到这里，如果你认为就此结束了的话，Swift君只能说你还是太年轻。</p>
+<p>开篇我们提到，闭包会有这样一条优化：<br><strong>利用上下文推断参数和返回值类型。</strong></p>
+<p>排序闭包函数是作为<code>sorted(by:)</code>方法的参数传入的，Swift可以推断其参数和返回值的类型。<code>sorted(b y:)</code>方法被一个字符串数组调用，因此其参数必须是 <code>(String, String) -&gt; Bool</code>类型的函数。这意味着<br><code>(String, String)</code>和<code>Bool</code>类型并不需要作为闭包表达式定义的一部分。因为所有的类型都可以被正确推断，返回箭头(<code>-&gt;</code>)和围绕在参数周围的括号也可以被省略:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; s1, s2 <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure>
+<p>实际上，通过内联闭包表达式构造的闭包作为参数传递给函数或方法时，总是能够推断出闭包的参数和返回值类型。这意味着闭包作为函数或者方法的参数时，你几乎不需要利用完整格式构造内联闭包。</p>
+<p>其实，<code>return</code>关键词我们也是可以省略的，因为可以 <strong>单表达式闭包隐式返回</strong> ,这也是闭包的主要优化之一。</p>
+<p>如上的例子可以改写为:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; s1, s2 <span class="keyword">in</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>sorted(by:)</code>方法的参数类型明确了闭包必须返回一个<code>Bool</code>类型值。因为闭包函数体只包含了一个单一表达式(<code>s1 &gt; s2</code>)，该表达式返回<code>Bool</code>类型值，因此这里没有歧义，<code>return</code>关键字可以省略。</p>
+</blockquote>
+<p>开篇提到的闭包优化的几点中，还有说道 <strong>参数名称缩写</strong> 功能。</p>
+<p>Swift君有说：你可以直接通过<code>$0</code>，<code>$1</code>，<code>$2</code>来顺序调用闭包的参数，以此类推。如果你在闭包表达式中使用参数名称缩写，你可以在闭包定义中省略参数列表，并且对应参数名称缩写的类型会通过函数类型进行推断。</p>
+<p><code>in</code>关键字也同样可以被省略,因为…，看下面优化后的代码你明白，<code>in</code>在这里确实没什么卵用了：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; $<span class="number">0</span> &gt; $<span class="number">1</span> &#125; )</span><br></pre></td></tr></table></figure>
+<p>其中，<code>$0</code>和<code>$1</code>表示闭包中第一个和第二个<code>String</code>类型的参数.</p>
+<p>我次奥！！！到这里，我相信大家会有跟我一样的感叹，哈哈~</p>
+<p>所以，最后还是有必要来一记大招：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &gt;)</span><br></pre></td></tr></table></figure></p>
+<p>是的，你没有看错，这才是最终的形态。</p>
+<p>Swift的<code>String</code>类型定义了关于大于号(<code>&gt;</code>)的字符串实现，其作为一个函数接受两个<code>String</code>类型的参数并返回<code>Bool</code>类型的值。而这正好与<code>sorted(by:)</code>方法的参数需要的函数类型相符合。因此，你可以简单地传递一个大于号，Swift可以自动推断出你想使用大于号的字符串函数实现。</p>
+<p>贴上大于号(<code>&gt;</code>)的定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Returns a Boolean value indicating whether the value of the first argument</span></span><br><span class="line"><span class="comment">/// is greater than that of the second argument.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// This is the default implementation of the greater-than operator (`&gt;`) for</span></span><br><span class="line"><span class="comment">/// any type that conforms to `Comparable`.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - lhs: A value to compare.</span></span><br><span class="line"><span class="comment">///   - rhs: Another value to compare.</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> &gt;&lt;T&gt;<span class="params">(lhs: T, rhs: T)</span></span> -&gt; <span class="type">Bool</span> <span class="keyword">where</span> <span class="type">T</span> : <span class="type">Comparable</span></span><br></pre></td></tr></table></figure>
+<p>当然还有更多的运算符方法，想到这里，我就想问你，简洁不简洁，优雅不优雅，刺激不刺激？！哈哈。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3&gt;闭包(Closures)&lt;/h3&gt;
+
+&lt;p&gt;闭包是自包含的函数代码块，可以在代码中被传递和使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Closures are self-contained blocks of functionality that can be passed around and used in your code.&lt;br&gt;–摘自&lt;a href=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;相信大家都熟悉C 和 Objective-C 中的代码块(blocks)或者其他一些编程语言中的匿名函数，Swift中的闭包与之相类似。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift" scheme="https://robberjj.github.io/categories/swift/"/>
+    
+    
+      <category term="闭包" scheme="https://robberjj.github.io/tags/%E9%97%AD%E5%8C%85/"/>
+    
+      <category term="swift" scheme="https://robberjj.github.io/tags/swift/"/>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 9.0之后NSString encode方法替换</title>
+    <link href="https://robberjj.github.io/2017/07/22/Encode_Update/"/>
+    <id>https://robberjj.github.io/2017/07/22/Encode_Update/</id>
+    <published>2017-07-22T03:10:08.000Z</published>
+    <updated>2018-07-17T09:05:43.363Z</updated>
+    
+    <content type="html"><![CDATA[<p>在iOS 9.0之后，以前常用的<code>NSString</code>编码的方法<code>stringByAddingPercentEscapesUsingEncoding:</code>被弃用了，项目中可能会出现一堆如下⚠️：</p>
+<blockquote>
+<p>‘stringByAddingPercentEscapesUsingEncoding:’ is deprecated: first deprecated in iOS 9.0 - Use-stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.</p>
+</blockquote>
+<p>作为一个有强迫症的优秀程序猿，表示不能忍！</p>
+<a id="more"></a>
+<p>文档里面是这么说的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (nullable NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)enc NS_DEPRECATED(10_0, 10_11, 2_0, 9_0, &quot;Use -stringByAddingPercentEncodingWithAllowedCharacters: instead,which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.&quot;);</span><br></pre></td></tr></table></figure>
+<p>很明白，用<code>stringByAddingPercentEncodingWithAllowedCharacters:</code>方法替换之。</p>
+<p>这个方法官方文档是这么说的：</p>
+<blockquote>
+<p>// Returns a new string made from the receiver by replacing all characters not in the allowedCharacters set with percent encoded characters. UTF-8 encoding is used to determine the correct percent encoded characters. Entire URL strings cannot be percent-encoded. This method is intended to percent-encode an URL component or subcomponent string, NOT the entire URL string. Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.</p>
+</blockquote>
+<p>最后一句<code>Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.</code>，意思就是说，任何非7-bit ASCII字符搁到<code>allowedCharacters</code>里面也将被忽略，也就是<code>allowedCharacters</code>里面的字符跟7-bit ASCII字符不会被编码，比如中文。</p>
+<p>换句话说，上面方法在处理的时候会编码url的中的非7-bit ASCII字符，如这些【`#%^{}\”[]|\&lt;&gt;】，如果需要忽略之，需要通过<code>(NSCharacterSet *)allowedCharacters</code>这个参数指定。总结如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[aString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">//等价于</span><br><span class="line">[aString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@&quot;`#%^&#123;&#125;\&quot;[]|\\&lt;&gt; &quot;]];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>字符集最后是一个空格！</li>
+<li>这里字符集的意思就是，字符串中含有字符集里面的字符将会会被编码。</li>
+</ol>
+</blockquote>
+<p>另外，URL中常用的<code>NSCharacterSet</code>类型定义在分类<code>NSCharacterSet (NSURLUtilities)</code>中，包含字符集如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">URLHostAllowedCharacterSet      &quot;#%/&lt;&gt;?@\^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLFragmentAllowedCharacterSet  &quot;#%&lt;&gt;[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLPasswordAllowedCharacterSet  &quot;#%/:&lt;&gt;?@[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLPathAllowedCharacterSet      &quot;#%;&lt;&gt;?[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLQueryAllowedCharacterSet     &quot;#%&lt;&gt;[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLUserAllowedCharacterSet      &quot;#%/:&lt;&gt;?@[\]^`</span><br></pre></td></tr></table></figure>
+<p>以上，还在等什么，全局搜索替换吧，消灭⚠️！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在iOS 9.0之后，以前常用的&lt;code&gt;NSString&lt;/code&gt;编码的方法&lt;code&gt;stringByAddingPercentEscapesUsingEncoding:&lt;/code&gt;被弃用了，项目中可能会出现一堆如下⚠️：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;‘stringByAddingPercentEscapesUsingEncoding:’ is deprecated: first deprecated in iOS 9.0 - Use-stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作为一个有强迫症的优秀程序猿，表示不能忍！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="encode" scheme="https://robberjj.github.io/tags/encode/"/>
+    
+      <category term="NSString" scheme="https://robberjj.github.io/tags/NSString/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS脚本自动编译静态包/静态库</title>
+    <link href="https://robberjj.github.io/2017/07/22/autobuild/"/>
+    <id>https://robberjj.github.io/2017/07/22/autobuild/</id>
+    <published>2017-07-22T02:50:01.000Z</published>
+    <updated>2018-07-17T09:05:43.368Z</updated>
+    
+    <content type="html"><![CDATA[<p>在iOS开发中，有时候为了项目模块间的相互独立性，降低模块间的耦合，通常将底层相对稳定的模块抽取出来，形成SDK，以静态包或者静态库的形式引入项目。这中间免不了编译打包静态包/库，通常的做法是模拟器和真机分别编译，然后再将两个静态包或者库<code>lipo</code>合并成一个。这样的工作做多了，难免觉得麻烦，想省事儿，整一脚本变得自然而然了。</p>
+<a id="more"></a>
+<p><strong>1. 创建一个静态包/库工程(已有请跳过这一步)</strong></p>
+<p>创建如下图：<br><img src="/imgs/createLib.png" alt="Build Lib"></p>
+<p>在Trargets下面，点击左下角的“+”,选择添加一个新的Target， 然后选择“Aggregate”选项，新建一个集合类target，如下图所示：<br><img src="/imgs/aggregate.png" alt="Build Target"></p>
+<p><strong>2. 给集合类添加依赖</strong></p>
+<p>在Targets下面选中我们新建的集合类，然后Build Phases –&gt; Target Dependencies 下面添加我们需要编译的静态库,如下图所示：</p>
+<p><img src="/imgs/dependencies.png" alt="添加依赖"></p>
+<p><strong>3. 添加脚本</strong></p>
+<p>在Targets下面选中我们新建的集合类,然后在Build Phases下，点击左上角的“+”，选择”New Run Script Phase”选项,如下图：</p>
+<p><img src="/imgs/runscript.png" alt="添加运行脚本"></p>
+<p>然后设置我们运行的脚本的所在位置,如下图所示:</p>
+<p><img src="/imgs/scriptpath.png" alt="设置脚本位置"></p>
+<p><strong>注意：</strong></p>
+<blockquote>
+<p>../scripts/build-framework.sh 表示脚本的位置在当前工程的上一个目录下地scripts文件夹下. 当然”../“也可以用”${SRCROOT}/../“来代替.</p>
+<p>脚本位置可根据实际情况自行设置。</p>
+</blockquote>
+<p><strong>4. 选择我们创建的集合类的target，编译</strong></p>
+<p>在编译时，你可能会遇到下面的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permission denied.</span><br></pre></td></tr></table></figure></p>
+<p>这是因为shell脚本，还没有添加可执行的权限。</p>
+<p>解决办法：在终端上， cd 进入到脚本所在的文件夹； 然后使用 chmod +x ./yourShellName.sh 命令， 成功之后，就可以正常的运行Xcode工程了。</p>
+<p><strong>5. 指定target</strong></p>
+<p>一般来说我们编译的target名称，跟我们的project工程的名称是一样的，但是，如果我们修改了我们的target名称，需要在我们制定脚本的位置后面跟上我们需要编译的target名称，既:脚本位置+空格+target名称。如下图：</p>
+<p><img src="/imgs/buildparam.png" alt="指定target"></p>
+<p><strong>6. shell脚本源码</strong></p>
+<p>编译library的脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>要build的target名</span><br><span class="line">target_Name=$&#123;PROJECT_NAME&#125;</span><br><span class="line">if [[ $1 ]]</span><br><span class="line">then</span><br><span class="line">target_Name=$1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">UNIVERSAL_OUTPUT_FOLDER="$&#123;SRCROOT&#125;/$&#123;PROJECT_NAME&#125;_Products"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 创建输出目录，并删除之前的文件</span><br><span class="line">rm -rf "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line">mkdir -p "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 分别编译真机和模拟器版本</span><br><span class="line">xcodebuild -target "$&#123;target_Name&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphoneos  BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line">xcodebuild -target "$&#123;target_Name&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphonesimulator BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>复制头文件到目标文件夹</span><br><span class="line">HEADER_FOLDER="$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/include/$&#123;target_Name&#125;"</span><br><span class="line">if [[ -d "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/usr/local/include" ]]</span><br><span class="line">then</span><br><span class="line">    HEADER_FOLDER="$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/usr/local/include"</span><br><span class="line">fi</span><br><span class="line">cp -R "$&#123;HEADER_FOLDER&#125;" "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>合成模拟器和真机.a包</span><br><span class="line">lipo -create "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/lib$&#123;target_Name&#125;.a" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphoneos/lib$&#123;target_Name&#125;.a" -output "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/lib$&#123;target_Name&#125;.a"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 判断build文件夹是否存在，存在则删除</span><br><span class="line">if [ -d "$&#123;SRCROOT&#125;/build" ]</span><br><span class="line">then</span><br><span class="line">rm -rf "$&#123;SRCROOT&#125;/build"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>打开目标文件夹</span><br><span class="line">open "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br></pre></td></tr></table></figure>
+<p>编译framework的shell脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"><span class="meta">#</span>要build的target名</span><br><span class="line">TARGET_NAME=$&#123;PROJECT_NAME&#125;</span><br><span class="line">if [[ $1 ]]</span><br><span class="line">then</span><br><span class="line">TARGET_NAME=$1</span><br><span class="line">fi</span><br><span class="line">UNIVERSAL_OUTPUT_FOLDER="$&#123;SRCROOT&#125;/$&#123;PROJECT_NAME&#125;_Products/"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>创建输出目录，并删除之前的framework文件</span><br><span class="line">mkdir -p "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line">rm -rf "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/$&#123;TARGET_NAME&#125;.framework"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>分别编译模拟器和真机的Framework</span><br><span class="line">xcodebuild -target "$&#123;TARGET_NAME&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphoneos BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line">xcodebuild -target "$&#123;TARGET_NAME&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphonesimulator BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>拷贝framework到univer目录</span><br><span class="line">cp -R "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/$&#123;TARGET_NAME&#125;.framework" "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>合并framework，输出最终的framework到build目录</span><br><span class="line">lipo -create -output "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/$&#123;TARGET_NAME&#125;.framework/$&#123;TARGET_NAME&#125;" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/$&#123;TARGET_NAME&#125;.framework/$&#123;TARGET_NAME&#125;" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphoneos/$&#123;TARGET_NAME&#125;.framework/$&#123;TARGET_NAME&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>删除编译之后生成的无关的配置文件</span><br><span class="line">dir_path="$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/$&#123;TARGET_NAME&#125;.framework/"</span><br><span class="line">for file in ls $dir_path</span><br><span class="line">do</span><br><span class="line">if [[ $&#123;file&#125; =~ ".xcconfig" ]]</span><br><span class="line">then</span><br><span class="line">rm -f "$&#123;dir_path&#125;/$&#123;file&#125;"</span><br><span class="line">fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>判断build文件夹是否存在，存在则删除</span><br><span class="line">if [ -d "$&#123;SRCROOT&#125;/build" ]</span><br><span class="line">then</span><br><span class="line">rm -rf "$&#123;SRCROOT&#125;/build"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">rm -rf "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphoneos"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>打开合并后的文件夹</span><br><span class="line">open "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在iOS开发中，有时候为了项目模块间的相互独立性，降低模块间的耦合，通常将底层相对稳定的模块抽取出来，形成SDK，以静态包或者静态库的形式引入项目。这中间免不了编译打包静态包/库，通常的做法是模拟器和真机分别编译，然后再将两个静态包或者库&lt;code&gt;lipo&lt;/code&gt;合并成一个。这样的工作做多了，难免觉得麻烦，想省事儿，整一脚本变得自然而然了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="脚本" scheme="https://robberjj.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式--单例模式</title>
+    <link href="https://robberjj.github.io/2017/07/16/DesignPattern_Singleton/"/>
+    <id>https://robberjj.github.io/2017/07/16/DesignPattern_Singleton/</id>
+    <published>2017-07-16T07:35:06.000Z</published>
+    <updated>2018-07-17T09:05:43.362Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="单例模式-singleton"><a href="#单例模式-singleton" class="headerlink" title="单例模式(singleton)"></a>单例模式(singleton)</h3><blockquote>
+<p>单例模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
+<p><strong>单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>单例模式几乎是设计模式的最简单形式了，这一模式的意图是使得类的一个对象成为系统中的唯一实例。要实现这一点，可以从客户端对其进行实例化开始。因此需要一种只允许生成对象类的唯一实例的机制，“阻止”所有想要生成对象的访问。我们可以用工厂方法来限制实例化的过程。这个方法应该为静态方法(类方法)，因为我们让类的实例去生成另一个唯一实例毫无意义。</p>
+<p>单例模式的类图如下：<br><img src="/imgs/singleton.png" alt="单例模式类图"></p>
+<p><code>static uniqueInstance</code>是<code>Singleton</code>的唯一实例，<code>static sharedInstance</code>将它返回给客户端。通常，<code>sharedInstance</code>会检查<code>uniqueInstance</code>是否已经被实例化，如果没有，它会生成一个实例后返回<code>uniqueInstance</code>。</p>
+<h6 id="何时使用原型模式？"><a href="#何时使用原型模式？" class="headerlink" title="何时使用原型模式？"></a>何时使用原型模式？</h6><p>在以下情形，会考虑使用原型模式：</p>
+<ol>
+<li>类只有一个实例，而且必须从一个为人熟知的访问点对其进行访问，比如工厂方法；</li>
+<li>这个唯一实例只能通过子类化进行扩展，而且扩展的对象不会破坏客户端代码。</li>
+</ol>
+<h6 id="使用Cocoa-Touch框架中使用单例模式"><a href="#使用Cocoa-Touch框架中使用单例模式" class="headerlink" title="使用Cocoa Touch框架中使用单例模式"></a>使用Cocoa Touch框架中使用单例模式</h6><p>Cocoa Touch框架中使用了大量的单例类。下面讨论其中的几个：</p>
+<p><em>1.UIApplication类</em></p>
+<p>框架中使用最常用的一个类是<code>UIApplication</code>类。它提供了一个控制并协调iOS应用程序的集中点。</p>
+<p>每个应用程序有且仅有一个<code>UIApplication</code>的实例。它由<code>UIApplicationMain</code>函数在应用程序启动时创建为单例对象。之后，对同一<code>UIApplication</code>实例可以通过其sharedApplication类方法进行访问。</p>
+<p><code>UIApplication</code>对象为应用程序处理许多内存管理任务(housekepping task)，包括传入事件的最初路由，以及为<code>UIControl</code>分发动作消息给核实的目标对象。它还维护应用程序中的所有<code>UIWindow</code>对象的列表。。应用程序对象总是被分配一个<code>UIApplicationDelegate</code>对象，应用程序将把重要的运行时状态通知给它，比如iOS应用程序中的应用程序启动、内存不足警告、应用程序终止和后台进行执行。这让委托(<code>delegate</code>)有机会做出适当的响应。</p>
+<p><em>2.UIAcceleremeter类</em></p>
+<p>Cocoa Touch框架中另一个常用的单例是<code>UIAcceleremeter</code>.<code>UIAcceleremeter</code>让应用程序可以注册，以接收来自iOS设备内置的加速度计的加速度的相关数据。应用程序会收到三维空间中沿主轴的线性加速度变化，可以使用这一数据检测设备的当前方向和当前方向的瞬间变化。</p>
+<p><code>UIAcceleremeter</code>是单例，所以不能直接生成它的对象。而是应该调用其<code>sharedAcceleremeter</code>单例类方法以访问它的唯一实例。然后设定它的<code>updateInterval</code>属性，并用自己的<code>delegate</code>对象设定<code>delegate</code>属性，以接收来自单例实例的加速度数据。</p>
+<p><em>3.NSFileManager类</em></p>
+<p>在Mac OS X v10.5和iOS2.0之前，<code>NSFileManager</code>曾经是单例模式的“严格”实现。调用它的init方法是空操作，并且唯一实例可以通过<code>defaultManager</code>类方法创建和访问。然而其单例实现并不是线程安全的。现在推荐生成新的<code>NSFileManager</code>实例以保证线程安全。这一方式被认为是更灵活的单例实现，其中工厂方法总是返回同一实例，但是也可以分配并初始化另外的实例。</p>
+<p><strong>附上单例模式的Demo：<a href="https://github.com/RobberJJ/DesignSingleton" target="_blank" rel="noopener">DesignPattern_Singleton</a></strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;单例模式-singleton&quot;&gt;&lt;a href=&quot;#单例模式-singleton&quot; class=&quot;headerlink&quot; title=&quot;单例模式(singleton)&quot;&gt;&lt;/a&gt;单例模式(singleton)&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;单例模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+</feed>
