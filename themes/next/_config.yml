@@ -91,9 +91,9 @@ scheme: Pisces
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/RobberJJ
-  jianshu: http://www.jianshu.com/u/ddb6b7f61f04
-  twitter: https://twitter.com/Ro__bber
-  facebook: https://www.facebook.com/profile.php?id=100015070143697
+  简书: http://www.jianshu.com/u/ddb6b7f61f04
+  Twitter: https://twitter.com/Ro__bber
+  Facebook: https://www.facebook.com/profile.php?id=100015070143697
 
 # Social Links Icons
 # Icon Mapping:
@@ -106,8 +106,7 @@ social_icons:
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Twitter: twitter
-  jianshu: folder
-  facebook: facebook
+  Facebook: facebook
 
 # Blog rolls
 #links_title: Links
