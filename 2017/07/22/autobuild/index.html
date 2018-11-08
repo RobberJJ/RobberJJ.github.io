@@ -83,7 +83,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="RobberJJ.Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Ro.bber's Blog" type="application/atom+xml">
 
 
 
@@ -100,7 +100,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS脚本自动编译静态包&#x2F;静态库">
 <meta property="og:url" content="https://robberjj.github.io/2017/07/22/autobuild/index.html">
-<meta property="og:site_name" content="RobberJJ.Blog">
+<meta property="og:site_name" content="Ro.bber&#39;s Blog">
 <meta property="og:description" content="在iOS开发中，有时候为了项目模块间的相互独立性，降低模块间的耦合，通常将底层相对稳定的模块抽取出来，形成SDK，以静态包或者静态库的形式引入项目。这中间免不了编译打包静态包/库，通常的做法是模拟器和真机分别编译，然后再将两个静态包或者库lipo合并成一个。这样的工作做多了，难免觉得麻烦，想省事儿，整一脚本变得自然而然了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://robberjj.github.io/imgs/createLib.png">
@@ -122,7 +122,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -147,7 +147,7 @@
 
 
 
-  <title>iOS脚本自动编译静态包/静态库 | RobberJJ.Blog</title>
+  <title>iOS脚本自动编译静态包/静态库 | Ro.bber's Blog</title>
   
 
 
@@ -193,12 +193,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">RobberJJ.Blog</span>
+        <span class="site-title">Ro.bber's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">未来的不可知，是我前进的源动力~</p>
+        <p class="site-subtitle">人生，寂寞如雪...</p>
       
   </div>
 
@@ -331,13 +331,13 @@
     <link itemprop="mainEntityOfPage" href="https://robberjj.github.io/2017/07/22/autobuild/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ro_bber">
+      <meta itemprop="name" content="Ro.bber">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RobberJJ.Blog">
+      <meta itemprop="name" content="Ro.bber's Blog">
     </span>
 
     
@@ -393,16 +393,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/22/autobuild/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/07/22/autobuild/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -415,6 +405,27 @@
             </span>
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+
+              
+            </div>
           
 
           
@@ -574,8 +585,8 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ro_bber">
-          <p class="site-author-name" itemprop="name">Ro_bber</p>
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ro.bber">
+          <p class="site-author-name" itemprop="name">Ro.bber</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
           
@@ -645,24 +656,6 @@
                 </a>
               </span>
             
-              <span class="links-of-author-item">
-                <a href="https://twitter.com/Ro__bber" target="_blank" title="Twitter">
-                  
-                    <i class="fa fa-fw fa-twitter"></i>
-                  
-                  Twitter
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.facebook.com/profile.php?id=100015070143697" target="_blank" title="Facebook">
-                  
-                    <i class="fa fa-fw fa-facebook"></i>
-                  
-                  Facebook
-                </a>
-              </span>
-            
           
         </div>
 
@@ -679,6 +672,13 @@
 
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -698,7 +698,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Ro_bber</span>
+  <span class="author" itemprop="copyrightHolder">Ro.bber</span>
 </div>
 
 
@@ -740,11 +740,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
   </div>
@@ -834,8 +829,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://robberjj.disqus.com/count.js" async></script>
     
 
     

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>RobberJJ.Blog</title>
-  <subtitle>未来的不可知，是我前进的源动力~</subtitle>
+  <title>Ro.bber&#39;s Blog</title>
+  <subtitle>人生，寂寞如雪...</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
@@ -9,7 +9,7 @@
   <id>https://robberjj.github.io/</id>
   
   <author>
-    <name>Ro_bber</name>
+    <name>Ro.bber</name>
     
   </author>
   
