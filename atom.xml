@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-07-17T09:57:15.035Z</updated>
+  <updated>2018-11-08T02:37:01.897Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -16,347 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Development cannot be enabled while your device is locked.</title>
-    <link href="https://robberjj.github.io/2018/07/17/DeviceConnotEnableWithLocked/"/>
-    <id>https://robberjj.github.io/2018/07/17/DeviceConnotEnableWithLocked/</id>
-    <published>2018-07-17T09:51:30.000Z</published>
-    <updated>2018-07-17T09:57:15.035Z</updated>
-    
-    <content type="html"><![CDATA[<p>有时候我们真机调试的时候，会遇到这样的报错：</p>
-<blockquote>
-<p>Development cannot be enabled while your device is locked.</p>
-</blockquote>
-<p>但是！我TM手机明明解锁了啊，指纹解的锁不是？密码解的锁不是？没感应到？换个姿势再来一次？还是不行？？</p>
-<p>哈哈，有同样经历的点个赞吧。</p>
-<a id="more"></a>
-<p>估计是有这么个不经意的瞬间，手机首次插上mac的时候，苹果给你弹了个框框，让你<code>trust (信任)</code>它，然后我们手欠的点了<code>不trust (信任)</code>，然后它生气了，不让你用了，就是上面的局面。</p>
-<p>关键的是，它从此以后就不再弹了。。。</p>
-<p>我TM错了，还不行么？你回来再给我弹一次啊！！</p>
-<p>后悔药：</p>
-<blockquote>
-<p>设置 –&gt; 通用 –&gt; 还原  –&gt; 还原位置和隐私 </p>
-</blockquote>
-<p>按照上面的操作之后，重插，就会弹了~~~ 不用谢我~</p>
-<p>后遗症：</p>
-<blockquote>
-<p>位置和隐私被重置了，之前已经设置位置和隐私的APP们，你再次进去的时候，都开始积极的弹框让你赏口饭了。</p>
-</blockquote>
-<p>【/笑哭】🤣</p>
-<p>这块儿官网其实是有说明的：<br><a href="https://support.apple.com/en-us/HT202778" target="_blank" rel="noopener">https://support.apple.com/en-us/HT202778</a></p>
-<p>划重点:<br><img src="https://upload-images.jianshu.io/upload_images/6080248-2b5548a95f804bac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有时候我们真机调试的时候，会遇到这样的报错：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Development cannot be enabled while your device is locked.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;但是！我TM手机明明解锁了啊，指纹解的锁不是？密码解的锁不是？没感应到？换个姿势再来一次？还是不行？？&lt;/p&gt;
-&lt;p&gt;哈哈，有同样经历的点个赞吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="xcode" scheme="https://robberjj.github.io/tags/xcode/"/>
-    
-      <category term="Locked" scheme="https://robberjj.github.io/tags/Locked/"/>
-    
-      <category term="真机运行" scheme="https://robberjj.github.io/tags/%E7%9C%9F%E6%9C%BA%E8%BF%90%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不升级XCode越版本真机Debug</title>
-    <link href="https://robberjj.github.io/2018/07/17/DeviceDebugWithoutUploadXcode/"/>
-    <id>https://robberjj.github.io/2018/07/17/DeviceDebugWithoutUploadXcode/</id>
-    <published>2018-07-17T09:47:38.000Z</published>
-    <updated>2018-07-17T09:49:25.614Z</updated>
-    
-    <content type="html"><![CDATA[<p>有时候我们的iPhone紧跟apple的步伐升级最新的版本了，但是Xcode并没有及时更新到最新版本(Xcode是在很大，而且有时候是需要最新的beta版本的)，这时候真机调试的时候就会出现下面这样的问题：</p>
-<blockquote>
-<p>报错：<br>Could not locate device support files.<br>This iPhone 7 (Model 1660, 1778, 1779, 1780) is running iOS 11.3 (15E216), which may not be supported by this version of Xcode.</p>
-</blockquote>
-<p>当然，我们升级Xcode到适当的版本(iPhone是release版本，一般Xcode升级到最新的release版本，iPhone是beta版本，一般Xcode升级到最新的beta版本)，但是上面提到升级Xcode时间实在太长，急性子的我们表示等不及。</p>
-<a id="more"></a>
-<p>下面介绍一种不用升级Xcode就是真机调试的方法：</p>
-<p><strong>更新Xcode真机运行支持包</strong></p>
-<p>Xcode真机运行支持包path在这里：Xcode路径/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport，打开后能看到这样的界面：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-37130952acca05d7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DeviceSupport.jpg"></p>
-<p>支持包这里下载：链接: <a href="https://pan.baidu.com/s/1eS20QS6" target="_blank" rel="noopener">https://pan.baidu.com/s/1eS20QS6</a> 密码: 5v35</p>
-<p>之后要做的就是，需要哪一个iPhone系统的支持包，下载解压，放进去就可以了，然后插入你的手机，等Xcode解析好你的手机文件就可以真机运行了。</p>
-<ul>
-<li>有时候可能不生效，重启大法重启下Xcode再试试。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有时候我们的iPhone紧跟apple的步伐升级最新的版本了，但是Xcode并没有及时更新到最新版本(Xcode是在很大，而且有时候是需要最新的beta版本的)，这时候真机调试的时候就会出现下面这样的问题：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;报错：&lt;br&gt;Could not locate device support files.&lt;br&gt;This iPhone 7 (Model 1660, 1778, 1779, 1780) is running iOS 11.3 (15E216), which may not be supported by this version of Xcode.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;当然，我们升级Xcode到适当的版本(iPhone是release版本，一般Xcode升级到最新的release版本，iPhone是beta版本，一般Xcode升级到最新的beta版本)，但是上面提到升级Xcode时间实在太长，急性子的我们表示等不及。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="XCode" scheme="https://robberjj.github.io/tags/XCode/"/>
-    
-      <category term="Debug" scheme="https://robberjj.github.io/tags/Debug/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github超过100M的大文件上传</title>
-    <link href="https://robberjj.github.io/2018/07/17/BigFileUploadToGithub/"/>
-    <id>https://robberjj.github.io/2018/07/17/BigFileUploadToGithub/</id>
-    <published>2018-07-17T09:43:53.000Z</published>
-    <updated>2018-07-17T09:45:49.096Z</updated>
-    
-    <content type="html"><![CDATA[<p>通常我们commit完成之后，往Github上push的时候，单个文件大小不会超过100M，所以基本不会遇到这种情况。<br>但是，总会遇到的，当单个文件超过100M的时候，push的时候会出现下面这样的Error：</p>
-<blockquote>
-<p>remote: Resolving deltas: 100% (472/472), done.<br>remote: error: GH001: Large files detected.<br>You may want to try Git Large File Storage - <a href="https://git-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a>.</p>
-</blockquote>
-<p>或者：</p>
-<blockquote>
-<p>Total 3007 (delta 664), reused 0 (delta 0)<br>remote: error: GH001: Large files detected.<br>remote: error: Trace: 7b7de6b9372ee392e0f3961b05ea6f33<br>remote: error: See <a href="http://git.io/iEPt8g" target="_blank" rel="noopener">http://git.io/iEPt8g</a> for more information.<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB。</p>
-</blockquote>
-<a id="more"></a>
-<p>上面错误的原因很好理解就是GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库：<a href="https://link.jianshu.com/?t=https%3A%2F%2Fgit-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a><br>LFS使用的简单步骤：</p>
-<ul>
-<li>安装git - lfs到本机<br>这里没有什么难度，根据官网安装就好。</li>
-</ul>
-<p>之后就是提交大文件的顺序，下面是官网的顺序：</p>
-<ol>
-<li><p>安装Git命令行扩展。只需要设置一次Git LFS。<br>在项目目录下，执行以下命令：</p>
-<blockquote>
-<p>git lfs install</p>
-</blockquote>
-</li>
-<li><p>选择您希望Git LFS管理的文件类型（或直接编辑.gitattributes）。您可以随时配置其他文件扩展名。这一步成功后会生成一个gitattributes文件</p>
-<blockquote>
-<p>git lfs track “<em> .a” –这里的 “ </em>.a “就是你要上传的大文件的路径</p>
-</blockquote>
-</li>
-<li><p>添加并commit gitattributes文件</p>
-<blockquote>
-<p>git add .gitattributes</p>
-</blockquote>
-</li>
-<li><p>然后再添加大文件到本地缓存区</p>
-<blockquote>
-<p>git add demo.a<br>git commit -m “提交.a大文件”<br>git push</p>
-</blockquote>
-</li>
-</ol>
-<p>以上，按照上述的方法，第一次上传大文件基本还是会报错，而且百思不得其解~<br>尼玛，新手入坑总是这个尿性。。</p>
-<p>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-b5b22f1f9d1a1f7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2200042-a1a69b95caa64404.png"></p>
-<p>出现上述问题，先reset 到你刚才commit的前一个commit,(意思就是撤销刚才的commit，回到起点再来一次。)</p>
-<p>第一、二步同上，第三步的时候，先将 .gitattributes文件，单独commit，然后push，完成之后，在进行第四部(第四部add 之后 执行<code>git lfs ls-files</code>应该能看见东西了)。<br>到这里应该就没问题了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;通常我们commit完成之后，往Github上push的时候，单个文件大小不会超过100M，所以基本不会遇到这种情况。&lt;br&gt;但是，总会遇到的，当单个文件超过100M的时候，push的时候会出现下面这样的Error：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;remote: Resolving deltas: 100% (472/472), done.&lt;br&gt;remote: error: GH001: Large files detected.&lt;br&gt;You may want to try Git Large File Storage - &lt;a href=&quot;https://git-lfs.github.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://git-lfs.github.com&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;或者：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Total 3007 (delta 664), reused 0 (delta 0)&lt;br&gt;remote: error: GH001: Large files detected.&lt;br&gt;remote: error: Trace: 7b7de6b9372ee392e0f3961b05ea6f33&lt;br&gt;remote: error: See &lt;a href=&quot;http://git.io/iEPt8g&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://git.io/iEPt8g&lt;/a&gt; for more information.&lt;br&gt;remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB&lt;br&gt;remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="Github" scheme="https://robberjj.github.io/tags/Github/"/>
-    
-      <category term="大文件" scheme="https://robberjj.github.io/tags/%E5%A4%A7%E6%96%87%E4%BB%B6/"/>
-    
-      <category term="git-lfs" scheme="https://robberjj.github.io/tags/git-lfs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac上的那些效率神器</title>
-    <link href="https://robberjj.github.io/2018/07/17/ArtifactOnMac/"/>
-    <id>https://robberjj.github.io/2018/07/17/ArtifactOnMac/</id>
-    <published>2018-07-17T09:37:48.000Z</published>
-    <updated>2018-07-17T09:45:46.687Z</updated>
-    
-    <content type="html"><![CDATA[<p>为了提高效率，我们必须不择手段！！</p>
-<p>这里为大家推荐一波Mac上的神器。</p>
-<a id="more"></a>
-<p>####No.1  <em>Alfred</em> <a href="https://www.alfredapp.com/" target="_blank" rel="noopener">点我装备</a></p>
-<p>这顶神奇的魔法帽到底能干啥？<br>这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。</p>
-<p>哈哈~~是不是很夸张？！  一会儿再来下定论</p>
-<p>在这里我只是举一个简单的栗子，通常我们遇到不懂的英文单词，基本是这么一个操作过程：</p>
-<ul>
-<li>copy单词</li>
-<li>打开翻译应用（比如自带词典）</li>
-<li>输入或粘贴查询单词</li>
-<li>翻译应用输出查询结果</li>
-<li>查询过后，一般都需要 Cmd+Q 退出应用（或者 Cmd+H 隐藏词典，亦或 Cmd+Tab 切换回上一个应用）</li>
-</ul>
-<p>或者是下面的步骤：</p>
-<ul>
-<li>copy单词</li>
-<li>手动打开浏览器</li>
-<li>进入谷歌首页</li>
-<li>选中输入框</li>
-<li>输入或粘贴查询单词，然后空格并加上「翻译」两个字，然后再回车</li>
-<li>等待浏览器展示查询结果;</li>
-</ul>
-<p>而用Alfred是只需要：</p>
-<ul>
-<li>选中单词</li>
-<li>CMD+Y（假如快捷键你设置的是这个）</li>
-</ul>
-<p>Done！！</p>
-<h5 id="那么问题来了，Alfred到底具体能做什么？"><a href="#那么问题来了，Alfred到底具体能做什么？" class="headerlink" title="那么问题来了，Alfred到底具体能做什么？"></a>那么问题来了，Alfred到底具体能做什么？</h5><p>默认情况下，Alfred 至少能胜任 15 项工作：</p>
-<ol>
-<li>应用搜索</li>
-<li>文件或目录搜索</li>
-<li>文本内容搜索</li>
-<li>标记搜索</li>
-<li>快捷网页搜索</li>
-<li>书签搜索</li>
-<li>计算器</li>
-<li>词典搜索</li>
-<li>通讯录搜索</li>
-<li>剪切板搜索</li>
-<li>代码片段搜索</li>
-<li>iTunes 管理</li>
-<li>1Password 搜索</li>
-<li>系统常用命令快捷操作</li>
-<li>直接唤起指定终端并执行命令</li>
-</ol>
-<p><a href="https://sspai.com/post/44624" target="_blank" rel="noopener">这里</a>做了很详细的说明。</p>
-<p>当然，Alfred真正核心的功能在于——<strong>Workflow</strong> 。</p>
-<p>Alfred 几乎可以做任何自动化工作流的事情（只要能用代码描述这个工作流就行），它能彻底改变了你对 Mac 的认知。</p>
-<p>网上有很多大神们写好的<code>workflow</code>，可以搜一搜，然后体验体验，在我们可以自己为所欲为之前，坚定一下信心。</p>
-<h4 id="No-2-Things-3-点我装备"><a href="#No-2-Things-3-点我装备" class="headerlink" title="No.2 Things 3 点我装备"></a>No.2 <em>Things 3</em> <a href="https://culturedcode.com/things/" target="_blank" rel="noopener">点我装备</a></h4><p>一句话总结：<strong>GTD神器，简洁但不简单。</strong></p>
-<h4 id="No-3-Moom-点我装备"><a href="#No-3-Moom-点我装备" class="headerlink" title="No.3 Moom 点我装备"></a>No.3 <em>Moom</em> <a href="https://manytricks.com/moom/" target="_blank" rel="noopener">点我装备</a></h4><p>一款窗口布局的神器。<br>支持自定义快捷键实现相应的窗口布局。</p>
-<h4 id="No-3-CheatSheet-点我装备"><a href="#No-3-CheatSheet-点我装备" class="headerlink" title="No.3 CheatSheet 点我装备"></a>No.3 <em>CheatSheet</em> <a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">点我装备</a></h4><p>一键直观查看App的快捷键列表。</p>
-<p>说道快捷键，是的，快捷键会很大程度上提高你的效率，Mac上就自带了很多的快捷键，记住这些快捷键招式，就能立马神装出山了。<br>具体可以参见<a href="https://www.jianshu.com/p/00bb1b9189c0" target="_blank" rel="noopener">这里</a>。</p>
-<h4 id="No-4-Vim"><a href="#No-4-Vim" class="headerlink" title="No.4 Vim"></a>No.4 <em>Vim</em></h4><p>细心一些我们会发现，当前主流的IDE，或者以前曾经主流过的，或者未来即将成为主流的，总会有一套Vim相关的插件。<br>其实，这就已经很能说明问题了。</p>
-<p>Vim在手，天下我有的赶脚，有木有？！</p>
-<p>Vim各类IDE的插件安装在这里就不详细阐述了，推荐几个Atom上神装吧，仅供参考：</p>
-<ul>
-<li><a href="https://github.com/t9md/atom-vim-mode-plus" target="_blank" rel="noopener">Vim Mode Plus</a><blockquote>
-<p>Vim主要功能插件，不多说，究竟怎么爽，谁用谁知道。</p>
-<ul>
-<li><a href="https://atom.io/packages/relative-numbers" target="_blank" rel="noopener">relative-numbers</a><br>相对行数在Vim中的重要地位不言而喻了，这款插件能够直观的看出彼此的相对行数。</li>
-</ul>
-</blockquote>
-</li>
-<li><a href="https://atom.io/packages/minimap" target="_blank" rel="noopener">minimap</a><blockquote>
-<p>Sublime 右侧的mini视图，对，就是这货。</p>
-</blockquote>
-</li>
-<li><a href="https://atom.io/packages/activate-power-mode" target="_blank" rel="noopener">activate-power-mode</a><blockquote>
-<p>这款插件绝对会让你有一种敲代码如同跳舞的动感，呃，提醒一句，注意休息眼睛。哈哈~~</p>
-</blockquote>
-</li>
-</ul>
-<p>当然，Atom的插件还有很多，可以去他的<a href="https://atom.io/packages/" target="_blank" rel="noopener">官网</a>淘出你需要的。</p>
-<h4 id="No-5-iTerm-点击装备"><a href="#No-5-iTerm-点击装备" class="headerlink" title="No.5 iTerm 点击装备"></a>No.5 <em>iTerm</em> <a href="https://www.iterm2.com/" target="_blank" rel="noopener">点击装备</a></h4><p><code>iTerm2</code>+ <code>oh my zsh</code>的组合，为你打造最强Mac终端便不只是梦。<br>个性化的主题，私人订制属于自己的格调。<br>一堆定义好的<code>alias</code>，省心省力，爽的飞起！</p>
-<h4 id="No-6-Vimium"><a href="#No-6-Vimium" class="headerlink" title="No.6 Vimium"></a>No.6 <em>Vimium</em></h4><ul>
-<li>chrome下的Vim插件，让你浏览网页也能有Vim操作的快感。<br>点击<a href="https://sspai.com/post/27723" target="_blank" rel="noopener">这里</a>了解</li>
-</ul>
-<p>最后，放上Vim快捷键的几张图，欢迎收藏：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-804fa34b20f5d806.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim文字版.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/6080248-b631711cd75dff0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim入门版.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/6080248-693a8cccf9e14a5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim进阶版.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/6080248-ebf562cde5fbc69c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim增强版.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/6080248-29e1a78e12cfdca9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vim.png"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为了提高效率，我们必须不择手段！！&lt;/p&gt;
-&lt;p&gt;这里为大家推荐一波Mac上的神器。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
-    
-      <category term="效率" scheme="https://robberjj.github.io/tags/%E6%95%88%E7%8E%87/"/>
-    
-      <category term="神器" scheme="https://robberjj.github.io/tags/%E7%A5%9E%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac上的那些个快捷键们</title>
-    <link href="https://robberjj.github.io/2018/07/17/ShortCutsOnMac/"/>
-    <id>https://robberjj.github.io/2018/07/17/ShortCutsOnMac/</id>
-    <published>2018-07-17T09:09:14.000Z</published>
-    <updated>2018-07-17T09:28:02.177Z</updated>
-    
-    <content type="html"><![CDATA[<p>入了Mac的坑，在为其魅力折服的同时，不免时不时的会有一些挥之不去的痛点。</p>
-<p>其实在Mac上有一大堆的快捷键，可以让你的效率有一个质的提高。</p>
-<p>在这里官方给出了快捷键的说明。<a href="https://support.apple.com/zh-cn/ht201236" target="_blank" rel="noopener">点我直达</a><br>显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。</p>
-<a id="more"></a>
-<p>当然，<code>CMD + Q(W/O/N)</code>、<code>CMD + X(C/V/F/S/A)</code>之流就不说了，太常用，大家都知道。<br>下面主要列举一下我自己感觉比较效率，但是又容易被忽视的快捷键：<br><code>CMD + ` </code>在同一个应用的各个标签页中切换。<br><code>CMD + Tab</code>在打开的应用中切换到下一个最近使用的应用,按住可切换到其他应用，亦可配合触摸板或者鼠标选中某个应用<br><code>CMD + T</code>打开新的标签<br><code>CMD + H</code>隐藏当前应用<br><code>CMD + Alt + H</code>隐藏除了当前应用外的其他应用<br><code>CMD + M</code>最小化当前应用<br><code>CMD + Alt + M</code>最小化除了当前应用外的其他应用<br><code>CMD + Shift + 3</code> 截取整个屏幕，并保存图片到桌面<br><code>CMD + Shift + 4</code> 自定义截图大小，按下 Space 键，可以选择窗口截图<br><code>Ctrl + ←(→)</code>可以切换屏幕<br><code>CMD + ,</code>打开偏好设置<br>……</p>
-<p>类似的快捷键其实还有很多很多，根据自身的习惯取舍吧。</p>
-<p>快捷键的初衷，其实是想让效率能够提升，是想工作(娱乐)起来更有效率。<br>但是问题来了，快捷键记少了总感觉不够用，而想要记更多的快捷键，难免成为一种负担。</p>
-<p><code>CheatSheet</code>，一款App，一键查看所有快捷键的App。<a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">点我速度装备</a></p>
-<p>其实在Mac上还要一些隐藏的或者说是并没有明说的快捷键。(Apple经常干这事儿，发现的时候总有些喜怒交加)。</p>
-<p>在mac上，很多时候在文本输入时，总想着能有一些快捷键，能让光标快速移动，殊不知，mac本身就自带这个能力。</p>
-<p>如：iTerm2, 终端, safari, Chrome, QQ, SourceTree, Xcode, MindNode Pro, Pages, Keynote, 便签,  邮件等，几乎有文本输入的地方似乎都是支持的~~~</p>
-<p>在这里我列举一下平时比较常用的快捷键以及帮助记忆的方法：</p>
-<blockquote>
-<p>注：为与emacs教程习惯一致，<code>Ctrl</code> 简写成 <code>C</code></p>
-</blockquote>
-<ul>
-<li><code>C - a</code> 光标移到行首（abcde，a是开头）</li>
-<li><code>C - e</code> 光标移到行尾（abcde，e是结尾）</li>
-<li><code>C - f</code> 光标向文档结尾方向移（Forward首字母）</li>
-<li><code>C - b</code> 光标向文档开头方向移（Back首字母）</li>
-<li><code>C - p</code> 光标移向上一行（Previous首字母）</li>
-<li><code>C - n</code> 光标移向下一行（Next首字母）</li>
-<li><code>C - l</code> 使当前编辑的行居中（safari, qq）或清屏（iTerm2,终端）</li>
-<li><code>C - d</code> 删除光标后的一个字符（Delete首字母）</li>
-<li><code>C - k</code> 删除光标到行尾的内容（Kill首字母）</li>
-<li><code>C - y</code> 将C-k删除的东西粘贴出来（Yank首字母）</li>
-<li><code>C - o</code> 在光标后插入一个换行符</li>
-<li><code>C - t</code> 交换光标前和光标后的字符，同时光标后移（Transpose首字母）</li>
-<li><code>C - h</code> 删除光标前的一个字符</li>
-</ul>
-<p>Mac其实也可以很简单的输入一些特殊字符。</p>
-<p>输入特殊符号：<br>版权符号: Option + G = ©<br>人民币符号: Option + Y = ¥<br>商标符号: Option + 2 = ™<br>已经注册的商标: Option + R = ®   </p>
-<p>数学符号：<br>约等于: <code>Option + X</code> = ≈<br>度数: <code>Shift + Option + 8</code> = °<br>除号: <code>Option + /</code> = ÷<br>无穷: <code>Option + 5</code> = ∞<br>大于等于和小于等于: <code>Option + ,</code> 和 <code>Option + .</code> = ≤ 和 ≥<br>不等于: <code>Option + =</code> = ≠<br>圆周率: <code>Option + P</code> = π<br>加减: <code>Shift + Option + =</code> = ±<br>开方: <code>Option + V</code> = √<br>求和符号: <code>Option + W</code> = ∑</p>
-<p><strong>是不是很神奇？！</strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;入了Mac的坑，在为其魅力折服的同时，不免时不时的会有一些挥之不去的痛点。&lt;/p&gt;
-&lt;p&gt;其实在Mac上有一大堆的快捷键，可以让你的效率有一个质的提高。&lt;/p&gt;
-&lt;p&gt;在这里官方给出了快捷键的说明。&lt;a href=&quot;https://support.apple.com/zh-cn/ht201236&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点我直达&lt;/a&gt;&lt;br&gt;显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
-    
-      <category term="效率" scheme="https://robberjj.github.io/tags/%E6%95%88%E7%8E%87/"/>
-    
-      <category term="shortcut" scheme="https://robberjj.github.io/tags/shortcut/"/>
-    
-      <category term="快捷键" scheme="https://robberjj.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    
-      <category term="键盘党" scheme="https://robberjj.github.io/tags/%E9%94%AE%E7%9B%98%E5%85%9A/"/>
-    
-  </entry>
-  
-  <entry>
     <title>OC追根溯源之Class</title>
     <link href="https://robberjj.github.io/2017/11/12/oc-class/"/>
     <id>https://robberjj.github.io/2017/11/12/oc-class/</id>
     <published>2017-11-12T04:22:55.000Z</published>
-    <updated>2018-07-17T09:05:43.369Z</updated>
+    <updated>2018-11-08T02:37:01.897Z</updated>
     
     <content type="html"><![CDATA[<p>前两天碰到一面试题：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分辨下面res的是非</span></span><br><span class="line"><span class="built_in">BOOL</span> res1 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isKindOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res2 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isMemberOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res3 = [[Sark <span class="keyword">class</span>] isKindOfClass:[Sark <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res4 = [[Sark <span class="keyword">class</span>] isMemberOfClass:[Sark <span class="keyword">class</span>]];</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -421,7 +85,7 @@
     <link href="https://robberjj.github.io/2017/11/04/KeyCodes/"/>
     <id>https://robberjj.github.io/2017/11/04/KeyCodes/</id>
     <published>2017-11-04T03:56:06.000Z</published>
-    <updated>2018-07-17T09:05:43.364Z</updated>
+    <updated>2018-11-08T02:37:01.892Z</updated>
     
     <content type="html"><![CDATA[<p>最近在自己写一个mac上图片预览的功能，仿系统的预览，想要在预览的时候，加入快捷键，实现放大、缩小、前一张、后一张等功能。</p>
 <p>因为总感觉，弄个鼠标啪啪的点，很土。。。</p>
@@ -458,9 +122,9 @@
       <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
     
     
-      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
-    
       <category term="shortcuts" scheme="https://robberjj.github.io/tags/shortcuts/"/>
+    
+      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
     
       <category term="KeyCodes" scheme="https://robberjj.github.io/tags/KeyCodes/"/>
     
@@ -471,7 +135,7 @@
     <link href="https://robberjj.github.io/2017/10/28/UnableInstalled-md/"/>
     <id>https://robberjj.github.io/2017/10/28/UnableInstalled-md/</id>
     <published>2017-10-28T12:31:36.000Z</published>
-    <updated>2018-07-17T09:05:43.368Z</updated>
+    <updated>2018-11-08T02:37:01.894Z</updated>
     
     <content type="html"><![CDATA[<p>今天升级XCode 9.1 beta，编译项目正常，模拟器运行出现以下错误弹框：</p>
 <p><img src="/imgs/UnableInstalled.jpg" alt="UnableInstalled"></p>
@@ -509,7 +173,7 @@
     <link href="https://robberjj.github.io/2017/10/28/PodError-md/"/>
     <id>https://robberjj.github.io/2017/10/28/PodError-md/</id>
     <published>2017-10-28T12:22:11.000Z</published>
-    <updated>2018-07-17T09:05:43.366Z</updated>
+    <updated>2018-11-08T02:37:01.893Z</updated>
     
     <content type="html"><![CDATA[<p>升级到mac OS High Sierra之后，pod失败，错误如下：</p>
 <blockquote>
@@ -541,7 +205,7 @@
     <link href="https://robberjj.github.io/2017/10/28/NotFoundFileProvider-md/"/>
     <id>https://robberjj.github.io/2017/10/28/NotFoundFileProvider-md/</id>
     <published>2017-10-28T12:17:38.000Z</published>
-    <updated>2018-07-17T09:05:43.366Z</updated>
+    <updated>2018-11-08T02:37:01.893Z</updated>
     
     <content type="html"><![CDATA[<p>最近升级mac OS 到 High Sierra之后 XCode并没有立马升级，还是xcode 8.x，编译的时候，出现这样的问题：</p>
 <blockquote>
@@ -574,7 +238,7 @@
     <link href="https://robberjj.github.io/2017/09/24/DocumentNotAutosaved/"/>
     <id>https://robberjj.github.io/2017/09/24/DocumentNotAutosaved/</id>
     <published>2017-09-24T01:32:22.000Z</published>
-    <updated>2018-07-17T09:05:43.362Z</updated>
+    <updated>2018-11-08T02:37:01.891Z</updated>
     
     <content type="html"><![CDATA[<p>有时候莫名其妙的<code>pod update</code>之后(可能是拖拽文件到pod子项目导致的，具体忘了，出现问题的时候已经忘了之前干啥了。。。囧~)，然后某一个或者几个文件就不能编辑保存了，编译不过，如下：</p>
 <blockquote>
@@ -615,7 +279,7 @@
     <link href="https://robberjj.github.io/2017/09/24/ResourceFork/"/>
     <id>https://robberjj.github.io/2017/09/24/ResourceFork/</id>
     <published>2017-09-24T01:29:37.000Z</published>
-    <updated>2018-07-17T09:05:43.367Z</updated>
+    <updated>2018-11-08T02:37:01.893Z</updated>
     
     <content type="html"><![CDATA[<p>XCode 8之后，上传AppStore可能会出现下面的错误：</p>
 <p><img src="/imgs/resourceFork.png" alt="CodeSignError.png"></p>
@@ -657,7 +321,7 @@
     <link href="https://robberjj.github.io/2017/09/24/NSExtensionActivationRule/"/>
     <id>https://robberjj.github.io/2017/09/24/NSExtensionActivationRule/</id>
     <published>2017-09-24T01:19:58.000Z</published>
-    <updated>2018-07-17T09:05:43.365Z</updated>
+    <updated>2018-11-08T02:37:01.892Z</updated>
     
     <content type="html"><![CDATA[<p>上传AppStore的时候出现如下BUG：</p>
 <blockquote>
@@ -704,7 +368,7 @@
     <link href="https://robberjj.github.io/2017/09/24/NSScroller/"/>
     <id>https://robberjj.github.io/2017/09/24/NSScroller/</id>
     <published>2017-09-24T01:00:15.000Z</published>
-    <updated>2018-07-17T09:05:43.366Z</updated>
+    <updated>2018-11-08T02:37:01.893Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>最近在捣鼓mac上开发app，本以为iOS、mac开发本是同根生，弄起来应该差不多，上手之后才发现iOS是多么的优雅自在，而mac是干啥都觉得不太顺手，UIKit跟AppKit差别还真是不一般的大。</p>
@@ -752,7 +416,7 @@
     <link href="https://robberjj.github.io/2017/09/24/NSScrollViewSliding/"/>
     <id>https://robberjj.github.io/2017/09/24/NSScrollViewSliding/</id>
     <published>2017-09-24T00:30:33.000Z</published>
-    <updated>2018-07-17T09:05:43.365Z</updated>
+    <updated>2018-11-08T02:37:01.893Z</updated>
     
     <content type="html"><![CDATA[<p>不同于iOS中的UIScrollView，mac中的NSScrollView并没有一堆靠谱好用的delegate来帮助我们方便的监控ScrollView的状态。</p>
 <p>iOS中我们可以通过UIScrollView的<code>contentOffset</code>属性来获知滑动的位置，而在mac中我们是通过NSScrollView的<code>contentView</code>(NSClipView的实例)的<code>documentVisibleRect.origin</code>来获知滑动的相对位置。</p>
@@ -792,7 +456,7 @@
     <link href="https://robberjj.github.io/2017/07/30/xcode-shortcuts/"/>
     <id>https://robberjj.github.io/2017/07/30/xcode-shortcuts/</id>
     <published>2017-07-30T02:00:58.000Z</published>
-    <updated>2018-07-17T09:05:43.369Z</updated>
+    <updated>2018-11-08T02:37:01.898Z</updated>
     
     <content type="html"><![CDATA[<p>常言道，工欲善其事必先利其器。</p>
 <p>了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。</p>
@@ -885,7 +549,7 @@
     <link href="https://robberjj.github.io/2017/07/22/Closures/"/>
     <id>https://robberjj.github.io/2017/07/22/Closures/</id>
     <published>2017-07-22T03:56:06.000Z</published>
-    <updated>2018-07-17T09:05:43.360Z</updated>
+    <updated>2018-11-08T02:37:01.889Z</updated>
     
     <content type="html"><![CDATA[<h3>闭包(Closures)</h3>
 
@@ -989,7 +653,7 @@
     <link href="https://robberjj.github.io/2017/07/22/Encode_Update/"/>
     <id>https://robberjj.github.io/2017/07/22/Encode_Update/</id>
     <published>2017-07-22T03:10:08.000Z</published>
-    <updated>2018-07-17T09:05:43.363Z</updated>
+    <updated>2018-11-08T02:37:01.891Z</updated>
     
     <content type="html"><![CDATA[<p>在iOS 9.0之后，以前常用的<code>NSString</code>编码的方法<code>stringByAddingPercentEscapesUsingEncoding:</code>被弃用了，项目中可能会出现一堆如下⚠️：</p>
 <blockquote>
@@ -1045,7 +709,7 @@
     <link href="https://robberjj.github.io/2017/07/22/autobuild/"/>
     <id>https://robberjj.github.io/2017/07/22/autobuild/</id>
     <published>2017-07-22T02:50:01.000Z</published>
-    <updated>2018-07-17T09:05:43.368Z</updated>
+    <updated>2018-11-08T02:37:01.895Z</updated>
     
     <content type="html"><![CDATA[<p>在iOS开发中，有时候为了项目模块间的相互独立性，降低模块间的耦合，通常将底层相对稳定的模块抽取出来，形成SDK，以静态包或者静态库的形式引入项目。这中间免不了编译打包静态包/库，通常的做法是模拟器和真机分别编译，然后再将两个静态包或者库<code>lipo</code>合并成一个。这样的工作做多了，难免觉得麻烦，想省事儿，整一脚本变得自然而然了。</p>
 <a id="more"></a>
@@ -1099,7 +763,7 @@
     <link href="https://robberjj.github.io/2017/07/16/DesignPattern_Singleton/"/>
     <id>https://robberjj.github.io/2017/07/16/DesignPattern_Singleton/</id>
     <published>2017-07-16T07:35:06.000Z</published>
-    <updated>2018-07-17T09:05:43.362Z</updated>
+    <updated>2018-11-08T02:37:01.891Z</updated>
     
     <content type="html"><![CDATA[<h3 id="单例模式-singleton"><a href="#单例模式-singleton" class="headerlink" title="单例模式(singleton)"></a>单例模式(singleton)</h3><blockquote>
 <p>单例模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
@@ -1132,6 +796,313 @@
       &lt;h3 id=&quot;单例模式-singleton&quot;&gt;&lt;a href=&quot;#单例模式-singleton&quot; class=&quot;headerlink&quot; title=&quot;单例模式(singleton)&quot;&gt;&lt;/a&gt;单例模式(singleton)&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;单例模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式--生成器(建造者)</title>
+    <link href="https://robberjj.github.io/2017/07/09/DesignPattern_Builder/"/>
+    <id>https://robberjj.github.io/2017/07/09/DesignPattern_Builder/</id>
+    <published>2017-07-09T02:46:16.000Z</published>
+    <updated>2018-11-08T02:37:01.890Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="生成器模式-Builder"><a href="#生成器模式-Builder" class="headerlink" title="生成器模式(Builder)"></a>生成器模式(Builder)</h3><blockquote>
+<p>生成器模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
+<p><strong>生成器模式：将一个复杂对象的构建与它的表现分离，使得同样的构建过程可以创建不同的表现。</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>生成器模式的类图如下：<br><img src="/imgs/builder.png" alt="生成器类图"></p>
+<p>除了客户与其所要的产品，生成器模式还包含两个重要角色：Director(指导者)和Builder(生成器)。Builder知道究竟如何在缺少某些特定信息的情况下建造产品(什么)。Director知道Builder应该建造什么，以参数向其提供缺少的信息来建造特定产品。尽管Director知道Builder应该建造什么，这并不意味着Director知道具体Builder究竟是什么。他们的静态关系如上图中的类图所示。</p>
+<p>Builder是一个抽象接口，声明了一个<code>buildPart</code>方法，该builder方法由<code>ConcreteBuilder</code>实现，以构造实际产品(Product)。<code>ConcreteBuilder</code>有个<code>getResult</code>方法，向客户端返回构造完毕的Product。Director定义了一个<code>construct</code>方法，命令Builder的实例去<code>builderPart</code>。Director与Builder形成了一种聚合关系。这意味着Builder是一个组成部分，与Director结合，以使整个模式运转，但同时，Director并不负责Builder的生存期。</p>
+<h6 id="何时使用生成器模式？"><a href="#何时使用生成器模式？" class="headerlink" title="何时使用生成器模式？"></a>何时使用生成器模式？</h6><p>在以下情形，你自然会想到使用工厂方法模式：</p>
+<ol>
+<li>需要创建设计各种部件的负责对象。创建对象的算法应该独立于部件的装配方式。</li>
+<li>构建过程需要以不同的方式(例如，部件或者表现的不同组合)构建对象。</li>
+</ol>
+<h6 id="生成器与抽象工厂对比"><a href="#生成器与抽象工厂对比" class="headerlink" title="生成器与抽象工厂对比"></a>生成器与抽象工厂对比</h6><table>
+<thead>
+<tr>
+<th style="text-align:center">生成器</th>
+<th style="text-align:center">抽象工厂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">构建负责对象</td>
+<td style="text-align:center">构建简单或者复杂对象</td>
+</tr>
+<tr>
+<td style="text-align:center">以多个步骤构建对象</td>
+<td style="text-align:center">以单一步骤构建对象</td>
+</tr>
+<tr>
+<td style="text-align:center">以多种方式构建对象</td>
+<td style="text-align:center">以单一方式构建对象</td>
+</tr>
+<tr>
+<td style="text-align:center">在构建过程的最后一步返回产品</td>
+<td style="text-align:center">立刻返回产品</td>
+</tr>
+<tr>
+<td style="text-align:center">专注一个特定产品</td>
+<td style="text-align:center">强调一套产品</td>
+</tr>
+</tbody>
+</table>
+<p><strong>附生成器模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_Builder</a></strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;生成器模式-Builder&quot;&gt;&lt;a href=&quot;#生成器模式-Builder&quot; class=&quot;headerlink&quot; title=&quot;生成器模式(Builder)&quot;&gt;&lt;/a&gt;生成器模式(Builder)&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;生成器模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;生成器模式：将一个复杂对象的构建与它的表现分离，使得同样的构建过程可以创建不同的表现。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式--抽象工厂</title>
+    <link href="https://robberjj.github.io/2017/07/08/DesignPattern_AbstractFactory/"/>
+    <id>https://robberjj.github.io/2017/07/08/DesignPattern_AbstractFactory/</id>
+    <published>2017-07-08T06:55:06.000Z</published>
+    <updated>2018-11-08T02:37:01.890Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="抽象工厂模式-abstract-factory"><a href="#抽象工厂模式-abstract-factory" class="headerlink" title="抽象工厂模式(abstract factory)"></a>抽象工厂模式(abstract factory)</h3><blockquote>
+<p>抽象工厂模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
+<p><strong>抽象工厂模式：提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>抽象工厂模式的类图如下：<br><img src="/imgs/abstractFactory.png" alt="抽象工厂类图"></p>
+<p>在软件设计中，如果客户端想手工创建一个类的对象，那么客户端需要首先知道这个类的细节。更糟的情况是，一组相关的对象可以在运行时按照不同的标准创建得不一样，此时客户端就需要知道全部细节才能创建他们。这种情况就可以用抽象工厂模式来解决这个问题。</p>
+<p>抽象工厂提供一个固定的接口，用于创建一系列有关联或相互依存的对象，而不必指定其具体类或创建细节。客户端与从工厂得到的具体对象之间没有耦合。</p>
+<p>Client只知道AbstractFactory和AbstractProduct。每个工厂类中，结构与实际操作的细节按黑箱对待。甚至产品也不知道谁将负责创建他们。只有具体工厂知道为客户端创建什么、如何创建。这个模式有趣的一点是，很多时候他都是用哪个工厂方法模式来实现。工厂方法吧实际的创建过程推迟到重载它的子类中。在类图中，方法<code>createProductA</code>和<code>createProductB</code>是工厂方法。最初的抽象方法什么也不创建。这种抽象非常通用，广泛用于任何需要抽象创建过程的场合。</p>
+<p>抽象模式常与原型模式、单例模式、享元模式等其他设计模式一起使用。</p>
+<h6 id="抽象工厂模式与工厂方法模式"><a href="#抽象工厂模式与工厂方法模式" class="headerlink" title="抽象工厂模式与工厂方法模式"></a>抽象工厂模式与工厂方法模式</h6><table>
+<thead>
+<tr>
+<th style="text-align:center">抽象工厂模式</th>
+<th style="text-align:center">工厂方法模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">通过对象组合创建抽象产品</td>
+<td style="text-align:center">通过类继承创建抽象产品</td>
+</tr>
+<tr>
+<td style="text-align:center">创建多系列产品</td>
+<td style="text-align:center">创建一种产品</td>
+</tr>
+<tr>
+<td style="text-align:center">必须修改父类才能支持新的产品</td>
+<td style="text-align:center">子类化创建者并重载工厂方法以创建新产品</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>软件设计黄金法则：</strong> 变动需要抽象</p>
+</blockquote>
+<h6 id="在Cocoa-Touch框架中使用抽象工厂"><a href="#在Cocoa-Touch框架中使用抽象工厂" class="headerlink" title="在Cocoa Touch框架中使用抽象工厂"></a>在Cocoa Touch框架中使用抽象工厂</h6><p>抽象工厂模式常见于Cocoa Touch框架。有很多基础类采用了这一模式。特别常见的一个就是<code>NSNumber</code>。创建<code>NSNumber</code>实例的方式完全符合抽象工厂模式。</p>
+<p>创建Cocoa Touch对象有两种方式：使用先<code>alloc</code>再<code>init</code>的方法(两步创建过程)，或者使用类中的<code>+className...</code>方法。在Cocoa Touch的基础框架中，<code>NSNumber</code>类有很多类方法用于创建各种类型的<code>NSNumber</code>对象，像下面这样的：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSNumber</span> * boolNumber = [<span class="built_in">NSNumber</span> numberWithBool:<span class="literal">YES</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * charNumber = [<span class="built_in">NSNumber</span> numbberWithChar:<span class="string">'a'</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * intNumber = [<span class="built_in">NSNumber</span> numberWithInt:<span class="number">1</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * floatNumber = [<span class="built_in">NSNumber</span> numberWithFloat:<span class="number">1.0</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * doubleNumber = [<span class="built_in">NSNumber</span> numberWithDouble:<span class="number">1.0</span>];</span><br></pre></td></tr></table></figure></p>
+<p>每个返回的对象属于代表最初输入值的不同私有子类。可以像这样列出他们的描述：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[boolNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[charNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[intNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[floatNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[doubleNumber <span class="keyword">class</span>] description]);</span><br></pre></td></tr></table></figure>
+<p>将看到控制台输出：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSCFBollean</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br></pre></td></tr></table></figure>
+<p>除了<code>boolNumber</code>的实际类型是<code>NSCFBoolean</code>以外，大多数实际类为<code>NSCFNumber</code>类型。尽管这些<code>+className...</code>类工厂方法返回<code>NSNumber</code>具体子类的实例，但是返回的实例确实支持<code>NSNumber</code>的公有接口。</p>
+<p>虽然它们属于<code>NSNumber</code>的不同具体子类，但是其行为由抽象超类<code>NSNumber</code>定义，而且是公有的。若执行以下代码段，就会明白我的意思。</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[boolNumber intValue]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[charNumber boolValue] ? <span class="string">@"YES"</span> : <span class="string">@"NO"</span>);</span><br></pre></td></tr></table></figure>
+<p>将看到控制台输出：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="literal">YES</span></span><br></pre></td></tr></table></figure>
+<p><code>boolNumber</code> 内部保持布尔值<code>YES</code>，但是仍然实现了公有<code>intValue</code>方法，返回反映其内部布尔值的适当整数值。<code>charNumber</code>也是如此，它重载了<code>boolValue</code>方法，返回反映其内部布尔值的适当布尔值。</p>
+<p>接受不同类型的参数并返回<code>NSNumber</code>实例的类方法是类工厂方法(工厂方法模式)。<code>NSNumber</code>的类工厂方法生产各种“数工厂”。<code>numberWithBool:</code>创建<code>NSCFBoolean</code>工厂的实例，而<code>numberWithInt:</code>创建<code>NSCFNumber</code>的实例。<code>NSNumber</code>中的类工厂方法定义了决定实例化何种私有具体子类(比如，<code>NSCFBoolean</code>或<code>NSCFNumber</code>)的默认行为。这一版本的工厂方法是传统工厂方法的一个变体，虽然它达成了返回抽象产品的目的，此处的抽象产品为作为工厂的具体<code>NSNumber</code>子类。<code>NSNumber</code>是抽象工厂实现的一个例子。基础框架中抽象工厂的此种特点被称为“类簇”(Class Cluster)。</p>
+<p>类簇是基础框架中一种常见的设计模式，基于抽象工厂模式的思想，它将若干相关的私有具体工厂子类集合到一个公有的抽象超类之下。类簇是抽象工厂的一种形式。</p>
+<p>创建抽象产品的工厂方法与创建抽象工厂的工厂方法之前有个不同点。显然，像<code>intValue</code>和<code>boolValue</code>这样的工厂方法，应该在具体工厂(<code>NSCFNumber</code>和<code>NSCFBoolean</code>)中重载以返回实际值(产品)。其它像<code>numberWithBool:</code>和<code>numberWithInt:</code>这样的工厂方法并不是为了返回产品，而是为了返回能返回产品的工厂，因此它们不应在具体工厂子类中重载。</p>
+<p>其它实现为类簇的基础类有<code>NSData</code>,<code>NSArray</code>,<code>NSDictionary</code>和<code>NSString</code>。</p>
+<p><strong>附上抽象工厂模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_AbstractFactory</a></strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;抽象工厂模式-abstract-factory&quot;&gt;&lt;a href=&quot;#抽象工厂模式-abstract-factory&quot; class=&quot;headerlink&quot; title=&quot;抽象工厂模式(abstract factory)&quot;&gt;&lt;/a&gt;抽象工厂模式(abstract factory)&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;抽象工厂模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;抽象工厂模式：提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown中插入表格/图表，位置居中/左/右，这一篇就够了！</title>
+    <link href="https://robberjj.github.io/2017/07/08/Markdown_Table/"/>
+    <id>https://robberjj.github.io/2017/07/08/Markdown_Table/</id>
+    <published>2017-07-08T04:56:49.000Z</published>
+    <updated>2018-11-08T02:37:01.892Z</updated>
+    
+    <content type="html"><![CDATA[<p>Markdown中插入表格时只需要复制一下下面<code>【】</code>内的即可(注意：不要复制<code>【】</code>)。</p>
+<blockquote>
+<p>说明：</p>
+<ol>
+<li>两竖线<code>|</code>中间为一个单元格，每行列数即为每行竖线数<code>-1</code>；</li>
+<li>行数<code>-1</code>为表格行数，因为第二行为配置行，配置表格显示用，并不显示出来；</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<p>【|标题一|标题二|标题三|标题四|<br>|- |:—|—:|:—:|<br>|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx|<br>|xxxxxxxxxxxxxx|xxxxxxxxxxxxxx|xxxxxxxxxxxxxx|xxxxxxxxxxxxxx|<br>|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx||】</p>
+<table>
+<thead>
+<tr>
+<th>标题一</th>
+<th style="text-align:left">标题二</th>
+<th style="text-align:right">标题三</th>
+<th style="text-align:center">标题四</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xxxxxxxxx</td>
+<td style="text-align:left">xxxxxxxxx</td>
+<td style="text-align:right">xxxxxxxxx</td>
+<td style="text-align:center">xxxxxxxxx</td>
+</tr>
+<tr>
+<td>xxxxxxxxxxxxxx</td>
+<td style="text-align:left">xxxxxxxxxxxxxx</td>
+<td style="text-align:right">xxxxxxxxxxxxxx</td>
+<td style="text-align:center">xxxxxxxxxxxxxx</td>
+</tr>
+<tr>
+<td>xxxxxxxxx</td>
+<td style="text-align:left">xxxxxxxxx</td>
+<td style="text-align:right">xxxxxxxxx</td>
+<td style="text-align:center">xxxxxxxxx</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Markdown中插入表格时只需要复制一下下面&lt;code&gt;【】&lt;/code&gt;内的即可(注意：不要复制&lt;code&gt;【】&lt;/code&gt;)。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;说明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;两竖线&lt;code&gt;|&lt;/code&gt;中间为一个单元格，每行列数即为每行竖线数&lt;code&gt;-1&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;行数&lt;code&gt;-1&lt;/code&gt;为表格行数，因为第二行为配置行，配置表格显示用，并不显示出来；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://robberjj.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="Markdown" scheme="https://robberjj.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式--工厂方法</title>
+    <link href="https://robberjj.github.io/2017/07/02/DesignPattern_FactoryMethod/"/>
+    <id>https://robberjj.github.io/2017/07/02/DesignPattern_FactoryMethod/</id>
+    <published>2017-07-02T08:06:01.000Z</published>
+    <updated>2018-11-08T02:37:01.890Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="工厂方法模式-factory-method"><a href="#工厂方法模式-factory-method" class="headerlink" title="工厂方法模式(factory method)"></a>工厂方法模式(factory method)</h3><blockquote>
+<p>工厂方法模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
+<p><strong>工厂方法模式：定义创建对象的接口，让子类决定实例化哪一个类。工厂方法使得一个类的实例化延迟到其子类。</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>工厂方法模式的类图如下：<br><img src="/imgs/factoryMethod.png" alt="工厂方法类图"></p>
+<p>工厂方法也成为虚构造器(virtual constructor)。它适用于这种情况：一个类无法预期需要生成哪个类的对象，想让其子类来指定所生成的对象。</p>
+<p>抽象的Product(产品)定义了工厂方法创建的对象的接口。ConcreteProduct实现了Product接口。Creator定义了返回Product对象的工厂方法。它也可以为工厂方法定义一个默认实现，返回默认ConcreteProduct对象。Creator的其他操作可以调用此工厂方法创建Product对象。ConcreteProduct是creator的子类。它重载了工厂方法，以返回ConcreteProduct的实例。</p>
+<p>工厂方法的最初定义好像专注于让子类决定创建什么对象。有一种变体，抽象类使用工厂方法创建其私有子类或者任何其他类的对象(抽象工厂模式)。(接下来的文章会详细描述抽象工厂模式)</p>
+<h6 id="何时使用工厂方法模式？"><a href="#何时使用工厂方法模式？" class="headerlink" title="何时使用工厂方法模式？"></a>何时使用工厂方法模式？</h6><p>在以下情形，你自然会想到使用工厂方法模式：</p>
+<ol>
+<li>编译时无法确定预期要创建的对象的类；</li>
+<li>类想让其子类决定是在运行时创建什么；</li>
+<li>类有若干辅助类为其子类，而你想将返回哪个子类这一信息局部化。</li>
+</ol>
+<h6 id="在Cocoa-Touch框架中应用工厂方法"><a href="#在Cocoa-Touch框架中应用工厂方法" class="headerlink" title="在Cocoa Touch框架中应用工厂方法"></a>在Cocoa Touch框架中应用工厂方法</h6><p>工厂方法在Cocoa Touch框架中几乎随处可见。大家知道常见的两步对象创建法<code>[[SomeClass alloc] init]</code>。有时，我们会注意到有一些“便利”方法返回类的实例。例如，<code>NSNumber</code>有很多<code>numberWith*</code>方法，其中有两个是<code>numberWithBool:</code>和<code>numbberWithChar:</code>。它们是类方法，也就是说，我们向<code>NSNumber</code>发送<code>[NSNumber numberWithBool:bool]</code>与<code>[NSNumber numbberWithChar:char]</code>,以获得与传入参数同类型的各种<code>NSNumber</code>实例。与如何创建<code>NSNumber</code>的具体实例有关的所有细节，都是 由<code>NSNumber</code>的类工厂方法负责。</p>
+<p><code>[NSNumber numberWithBool:bool]</code>的情况是，方法接受值<code>bool</code>，并把<code>NSNumber</code>的内部子类(实际上是<code>NSCFBoolean</code>类)的一个实例初始化，让他能够反映传入的值<code>bool</code>.</p>
+<p><strong>附上工厂方法模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_FactoryMethod</a></strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;工厂方法模式-factory-method&quot;&gt;&lt;a href=&quot;#工厂方法模式-factory-method&quot; class=&quot;headerlink&quot; title=&quot;工厂方法模式(factory method)&quot;&gt;&lt;/a&gt;工厂方法模式(factory method)&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;工厂方法模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工厂方法模式：定义创建对象的接口，让子类决定实例化哪一个类。工厂方法使得一个类的实例化延迟到其子类。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式--原型模式</title>
+    <link href="https://robberjj.github.io/2017/07/02/DesignPattern_Prototype/"/>
+    <id>https://robberjj.github.io/2017/07/02/DesignPattern_Prototype/</id>
+    <published>2017-07-02T07:16:06.000Z</published>
+    <updated>2018-11-08T02:37:01.891Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="原型模式-prototype"><a href="#原型模式-prototype" class="headerlink" title="原型模式(prototype)"></a>原型模式(prototype)</h3><blockquote>
+<p>原型模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
+<p><strong>原型模式：使用原型实例指定创建对象的种类。并通过复制这个原型创建新的对象。</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>原型模式的类图如下：<br><img src="/imgs/prototype.png" alt="原型模式类图"></p>
+<p>原型模式是一种非常简单的设计模式。客户端知道抽象Prototype类，在运行时，抽象Prototype子类的任何对象都可以按客户端的意愿被复制。因此，无需手工创建就可以制造同意类型的多个实例。</p>
+<p>Prototype声明了复制自身的接口。作为Prototype的子类，ConcretePrototype实现了Concrete复制自身的clone操作。</p>
+<p>这里，客户端通过请求原型复制其自身，创建了一个新的对象。</p>
+<h6 id="何时使用原型模式？"><a href="#何时使用原型模式？" class="headerlink" title="何时使用原型模式？"></a>何时使用原型模式？</h6><p>在以下情形，会考虑使用原型模式：</p>
+<ol>
+<li>需要创建的对象独立于其类型与创建的方式；</li>
+<li>实例化的类是在运行时决定的；</li>
+<li>不想要与产品层次相对应的工厂层次；</li>
+<li>不同类的实例间的差异仅是状态的若干组合，这样复制相应数量的原型比手工实例化更加方便；</li>
+<li>类不容易创建，比如每个组件可把其他组件作为子节点的组合对象，复制已有的组合对象并对副本进行修改会更加容易。</li>
+</ol>
+<h6 id="使用Cocoa-Touch框架中的对象复制"><a href="#使用Cocoa-Touch框架中的对象复制" class="headerlink" title="使用Cocoa Touch框架中的对象复制"></a>使用Cocoa Touch框架中的对象复制</h6><blockquote>
+<p><strong>值得注意的是：</strong>浅复制与深复制的区别</p>
+<p><strong>浅复制</strong>只是复制了对象的指针，而同时指向相同的对象资源，也就是说只是复制了栈里面的内容，而同时指向相同的堆空间。改变其对象值得时候，复制对象间会相互影响。</p>
+<p><strong>深复制</strong>是同时复制对象的指针跟对象本身，也就是同时复制了堆栈空间的内容。</p>
+</blockquote>
+<p>Cocoa Touch框架为<code>NSObject</code>的派生类提供了实现深复制的协议。<code>NSObject</code>的子类需要实现<code>NSCopying</code>协议及其方法<code>-(id)copyWithZone:(NSZone *)zone</code>。<code>NSObject</code>有一个实例方法叫<code>-(id)copy</code>。默认的<code>copy</code>方法调用<code>[self copyWithZone:nil]</code>。对于采纳了<code>NSCopying</code>协议的子类，需要实现这个方法。否则将引发异常。iOS中，这个方法保持新的副本对象，然后将其返回。</p>
+<p><strong>附上原型模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_Prototype</a></strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;原型模式-prototype&quot;&gt;&lt;a href=&quot;#原型模式-prototype&quot; class=&quot;headerlink&quot; title=&quot;原型模式(prototype)&quot;&gt;&lt;/a&gt;原型模式(prototype)&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;原型模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;原型模式：使用原型实例指定创建对象的种类。并通过复制这个原型创建新的对象。&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
