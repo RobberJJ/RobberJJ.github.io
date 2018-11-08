@@ -1,0 +1,10 @@
+---
+title: Vim一次复制，多次粘贴
+date: 2018-09-08 14:09:50
+tags:
+    - vim
+    - copy
+    - 复制
+    - 粘贴
+categorys: "随笔"
+---

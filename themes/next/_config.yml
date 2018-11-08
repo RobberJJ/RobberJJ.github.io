@@ -78,8 +78,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-#scheme: Mist
-scheme: Pisces
+scheme: Mist
+# scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -91,9 +91,9 @@ scheme: Pisces
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/RobberJJ
-  jianshu: http://www.jianshu.com/u/ddb6b7f61f04
-  twitter: https://twitter.com/Ro__bber
-  facebook: https://www.facebook.com/profile.php?id=100015070143697
+  简书: http://www.jianshu.com/u/ddb6b7f61f04
+  # twitter: https://twitter.com/Ro__bber
+  # facebook: https://www.facebook.com/profile.php?id=100015070143697
 
 # Social Links Icons
 # Icon Mapping:
@@ -105,9 +105,10 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  jianshu: folder
-  facebook: facebook
+  简书: heartbeat
+  # Twitter: twitter
+  # jianshu: folder
+  # facebook: facebook
 
 # Blog rolls
 #links_title: Links
@@ -163,7 +164,7 @@ sidebar:
   scrollpercent: false
 
   # Enable sidebar on narrow view
-  onmobile: false
+  onmobile: true
 
 
 # ---------------------------------------------------------------
@@ -196,9 +197,9 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
+  wordcount: true
   min2read: false
-  separated_meta: true
+  separated_meta: false
 
 # Wechat Subscriber
 #wechat_subscriber:
@@ -307,7 +308,7 @@ baidu_analytics: '84a8493060bb41ba8f8f301abc1e51be'
 disqus:
   enable: true
   shortname: 'robberjj'
-  count: true
+  count: false
 
 # Hypercomments
 #hypercomments_id:
@@ -500,7 +501,7 @@ use_motion: true
 fancybox: true
 
 # Progress bar in the top during page loading.
-pace: false
+pace: true
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
@@ -517,7 +518,7 @@ pace: false
 #pace-theme-minimal
 # For example
 # pace_theme: pace-theme-center-simple
-pace_theme: pace-theme-minimal
+pace_theme: pace-theme-bounce
 
 # Canvas-nest
 canvas_nest: false

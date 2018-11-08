@@ -1,0 +1,10 @@
+---
+title: git clone --depth=1之后拉取其他分支
+date: 2018-09-25 16:25:50
+tags:
+    - git
+    - depth
+    - 分支
+    - clone
+categorys: "随笔"
+---

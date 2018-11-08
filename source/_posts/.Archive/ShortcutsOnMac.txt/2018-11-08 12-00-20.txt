@@ -1,0 +1,9 @@
+---
+title: Development cannot be enabled while your device is locked.
+date: 2018-05-16 12:15:50
+tags:
+    - locked
+    - XCode
+    - iOS
+categorys: "iOS"
+---

@@ -1,0 +1,23 @@
+有时候我们的iPhone紧跟apple的步伐升级最新的版本了，但是Xcode并没有及时更新到最新版本(Xcode是在很大，而且有时候是需要最新的beta版本的)，这时候真机调试的时候就会出现下面这样的问题：
+
+>报错：
+Could not locate device support files.
+This iPhone 7 (Model 1660, 1778, 1779, 1780) is running iOS 11.3 (15E216), which may not be supported by this version of Xcode.
+
+当然，我们升级Xcode到适当的版本(iPhone是release版本，一般Xcode升级到最新的release版本，iPhone是beta版本，一般Xcode升级到最新的beta版本)，但是上面提到升级Xcode时间实在太长，急性子的我们表示等不及。
+
+<!-- more --> 
+
+下面介绍一种不用升级Xcode就是真机调试的方法：
+
+__更新Xcode真机运行支持包__
+
+Xcode真机运行支持包path在这里：Xcode路径/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport，打开后能看到这样的界面：
+![DeviceSupport.jpg](https://upload-images.jianshu.io/upload_images/6080248-37130952acca05d7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+支持包这里下载：链接: https://pan.baidu.com/s/1eS20QS6 密码: 5v35
+
+之后要做的就是，需要哪一个iPhone系统的支持包，下载解压，放进去就可以了，然后插入你的手机，等Xcode解析好你的手机文件就可以真机运行了。
+
+- 有时候可能不生效，重启大法重启下Xcode再试试。
