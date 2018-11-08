@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-11-08T02:37:01.897Z</updated>
+  <updated>2018-11-08T04:18:54.498Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -14,6 +14,991 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>grep命令常用参数</title>
+    <link href="https://robberjj.github.io/2018/09/26/GrepCommonParams/"/>
+    <id>https://robberjj.github.io/2018/09/26/GrepCommonParams/</id>
+    <published>2018-09-26T06:39:50.000Z</published>
+    <updated>2018-11-08T04:18:54.498Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>-A num, --after-context=num</code> - 打印出找到的匹配行后num行。这个跟-B，-C类似功能，主要用于查看上下文。</p>
+<p><code>-B num, --before-context=num</code> - 打印出找到的匹配行前num行。</p>
+<p><code>-C[num, --context=num]</code> - 打印出找到的匹配行前后num行，相当于-A num -B num。<br><a id="more"></a> </p>
+<p><code>-c, --count</code> - 统计出匹配的总行数，同一行有两个匹配也只算一行。</p>
+<p><code>--colour=[when, --color=[when]]</code> - 将匹配的字符标记为彩色，when可以是’never’，‘auto’或’always’。</p>
+<p><code>-e pattern, --regexp=pattern</code> - 制定在搜索中使用的匹配模式，多用于指定多个匹配模式的情况。</p>
+<p><code>-H</code> - 在每一行前面打印出匹配的文件名，在多个文件的情况下这个是默认选项。</p>
+<p><code>-h</code> - 在多个文件的情况下不打印出匹配的文件名。</p>
+<p><code>-n</code> - 打印出匹配所在行的行数。</p>
+<p><code>-i, --ignore-case</code> - 查找时忽略大小写。</p>
+<p><code>-R, -r, --recursive</code> - 递归的去查找子目录下的文件。</p>
+<p><code>-v, --invert-match</code> - 打印出不匹配的行。</p>
+<p><code>-w, --word-regexp</code> - 只匹配整个单词。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;-A num, --after-context=num&lt;/code&gt; - 打印出找到的匹配行后num行。这个跟-B，-C类似功能，主要用于查看上下文。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-B num, --before-context=num&lt;/code&gt; - 打印出找到的匹配行前num行。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-C[num, --context=num]&lt;/code&gt; - 打印出找到的匹配行前后num行，相当于-A num -B num。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://robberjj.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="grep" scheme="https://robberjj.github.io/tags/grep/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git clone --depth=1之后拉取其他分支</title>
+    <link href="https://robberjj.github.io/2018/09/25/GitDepthOtherBr/"/>
+    <id>https://robberjj.github.io/2018/09/25/GitDepthOtherBr/</id>
+    <published>2018-09-25T08:25:50.000Z</published>
+    <updated>2018-11-08T04:19:09.946Z</updated>
+    
+    <content type="html"><![CDATA[<p>当项目过大时，<code>git clone</code>会出现超时失败，这时候我们可以只拉去最新的一次或者几次<code>commit</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 xxxxxx</span><br></pre></td></tr></table></figure>
+<p>有时候，我们总是图一时之快，而忽略了其他的问题。</p>
+<a id="more"></a> 
+<p>你可能很快会发现，拉下来的只是默认的分支，而要想拉取其他分支代码的时候，一脸懵逼，有木有？？</p>
+<p>其实也很简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote set-branches origin &apos;remote_branch_name&apos;</span><br><span class="line">$ git fetch --depth 1 origin remote_branch_name</span><br><span class="line">$ git checkout remote_branch_name</span><br></pre></td></tr></table></figure></p>
+<p>搞定收工。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当项目过大时，&lt;code&gt;git clone&lt;/code&gt;会出现超时失败，这时候我们可以只拉去最新的一次或者几次&lt;code&gt;commit&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone --depth=1 xxxxxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;有时候，我们总是图一时之快，而忽略了其他的问题。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://robberjj.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="git" scheme="https://robberjj.github.io/tags/git/"/>
+    
+      <category term="depth" scheme="https://robberjj.github.io/tags/depth/"/>
+    
+      <category term="分支" scheme="https://robberjj.github.io/tags/%E5%88%86%E6%94%AF/"/>
+    
+      <category term="clone" scheme="https://robberjj.github.io/tags/clone/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vim一次复制，多次粘贴</title>
+    <link href="https://robberjj.github.io/2018/09/08/VimOneCopyMutablePaste/"/>
+    <id>https://robberjj.github.io/2018/09/08/VimOneCopyMutablePaste/</id>
+    <published>2018-09-08T06:09:50.000Z</published>
+    <updated>2018-11-08T04:19:19.380Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们平常在使用Vim时候，通过<code>viwy</code>或者<code>yy</code>等复制操作之后，<code>p</code>操作粘贴的时候，只能粘贴一次，想要粘贴多次怎么办？</p>
+<blockquote>
+<p>解决方案：在使用<code>p</code>的是时候使用<code>&quot;0p</code>，这样就能无限制的一直粘贴了。</p>
+</blockquote>
+<p>可是，为什么呢？</p>
+<a id="more"></a> 
+<p>因为，寄存器位置<code>0</code>的地方存放的就是最近复制的内容。（使用<code>:reg</code>可以查看寄存器存储列表）</p>
+<p>类似的使用<code>xxp</code>就能粘贴相应位置的内容了。（<code>xx</code>标识reg列表前面的序号）</p>
+<p>哈哈，是不是很神奇？！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们平常在使用Vim时候，通过&lt;code&gt;viwy&lt;/code&gt;或者&lt;code&gt;yy&lt;/code&gt;等复制操作之后，&lt;code&gt;p&lt;/code&gt;操作粘贴的时候，只能粘贴一次，想要粘贴多次怎么办？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解决方案：在使用&lt;code&gt;p&lt;/code&gt;的是时候使用&lt;code&gt;&amp;quot;0p&lt;/code&gt;，这样就能无限制的一直粘贴了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可是，为什么呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://robberjj.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="vim" scheme="https://robberjj.github.io/tags/vim/"/>
+    
+      <category term="copy" scheme="https://robberjj.github.io/tags/copy/"/>
+    
+      <category term="复制" scheme="https://robberjj.github.io/tags/%E5%A4%8D%E5%88%B6/"/>
+    
+      <category term="粘贴" scheme="https://robberjj.github.io/tags/%E7%B2%98%E8%B4%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html/Xml中的转义字符</title>
+    <link href="https://robberjj.github.io/2018/08/29/CharTransferred/"/>
+    <id>https://robberjj.github.io/2018/08/29/CharTransferred/</id>
+    <published>2018-08-29T10:06:50.000Z</published>
+    <updated>2018-11-08T04:19:24.026Z</updated>
+    
+    <content type="html"><![CDATA[<p>HTML中的转义字符<br>　HTML中&lt;, &gt;，&amp;等有特殊含义，(前两个字符用于链接签，&amp;用于转义)，不能直接使用。使用这三个字符时，应使用它们的转义序列，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">转义字符</th>
+<th style="text-align:center">源字符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp;amp; 或 &amp;</td>
+<td style="text-align:center">&amp;</td>
+<td style="text-align:center">和</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;lt; 或 &lt;</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">小于号</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;gt; 或 &gt;</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">大于号</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;quot;</td>
+<td style="text-align:center">“</td>
+<td style="text-align:center">双引号</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;nbsp;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">空格</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;copy;</td>
+<td style="text-align:center">©</td>
+<td style="text-align:center">版权符</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;reg</td>
+<td style="text-align:center">®</td>
+<td style="text-align:center">注册符</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a> 
+<blockquote>
+<p>需要说明的是：<br>   a. 转义序列各字符间不能有空格；<br>   b. 转义序列必须以”；”结束；<br>   c. 单独的&amp;不被认为是转义开始；<br>   d. 区分大小写。</p>
+</blockquote>
+<p>XML转义字符<br>       不合法的XML字符必须被替换为相应的实体。<br>　　下面是五个在XML文档中预定义好的实体：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">转义字符</th>
+<th style="text-align:center">源字符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp;amp;</td>
+<td style="text-align:center">&amp;</td>
+<td style="text-align:center">和</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;lt; 或 &lt;</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">小于号</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;gt; 或 &gt;</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">大于号</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;quot;</td>
+<td style="text-align:center">“</td>
+<td style="text-align:center">双引号</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;quot;</td>
+<td style="text-align:center">‘</td>
+<td style="text-align:center">单引号</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意: 只有”&lt;” 字符和”&amp;”字符对于XML来说是严格禁止使用的。剩下的都是合法的，为了减少出错，使用实体是一个好习惯。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HTML中的转义字符&lt;br&gt;　HTML中&amp;lt;, &amp;gt;，&amp;amp;等有特殊含义，(前两个字符用于链接签，&amp;amp;用于转义)，不能直接使用。使用这三个字符时，应使用它们的转义序列，如下所示：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;转义字符&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;源字符&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;amp; 或 &amp;amp;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;和&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;lt; 或 &amp;lt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;小于号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;gt; 或 &amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;大于号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;quot;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;“&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;双引号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;nbsp;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;空格&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;copy;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;©&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;版权符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;amp;reg&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;®&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;注册符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://robberjj.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="Html" scheme="https://robberjj.github.io/tags/Html/"/>
+    
+      <category term="xml" scheme="https://robberjj.github.io/tags/xml/"/>
+    
+      <category term="转义" scheme="https://robberjj.github.io/tags/%E8%BD%AC%E4%B9%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS编码规范</title>
+    <link href="https://robberjj.github.io/2018/08/08/iOSEncoding/"/>
+    <id>https://robberjj.github.io/2018/08/08/iOSEncoding/</id>
+    <published>2018-08-08T09:25:50.000Z</published>
+    <updated>2018-11-08T04:19:30.281Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本文档旨在总结出一份通用的编码规范，欢迎随时探讨补充。</p>
+</blockquote>
+<a id="more"></a> 
+<h3 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h3><h4 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h4><ul>
+<li>不要在工程里使用Tab键，使用空格来进行缩进。在Xcode &gt; Preferences &gt; Text Editing将Tab和自动缩进都设置为4个空格。（Google的标准是使用两个空格来缩进，但这里还是推荐使用Xcode默认的设置。）</li>
+<li>方法之间应该要有一个空行来帮助代码看起来清晰且有组织。 方法内的空行应该用来分离功能，但是通常不同的功能应该用新的方法来定义。</li>
+</ul>
+<h4 id="方法的书写"><a href="#方法的书写" class="headerlink" title="方法的书写"></a>方法的书写</h4><p>一个典型的Objective-C函数应该是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)writeVideoFrameWithData:(NSData *)frameData timeStamp:(int)timeStamp &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>-</code>和<code>(void)</code>之间应该有一个空格，第一个大括号<code>{</code>的位置在函数所在行的末尾，同样应该有一个空格。</p>
+<blockquote>
+<p>在使用<code>{</code>的位置都遵循<a href="https://en.wikipedia.org/wiki/Indent_style#K.26R_style" target="_blank" rel="noopener">Egyptian风格</a> (又称 K&amp;R 风格，代码段括号的开始位于一行的末尾，而不是另外起一行的风格。)，比如，控制语句 (if-else, for, switch)。</p>
+</blockquote>
+<p>如果一个函数有特别多的参数或者名称很长，应该将其按照<code>:</code>来对齐分行显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-(id)initWithModel:(IPCModle)model</span><br><span class="line">       ConnectType:(IPCConnectType)connectType</span><br><span class="line">        Resolution:(IPCResolution)resolution</span><br><span class="line">          AuthName:(NSString *)authName</span><br><span class="line">          Password:(NSString *)password</span><br><span class="line">               MAC:(NSString *)mac</span><br><span class="line">              AzIp:(NSString *)az_ip</span><br><span class="line">             AzDns:(NSString *)az_dns</span><br><span class="line">             Token:(NSString *)token</span><br><span class="line">             Email:(NSString *)email</span><br><span class="line">          Delegate:(id&lt;IPCConnectHandlerDelegate&gt;)delegate;</span><br></pre></td></tr></table></figure>
+<p>在分行时，如果第一段名称过短，后续名称可以以Tab的长度（4个空格）为单位进行缩进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)short:(GTMFoo *)theFoo</span><br><span class="line">        longKeyword:(NSRect)theRect</span><br><span class="line">  evenLongerKeyword:(float)theInterval</span><br><span class="line">              error:(NSError **)theError &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><p>函数调用的格式和书写差不多，可以按照函数的长短来选择写在一行或者分成多行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//写在一行</span><br><span class="line">[myObject doFooWith:arg1 name:arg2 error:arg3];</span><br><span class="line"></span><br><span class="line">//分行写，按照&apos;:&apos;对齐</span><br><span class="line">[myObject doFooWith:arg1</span><br><span class="line">               name:arg2</span><br><span class="line">              error:arg3];</span><br><span class="line"></span><br><span class="line">//第一段名称过短的话后续可以进行缩进</span><br><span class="line">[myObj short:arg1</span><br><span class="line">          longKeyword:arg2</span><br><span class="line">    evenLongerKeyword:arg3</span><br><span class="line">                error:arg4];</span><br></pre></td></tr></table></figure>
+<h4 id="public和-private标记符"><a href="#public和-private标记符" class="headerlink" title="@public和@private标记符"></a>@public和@private标记符</h4><p>@public和@private标记符应该以<strong>一个空格</strong>来进行缩进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@interface MyClass : NSObject &#123;</span><br><span class="line"> @public</span><br><span class="line">  ...</span><br><span class="line"> @private</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h4 id="协议（Protocols）"><a href="#协议（Protocols）" class="headerlink" title="协议（Protocols）"></a>协议（Protocols）</h4><p>在书写协议的时候注意用<code>&lt;&gt;</code>括起来的协议和类型名之间是没有空格的，比如<code>IPCConnectHandler()&lt;IPCPreconnectorDelegate&gt;</code>,这个规则适用所有书写协议的地方，包括函数声明、类声明、实例变量等等：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@interface MyProtocoledClass : NSObject&lt;NSWindowDelegate&gt; &#123;</span><br><span class="line"> @private</span><br><span class="line">    id&lt;MyFancyDelegate&gt; _delegate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)setDelegate:(id&lt;MyFancyDelegate&gt;)aDelegate;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h4 id="闭包（Blocks）"><a href="#闭包（Blocks）" class="headerlink" title="闭包（Blocks）"></a>闭包（Blocks）</h4><p>根据block的长度，有不同的书写规则：</p>
+<ul>
+<li>较短的block可以写在一行内。</li>
+<li>如果分行显示的话，block的右括号<code>}</code>应该和调用block那行代码的第一个非空字符对齐。</li>
+<li>block内的代码采用<strong>4个空格</strong>的缩进。</li>
+<li>如果block过于庞大，应该单独声明成一个变量来使用。</li>
+<li><code>^</code>和<code>(</code>之间，<code>^</code>和<code>{</code>之间都没有空格，参数列表的右括号<code>)</code>和<code>{</code>之间有一个空格。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">//较短的block写在一行内</span><br><span class="line">[operation setCompletionBlock:^&#123; [self onOperationDone]; &#125;];</span><br><span class="line"></span><br><span class="line">//分行书写的block，内部使用4空格缩进</span><br><span class="line">[operation setCompletionBlock:^&#123;</span><br><span class="line">    [self.delegate newDataAvailable];</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">//使用C语言API调用的block遵循同样的书写规则</span><br><span class="line">dispatch_async(_fileIOQueue, ^&#123;</span><br><span class="line">    NSString* path = [self sessionFilePath];</span><br><span class="line">    if (path) &#123;</span><br><span class="line">      // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//较长的block关键字可以缩进后在新行书写，注意block的右括号&apos;&#125;&apos;和调用block那行代码的第一个非空字符对齐</span><br><span class="line">[[SessionService sharedService]</span><br><span class="line">    loadWindowWithCompletionBlock:^(SessionWindow *window) &#123;</span><br><span class="line">        if (window) &#123;</span><br><span class="line">          [self windowDidLoad:window];</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          [self errorLoadingWindow];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">//较长的block参数列表同样可以缩进后在新行书写</span><br><span class="line">[[SessionService sharedService]</span><br><span class="line">    loadWindowWithCompletionBlock:</span><br><span class="line">        ^(SessionWindow *window) &#123;</span><br><span class="line">            if (window) &#123;</span><br><span class="line">              [self windowDidLoad:window];</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">              [self errorLoadingWindow];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">//庞大的block应该单独定义成变量使用</span><br><span class="line">void (^largeBlock)(void) = ^&#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;;</span><br><span class="line">[_operationQueue addOperationWithBlock:largeBlock];</span><br><span class="line"></span><br><span class="line">//在一个调用中使用多个block，注意到他们不是像函数那样通过&apos;:&apos;对齐的，而是同时进行了4个空格的缩进</span><br><span class="line">[myObject doSomethingWith:arg1</span><br><span class="line">    firstBlock:^(Foo *a) &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">    secondBlock:^(Bar *b) &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<h4 id="数据结构的语法糖"><a href="#数据结构的语法糖" class="headerlink" title="数据结构的语法糖"></a>数据结构的语法糖</h4><p>应该使用可读性更好的语法糖来构造<code>NSArray</code>，<code>NSDictionary</code>等数据结构，避免使用冗长的<code>alloc</code>,<code>init</code>方法。</p>
+<p>如果构造代码写在一行，需要在括号两端留有一个空格，使得被构造的元素于与构造语法区分开来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//正确，在语法糖的&quot;[]&quot;或者&quot;&#123;&#125;&quot;两端留有空格</span><br><span class="line">NSArray *array = @[ [foo description], @&quot;Another String&quot;, [bar description] ];</span><br><span class="line">NSDictionary *dict = @&#123; NSForegroundColorAttributeName : [NSColor redColor] &#125;;</span><br><span class="line"></span><br><span class="line">//不正确，不留有空格降低了可读性</span><br><span class="line">NSArray* array = @[[foo description], [bar description]];</span><br><span class="line">NSDictionary* dict = @&#123;NSForegroundColorAttributeName: [NSColor redColor]&#125;;</span><br></pre></td></tr></table></figure>
+<p>如果构造代码不写在一行内，构造元素需要使用<strong>两个空格</strong>来进行缩进，右括号<code>]</code>或者<code>}</code>写在新的一行，并且与调用语法糖那行代码的第一个非空字符对齐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NSArray *array = @[</span><br><span class="line">  @&quot;This&quot;,</span><br><span class="line">  @&quot;is&quot;,</span><br><span class="line">  @&quot;an&quot;,</span><br><span class="line">  @&quot;array&quot;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">NSDictionary *dictionary = @&#123;</span><br><span class="line">  NSFontAttributeName : [NSFont fontWithName:@&quot;Helvetica-Bold&quot; size:12],</span><br><span class="line">  NSForegroundColorAttributeName : fontColor</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>构造字典时，字典的Key和Value与中间的冒号<code>:</code>都要留有一个空格，多行书写时，也可以将Value对齐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//正确，冒号&apos;:&apos;前后留有一个空格</span><br><span class="line">NSDictionary *option1 = @&#123;</span><br><span class="line">  NSFontAttributeName : [NSFont fontWithName:@&quot;Helvetica-Bold&quot; size:12],</span><br><span class="line">  NSForegroundColorAttributeName : fontColor</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//正确，按照Value来对齐</span><br><span class="line">NSDictionary *option2 = @&#123;</span><br><span class="line">  NSFontAttributeName :            [NSFont fontWithName:@&quot;Arial&quot; size:12],</span><br><span class="line">  NSForegroundColorAttributeName : fontColor</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//错误，冒号前应该有一个空格</span><br><span class="line">NSDictionary *wrong = @&#123;</span><br><span class="line">  AKey:       @&quot;b&quot;,</span><br><span class="line">  BLongerKey: @&quot;c&quot;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//错误，每一个元素要么单独成为一行，要么全部写在一行内</span><br><span class="line">NSDictionary *alsoWrong= @&#123; AKey : @&quot;a&quot;,</span><br><span class="line">                            BLongerKey : @&quot;b&quot; &#125;;</span><br><span class="line"></span><br><span class="line">//错误，在冒号前只能有一个空格，冒号后才可以考虑按照Value对齐</span><br><span class="line">NSDictionary *stillWrong = @&#123;</span><br><span class="line">  AKey       : @&quot;b&quot;,</span><br><span class="line">  BLongerKey : @&quot;c&quot;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><h4 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h4><ul>
+<li><h5 id="清晰"><a href="#清晰" class="headerlink" title="清晰"></a>清晰</h5></li>
+</ul>
+<p>命名应该尽可能的清晰和简洁，但在Objective-C中，清晰比简洁更重要。由于Xcode强大的自动补全功能，我们不必担心名称过长的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//清晰</span><br><span class="line">insertObject:atIndex:</span><br><span class="line"></span><br><span class="line">//不清晰，insert的对象类型和at的位置属性没有说明</span><br><span class="line">insert:at:</span><br><span class="line"></span><br><span class="line">//清晰</span><br><span class="line">removeObjectAtIndex:</span><br><span class="line"></span><br><span class="line">//不清晰，remove的对象类型没有说明，参数的作用没有说明</span><br><span class="line">remove:</span><br></pre></td></tr></table></figure>
+<p>不要使用单词的简写，拼写出完整的单词：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//清晰</span><br><span class="line">destinationSelection</span><br><span class="line">setBackgroundColor:</span><br><span class="line"></span><br><span class="line">//不清晰，不要使用简写</span><br><span class="line">destSel</span><br><span class="line">setBkgdColor:</span><br></pre></td></tr></table></figure>
+<p>然而，有部分单词简写在Objective-C编码过程中是非常常用的，以至于成为了一种规范，这些简写可以在代码中直接使用，下面列举了部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">alloc   == Allocate					max    == Maximum</span><br><span class="line">alt     == Alternate				min    == Minimum</span><br><span class="line">app     == Application				msg    == Message</span><br><span class="line">calc    == Calculate				nib    == Interface Builder archive</span><br><span class="line">dealloc == Deallocate				pboard == Pasteboard</span><br><span class="line">func    == Function					rect   == Rectangle</span><br><span class="line">horiz   == Horizontal				Rep    == Representation (used in class name such as NSBitmapImageRep).</span><br><span class="line">info    == Information				temp   == Temporary</span><br><span class="line">init    == Initialize				vert   == Vertical</span><br><span class="line">int     == Integer</span><br></pre></td></tr></table></figure>
+<p>命名方法或者函数时要避免歧义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//有歧义，是返回sendPort还是send一个Port？</span><br><span class="line">sendPort</span><br><span class="line"></span><br><span class="line">//有歧义，是返回一个名字属性的值还是display一个name的动作？</span><br><span class="line">displayName</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h5 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h5></li>
+</ul>
+<p>整个工程的命名风格要保持一致性，最好和苹果SDK的代码保持统一。不同类中完成相似功能的方法应该叫一样的名字，比如我们总是用<code>count</code>来返回集合的个数，不能在A类中使用<code>count</code>而在B类中使用<code>getNumber</code>。</p>
+<ul>
+<li><h5 id="使用前缀"><a href="#使用前缀" class="headerlink" title="使用前缀"></a>使用前缀</h5></li>
+</ul>
+<p>如果代码需要打包成Framework给别的工程使用，或者工程项目非常庞大，需要拆分成不同的模块，使用命名前缀是非常有用的。</p>
+<ol>
+<li>前缀由大写的字母缩写组成，比如Cocoa中<code>NS</code>前缀代表Founation框架中的类，<code>IB</code>则代表Interface Builder框架。</li>
+<li>可以在为类、协议、函数、常量以及typedef宏命名的时候使用前缀，但注意<strong>不要</strong>为成员变量或者方法使用前缀，因为他们本身就包含在类的命名空间内。</li>
+<li>命名前缀的时候不要和苹果SDK框架冲突。</li>
+</ol>
+<h4 id="命名类和协议-Class-amp-Protocol"><a href="#命名类和协议-Class-amp-Protocol" class="headerlink" title="命名类和协议(Class &amp; Protocol)"></a>命名类和协议(Class &amp; Protocol)</h4><p>类名以大写字母开头，应该包含一个<em>名词</em>来表示它代表的对象类型，同时可以加上必要的前缀，比如<code>NSString</code>, <code>NSDate</code>, <code>NSScanner</code>, <code>NSApplication</code>等等。</p>
+<p>而协议名称应该清晰地表示它所执行的行为，而且要和类名区别开来，所以通常使用<code>ing</code>词尾来命名一个协议，比如<code>NSCopying</code>,<code>NSLocking</code>。</p>
+<p>有些协议本身包含了很多不相关的功能，主要用来为某一特定类服务，这时候可以直接用类名来命名这个协议，比如<code>NSObject</code>协议，它包含了id对象在生存周期内的一系列方法。</p>
+<h4 id="命名头文件（Headers）"><a href="#命名头文件（Headers）" class="headerlink" title="命名头文件（Headers）"></a>命名头文件（Headers）</h4><p>源码的头文件名应该清晰地暗示它的功能和包含的内容：</p>
+<ul>
+<li>如果头文件内只定义了单个类或者协议，直接用类名或者协议名来命名头文件，比如<code>NSLocale.h</code>定义了<code>NSLocale</code>类。</li>
+<li>如果头文件内定义了一系列的类、协议、类别，使用其中最主要的类名来命名头文件，比如<code>NSString.h</code>定义了<code>NSString</code>和<code>NSMutableString</code>。</li>
+<li>每一个Framework都应该有一个和框架同名的头文件，包含了框架中所有公共类头文件的引用，比如<code>Foundation.h</code></li>
+<li>Framework中有时候会实现在别的框架中类的类别扩展，这样的文件通常使用<code>被扩展的框架名</code>+<code>Additions</code>的方式来命名，比如<code>NSBundleAdditions.h</code>。</li>
+</ul>
+<h4 id="命名方法（Methods）"><a href="#命名方法（Methods）" class="headerlink" title="命名方法（Methods）"></a>命名方法（Methods）</h4><p>Objective-C的方法名通常都比较长，这是为了让程序有更好地可读性，按苹果的说法<em>“好的方法名应当可以以一个句子的形式朗读出来”</em>。</p>
+<p>方法一般以小写字母打头，每一个后续的单词首字母大写，方法名中不应该有标点符号（<em>包括下划线</em>），有两个例外：</p>
+<ul>
+<li>可以用一些通用的大写字母缩写打头方法，比如<code>PDF</code>,<code>TIFF</code>等。</li>
+<li>可以用带下划线的前缀来命名私有方法或者类别中的方法。</li>
+</ul>
+<p>如果方法表示让对象执行一个动作，使用动词打头来命名，注意不要使用<code>do</code>，<code>does</code>这种多余的关键字，动词本身的暗示就足够了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//动词打头的方法表示让对象执行一个动作</span><br><span class="line">- (void)invokeWithTarget:(id)target;</span><br><span class="line">- (void)selectTabViewItem:(NSTabViewItem *)tabViewItem;</span><br></pre></td></tr></table></figure>
+<p>如果方法是为了获取对象的一个属性值，直接用属性名称来命名这个方法，注意不要添加<code>get</code>或者其他的动词前缀：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//正确，使用属性名来命名方法</span><br><span class="line">- (NSSize)cellSize;</span><br><span class="line"></span><br><span class="line">//错误，添加了多余的动词前缀</span><br><span class="line">- (NSSize)calcCellSize;</span><br><span class="line">- (NSSize)getCellSize;</span><br></pre></td></tr></table></figure>
+<p>对于有多个参数的方法，务必在每一个参数前都添加关键词，关键词应当清晰说明参数的作用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//正确，保证每个参数都有关键词修饰</span><br><span class="line">- (void)sendAction:(SEL)aSelector toObject:(id)anObject forAllCells:(BOOL)flag;</span><br><span class="line"></span><br><span class="line">//错误，遗漏关键词</span><br><span class="line">- (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag;</span><br><span class="line"></span><br><span class="line">//正确</span><br><span class="line">- (id)viewWithTag:(NSInteger)aTag;</span><br><span class="line"></span><br><span class="line">//错误，关键词的作用不清晰</span><br><span class="line">- (id)taggedView:(int)aTag;</span><br></pre></td></tr></table></figure>
+<p>不要用<code>and</code>来连接两个参数，通常<code>and</code>用来表示方法执行了两个相对独立的操作（<em>从设计上来说，这时候应该拆分成两个独立的方法</em>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//错误，不要使用&quot;and&quot;来连接参数</span><br><span class="line">- (int)runModalForDirectory:(NSString *)path andFile:(NSString *)name andTypes:(NSArray *)fileTypes;</span><br><span class="line"></span><br><span class="line">//正确，使用&quot;and&quot;来表示两个相对独立的操作</span><br><span class="line">- (BOOL)openFile:(NSString *)fullPath withApplication:(NSString *)appName andDeactivate:(BOOL)flag;</span><br></pre></td></tr></table></figure>
+<p>方法的参数命名也有一些需要注意的地方:</p>
+<ul>
+<li>和方法名类似，参数的第一个字母小写，后面的每一个单词首字母大写</li>
+<li>不要再方法名中使用类似<code>pointer</code>,<code>ptr</code>这样的字眼去表示指针，参数本身的类型足以说明</li>
+<li>不要使用只有一两个字母的参数名</li>
+<li>不要使用简写，拼出完整的单词</li>
+</ul>
+<p>下面列举了一些常用参数名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...action:(SEL)aSelector</span><br><span class="line">...alignment:(int)mode</span><br><span class="line">...atIndex:(int)index</span><br><span class="line">...content:(NSRect)aRect</span><br><span class="line">...doubleValue:(double)aDouble</span><br><span class="line">...floatValue:(float)aFloat</span><br><span class="line">...font:(NSFont *)fontObj</span><br><span class="line">...frame:(NSRect)frameRect</span><br><span class="line">...intValue:(int)anInt</span><br><span class="line">...keyEquivalent:(NSString *)charCode</span><br><span class="line">...length:(int)numBytes</span><br><span class="line">...point:(NSPoint)aPoint</span><br><span class="line">...stringValue:(NSString *)aString</span><br><span class="line">...tag:(int)anInt</span><br><span class="line">...target:(id)anObject</span><br><span class="line">...title:(NSString *)aString</span><br></pre></td></tr></table></figure>
+<h4 id="存取方法（Accessor-Methods）"><a href="#存取方法（Accessor-Methods）" class="headerlink" title="存取方法（Accessor Methods）"></a>存取方法（Accessor Methods）</h4><p>存取方法是指用来获取和设置类属性值的方法，属性的不同类型，对应着不同的存取方法规范：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//属性是一个名词时的存取方法范式</span><br><span class="line">- (type)noun;</span><br><span class="line">- (void)setNoun:(type)aNoun;</span><br><span class="line">//栗子</span><br><span class="line">- (NSString *)title;</span><br><span class="line">- (void)setTitle:(NSString *)aTitle;</span><br><span class="line"></span><br><span class="line">//属性是一个形容词时存取方法的范式</span><br><span class="line">- (BOOL)isAdjective;</span><br><span class="line">- (void)setAdjective:(BOOL)flag;</span><br><span class="line">//栗子</span><br><span class="line">- (BOOL)isEditable;</span><br><span class="line">- (void)setEditable:(BOOL)flag;</span><br><span class="line"></span><br><span class="line">//属性是一个动词时存取方法的范式</span><br><span class="line">- (BOOL)verbObject;</span><br><span class="line">- (void)setVerbObject:(BOOL)flag;</span><br><span class="line">//栗子</span><br><span class="line">- (BOOL)showsAlpha;</span><br><span class="line">- (void)setShowsAlpha:(BOOL)flag;</span><br></pre></td></tr></table></figure>
+<p>命名存取方法时不要将动词转化为被动形式来使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//正确</span><br><span class="line">- (void)setAcceptsGlyphInfo:(BOOL)flag;</span><br><span class="line">- (BOOL)acceptsGlyphInfo;</span><br><span class="line"></span><br><span class="line">//错误，不要使用动词的被动形式</span><br><span class="line">- (void)setGlyphInfoAccepted:(BOOL)flag;</span><br><span class="line">- (BOOL)glyphInfoAccepted;</span><br></pre></td></tr></table></figure>
+<p>可以使用<code>can</code>,<code>should</code>,<code>will</code>等词来协助表达存取方法的意思，但不要使用<code>do</code>,和<code>does</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//正确</span><br><span class="line">- (void)setCanHide:(BOOL)flag;</span><br><span class="line">- (BOOL)canHide;</span><br><span class="line">- (void)setShouldCloseDocument:(BOOL)flag;</span><br><span class="line">- (BOOL)shouldCloseDocument;</span><br><span class="line"></span><br><span class="line">//错误，不要使用&quot;do&quot;或者&quot;does&quot;</span><br><span class="line">- (void)setDoesAcceptGlyphInfo:(BOOL)flag;</span><br><span class="line">- (BOOL)doesAcceptGlyphInfo;</span><br></pre></td></tr></table></figure>
+<p>为什么Objective-C中不适用<code>get</code>前缀来表示属性获取方法？因为<code>get</code>在Objective-C中通常只用来表示从函数指针返回值的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//三个参数都是作为函数的返回值来使用的，这样的函数名可以使用&quot;get&quot;前缀</span><br><span class="line">- (void)getLineDash:(float *)pattern count:(int *)count phase:(float *)phase;</span><br></pre></td></tr></table></figure>
+<h4 id="命名委托（Delegate）"><a href="#命名委托（Delegate）" class="headerlink" title="命名委托（Delegate）"></a>命名委托（Delegate）</h4><p>当特定的事件发生时，对象会触发它注册的委托方法。委托是Objective-C中常用的传递消息的方式。委托有它固定的命名范式。</p>
+<p>一个委托方法的第一个参数是触发它的对象，第一个关键词是触发对象的类名，除非委托方法只有一个名为<code>sender</code>的参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//第一个关键词为触发委托的类名</span><br><span class="line">- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row;</span><br><span class="line">- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename;</span><br><span class="line"></span><br><span class="line">//当只有一个&quot;sender&quot;参数时可以省略类名</span><br><span class="line">- (BOOL)applicationOpenUntitledFile:(NSApplication *)sender;</span><br></pre></td></tr></table></figure>
+<p>根据委托方法触发的时机和目的，使用<code>should</code>,<code>will</code>,<code>did</code>等关键词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (void)browserDidScroll:(NSBrowser *)sender;</span><br><span class="line"></span><br><span class="line">- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window;、</span><br><span class="line"></span><br><span class="line">- (BOOL)windowShouldClose:(id)sender;</span><br></pre></td></tr></table></figure>
+<h4 id="集合操作类方法（Collection-Methods）"><a href="#集合操作类方法（Collection-Methods）" class="headerlink" title="集合操作类方法（Collection Methods）"></a>集合操作类方法（Collection Methods）</h4><p>有些对象管理着一系列其它对象或者元素的集合，需要使用类似“增删查改”的方法来对集合进行操作，这些方法的命名范式一般为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//集合操作范式</span><br><span class="line">- (void)addElement:(elementType)anObj;</span><br><span class="line">- (void)removeElement:(elementType)anObj;</span><br><span class="line">- (NSArray *)elements;</span><br><span class="line"></span><br><span class="line">//栗子</span><br><span class="line">- (void)addLayoutManager:(NSLayoutManager *)obj;</span><br><span class="line">- (void)removeLayoutManager:(NSLayoutManager *)obj;</span><br><span class="line">- (NSArray *)layoutManagers;</span><br></pre></td></tr></table></figure>
+<p>注意，如果返回的集合是无序的，使用<code>NSSet</code>来代替<code>NSArray</code>。如果需要将元素插入到特定的位置，使用类似于这样的命名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (void)insertLayoutManager:(NSLayoutManager *)obj atIndex:(int)index;</span><br><span class="line">- (void)removeLayoutManagerAtIndex:(int)index;</span><br></pre></td></tr></table></figure>
+<p>如果管理的集合元素中有指向管理对象的指针，要设置成<code>weak</code>类型以防止引用循环。</p>
+<p>下面是SDK中<code>NSWindow</code>类的集合操作方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (void)addChildWindow:(NSWindow *)childWin ordered:(NSWindowOrderingMode)place;</span><br><span class="line">- (void)removeChildWindow:(NSWindow *)childWin;</span><br><span class="line">- (NSArray *)childWindows;</span><br><span class="line">- (NSWindow *)parentWindow;</span><br><span class="line">- (void)setParentWindow:(NSWindow *)window;</span><br></pre></td></tr></table></figure>
+<h4 id="命名函数（Functions）"><a href="#命名函数（Functions）" class="headerlink" title="命名函数（Functions）"></a>命名函数（Functions）</h4><p>在很多场合仍然需要用到函数，比如说如果一个对象是一个单例，那么应该使用函数来代替类方法执行相关操作。</p>
+<p>函数的命名和方法有一些不同，主要是：</p>
+<ul>
+<li>函数名称一般带有缩写前缀，表示方法所在的框架。</li>
+<li>前缀后的单词以“驼峰”表示法显示，第一个单词首字母大写。</li>
+</ul>
+<p>函数名的第一个单词通常是一个动词，表示方法执行的操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSHighlightRect</span><br><span class="line">NSDeallocateObject</span><br></pre></td></tr></table></figure>
+<p>如果函数返回其参数的某个属性，省略动词：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsigned int NSEventMaskFromType(NSEventType type)</span><br><span class="line">float NSHeight(NSRect aRect)</span><br></pre></td></tr></table></figure>
+<p>如果函数通过指针参数来返回值，需要在函数名中使用<code>Get</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const char *NSGetSizeAndAlignment(const char *typePtr, unsigned int *sizep, unsigned int *alignp)</span><br></pre></td></tr></table></figure>
+<p>函数的返回类型是BOOL时的命名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BOOL NSDecimalIsNotANumber(const NSDecimal *decimal)</span><br></pre></td></tr></table></figure>
+<h4 id="命名属性和实例变量（Properties-amp-Instance-Variables）"><a href="#命名属性和实例变量（Properties-amp-Instance-Variables）" class="headerlink" title="命名属性和实例变量（Properties&amp;Instance Variables）"></a>命名属性和实例变量（Properties&amp;Instance Variables）</h4><p>属性和对象的存取方法相关联，属性的第一个字母小写，后续单词首字母大写，不必添加前缀。属性按功能命名成名词或者动词：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//名词属性</span><br><span class="line">@property (strong) NSString *title;</span><br><span class="line"></span><br><span class="line">//动词属性</span><br><span class="line">@property (assign) BOOL showsAlpha;</span><br></pre></td></tr></table></figure>
+<p>属性也可以命名成形容词，这时候通常会指定一个带有<code>is</code>前缀的get方法来提高可读性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (assign, getter=isEditable) BOOL editable;</span><br></pre></td></tr></table></figure>
+<p>命名实例变量，在变量名前加上<code>_</code>前缀（<em>有些有历史的代码会将<code>_</code>放在后面</em>），其它和命名属性一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@implementation MyClass &#123;</span><br><span class="line">    BOOL _showsTitle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般来说，类需要对使用者隐藏数据存储的细节，所以不要将实例方法定义成公共可访问的接口，可以使用<code>@private</code>，<code>@protected</code>前缀。</p>
+<p><em>按苹果的说法，不建议在除了<code>init</code>和<code>dealloc</code>方法以外的地方直接访问实例变量，但很多人认为直接访问会让代码更加清晰可读，只在需要计算或者执行操作的时候才使用存取方法访问，我就是这种习惯，所以这里不作要求。</em></p>
+<h4 id="命名常量（Constants）"><a href="#命名常量（Constants）" class="headerlink" title="命名常量（Constants）"></a>命名常量（Constants）</h4><p>如果要定义一组相关的常量，尽量使用枚举类型（enumerations），枚举类型的命名规则和函数的命名规则相同。<br>建议使用 <code>NS_ENUM</code> 和 <code>NS_OPTIONS</code> 宏来定义枚举类型，参见官方的 <a href="https://developer.apple.com/library/ios/releasenotes/ObjectiveC/ModernizationObjC/AdoptingModernObjective-C/AdoptingModernObjective-C.html" target="_blank" rel="noopener">Adopting Modern Objective-C</a> 一文：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//定义一个枚举</span><br><span class="line">typedef NS_ENUM(NSInteger, NSMatrixMode) &#123;</span><br><span class="line">    NSRadioModeMatrix,</span><br><span class="line">    NSHighlightModeMatrix,</span><br><span class="line">    NSListModeMatrix,</span><br><span class="line">    NSTrackModeMatrix</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>定义bit map：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typedef NS_OPTIONS(NSUInteger, NSWindowMask) &#123;</span><br><span class="line">    NSBorderlessWindowMask      = 0,</span><br><span class="line">    NSTitledWindowMask          = 1 &lt;&lt; 0,</span><br><span class="line">    NSClosableWindowMask        = 1 &lt;&lt; 1,</span><br><span class="line">    NSMiniaturizableWindowMask  = 1 &lt;&lt; 2,</span><br><span class="line">    NSResizableWindowMask       = 1 &lt;&lt; 3</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用<code>const</code>定义浮点型或者单个的整数型常量，如果要定义一组相关的整数常量，应该优先使用枚举。常量的命名规范和函数相同：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const float NSLightGray;</span><br></pre></td></tr></table></figure>
+<p>不要使用<code>#define</code>宏来定义常量，如果是整型常量，尽量使用枚举，浮点型常量，使用<code>const</code>定义。<code>#define</code>通常用来给编译器决定是否编译某块代码，比如常用的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#ifdef DEBUG</span><br></pre></td></tr></table></figure>
+<p>注意到一般由编译器定义的宏会在前后都有一个<code>__</code>，比如<em><code>__MACH__</code></em>。</p>
+<h4 id="命名通知（Notifications）"><a href="#命名通知（Notifications）" class="headerlink" title="命名通知（Notifications）"></a>命名通知（Notifications）</h4><p>通知常用于在模块间传递消息，所以通知要尽可能地表示出发生的事件，通知的命名范式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[触发通知的类名] + [Did | Will] + [动作] + Notification</span><br></pre></td></tr></table></figure>
+<p>栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSApplicationDidBecomeActiveNotification</span><br><span class="line">NSWindowDidMiniaturizeNotification</span><br><span class="line">NSTextViewDidChangeSelectionNotification</span><br><span class="line">NSColorPanelColorDidChangeNotification</span><br></pre></td></tr></table></figure>
+<h4 id="命名类别（Categories）"><a href="#命名类别（Categories）" class="headerlink" title="命名类别（Categories）"></a>命名类别（Categories）</h4><p>虽然我们知道这样写很丑, 但是我们应该要在我们的 category 方法前加上自己的小写前缀以及下划线，比如<code>- (id)zoc_myCategoryMethod</code>。 这种实践同样<a href="https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/CustomizingExistingClasses/CustomizingExistingClasses.html#//apple_ref/doc/uid/TP40011210-CH6-SW4" target="_blank" rel="noopener">被苹果推荐</a>。</p>
+<p>一个好的实践是在 category 名中使用前缀。</p>
+<p><strong>例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface NSDate (ZOCTimeExtensions)</span><br><span class="line">- (NSString *)zoc_timeAgoShort;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>读没有注释代码的痛苦你我都体会过，好的注释不仅能让人轻松读懂你的程序，还能提升代码的逼格。注意注释是为了让别人看懂，而不是仅仅你自己。</p>
+<h4 id="文件注释"><a href="#文件注释" class="headerlink" title="文件注释"></a>文件注释</h4><p>每一个文件都<strong>必须</strong>写文件注释，文件注释通常包含</p>
+<ul>
+<li>文件所在模块</li>
+<li>作者信息</li>
+<li>历史版本信息</li>
+<li>版权信息</li>
+<li>文件包含的内容，作用</li>
+</ul>
+<p>一段良好文件注释的栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/*******************************************************************************</span><br><span class="line">	Copyright (C), 2011-2013, Andrew Min Chang</span><br><span class="line"></span><br><span class="line">	File name: 	AMCCommonLib.h</span><br><span class="line">	Author:		Andrew Chang (Zhang Min) </span><br><span class="line">	E-mail:		LaplaceZhang@126.com</span><br><span class="line">	</span><br><span class="line">	Description: 	</span><br><span class="line">			This file provide some covenient tool in calling library tools. One can easily include </span><br><span class="line">		library headers he wants by declaring the corresponding macros. </span><br><span class="line">			I hope this file is not only a header, but also a useful Linux library note.</span><br><span class="line">			</span><br><span class="line">	History:</span><br><span class="line">		2012-??-??: On about come date around middle of Year 2012, file created as &quot;commonLib.h&quot;</span><br><span class="line">		2012-08-20: Add shared memory library; add message queue.</span><br><span class="line">		2012-08-21: Add socket library (local)</span><br><span class="line">		2012-08-22: Add math library</span><br><span class="line">		2012-08-23: Add socket library (internet)</span><br><span class="line">		2012-08-24: Add daemon function</span><br><span class="line">		2012-10-10: Change file name as &quot;AMCCommonLib.h&quot;</span><br><span class="line">		2012-12-04: Add UDP support in AMC socket library</span><br><span class="line">		2013-01-07: Add basic data type such as &quot;sint8_t&quot;</span><br><span class="line">		2013-01-18: Add CFG_LIB_STR_NUM.</span><br><span class="line">		2013-01-22: Add CFG_LIB_TIMER.</span><br><span class="line">		2013-01-22: Remove CFG_LIB_DATA_TYPE because there is already AMCDataTypes.h</span><br><span class="line"></span><br><span class="line">	Copyright information: </span><br><span class="line">			This file was intended to be under GPL protocol. However, I may use this library</span><br><span class="line">		in my work as I am an employee. And my company may require me to keep it secret. </span><br><span class="line">		Therefore, this file is neither open source nor under GPL control. </span><br><span class="line">		</span><br><span class="line">********************************************************************************/</span><br></pre></td></tr></table></figure>
+<p><em>文件注释的格式通常不作要求，能清晰易读就可以了，但在整个工程中风格要统一。</em></p>
+<h4 id="代码注释"><a href="#代码注释" class="headerlink" title="代码注释"></a>代码注释</h4><p>好的代码应该是“自解释”（self-documenting）的，但仍然需要详细的注释来说明参数的意义、返回值、功能以及可能的副作用。</p>
+<p>方法、函数、类、协议、类别的定义都需要注释，推荐采用Apple的标准注释风格，好处是可以在引用的地方<code>alt+点击</code>自动弹出注释，非常方便。</p>
+<p>有很多可以自动生成注释格式的插件，推荐使用系统自带方法注释功能（<code>Cmd + Alt + /</code>）：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/6080248-cb62b50bcbc1fed5.gif?imageMogr2/auto-orient/strip" alt="Screenshot"></p>
+<p>一些良好的注释：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  Create a new preconnector to replace the old one with given mac address.</span><br><span class="line"> *  NOTICE: We DO NOT stop the old preconnector, so handle it by yourself.</span><br><span class="line"> *</span><br><span class="line"> *  @param type       Connect type the preconnector use.</span><br><span class="line"> *  @param macAddress Preconnector&apos;s mac address.</span><br><span class="line"> */</span><br><span class="line">- (void)refreshConnectorWithConnectType:(IPCConnectType)type  Mac:(NSString *)macAddress;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *  Stop current preconnecting when application is going to background.</span><br><span class="line"> */</span><br><span class="line">-(void)stopRunning;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *  Get the COPY of cloud device with a given mac address.</span><br><span class="line"> *</span><br><span class="line"> *  @param macAddress Mac address of the device.</span><br><span class="line"> *</span><br><span class="line"> *  @return Instance of IPCCloudDevice.</span><br><span class="line"> */</span><br><span class="line">-(IPCCloudDevice *)getCloudDeviceWithMac:(NSString *)macAddress;</span><br><span class="line"></span><br><span class="line">// A delegate for NSApplication to handle notifications about app</span><br><span class="line">// launch and shutdown. Owned by the main app controller.</span><br><span class="line">@interface MyAppDelegate : NSObject &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>协议、委托的注释要明确说明其被触发的条件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/** Delegate - Sent when failed to init connection, like p2p failed. */</span><br><span class="line">-(void)initConnectionDidFailed:(IPCConnectHandler *)handler;</span><br></pre></td></tr></table></figure>
+<p>如果在注释中要引用参数名或者方法函数名，使用<code>||</code>将参数或者方法括起来以避免歧义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Sometimes we need |count| to be less than zero.</span><br><span class="line"></span><br><span class="line">// Remember to call |StringWithoutSpaces(&quot;foo bar baz&quot;)|</span><br></pre></td></tr></table></figure>
+<p><strong>定义在头文件里的接口方法、属性必须要有注释！</strong></p>
+<h3 id="编码风格"><a href="#编码风格" class="headerlink" title="编码风格"></a>编码风格</h3><p>每个人都有自己的编码风格，这里总结了一些比较好的Cocoa编程风格和注意点。</p>
+<h4 id="不要使用尤达表达式"><a href="#不要使用尤达表达式" class="headerlink" title="不要使用尤达表达式"></a>不要使用尤达表达式</h4><p>尤达表达式是指，拿一个常量去和变量比较而不是拿变量去和常量比较。它就像是在表达 “蓝色是不是天空的颜色” 或者 “高个是不是这个男人的属性” 而不是 “天空是不是蓝的” 或者 “这个男人是不是高个子的”</p>
+<p> <strong>推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if ([myValue isEqual:@42]) &#123; ...</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if ([@42 isEqual:myValue]) &#123; ...</span><br></pre></td></tr></table></figure>
+<h4 id="黄金大道"><a href="#黄金大道" class="headerlink" title="黄金大道"></a>黄金大道</h4><p>在使用条件语句编程时，代码的左边距应该是一条“黄金”或者“快乐”的大道。 也就是说，不要嵌套 <code>if</code> 语句。使用多个 return 可以避免增加循环的复杂度，并提高代码的可读性。因为方法的重要部分没有嵌套在分支里面，并且你可以很清楚地找到相关的代码。</p>
+<p><strong>推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)someMethod &#123;</span><br><span class="line">  if (![someOther boolValue]) &#123;</span><br><span class="line">      return;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //Do something important</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (void)someMethod &#123;</span><br><span class="line">  if ([someOther boolValue]) &#123;</span><br><span class="line">    //Do something important</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="复杂的表达式"><a href="#复杂的表达式" class="headerlink" title="复杂的表达式"></a>复杂的表达式</h4><p>当你有一个复杂的 if 子句的时候，你应该把它们提取出来赋给一个 BOOL 变量，这样可以让逻辑更清楚，而且让每个子句的意义体现出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BOOL nameContainsSwift  = [sessionName containsString:@&quot;Swift&quot;];</span><br><span class="line">BOOL isCurrentYear      = [sessionDateCompontents year] == 2014;</span><br><span class="line">BOOL isSwiftSession     = nameContainsSwift &amp;&amp; isCurrentYear;</span><br><span class="line"></span><br><span class="line">if (isSwiftSession) &#123;</span><br><span class="line">    // Do something very cool</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h4><p>三元运算符 ? 应该只用在它能让代码更加清楚的地方。 一个条件语句的所有的变量应该是已经被求值了的。类似 if 语句，计算多个条件子句通常会让语句更加难以理解。或者可以把它们重构到实例变量里面。</p>
+<p><strong>推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = a &gt; b ? x : y;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = a &gt; b ? x = c &gt; d ? c : d : y;</span><br></pre></td></tr></table></figure>
+<p>当三元运算符的第二个参数（if 分支）返回和条件语句中已经检查的对象一样的对象的时候，下面的表达方式更灵巧：</p>
+<p><strong>推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = object ? : [self createObject];</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = object ? object : [self createObject];</span><br></pre></td></tr></table></figure>
+<h4 id="Pragma"><a href="#Pragma" class="headerlink" title="Pragma"></a>Pragma</h4><h5 id="Pragma-Mark"><a href="#Pragma-Mark" class="headerlink" title="Pragma Mark"></a>Pragma Mark</h5><p><code>#pragma mark -</code> 是一个在类内部组织代码并且帮助你分组方法实现的好办法。 我们建议使用 <code>#pragma mark -</code> 来分离:</p>
+<ul>
+<li>不同功能组的方法</li>
+<li>protocols 的实现</li>
+<li>对父类方法的重写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc &#123; /* ... */ &#125;</span><br><span class="line">- (instancetype)init &#123; /* ... */ &#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - View Lifecycle （View 的生命周期）</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123; /* ... */ &#125;</span><br><span class="line">- (void)viewWillAppear:(BOOL)animated &#123; /* ... */ &#125;</span><br><span class="line">- (void)didReceiveMemoryWarning &#123; /* ... */ &#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - Custom Accessors （自定义访问器）</span><br><span class="line"></span><br><span class="line">- (void)setCustomProperty:(id)value &#123; /* ... */ &#125;</span><br><span class="line">- (id)customProperty &#123; /* ... */ &#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - IBActions  </span><br><span class="line"></span><br><span class="line">- (IBAction)submitData:(id)sender &#123; /* ... */ &#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - Public </span><br><span class="line"></span><br><span class="line">- (void)publicMethod &#123; /* ... */ &#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - Private</span><br><span class="line"></span><br><span class="line">- (void)zoc_privateMethod &#123; /* ... */ &#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - UITableViewDataSource</span><br><span class="line"></span><br><span class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123; /* ... */ &#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - ZOCSuperclass</span><br><span class="line"></span><br><span class="line">// ... 重载来自 ZOCSuperclass 的方法</span><br><span class="line"></span><br><span class="line">#pragma mark - NSObject</span><br><span class="line"></span><br><span class="line">- (NSString *)description &#123; /* ... */ &#125;</span><br></pre></td></tr></table></figure>
+<p>上面的标记能明显分离和组织代码。你还可以用 cmd+Click 来快速跳转到符号定义地方。 但是小心，即使 paragma mark 是一门手艺，但是它不是让你类里面方法数量增加的一个理由：类里面有太多方法说明类做了太多事情，需要考虑重构了。</p>
+<h5 id="关于-pragma"><a href="#关于-pragma" class="headerlink" title="关于 pragma"></a>关于 pragma</h5><p>在 <a href="http://raptureinvenice.com/pragmas-arent-just-for-marks" target="_blank" rel="noopener">http://raptureinvenice.com/pragmas-arent-just-for-marks</a> 有很好的关于 pragma 的讨论了，在这边我们再做部分说明。</p>
+<p>大多数 iOS 开发者平时并没有和很多编译器选项打交道。一些选项是对控制严格检查（或者不检查）你的代码或者错误的。有时候，你想要用 pragma 直接产生一个异常，临时打断编译器的行为。</p>
+<p>当你使用ARC的时候，编译器帮你插入了内存管理相关的调用。但是这样可能产生一些烦人的事情。比如你使用 <code>NSSelectorFromString</code> 来动态地产生一个 selector 调用的时候，ARC不知道这个方法是哪个并且不知道应该用那种内存管理方法，你会被提示 <code>performSelector may cause a leak because its selector is unknown（执行 selector 可能导致泄漏，因为这个 selector 是未知的）</code>.</p>
+<p>如果你知道你的代码不会导致内存泄露，你可以通过加入这些代码忽略这些警告</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#pragma clang diagnostic push</span><br><span class="line">#pragma clang diagnostic ignored &quot;-Warc-performSelector-leaks&quot;</span><br><span class="line"></span><br><span class="line">[myObj performSelector:mySelector withObject:name];</span><br><span class="line"></span><br><span class="line">#pragma clang diagnostic pop</span><br></pre></td></tr></table></figure>
+<p>注意我们是如何在相关代码上下文中用 pragma 停用 -Warc-performSelector-leaks 检查的。这确保我们没有全局禁用。如果全局禁用，可能会导致错误。</p>
+<p>全部的选项可以在 <a href="http://clang.llvm.org/docs/UsersManual.html" target="_blank" rel="noopener">The Clang User’s Manual</a> 找到并且学习。</p>
+<h5 id="忽略没用使用变量的编译警告"><a href="#忽略没用使用变量的编译警告" class="headerlink" title="忽略没用使用变量的编译警告"></a>忽略没用使用变量的编译警告</h5><p>告诉你申明的变量它将不会被使用，这种做法很有用。大多数情况下，你希望移除这些引用来（稍微地）提高性能，但是有时候你希望保留它们。为什么？或许它们以后有用，或者有些特性只是暂时移除。无论如何，一个消除这些警告的好方法是用相关语句进行注解，使用 <code>#pragma unused()</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (NSInteger)giveMeFive</span><br><span class="line">&#123;</span><br><span class="line">    NSString *foo;</span><br><span class="line">    #pragma unused (foo)</span><br><span class="line"></span><br><span class="line">    return 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在你的代码不用任何编译警告了。注意你的 pragma 需要标记到问题代码之下。</p>
+<h4 id="明确编译器警告和错误"><a href="#明确编译器警告和错误" class="headerlink" title="明确编译器警告和错误"></a>明确编译器警告和错误</h4><p>编译器是一个机器人，它会标记你代码中被 Clang 规则定义为错误的地方。但是，你总是比 Clang 更聪明。通常，你会发现一些讨厌的代码会导致这个问题，但是暂时却解决不了。你可以这样明确一个错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (NSInteger)divide:(NSInteger)dividend by:(NSInteger)divisor</span><br><span class="line">&#123;</span><br><span class="line">    #error Whoa, buddy, you need to check for zero here!</span><br><span class="line">    return (dividend / divisor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类似的，你可以这样标明一个警告</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (float)divide:(float)dividend by:(float)divisor</span><br><span class="line">&#123;</span><br><span class="line">    #warning Dude, don&apos;t compare floating point numbers like this!</span><br><span class="line">    if (divisor != 0.0) &#123;</span><br><span class="line">        return (dividend / divisor);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        return NAN;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="NSCache"><a href="#NSCache" class="headerlink" title="NSCache"></a>NSCache</h4><ul>
+<li>构建缓存时选用NSCache 而非NSDictionary</li>
+</ul>
+<p>如果我们缓存使用得当，那么应用程序的响应速度就会提高。只有那种“重新计算起来很费事的数据，才值得放入缓存”，比如那些需要从网络获取或从磁盘读取的数据。</p>
+<p>在构建缓存的时候很多人习惯用NSDictionary或者NSMutableDictionary，但是作者建议大家使用NSCache，它作为管理缓存的类，有很多特点要优于字典，因为它本来就是为了管理缓存而设计的。</p>
+<ul>
+<li>NSCache优于NSDictionary的几点：<ul>
+<li>当系统资源将要耗尽时，NSCache具备自动删减缓冲的功能。并且还会先删减“最久未使用”的对象。</li>
+<li>NSCache不拷贝键，而是保留键。因为并不是所有的键都遵从拷贝协议（字典的键是必须要支持拷贝协议的，有局限性）。</li>
+<li>NSCache是线程安全的：不编写加锁代码的前提下，多个线程可以同时访问NSCache。</li>
+</ul>
+</li>
+</ul>
+<h4 id="不要使用new方法"><a href="#不要使用new方法" class="headerlink" title="不要使用new方法"></a>不要使用new方法</h4><p>尽管很多时候能用<code>new</code>代替<code>alloc init</code>方法，但这可能会导致调试内存时出现不可预料的问题。Cocoa的规范就是使用<code>alloc init</code>方法，使用<code>new</code>会让一些读者困惑。</p>
+<h4 id="import和-include"><a href="#import和-include" class="headerlink" title="#import和#include"></a>#import和#include</h4><p><code>#import</code>是Cocoa中常用的引用头文件的方式，它能自动防止重复引用文件，什么时候使用<code>#import</code>，什么时候使用<code>#include</code>呢？</p>
+<ul>
+<li>当引用的是一个Objective-C或者Objective-C++的头文件时，使用<code>#import</code></li>
+<li>当引用的是一个C或者C++的头文件时，使用<code>#include</code>，这时必须要保证被引用的文件提供了保护域（#define guard）。</li>
+</ul>
+<p>栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Cocoa/Cocoa.h&gt;</span><br><span class="line">#include &lt;CoreFoundation/CoreFoundation.h&gt;</span><br><span class="line">#import &quot;GTMFoo.h&quot;</span><br><span class="line">#include &quot;base/basictypes.h&quot;</span><br></pre></td></tr></table></figure>
+<p>为什么不全部使用<code>#import</code>呢？主要是为了保证代码在不同平台间共享时不出现问题。</p>
+<h4 id="引用框架的根头文件"><a href="#引用框架的根头文件" class="headerlink" title="引用框架的根头文件"></a>引用框架的根头文件</h4><p>上面提到过，每一个框架都会有一个和框架同名的头文件，它包含了框架内接口的所有引用，在使用框架的时候，应该直接引用这个根头文件，而不是其它子模块的头文件，即使是你只用到了其中的一小部分，编译器会自动完成优化的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//正确，引用根头文件</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">//错误，不要单独引用框架内的其它头文件</span><br><span class="line">#import &lt;Foundation/NSArray.h&gt;</span><br><span class="line">#import &lt;Foundation/NSString.h&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="BOOL的使用"><a href="#BOOL的使用" class="headerlink" title="BOOL的使用"></a>BOOL的使用</h4><p>BOOL在Objective-C中被定义为<code>signed char</code>类型，这意味着一个BOOL类型的变量不仅仅可以表示<code>YES</code>(1)和<code>NO</code>(0)两个值，所以永远<strong>不要</strong>将BOOL类型变量直接和<code>YES</code>比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//错误，无法确定|great|的值是否是YES(1)，不要将BOOL值直接与YES比较</span><br><span class="line">BOOL great = [foo isGreat];</span><br><span class="line">if (great == YES)</span><br><span class="line">  // ...be great!</span><br><span class="line"></span><br><span class="line">//正确</span><br><span class="line">BOOL great = [foo isGreat];</span><br><span class="line">if (great)</span><br><span class="line">  // ...be great!</span><br></pre></td></tr></table></figure>
+<p>同样的，也不要将其它类型的值作为BOOL来返回，这种情况下，BOOL变量只会取值的最后一个字节来赋值，这样很可能会取到0（NO）。但是，一些逻辑操作符比如<code>&amp;&amp;</code>,<code>||</code>,<code>!</code>的返回是可以直接赋给BOOL的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//错误，不要将其它类型转化为BOOL返回</span><br><span class="line">- (BOOL)isBold &#123;</span><br><span class="line">  return [self fontTraits] &amp; NSFontBoldTrait;</span><br><span class="line">&#125;</span><br><span class="line">- (BOOL)isValid &#123;</span><br><span class="line">  return [self stringValue];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//正确</span><br><span class="line">- (BOOL)isBold &#123;</span><br><span class="line">  return ([self fontTraits] &amp; NSFontBoldTrait) ? YES : NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//正确，逻辑操作符可以直接转化为BOOL</span><br><span class="line">- (BOOL)isValid &#123;</span><br><span class="line">  return [self stringValue] != nil;</span><br><span class="line">&#125;</span><br><span class="line">- (BOOL)isEnabled &#123;</span><br><span class="line">  return [self isValid] &amp;&amp; [self isBold];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外BOOL类型可以和<code>_Bool</code>,<code>bool</code>相互转化，但是<strong>不能</strong>和<code>Boolean</code>转化。</p>
+<h4 id="在init和dealloc中不要用存取方法访问实例变量"><a href="#在init和dealloc中不要用存取方法访问实例变量" class="headerlink" title="在init和dealloc中不要用存取方法访问实例变量"></a>在init和dealloc中不要用存取方法访问实例变量</h4><p>当<code>init``dealloc</code>方法被执行时，类的运行时环境不是处于正常状态的，使用存取方法访问变量可能会导致不可预料的结果，因此应当在这两个方法内直接访问实例变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//正确，直接访问实例变量</span><br><span class="line">- (instancetype)init &#123;</span><br><span class="line">  self = [super init];</span><br><span class="line">  if (self) &#123;</span><br><span class="line">    _bar = [[NSMutableString alloc] init];</span><br><span class="line">  &#125;</span><br><span class="line">  return self;</span><br><span class="line">&#125;</span><br><span class="line">- (void)dealloc &#123;</span><br><span class="line">  [_bar release];</span><br><span class="line">  [super dealloc];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//错误，不要通过存取方法访问</span><br><span class="line">- (instancetype)init &#123;</span><br><span class="line">  self = [super init];</span><br><span class="line">  if (self) &#123;</span><br><span class="line">    self.bar = [NSMutableString string];</span><br><span class="line">  &#125;</span><br><span class="line">  return self;</span><br><span class="line">&#125;</span><br><span class="line">- (void)dealloc &#123;</span><br><span class="line">  self.bar = nil;</span><br><span class="line">  [super dealloc];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="保证NSString在赋值时被复制"><a href="#保证NSString在赋值时被复制" class="headerlink" title="保证NSString在赋值时被复制"></a>保证NSString在赋值时被复制</h4><p><code>NSString</code>非常常用，在它被传递或者赋值时应当保证是以复制（copy）的方式进行的，这样可以防止在不知情的情况下String的值被其它对象修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)setFoo:(NSString *)aFoo &#123;</span><br><span class="line">  _foo = [aFoo copy];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用NSNumber的语法糖"><a href="#使用NSNumber的语法糖" class="headerlink" title="使用NSNumber的语法糖"></a>使用NSNumber的语法糖</h4><p>使用带有<code>@</code>符号的语法糖来生成NSNumber对象能使代码更简洁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NSNumber *fortyTwo = @42;</span><br><span class="line">NSNumber *piOverTwo = @(M_PI / 2);</span><br><span class="line">enum &#123;</span><br><span class="line">  kMyEnum = 2;</span><br><span class="line">&#125;;</span><br><span class="line">NSNumber *myEnum = @(kMyEnum);</span><br></pre></td></tr></table></figure>
+<h4 id="nil检查"><a href="#nil检查" class="headerlink" title="nil检查"></a>nil检查</h4><p>因为在Objective-C中向nil对象发送命令是不会抛出异常或者导致崩溃的，只是完全的“什么都不干”，所以，只在程序中使用nil来做逻辑上的检查。</p>
+<p>另外，不要使用诸如<code>nil == Object</code>或者<code>Object == nil</code>的形式来判断。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//正确，直接判断</span><br><span class="line">if (!objc) &#123;</span><br><span class="line">	...	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//错误，不要使用nil == Object的形式</span><br><span class="line">if (nil == objc) &#123;</span><br><span class="line">	...	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Delegate要使用弱引用"><a href="#Delegate要使用弱引用" class="headerlink" title="Delegate要使用弱引用"></a>Delegate要使用弱引用</h4><p>一个类的Delegate对象通常还引用着类本身，这样很容易造成引用循环的问题，所以类的Delegate属性要设置为弱引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/** delegate */</span><br><span class="line">@property (nonatomic, weak) id &lt;IPCConnectHandlerDelegate&gt; delegate;</span><br></pre></td></tr></table></figure>
+<h4 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h4><p>使用dispatch_once来生成单例，<strong>建议单例类方法名命名保持一致</strong>。</p>
+<p>推荐这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (instancetype)sharedInstance </span><br><span class="line">&#123; </span><br><span class="line"> static id sharedInstance = nil; </span><br><span class="line"> static dispatch_once_t onceToken = 0;</span><br><span class="line">       dispatch_once(&amp;onceToken, ^&#123; </span><br><span class="line">  sharedInstance = [[self alloc] init];</span><br><span class="line">  &#125;); </span><br><span class="line"> return sharedInstance; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Block循环引用问题"><a href="#Block循环引用问题" class="headerlink" title="Block循环引用问题"></a>Block循环引用问题</h4><p>当使用代码块和异步分发的时候，要注意避免引用循环。 总是使用 <code>weak</code> 来引用对象，避免引用循环。（译者注：这里更为优雅的方式是采用影子变量@weakify/@strongify <a href="https://github.com/jspahrsummers/libextobjc/blob/master/extobjc/EXTScope.h" target="_blank" rel="noopener">这里有更为详细的说明</a>） 此外，把持有 block 的属性设置为 nil (比如 <code>self.completionBlock = nil</code>) 是一个好的实践。它会打破 block 捕获的作用域带来的引用循环。</p>
+<p><strong>例子:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__weak __typeof(self) weakSelf = self;</span><br><span class="line">[self executeBlock:^(NSData *data, NSError *error) &#123;</span><br><span class="line">    [weakSelf doSomethingWithData:data];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p><strong>不要这样:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[self executeBlock:^(NSData *data, NSError *error) &#123;</span><br><span class="line">    [self doSomethingWithData:data];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p><strong>多个语句的例子:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__weak __typeof(self)weakSelf = self;</span><br><span class="line">[self executeBlock:^(NSData *data, NSError *error) &#123;</span><br><span class="line">    __strong __typeof(weakSelf) strongSelf = weakSelf;</span><br><span class="line">    if (strongSelf) &#123;</span><br><span class="line">        [strongSelf doSomethingWithData:data];</span><br><span class="line">        [strongSelf doSomethingWithData:data];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p><strong>不要这样:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__weak __typeof(self)weakSelf = self;</span><br><span class="line">[self executeBlock:^(NSData *data, NSError *error) &#123;</span><br><span class="line">    [weakSelf doSomethingWithData:data];</span><br><span class="line">    [weakSelf doSomethingWithData:data];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p>你应该把这两行代码作为 snippet 加到 Xcode 里面并且总是这样使用它们。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__weak __typeof(self)weakSelf = self;</span><br><span class="line">__strong __typeof(weakSelf)strongSelf = weakSelf;</span><br></pre></td></tr></table></figure>
+<p>这里我们来讨论下 block 里面的 self 的 <code>__weak</code> 和 <code>__strong</code> 限定词的一些微妙的地方。简而言之，我们可以参考 self 在 block 里面的三种不同情况。</p>
+<ol>
+<li>直接在 block 里面使用关键词 self</li>
+<li>在 block 外定义一个 <code>__weak</code> 的 引用到 self，并且在 block 里面使用这个弱引用</li>
+<li>在 block 外定义一个 <code>__weak</code> 的 引用到 self，并在在 block 内部通过这个弱引用定义一个 <code>__strong</code>的引用。</li>
+</ol>
+<p><strong>方案 1. 直接在 block 里面使用关键词 self</strong></p>
+<p>如果我们直接在 block 里面用 self 关键字，对象会在 block 的定义时候被 retain，（实际上 block 是 <a href="https://developer.apple.com/library/ios/documentation/cocoa/conceptual/Blocks/Articles/bxVariables.html#//apple_ref/doc/uid/TP40007502-CH6-SW4" target="_blank" rel="noopener">copied</a>但是为了简单我们可以忽略这个）。</p>
+<p>一个 const 的对 self 的引用在 block 里面有自己的位置并且它会影响对象的引用计数。</p>
+<p>如果这个block被其他的类使用并且(或者)彼此间传来传去，我们可能想要在 block 中保留 self，就像其他在 block 中使用的对象一样. 因为他们是block执行所需要的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dispatch_block_t completionBlock = ^&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, self);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyViewController *myController = [[MyViewController alloc] init...];</span><br><span class="line">[self presentViewController:myController</span><br><span class="line">                   animated:YES</span><br><span class="line">                 completion:completionHandler];</span><br></pre></td></tr></table></figure>
+<p>没啥大不了。但是如果通过一个属性中的 <code>self</code> 保留 了这个 block（就像下面的例程一样）,对象( self )保留了 block 会怎么样呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">self.completionHandler = ^&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, self);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyViewController *myController = [[MyViewController alloc] init...];</span><br><span class="line">[self presentViewController:myController</span><br><span class="line">                   animated:YES</span><br><span class="line">                 completion:self.completionHandler];</span><br></pre></td></tr></table></figure>
+<p>这就是有名的 retain cycle, 并且我们通常应该避免它。这种情况下我们收到 CLANG 的警告：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Capturing &apos;self&apos; strongly in this block is likely to lead to a retain cycle （在 block 里面发现了 `self` 的强引用，可能会导致循环引用）</span><br></pre></td></tr></table></figure>
+<p>所以 <code>__weak</code> 就有用武之地了。</p>
+<p><strong>方案 2. 在 block 外定义一个 __weak 的 引用到 self，并且在 block 里面使用这个弱引用</strong></p>
+<p>这样会避免循坏引用，也是通常情况下我们的block作为类的属性被self retain 的时候会做的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">__weak typeof(self) weakSelf = self;</span><br><span class="line">self.completionHandler = ^&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, weakSelf);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyViewController *myController = [[MyViewController alloc] init...];</span><br><span class="line">[self presentViewController:myController</span><br><span class="line">                   animated:YES</span><br><span class="line">                 completion:self.completionHandler];</span><br></pre></td></tr></table></figure>
+<p>这个情况下 block 没有 retain 对象并且对象在属性里面 retain 了 block 。所以这样我们能保证了安全的访问 self。 不过糟糕的是，它可能被设置成 nil 的。问题是：如何让 self 在 block 里面安全地被销毁。</p>
+<p>考虑这么个情况：block 作为属性(property)赋值的结果，从一个对象被复制到另一个对象(如 myController)，在这个复制的 block 执行之前，前者（即之前的那个对象）已经被解除分配。</p>
+<p>下面的更有意思。</p>
+<p><strong>方案 3. 在 block 外定义一个 <strong>weak 的 引用到 self，并在在 block 内部通过这个弱引用定义一个</strong>strong 的引用</strong></p>
+<p>你可能会想，首先，这是避免 retain cycle 警告的一个技巧。这不是重点，这个 self 的强引用是在block 执行时 被创建的，但是否使用 self 在 block 定义时就已经定下来了， 因此self (在block执行时) 会被 retain。</p>
+<p><a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html" target="_blank" rel="noopener">Apple 文档</a> 中表示 “为了 non-trivial cycles ，你应该这样” ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MyViewController *myController = [[MyViewController alloc] init...];</span><br><span class="line">// ...</span><br><span class="line">MyViewController * __weak weakMyController = myController;</span><br><span class="line">myController.completionHandler =  ^(NSInteger result) &#123;</span><br><span class="line">    MyViewController *strongMyController = weakMyController;</span><br><span class="line">    if (strongMyController) &#123;</span><br><span class="line">        // ...</span><br><span class="line">        [strongMyController dismissViewControllerAnimated:YES completion:nil];</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // Probably nothing...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>首先，我觉得这个例子看起来是错误的。如果 block 本身在 completionHandler 属性中被 retain 了，那么 self 如何被 delloc 和在 block 之外赋值为 nil 呢? completionHandler 属性可以被声明为 <code>assign</code> 或者 <code>unsafe_unretained</code> 的，来允许对象在 block 被传递之后被销毁。</p>
+<p>我不能理解这样做的理由，如果其他对象需要这个对象（self），block 被传递的时候应该 retain 对象，所以 block 应该不被作为属性存储。这种情况下不应该用 <code>__weak</code>/<code>__strong</code></p>
+<p>总之，其他情况下，希望 weakSelf 变成 nil 的话，就像第二种情况解释那么写（在 block 之外定义一个弱应用并且在 block 里面使用）。</p>
+<p>还有，Apple的 “trivial block” 是什么呢。我们的理解是 trivial block 是一个不被传送的 block ，它在一个良好定义和控制的作用域里面，weak 修饰只是为了避免循环引用。</p>
+<p>虽然有 Kazuki Sakamoto 和 Tomohiko Furumoto) 讨论的 <a href="http://dhoerl.wordpress.com/2013/04/23/i-finally-figured-out-weakself-and-strongself/" target="_blank" rel="noopener">一</a> <a href="http://blog.random-ideas.net/?p=160" target="_blank" rel="noopener">些</a> <a href="http://stackoverflow.com/questions/7904568/disappearing-reference-to-self-in-a-block-under-arc" target="_blank" rel="noopener">的</a> <a href="http://stackoverflow.com/questions/12218767/objective-c-blocks-and-memory-management" target="_blank" rel="noopener">在线</a> <a href="https://github.com/AFNetworking/AFNetworking/issues/807" target="_blank" rel="noopener">参考</a>, <a href="https://twitter.com/mattjgalloway" target="_blank" rel="noopener">Matt Galloway</a> 的 (<a href="http://www.effectiveobjectivec.com/" target="_blank" rel="noopener">Effective Objective-C 2.0</a> 和 <a href="http://www.amazon.it/Pro-Multithreading-Memory-Management-Ios/dp/1430241160" target="_blank" rel="noopener">Pro Multithreading and Memory Management for iOS and OS X</a> ，大多数开发者始终没有弄清楚概念。</p>
+<p>在 block 内用强引用的优点是，抢占执行的时候的鲁棒性。在 block 执行的时候, 再次温故下上面的三个例子：</p>
+<p><strong>方案 1. 直接在 block 里面使用关键词 self</strong></p>
+<p>如果 block 被属性 retain，self 和 block 之间会有一个循环引用并且它们不会再被释放。如果 block 被传送并且被其他的对象 copy 了，self 在每一个 copy 里面被 retain</p>
+<p><strong>方案 2. 在 block 外定义一个 __weak 的 引用到 self，并且在 block 里面使用这个弱引用</strong></p>
+<p>不管 block 是否通过属性被 retain ，这里都不会发生循环引用。如果 block 被传递或者 copy 了，在执行的时候，weakSelf 可能已经变成 nil。</p>
+<p>block 的执行可以抢占，而且对 weakSelf 指针的调用时序不同可以导致不同的结果(如：在一个特定的时序下 weakSelf 可能会变成 nil )。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__weak typeof(self) weakSelf = self;</span><br><span class="line">dispatch_block_t block =  ^&#123;</span><br><span class="line">    [weakSelf doSomething]; // weakSelf != nil</span><br><span class="line">    // preemption, weakSelf turned nil</span><br><span class="line">    [weakSelf doSomethingElse]; // weakSelf == nil</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>方案 3. 在 block 外定义一个 <strong>weak 的 引用到 self，并在在 block 内部通过这个弱引用定义一个</strong>strong 的引用。</strong></p>
+<p>不管 block 是否通过属性被 retain ，这里也不会发生循环引用。如果 block 被传递到其他对象并且被复制了，执行的时候，weakSelf 可能被nil，因为强引用被赋值并且不会变成nil的时候，我们确保对象 在 block 调用的完整周期里面被 retain了，如果抢占发生了，随后的对 strongSelf 的执行会继续并且会产生一样的值。如果 strongSelf 的执行到 nil，那么在 block 不能正确执行前已经返回了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">__weak typeof(self) weakSelf = self;</span><br><span class="line">myObj.myBlock =  ^&#123;</span><br><span class="line">    __strong typeof(self) strongSelf = weakSelf;</span><br><span class="line">    if (strongSelf) &#123;</span><br><span class="line">      [strongSelf doSomething]; // strongSelf != nil</span><br><span class="line">      // preemption, strongSelf still not nil（抢占的时候，strongSelf 还是非 nil 的)</span><br><span class="line">      [strongSelf doSomethingElse]; // strongSelf != nil</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // Probably nothing...</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在ARC条件中，如果尝试用 <code>-&gt;</code> 符号访问一个实例变量，编译器会给出非常清晰的错误信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dereferencing a __weak pointer is not allowed due to possible null value caused by race condition, assign it to a strong variable first. (对一个 __weak 指针的解引用不允许的，因为可能在竞态条件里面变成 null, 所以先把他定义成 strong 的属性)</span><br></pre></td></tr></table></figure>
+<p>可以用下面的代码展示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__weak typeof(self) weakSelf = self;</span><br><span class="line">myObj.myBlock =  ^&#123;</span><br><span class="line">    id localVal = weakSelf-&gt;someIVar;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在最后</p>
+<ul>
+<li><strong>方案 1</strong>: 只能在 block 不是作为一个 property 的时候使用，否则会导致 retain cycle。</li>
+<li><strong>方案 2</strong>: 当 block 被声明为一个 property 的时候使用。</li>
+<li><strong>方案 3</strong>: 和并发执行有关。当涉及异步的服务的时候，block 可以在之后被执行，并且不会发生关于 self 是否存在的问题。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文档旨在总结出一份通用的编码规范，欢迎随时探讨补充。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="规范" scheme="https://robberjj.github.io/tags/%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="编码" scheme="https://robberjj.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上的那些效率神器</title>
+    <link href="https://robberjj.github.io/2018/07/16/ArtifactsOnMac/"/>
+    <id>https://robberjj.github.io/2018/07/16/ArtifactsOnMac/</id>
+    <published>2018-07-16T08:56:50.000Z</published>
+    <updated>2018-11-08T04:19:46.760Z</updated>
+    
+    <content type="html"><![CDATA[<p>####No.1  <em>Alfred</em> <a href="https://www.alfredapp.com/" target="_blank" rel="noopener">点我装备</a></p>
+<p>这顶神奇的魔法帽到底能干啥？<br>这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。</p>
+<p>哈哈~~是不是很夸张？！  一会儿再来下定论</p>
+<a id="more"></a> 
+<p>在这里我只是举一个简单的栗子，通常我们遇到不懂的英文单词，基本是这么一个操作过程：</p>
+<ul>
+<li>copy单词</li>
+<li>打开翻译应用（比如自带词典）</li>
+<li>输入或粘贴查询单词</li>
+<li>翻译应用输出查询结果</li>
+<li>查询过后，一般都需要 Cmd+Q 退出应用（或者 Cmd+H 隐藏词典，亦或 Cmd+Tab 切换回上一个应用）</li>
+</ul>
+<p>或者是下面的步骤：</p>
+<ul>
+<li>copy单词</li>
+<li>手动打开浏览器</li>
+<li>进入谷歌首页</li>
+<li>选中输入框</li>
+<li>输入或粘贴查询单词，然后空格并加上「翻译」两个字，然后再回车</li>
+<li>等待浏览器展示查询结果;</li>
+</ul>
+<p>而用Alfred是只需要：</p>
+<ul>
+<li>选中单词</li>
+<li>CMD+Y（假如快捷键你设置的是这个）</li>
+</ul>
+<p>Done！！</p>
+<h5 id="那么问题来了，Alfred到底具体能做什么？"><a href="#那么问题来了，Alfred到底具体能做什么？" class="headerlink" title="那么问题来了，Alfred到底具体能做什么？"></a>那么问题来了，Alfred到底具体能做什么？</h5><p>默认情况下，Alfred 至少能胜任 15 项工作：</p>
+<ol>
+<li>应用搜索</li>
+<li>文件或目录搜索</li>
+<li>文本内容搜索</li>
+<li>标记搜索</li>
+<li>快捷网页搜索</li>
+<li>书签搜索</li>
+<li>计算器</li>
+<li>词典搜索</li>
+<li>通讯录搜索</li>
+<li>剪切板搜索</li>
+<li>代码片段搜索</li>
+<li>iTunes 管理</li>
+<li>1Password 搜索</li>
+<li>系统常用命令快捷操作</li>
+<li>直接唤起指定终端并执行命令</li>
+</ol>
+<p><a href="https://sspai.com/post/44624" target="_blank" rel="noopener">这里</a>做了很详细的说明。</p>
+<p>当然，Alfred真正核心的功能在于——<strong>Workflow</strong> 。</p>
+<p>Alfred 几乎可以做任何自动化工作流的事情（只要能用代码描述这个工作流就行），它能彻底改变了你对 Mac 的认知。</p>
+<p>网上有很多大神们写好的<code>workflow</code>，可以搜一搜，然后体验体验，在我们可以自己为所欲为之前，坚定一下信心。</p>
+<h4 id="No-2-Things-3-点我装备"><a href="#No-2-Things-3-点我装备" class="headerlink" title="No.2 Things 3 点我装备"></a>No.2 <em>Things 3</em> <a href="https://culturedcode.com/things/" target="_blank" rel="noopener">点我装备</a></h4><p>一句话总结：<strong>GTD神器，简洁但不简单。</strong></p>
+<h4 id="No-3-Moom-点我装备"><a href="#No-3-Moom-点我装备" class="headerlink" title="No.3 Moom 点我装备"></a>No.3 <em>Moom</em> <a href="https://manytricks.com/moom/" target="_blank" rel="noopener">点我装备</a></h4><p>一款窗口布局的神器。<br>支持自定义快捷键实现相应的窗口布局。</p>
+<h4 id="No-3-CheatSheet-点我装备"><a href="#No-3-CheatSheet-点我装备" class="headerlink" title="No.3 CheatSheet 点我装备"></a>No.3 <em>CheatSheet</em> <a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">点我装备</a></h4><p>一键直观查看App的快捷键列表。</p>
+<p>说道快捷键，是的，快捷键会很大程度上提高你的效率，Mac上就自带了很多的快捷键，记住这些快捷键招式，就能立马神装出山了。<br>具体可以参见<a href="https://www.jianshu.com/p/00bb1b9189c0" target="_blank" rel="noopener">这里</a>。</p>
+<h4 id="No-4-Vim"><a href="#No-4-Vim" class="headerlink" title="No.4 Vim"></a>No.4 <em>Vim</em></h4><p>细心一些我们会发现，当前主流的IDE，或者以前曾经主流过的，或者未来即将成为主流的，总会有一套Vim相关的插件。<br>其实，这就已经很能说明问题了。</p>
+<p>Vim在手，天下我有的赶脚，有木有？！</p>
+<p>Vim各类IDE的插件安装在这里就不详细阐述了，推荐几个Atom上神装吧，仅供参考：</p>
+<ul>
+<li><a href="https://github.com/t9md/atom-vim-mode-plus" target="_blank" rel="noopener">Vim Mode Plus</a><blockquote>
+<p>Vim主要功能插件，不多说，究竟怎么爽，谁用谁知道。</p>
+</blockquote>
+</li>
+<li><a href="https://atom.io/packages/relative-numbers" target="_blank" rel="noopener">relative-numbers</a><blockquote>
+<p>相对行数在Vim中的重要地位不言而喻了，这款插件能够直观的看出彼此的相对行数。</p>
+</blockquote>
+</li>
+<li><a href="https://atom.io/packages/minimap" target="_blank" rel="noopener">minimap</a><blockquote>
+<p>Sublime 右侧的mini视图，对，就是这货。</p>
+</blockquote>
+</li>
+<li><a href="https://atom.io/packages/activate-power-mode" target="_blank" rel="noopener">activate-power-mode</a><blockquote>
+<p>这款插件绝对会让你有一种敲代码如同跳舞的动感，呃，提醒一句，注意休息眼睛。哈哈~~</p>
+</blockquote>
+</li>
+</ul>
+<p>当然，Atom的插件还有很多，可以去他的<a href="https://atom.io/packages/" target="_blank" rel="noopener">官网</a>淘出你需要的。</p>
+<h4 id="No-5-iTerm-点击装备"><a href="#No-5-iTerm-点击装备" class="headerlink" title="No.5 iTerm 点击装备"></a>No.5 <em>iTerm</em> <a href="https://www.iterm2.com/" target="_blank" rel="noopener">点击装备</a></h4><p><code>iTerm2</code>+ <code>oh my zsh</code>的组合，为你打造最强Mac终端便不只是梦。<br>个性化的主题，私人订制属于自己的格调。<br>一堆定义好的<code>alias</code>，省心省力，爽的飞起！</p>
+<h4 id="No-6-Vimium"><a href="#No-6-Vimium" class="headerlink" title="No.6 Vimium"></a>No.6 <em>Vimium</em></h4><ul>
+<li>chrome下的Vim插件，让你浏览网页也能有Vim操作的快感。<br>点击<a href="https://sspai.com/post/27723" target="_blank" rel="noopener">这里</a>了解</li>
+</ul>
+<h4 id="No-7-Surfingkeys"><a href="#No-7-Surfingkeys" class="headerlink" title="No.7 Surfingkeys"></a>No.7 <em>Surfingkeys</em></h4><ul>
+<li>chrome下的Vim插件，Vimium的强化版本。<br>点击<a href="https://github.com/brookhong/Surfingkeys" target="_blank" rel="noopener">这里</a>了解</li>
+</ul>
+<p>最后，放上Vim快捷键的几张图，欢迎收藏：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-804fa34b20f5d806.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim文字版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-b631711cd75dff0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim入门版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-693a8cccf9e14a5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim进阶版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-ebf562cde5fbc69c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim增强版.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-29e1a78e12cfdca9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vim.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####No.1  &lt;em&gt;Alfred&lt;/em&gt; &lt;a href=&quot;https://www.alfredapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点我装备&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这顶神奇的魔法帽到底能干啥？&lt;br&gt;这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。&lt;/p&gt;
+&lt;p&gt;哈哈~~是不是很夸张？！  一会儿再来下定论&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
+    
+    
+      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
+    
+      <category term="效率" scheme="https://robberjj.github.io/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="app" scheme="https://robberjj.github.io/tags/app/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上的那些个快捷键们</title>
+    <link href="https://robberjj.github.io/2018/07/11/ShortcutsOnMac/"/>
+    <id>https://robberjj.github.io/2018/07/11/ShortcutsOnMac/</id>
+    <published>2018-07-11T06:47:50.000Z</published>
+    <updated>2018-11-08T04:19:52.712Z</updated>
+    
+    <content type="html"><![CDATA[<p>入了Mac的坑，在为其魅力折服的同时，不免时不时的会有一些挥之不去的痛点。</p>
+<p>其实在Mac上有一大堆的快捷键，可以让你的效率有一个质的提高。</p>
+<blockquote>
+<p>⌘（command）<br>⌥（option/alt）<br>⇧（shift）<br>⇪（caps lock）<br>⌃（control/ctrl）<br>⇤/⇥(Tab)</p>
+</blockquote>
+<p>在这里官方给出了快捷键的说明。<a href="https://support.apple.com/zh-cn/ht201236" target="_blank" rel="noopener">点我直达</a><br>显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。</p>
+<a id="more"></a> 
+<p>当然，<code>⌘ + Q(W/O/N)</code>、<code>⌘ + X(C/V/F/S/A)</code>之流就不说了，太常用，大家都知道。<br>下面主要列举一下我自己感觉比较效率，但是又容易被忽视的快捷键：<br><code>⌘ + ` </code>在同一个应用的各个标签页中切换。<br><code>⌘ + ⇤(⇥)</code>在打开的应用中切换到下一个最近使用的应用,按住可切换到其他应用，亦可配合触摸板或者鼠标选中某个应用<br><code>⌘ + T</code>打开新的标签<br><code>⌘ + H</code>隐藏当前应用<br><code>⌘ + Alt + H</code>隐藏除了当前应用外的其他应用<br><code>⌘ + M</code>最小化当前应用<br><code>⌘ + Alt + M</code>最小化除了当前应用外的其他应用<br><code>⌘ + Shift + 3</code> 截取整个屏幕，并保存图片到桌面<br><code>⌘ + Shift + 4</code> 自定义截图大小，按下 Space 键，可以选择窗口截图<br><code>⌃ + ←(→)</code>可以切换屏幕<br><code>⌘ + ,</code>打开偏好设置<br>……</p>
+<p>类似的快捷键其实还有很多很多，根据自身的习惯取舍吧。</p>
+<p>快捷键的初衷，其实是想让效率能够提升，是想工作(娱乐)起来更有效率。<br>但是问题来了，快捷键记少了总感觉不够用，而想要记更多的快捷键，难免成为一种负担。</p>
+<p><code>CheatSheet</code>，一款App，一键查看所有快捷键的App。<a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">点我速度装备</a></p>
+<p>其实在Mac上还要一些隐藏的或者说是并没有明说的快捷键。(Apple经常干这事儿，发现的时候总有些喜怒交加)。</p>
+<p>在mac上，很多时候在文本输入时，总想着能有一些快捷键，能让光标快速移动，殊不知，mac本身就自带这个能力。</p>
+<p>如：iTerm2, 终端, safari, Chrome, QQ, SourceTree, Xcode, MindNode Pro, Pages, Keynote, 便签,  邮件等，几乎有文本输入的地方似乎都是支持的~~~</p>
+<p>在这里我列举一下平时比较常用的快捷键以及帮助记忆的方法：</p>
+<blockquote>
+<p>注：为与emacs教程习惯一致，<code>Ctrl</code> 简写成 <code>C</code></p>
+</blockquote>
+<ul>
+<li><code>C - a</code> 光标移到行首（abcde，a是开头）</li>
+<li><code>C - e</code> 光标移到行尾（abcde，e是结尾）</li>
+<li><code>C - f</code> 光标向文档结尾方向移（Forward首字母）</li>
+<li><code>C - b</code> 光标向文档开头方向移（Back首字母）</li>
+<li><code>C - p</code> 光标移向上一行（Previous首字母）</li>
+<li><code>C - n</code> 光标移向下一行（Next首字母）</li>
+<li><code>C - l</code> 使当前编辑的行居中（safari, qq）或清屏（iTerm2,终端）</li>
+<li><code>C - d</code> 删除光标后的一个字符（Delete首字母）</li>
+<li><code>C - k</code> 删除光标到行尾的内容（Kill首字母）</li>
+<li><code>C - y</code> 将C-k删除的东西粘贴出来（Yank首字母）</li>
+<li><code>C - o</code> 在光标后插入一个换行符</li>
+<li><code>C - t</code> 交换光标前和光标后的字符，同时光标后移（Transpose首字母）</li>
+<li><code>C - h</code> 删除光标前的一个字符</li>
+</ul>
+<p>Mac其实也可以很简单的输入一些特殊字符。</p>
+<p>输入特殊符号：<br>版权符号: ⌥ + G = ©<br>人民币符号: ⌥ + Y = ¥<br>商标符号: ⌥ + 2 = ™<br>已经注册的商标: ⌥ + R = ®   </p>
+<p>数学符号：<br>约等于: <code>⌥ + X</code> = ≈<br>度数: <code>⌥ + ⇧ + 8</code> = °<br>除号: <code>⌥ + /</code> = ÷<br>无穷: <code>⌥ + 5</code> = ∞<br>大于等于和小于等于: <code>⌥ + ,</code> 和 <code>⌥ + .</code> = ≤ 和 ≥<br>不等于: <code>⌥ + =</code> = ≠<br>圆周率: <code>⌥ + P</code> = π<br>加减: <code>⇧ + ⌥ + =</code> = ±<br>开方: <code>⌥ + V</code> = √<br>求和符号: <code>⌥ + W</code> = ∑</p>
+<p><strong>是不是很神奇？！</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;入了Mac的坑，在为其魅力折服的同时，不免时不时的会有一些挥之不去的痛点。&lt;/p&gt;
+&lt;p&gt;其实在Mac上有一大堆的快捷键，可以让你的效率有一个质的提高。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⌘（command）&lt;br&gt;⌥（option/alt）&lt;br&gt;⇧（shift）&lt;br&gt;⇪（caps lock）&lt;br&gt;⌃（control/ctrl）&lt;br&gt;⇤/⇥(Tab)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在这里官方给出了快捷键的说明。&lt;a href=&quot;https://support.apple.com/zh-cn/ht201236&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点我直达&lt;/a&gt;&lt;br&gt;显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
+    
+    
+      <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
+    
+      <category term="快捷键" scheme="https://robberjj.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Development cannot be enabled while your device is locked.</title>
+    <link href="https://robberjj.github.io/2018/05/16/DevelopmentNotEnabledWhileLocked/"/>
+    <id>https://robberjj.github.io/2018/05/16/DevelopmentNotEnabledWhileLocked/</id>
+    <published>2018-05-16T04:15:50.000Z</published>
+    <updated>2018-11-08T04:19:57.921Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候我们真机调试的时候，会遇到这样的报错：</p>
+<blockquote>
+<p>Development cannot be enabled while your device is locked.</p>
+</blockquote>
+<p>但是！我TM手机明明解锁了啊，指纹解的锁不是？密码解的锁不是？没感应到？换个姿势再来一次？还是不行？？</p>
+<p>哈哈，有同样经历的点个赞吧。</p>
+<a id="more"></a> 
+<p>估计是有这么个不经意的瞬间，手机首次插上mac的时候，苹果给你弹了个框框，让你<code>trust (信任)</code>它，然后我们手欠的点了<code>不trust (信任)</code>，然后它生气了，不让你用了，就是上面的局面。</p>
+<p>关键的是，它从此以后就不再弹了。。。</p>
+<p>我TM错了，还不行么？你回来再给我弹一次啊！！</p>
+<p>后悔药：</p>
+<blockquote>
+<p>设置 –&gt; 通用 –&gt; 还原  –&gt; 还原位置和隐私 </p>
+</blockquote>
+<p>按照上面的操作之后，重插，就会弹了~~~ 不用谢我~</p>
+<p>后遗症：</p>
+<blockquote>
+<p>位置和隐私被重置了，之前已经设置位置和隐私的APP们，你再次进去的时候，都开始积极的弹框让你赏口饭了。</p>
+</blockquote>
+<p>【/笑哭】🤣</p>
+<p>这块儿官网其实是有说明的：<br><a href="https://support.apple.com/en-us/HT202778" target="_blank" rel="noopener">https://support.apple.com/en-us/HT202778</a></p>
+<p>划重点:<br><img src="https://upload-images.jianshu.io/upload_images/6080248-2b5548a95f804bac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候我们真机调试的时候，会遇到这样的报错：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Development cannot be enabled while your device is locked.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;但是！我TM手机明明解锁了啊，指纹解的锁不是？密码解的锁不是？没感应到？换个姿势再来一次？还是不行？？&lt;/p&gt;
+&lt;p&gt;哈哈，有同样经历的点个赞吧。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="XCode" scheme="https://robberjj.github.io/tags/XCode/"/>
+    
+      <category term="locked" scheme="https://robberjj.github.io/tags/locked/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>This iPhone xxx is running iOS xxx, which may not be supported by this version of Xcode.</title>
+    <link href="https://robberjj.github.io/2018/05/16/iosRunningNotSupported/"/>
+    <id>https://robberjj.github.io/2018/05/16/iosRunningNotSupported/</id>
+    <published>2018-05-16T04:02:06.000Z</published>
+    <updated>2018-11-08T04:20:04.648Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候我们的iPhone紧跟apple的步伐升级最新的版本了，但是Xcode并没有及时更新到最新版本(Xcode是在很大，而且有时候是需要最新的beta版本的)，这时候真机调试的时候就会出现下面这样的问题：</p>
+<blockquote>
+<p>报错：<br>Could not locate device support files.<br>This iPhone 7 (Model 1660, 1778, 1779, 1780) is running iOS 11.3 (15E216), which may not be supported by this version of Xcode.</p>
+</blockquote>
+<p>当然，我们升级Xcode到适当的版本(iPhone是release版本，一般Xcode升级到最新的release版本，iPhone是beta版本，一般Xcode升级到最新的beta版本)，但是上面提到升级Xcode时间实在太长，急性子的我们表示等不及。</p>
+<a id="more"></a> 
+<p>下面介绍一种不用升级Xcode就是真机调试的方法：</p>
+<p><strong>更新Xcode真机运行支持包</strong></p>
+<p>Xcode真机运行支持包path在这里：Xcode路径/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport，打开后能看到这样的界面：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-37130952acca05d7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DeviceSupport.jpg"></p>
+<p>支持包这里下载：链接: <a href="https://pan.baidu.com/s/1eS20QS6" target="_blank" rel="noopener">https://pan.baidu.com/s/1eS20QS6</a> 密码: 5v35</p>
+<p>之后要做的就是，需要哪一个iPhone系统的支持包，下载解压，放进去就可以了，然后插入你的手机，等Xcode解析好你的手机文件就可以真机运行了。</p>
+<ul>
+<li>有时候可能不生效，重启大法重启下Xcode再试试。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候我们的iPhone紧跟apple的步伐升级最新的版本了，但是Xcode并没有及时更新到最新版本(Xcode是在很大，而且有时候是需要最新的beta版本的)，这时候真机调试的时候就会出现下面这样的问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;报错：&lt;br&gt;Could not locate device support files.&lt;br&gt;This iPhone 7 (Model 1660, 1778, 1779, 1780) is running iOS 11.3 (15E216), which may not be supported by this version of Xcode.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当然，我们升级Xcode到适当的版本(iPhone是release版本，一般Xcode升级到最新的release版本，iPhone是beta版本，一般Xcode升级到最新的beta版本)，但是上面提到升级Xcode时间实在太长，急性子的我们表示等不及。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="not supported" scheme="https://robberjj.github.io/tags/not-supported/"/>
+    
+      <category term="XCode" scheme="https://robberjj.github.io/tags/XCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github超过100M的大文件上传</title>
+    <link href="https://robberjj.github.io/2018/05/02/githubUploadFileOver100M/"/>
+    <id>https://robberjj.github.io/2018/05/02/githubUploadFileOver100M/</id>
+    <published>2018-05-02T06:13:50.000Z</published>
+    <updated>2018-11-08T04:20:10.023Z</updated>
+    
+    <content type="html"><![CDATA[<p>通常我们commit完成之后，往Github上push的时候，单个文件大小不会超过100M，所以基本不会遇到这种情况。<br>但是，总会遇到的，当单个文件超过100M的时候，push的时候会出现下面这样的Error：</p>
+<blockquote>
+<p>remote: Resolving deltas: 100% (472/472), done.<br>remote: error: GH001: Large files detected.<br>You may want to try Git Large File Storage - <a href="https://git-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a>.</p>
+</blockquote>
+<a id="more"></a>
+<p>或者：</p>
+<blockquote>
+<p>Total 3007 (delta 664), reused 0 (delta 0)<br>remote: error: GH001: Large files detected.<br>remote: error: Trace: 7b7de6b9372ee392e0f3961b05ea6f33<br>remote: error: See <a href="http://git.io/iEPt8g" target="_blank" rel="noopener">http://git.io/iEPt8g</a> for more information.<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB。</p>
+</blockquote>
+<!-- more --> 
+<p>上面错误的原因很好理解就是GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库：<a href="https://link.jianshu.com/?t=https%3A%2F%2Fgit-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a><br>LFS使用的简单步骤：</p>
+<ul>
+<li>安装git - lfs到本机<br>这里没有什么难度，根据官网安装就好。</li>
+</ul>
+<p>之后就是提交大文件的顺序，下面是官网的顺序：</p>
+<ol>
+<li><p>安装Git命令行扩展。只需要设置一次Git LFS。<br>在项目目录下，执行以下命令：</p>
+<blockquote>
+<p>git lfs install</p>
+</blockquote>
+</li>
+<li><p>选择您希望Git LFS管理的文件类型（或直接编辑.gitattributes）。您可以随时配置其他文件扩展名。这一步成功后会生成一个gitattributes文件</p>
+<blockquote>
+<p>git lfs track “<em> .a” –这里的 “ </em>.a “就是你要上传的大文件的路径</p>
+</blockquote>
+</li>
+<li><p>添加并commit gitattributes文件</p>
+<blockquote>
+<p>git add .gitattributes</p>
+</blockquote>
+</li>
+<li><p>然后再添加大文件到本地缓存区</p>
+<blockquote>
+<p>git add demo.a<br>git commit -m “提交.a大文件”<br>git push</p>
+</blockquote>
+</li>
+</ol>
+<p>以上，按照上述的方法，第一次上传大文件基本还是会报错，而且百思不得其解~<br>尼玛，新手入坑总是这个尿性。。</p>
+<p>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/6080248-b5b22f1f9d1a1f7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2200042-a1a69b95caa64404.png"></p>
+<p>出现上述问题，先reset 到你刚才commit的前一个commit,(意思就是撤销刚才的commit，回到起点再来一次。)</p>
+<p>第一、二步同上，第三步的时候，先将 .gitattributes文件，单独commit，然后push，完成之后，在进行第四部(第四部add 之后 执行<code>git lfs ls-files</code>应该能看见东西了)。<br>到这里应该就没问题了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通常我们commit完成之后，往Github上push的时候，单个文件大小不会超过100M，所以基本不会遇到这种情况。&lt;br&gt;但是，总会遇到的，当单个文件超过100M的时候，push的时候会出现下面这样的Error：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;remote: Resolving deltas: 100% (472/472), done.&lt;br&gt;remote: error: GH001: Large files detected.&lt;br&gt;You may want to try Git Large File Storage - &lt;a href=&quot;https://git-lfs.github.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://git-lfs.github.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://robberjj.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="github" scheme="https://robberjj.github.io/tags/github/"/>
+    
+      <category term="大文件" scheme="https://robberjj.github.io/tags/%E5%A4%A7%E6%96%87%E4%BB%B6/"/>
+    
+      <category term="upload" scheme="https://robberjj.github.io/tags/upload/"/>
+    
+      <category term="上传" scheme="https://robberjj.github.io/tags/%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>OC追根溯源之Class</title>
@@ -448,669 +1433,6 @@
       <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
     
       <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>xcode快捷键你知多少？</title>
-    <link href="https://robberjj.github.io/2017/07/30/xcode-shortcuts/"/>
-    <id>https://robberjj.github.io/2017/07/30/xcode-shortcuts/</id>
-    <published>2017-07-30T02:00:58.000Z</published>
-    <updated>2018-11-08T02:37:01.898Z</updated>
-    
-    <content type="html"><![CDATA[<p>常言道，工欲善其事必先利其器。</p>
-<p>了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。</p>
-<h3 id="快速搜索跳转文件"><a href="#快速搜索跳转文件" class="headerlink" title="快速搜索跳转文件"></a>快速搜索跳转文件</h3><p>快捷键：<strong>cmd + shift + o</strong></p>
-<blockquote>
-<p>这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。</p>
-<p>注意：<code>o</code>是表示惊讶的<code>哦..😯</code>，不是考试得到的零蛋<code>0</code>，<code>o == open</code>。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="快速跳至某行"><a href="#快速跳至某行" class="headerlink" title="快速跳至某行"></a>快速跳至某行</h3><p>快捷键：<strong>cmd + l</strong></p>
-<blockquote>
-<p>常用这个快捷键，首先你要留意一下行号。</p>
-<p>注意：字母<code>l</code>并不是大写的<code>I</code>，也不是数字<code>1</code>，是大写字母<code>L</code>的小写，<code>l == line</code>。</p>
-</blockquote>
-<h3 id="代码块上下移动"><a href="#代码块上下移动" class="headerlink" title="代码块上下移动"></a>代码块上下移动</h3><p>快捷键：<strong>option + cmd + [(or ])</strong></p>
-<blockquote>
-<p>很多时候，你需要将某几行代码交换位子顺序，或者某几行代码前移/后移几行，那么这个快捷键就有了用武之地了。</p>
-<p>注意：移动前选中你要移动的所有行。</p>
-</blockquote>
-<h3 id="h-m文件之间快速切换"><a href="#h-m文件之间快速切换" class="headerlink" title=".h/.m文件之间快速切换"></a>.h/.m文件之间快速切换</h3><p>快捷键：<strong>ctrl + cmd + ↑(or ↓)</strong></p>
-<blockquote>
-<p><code>↑</code>(or <code>↓</code>)效果一样</p>
-</blockquote>
-<h3 id="前进-后退"><a href="#前进-后退" class="headerlink" title="前进/后退"></a>前进/后退</h3><p>快捷键：<strong>ctrl + cmd + ←(or →)</strong></p>
-<blockquote>
-<p><code>←</code>(or <code>→</code>)跟浏览器<code>上一页</code>or<code>下一页</code>类似。</p>
-</blockquote>
-<h3 id="显示当前类的方法列表，可搜索"><a href="#显示当前类的方法列表，可搜索" class="headerlink" title="显示当前类的方法列表，可搜索"></a>显示当前类的方法列表，可搜索</h3><p>快捷键：<strong>ctrl + 6</strong></p>
-<blockquote>
-<p>上述快捷键之后，可方向键选择后回车，也可触摸板滑动选择。</p>
-<p>最重要的是显示列表之后，可直接输入相关字符搜索。</p>
-</blockquote>
-<h3 id="搜索、替换"><a href="#搜索、替换" class="headerlink" title="搜索、替换"></a>搜索、替换</h3><p>文件类搜索：<strong>cmd + f</strong></p>
-<p>文件类替换：<strong>cmd + option + f</strong></p>
-<p>全局搜索：<strong>cmd + shift + f</strong></p>
-<p>全局替换：<strong>cmd + shift + option + f</strong></p>
-<blockquote>
-<p>注意：全局搜索替换可以指定目录，也可以选择匹配格式，这个选择在搜索框与替换框之间。</p>
-<p>文件类与全局都可以在搜索框最前面的<code>🔍</code>位置点击切换搜索/替换。</p>
-</blockquote>
-<h3 id="打开Related-Items列表"><a href="#打开Related-Items列表" class="headerlink" title="打开Related Items列表"></a>打开Related Items列表</h3><p>快捷键：<strong>ctrl + 1</strong></p>
-<blockquote>
-<p>光标停留在相应的关键词中，此快捷键可查看父类，调用者，被调用者，includes，included by等诸多信息。</p>
-</blockquote>
-<h3 id="收起-展开代码块"><a href="#收起-展开代码块" class="headerlink" title="收起/展开代码块"></a>收起/展开代码块</h3><p>快捷键：<strong>option + cmd + ←(or →)</strong></p>
-<h3 id="在左侧目录中快速定位当前文件位置"><a href="#在左侧目录中快速定位当前文件位置" class="headerlink" title="在左侧目录中快速定位当前文件位置"></a>在左侧目录中快速定位当前文件位置</h3><p>快捷键：<strong>cmd + shift + j</strong></p>
-<h3 id="快速切换左边导航栏"><a href="#快速切换左边导航栏" class="headerlink" title="快速切换左边导航栏"></a>快速切换左边导航栏</h3><p>快捷键：<strong>cmd + 1~8</strong></p>
-<blockquote>
-<p>注意：<code>cmd + 0</code>是‘显示/隐藏左侧栏’，<code>cmd + cmd + option + 0</code>是‘显示/隐藏右侧栏’。</p>
-</blockquote>
-<h3 id="全局修改局部变量"><a href="#全局修改局部变量" class="headerlink" title="全局修改局部变量"></a>全局修改局部变量</h3><p>快捷键：<strong>ctrl + cmd + e</strong></p>
-<blockquote>
-<p>当你想要将button换一个变量名的时候，这个快捷键绝对能爽死你，当然你也能用鼠标或者触摸板实现这个功能，选中变量名，移动光标会出现一个小箭头，点开会有快捷菜单，选择<code>Edit All in Scope</code>。</p>
-</blockquote>
-<p>当然还有一些基础的快捷键在这里就不一一列举了，相信大家也都知道，比如，编译(<code>cmd + b</code>)，运行(<code>cmd + r</code>)，clean(<code>cmd + shift + k</code>)，快速移动光标(<code>cmd + 方向键</code>)，快速选择代码(<code>cmd + shift + 方向键</code>)等。</p>
-<p>值得注意的是，除了上述快捷键之外，右键快捷菜单也是很有用处的，举个栗子：</p>
-<p>光标置于类名中，右键(或者触摸板两手指头单击)显示快捷菜单，选择<code>Refactor -- Rename</code>，全局替换类名。</p>
-<h3 id="XVim"><a href="#XVim" class="headerlink" title="XVim"></a>XVim</h3><p>最后，我想说的是，想要快捷键运用的炉火纯青，而且不会因为软件间系统间的各种差异出现很大的变化，vim！！</p>
-<p>这个绝对是神器，xcode可以安装vim插件<a href="https://github.com/XVimProject/XVim" target="_blank" rel="noopener">XVim</a>。</p>
-<p><strong>注意：</strong> xcode 8之后，需要先<a href="https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md" target="_blank" rel="noopener">安装证书</a>.</p>
-<p>下载下来编译不过的话，是因为类<code>IDEPlaygroundEditor</code>没实现(IDEPlaygroundEditor+XVim.h中)，加上实现<code>@implementation</code>即可，或者直接删除报错的文件以及引用此文件头文件的地方。</p>
-<p>XVim快捷键使用见<a href="https://github.com/XVimProject/XVim/blob/master/Documents/Users/FeatureList.md" target="_blank" rel="noopener">这里</a>。</p>
-<p>放出一张vim命令图解：</p>
-<p><img src="/imgs/vimCommod.png" alt="vim命令图解"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;常言道，工欲善其事必先利其器。&lt;/p&gt;
-&lt;p&gt;了解xcode常用快捷键在coding中的使用，很容易摆脱鼠标的拖累，大大提高coding的效率。&lt;/p&gt;
-&lt;h3 id=&quot;快速搜索跳转文件&quot;&gt;&lt;a href=&quot;#快速搜索跳转文件&quot; class=&quot;headerlink&quot; title=&quot;快速搜索跳转文件&quot;&gt;&lt;/a&gt;快速搜索跳转文件&lt;/h3&gt;&lt;p&gt;快捷键：&lt;strong&gt;cmd + shift + o&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这个快捷键的使用频率非常高，是摆脱鼠标的一大利器。&lt;/p&gt;
-&lt;p&gt;注意：&lt;code&gt;o&lt;/code&gt;是表示惊讶的&lt;code&gt;哦..😯&lt;/code&gt;，不是考试得到的零蛋&lt;code&gt;0&lt;/code&gt;，&lt;code&gt;o == open&lt;/code&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="xcode" scheme="https://robberjj.github.io/tags/xcode/"/>
-    
-      <category term="快捷键" scheme="https://robberjj.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift闭包--简不简洁？！优不优雅？！</title>
-    <link href="https://robberjj.github.io/2017/07/22/Closures/"/>
-    <id>https://robberjj.github.io/2017/07/22/Closures/</id>
-    <published>2017-07-22T03:56:06.000Z</published>
-    <updated>2018-11-08T02:37:01.889Z</updated>
-    
-    <content type="html"><![CDATA[<h3>闭包(Closures)</h3>
-
-<p>闭包是自包含的函数代码块，可以在代码中被传递和使用。</p>
-<blockquote>
-<p>Closures are self-contained blocks of functionality that can be passed around and used in your code.<br>–摘自<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94" target="_blank" rel="noopener">官方文档</a></p>
-</blockquote>
-<p>相信大家都熟悉C 和 Objective-C 中的代码块(blocks)或者其他一些编程语言中的匿名函数，Swift中的闭包与之相类似。</p>
-<a id="more"></a>
-<p>闭包可以捕获和存储其所在上下文中任意常量和变量的引用。被称为包裹常量和变量。</p>
-<blockquote>
-<p><strong>注意:</strong></p>
-<ol>
-<li>如果你不熟悉捕获(capturing)这个概念也不用担心，在后面文章会对其进行详细介绍(<a href="https://robberjj.github.io">我要尾随</a>)。</li>
-<li>Swift会为你管理在捕获过程中涉及到的所有内存操作。(PS:类似于Objective-C,不会让你过多的经历花费在内存管理上，而应该更过的考虑其他更重要的事情，本该如此!)</li>
-</ol>
-</blockquote>
-<p>闭包一般采取以下三种形式：</p>
-<ul>
-<li>全局函数是一个有名字但不会捕获任何值的闭包</li>
-<li>嵌套函数是一个有名字并可以捕获其封闭函数域内值的闭包</li>
-<li>闭包表达式是一个利用轻量级语法所写的可以捕获其上下文中变量或常量值的匿名闭包<br><br></li>
-</ul>
-<p>Swift简洁优雅的个性在闭包中有很好的体现，主要优化如下：</p>
-<ul>
-<li>利用上下文推断参数和返回值类型</li>
-<li>隐式返回单表达式闭包，即单表达式闭包可以省略<code>return</code>关键字</li>
-<li>参数名称缩写</li>
-<li>尾随闭包语法<br><br></li>
-</ul>
-<h3>闭包表达式</h3>
-
-<p>闭包表达式是一种利用简洁语法构建内联闭包的方式。闭包表达式提供了一些语法优化，使得撰写闭包变得简单明了。</p>
-<p>下面我们来看一个例子：</p>
-<p>Swift标准库提供了名为<code>sorted(by:)</code>的方法，它会根据你所提供的用于排序的闭包函数将已知类型数组中的值进行排序。一旦排序完成，<code>sorted(by:)</code>方法会返回一个与原数组大小相同，包含同类型元素且元素已正确排序的新数组。原数组不会被<code>sorted(by:)</code>方法修改。</p>
-<p>举个栗子：闭包表达式示例使用<code>sorted(by:)</code>方法对一个<code>String</code>类型的数组进行字母逆序排序。</p>
-<p>通常我们会这样写：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化一个字符串类型数组</span></span><br><span class="line"><span class="keyword">let</span> names = [<span class="string">"Chris"</span>, <span class="string">"Alex"</span>, <span class="string">"Ewa"</span>, <span class="string">"Barry"</span>, <span class="string">"Daniella"</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义排序闭包函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">backward</span><span class="params">(<span class="number">_</span> s1: String, <span class="number">_</span> s2: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行排序操作</span></span><br><span class="line"><span class="keyword">var</span> reversedNames = names.sorted(by: backward)</span><br><span class="line"><span class="comment">// reversedNames 为 ["Ewa", "Daniella", "Chris", "Barry", "Alex"]</span></span><br></pre></td></tr></table></figure>
-<p><code>sorted(by:)</code>方法接受一个闭包(其实就是一个函数指针)，该闭包函数需要传入与数组元素类型相同的两个值，并返回一个布尔类型值来表明当排序结束后传入的第一个参数排在第二个参数前面还是后面。如果第一个参数值出现在第二个参数值前面，排序闭包函数需要返回<code>true</code>，反之返回<code>false</code>。</p>
-<p>该例子对一个<code>String</code>类型的数组进行排序，因此排序闭包函数(<code>func backward</code>)类型需为<code>(String, String) -&gt; Bool</code>(即函数指针类型，两个参数<code>String</code>类型，返回值是<code>Bool</code>类型的函数指针)。</p>
-<p>如果第一个字符串(<code>s1</code>)大于第二个字符串(<code>s2</code>)，<code>backward(_:_:)</code>函数会返回<code>true</code>，表示在新的数组中<code>s1</code>应该出现在<code>s2</code>前。对于字符串中的字符来说，“大于”表示“按照字母顺序较晚出现”。这意味着字母<code>&quot;B&quot;</code>大于字母<code>&quot;A&quot;</code>，字符串<code>&quot;Tom&quot;</code>大于字符串<code>&quot;Tim&quot;</code>。该闭包将进行字母逆序排序，<code>&quot;Barry&quot;</code>将会排在<code>&quot;Alex&quot;</code>之前。</p>
-<p>然而，以这种方式来编写一个实际上很简单的表达式(<code>a &gt; b</code>)，确实太过繁琐了。对于这个例子来说，利用闭包 表达式语法可以更好地构造一个内联排序闭包。</p>
-<p><em>闭包表达式语法有如下的一般形式:</em></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; (parameters) -&gt; returnType <span class="keyword">in</span></span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>闭包表达式参数可以是<code>in-out</code>参数，但不能设定默认值。也可以使用具名的可变参数(注意:但是如果可变参数不放在参数列表的最后一位的话，调用闭包的时时编译器将报错。)。元组也可以作为参数和返回值。</p>
-</blockquote>
-<p>于是，我们可以将之前<code>backward(_:_:)</code>函数用闭包表达式优化，如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>这个闭包的函数体部分如此短，以至于可以将其改写成一行代码:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure></p>
-<p>该例中<code>sorted(by:)</code>方法的整体调用保持不变，一对圆括号仍然包裹住了方法的整个参数。然而，参数现在变成了内联闭包。</p>
-<p>写到这里，如果你认为就此结束了的话，Swift君只能说你还是太年轻。</p>
-<p>开篇我们提到，闭包会有这样一条优化：<br><strong>利用上下文推断参数和返回值类型。</strong></p>
-<p>排序闭包函数是作为<code>sorted(by:)</code>方法的参数传入的，Swift可以推断其参数和返回值的类型。<code>sorted(b y:)</code>方法被一个字符串数组调用，因此其参数必须是 <code>(String, String) -&gt; Bool</code>类型的函数。这意味着<br><code>(String, String)</code>和<code>Bool</code>类型并不需要作为闭包表达式定义的一部分。因为所有的类型都可以被正确推断，返回箭头(<code>-&gt;</code>)和围绕在参数周围的括号也可以被省略:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; s1, s2 <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure>
-<p>实际上，通过内联闭包表达式构造的闭包作为参数传递给函数或方法时，总是能够推断出闭包的参数和返回值类型。这意味着闭包作为函数或者方法的参数时，你几乎不需要利用完整格式构造内联闭包。</p>
-<p>其实，<code>return</code>关键词我们也是可以省略的，因为可以 <strong>单表达式闭包隐式返回</strong> ,这也是闭包的主要优化之一。</p>
-<p>如上的例子可以改写为:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; s1, s2 <span class="keyword">in</span> s1 &gt; s2 &#125; )</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p><code>sorted(by:)</code>方法的参数类型明确了闭包必须返回一个<code>Bool</code>类型值。因为闭包函数体只包含了一个单一表达式(<code>s1 &gt; s2</code>)，该表达式返回<code>Bool</code>类型值，因此这里没有歧义，<code>return</code>关键字可以省略。</p>
-</blockquote>
-<p>开篇提到的闭包优化的几点中，还有说道 <strong>参数名称缩写</strong> 功能。</p>
-<p>Swift君有说：你可以直接通过<code>$0</code>，<code>$1</code>，<code>$2</code>来顺序调用闭包的参数，以此类推。如果你在闭包表达式中使用参数名称缩写，你可以在闭包定义中省略参数列表，并且对应参数名称缩写的类型会通过函数类型进行推断。</p>
-<p><code>in</code>关键字也同样可以被省略,因为…，看下面优化后的代码你明白，<code>in</code>在这里确实没什么卵用了：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &#123; $<span class="number">0</span> &gt; $<span class="number">1</span> &#125; )</span><br></pre></td></tr></table></figure>
-<p>其中，<code>$0</code>和<code>$1</code>表示闭包中第一个和第二个<code>String</code>类型的参数.</p>
-<p>我次奥！！！到这里，我相信大家会有跟我一样的感叹，哈哈~</p>
-<p>所以，最后还是有必要来一记大招：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reversedNames = names.sorted(by: &gt;)</span><br></pre></td></tr></table></figure></p>
-<p>是的，你没有看错，这才是最终的形态。</p>
-<p>Swift的<code>String</code>类型定义了关于大于号(<code>&gt;</code>)的字符串实现，其作为一个函数接受两个<code>String</code>类型的参数并返回<code>Bool</code>类型的值。而这正好与<code>sorted(by:)</code>方法的参数需要的函数类型相符合。因此，你可以简单地传递一个大于号，Swift可以自动推断出你想使用大于号的字符串函数实现。</p>
-<p>贴上大于号(<code>&gt;</code>)的定义：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Returns a Boolean value indicating whether the value of the first argument</span></span><br><span class="line"><span class="comment">/// is greater than that of the second argument.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// This is the default implementation of the greater-than operator (`&gt;`) for</span></span><br><span class="line"><span class="comment">/// any type that conforms to `Comparable`.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - lhs: A value to compare.</span></span><br><span class="line"><span class="comment">///   - rhs: Another value to compare.</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> &gt;&lt;T&gt;<span class="params">(lhs: T, rhs: T)</span></span> -&gt; <span class="type">Bool</span> <span class="keyword">where</span> <span class="type">T</span> : <span class="type">Comparable</span></span><br></pre></td></tr></table></figure>
-<p>当然还有更多的运算符方法，想到这里，我就想问你，简洁不简洁，优雅不优雅，刺激不刺激？！哈哈。。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3&gt;闭包(Closures)&lt;/h3&gt;
-
-&lt;p&gt;闭包是自包含的函数代码块，可以在代码中被传递和使用。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Closures are self-contained blocks of functionality that can be passed around and used in your code.&lt;br&gt;–摘自&lt;a href=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;相信大家都熟悉C 和 Objective-C 中的代码块(blocks)或者其他一些编程语言中的匿名函数，Swift中的闭包与之相类似。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="swift" scheme="https://robberjj.github.io/categories/swift/"/>
-    
-    
-      <category term="闭包" scheme="https://robberjj.github.io/tags/%E9%97%AD%E5%8C%85/"/>
-    
-      <category term="swift" scheme="https://robberjj.github.io/tags/swift/"/>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS 9.0之后NSString encode方法替换</title>
-    <link href="https://robberjj.github.io/2017/07/22/Encode_Update/"/>
-    <id>https://robberjj.github.io/2017/07/22/Encode_Update/</id>
-    <published>2017-07-22T03:10:08.000Z</published>
-    <updated>2018-11-08T02:37:01.891Z</updated>
-    
-    <content type="html"><![CDATA[<p>在iOS 9.0之后，以前常用的<code>NSString</code>编码的方法<code>stringByAddingPercentEscapesUsingEncoding:</code>被弃用了，项目中可能会出现一堆如下⚠️：</p>
-<blockquote>
-<p>‘stringByAddingPercentEscapesUsingEncoding:’ is deprecated: first deprecated in iOS 9.0 - Use-stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.</p>
-</blockquote>
-<p>作为一个有强迫症的优秀程序猿，表示不能忍！</p>
-<a id="more"></a>
-<p>文档里面是这么说的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (nullable NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)enc NS_DEPRECATED(10_0, 10_11, 2_0, 9_0, &quot;Use -stringByAddingPercentEncodingWithAllowedCharacters: instead,which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.&quot;);</span><br></pre></td></tr></table></figure>
-<p>很明白，用<code>stringByAddingPercentEncodingWithAllowedCharacters:</code>方法替换之。</p>
-<p>这个方法官方文档是这么说的：</p>
-<blockquote>
-<p>// Returns a new string made from the receiver by replacing all characters not in the allowedCharacters set with percent encoded characters. UTF-8 encoding is used to determine the correct percent encoded characters. Entire URL strings cannot be percent-encoded. This method is intended to percent-encode an URL component or subcomponent string, NOT the entire URL string. Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.</p>
-</blockquote>
-<p>最后一句<code>Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.</code>，意思就是说，任何非7-bit ASCII字符搁到<code>allowedCharacters</code>里面也将被忽略，也就是<code>allowedCharacters</code>里面的字符跟7-bit ASCII字符不会被编码，比如中文。</p>
-<p>换句话说，上面方法在处理的时候会编码url的中的非7-bit ASCII字符，如这些【`#%^{}\”[]|\&lt;&gt;】，如果需要忽略之，需要通过<code>(NSCharacterSet *)allowedCharacters</code>这个参数指定。总结如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[aString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">//等价于</span><br><span class="line">[aString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@&quot;`#%^&#123;&#125;\&quot;[]|\\&lt;&gt; &quot;]];</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：</p>
-<ol>
-<li>字符集最后是一个空格！</li>
-<li>这里字符集的意思就是，字符串中含有字符集里面的字符将会会被编码。</li>
-</ol>
-</blockquote>
-<p>另外，URL中常用的<code>NSCharacterSet</code>类型定义在分类<code>NSCharacterSet (NSURLUtilities)</code>中，包含字符集如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">URLHostAllowedCharacterSet      &quot;#%/&lt;&gt;?@\^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLFragmentAllowedCharacterSet  &quot;#%&lt;&gt;[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLPasswordAllowedCharacterSet  &quot;#%/:&lt;&gt;?@[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLPathAllowedCharacterSet      &quot;#%;&lt;&gt;?[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLQueryAllowedCharacterSet     &quot;#%&lt;&gt;[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLUserAllowedCharacterSet      &quot;#%/:&lt;&gt;?@[\]^`</span><br></pre></td></tr></table></figure>
-<p>以上，还在等什么，全局搜索替换吧，消灭⚠️！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在iOS 9.0之后，以前常用的&lt;code&gt;NSString&lt;/code&gt;编码的方法&lt;code&gt;stringByAddingPercentEscapesUsingEncoding:&lt;/code&gt;被弃用了，项目中可能会出现一堆如下⚠️：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;‘stringByAddingPercentEscapesUsingEncoding:’ is deprecated: first deprecated in iOS 9.0 - Use-stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;作为一个有强迫症的优秀程序猿，表示不能忍！&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
-    
-      <category term="encode" scheme="https://robberjj.github.io/tags/encode/"/>
-    
-      <category term="NSString" scheme="https://robberjj.github.io/tags/NSString/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS脚本自动编译静态包/静态库</title>
-    <link href="https://robberjj.github.io/2017/07/22/autobuild/"/>
-    <id>https://robberjj.github.io/2017/07/22/autobuild/</id>
-    <published>2017-07-22T02:50:01.000Z</published>
-    <updated>2018-11-08T02:37:01.895Z</updated>
-    
-    <content type="html"><![CDATA[<p>在iOS开发中，有时候为了项目模块间的相互独立性，降低模块间的耦合，通常将底层相对稳定的模块抽取出来，形成SDK，以静态包或者静态库的形式引入项目。这中间免不了编译打包静态包/库，通常的做法是模拟器和真机分别编译，然后再将两个静态包或者库<code>lipo</code>合并成一个。这样的工作做多了，难免觉得麻烦，想省事儿，整一脚本变得自然而然了。</p>
-<a id="more"></a>
-<p><strong>1. 创建一个静态包/库工程(已有请跳过这一步)</strong></p>
-<p>创建如下图：<br><img src="/imgs/createLib.png" alt="Build Lib"></p>
-<p>在Trargets下面，点击左下角的“+”,选择添加一个新的Target， 然后选择“Aggregate”选项，新建一个集合类target，如下图所示：<br><img src="/imgs/aggregate.png" alt="Build Target"></p>
-<p><strong>2. 给集合类添加依赖</strong></p>
-<p>在Targets下面选中我们新建的集合类，然后Build Phases –&gt; Target Dependencies 下面添加我们需要编译的静态库,如下图所示：</p>
-<p><img src="/imgs/dependencies.png" alt="添加依赖"></p>
-<p><strong>3. 添加脚本</strong></p>
-<p>在Targets下面选中我们新建的集合类,然后在Build Phases下，点击左上角的“+”，选择”New Run Script Phase”选项,如下图：</p>
-<p><img src="/imgs/runscript.png" alt="添加运行脚本"></p>
-<p>然后设置我们运行的脚本的所在位置,如下图所示:</p>
-<p><img src="/imgs/scriptpath.png" alt="设置脚本位置"></p>
-<p><strong>注意：</strong></p>
-<blockquote>
-<p>../scripts/build-framework.sh 表示脚本的位置在当前工程的上一个目录下地scripts文件夹下. 当然”../“也可以用”${SRCROOT}/../“来代替.</p>
-<p>脚本位置可根据实际情况自行设置。</p>
-</blockquote>
-<p><strong>4. 选择我们创建的集合类的target，编译</strong></p>
-<p>在编译时，你可能会遇到下面的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permission denied.</span><br></pre></td></tr></table></figure></p>
-<p>这是因为shell脚本，还没有添加可执行的权限。</p>
-<p>解决办法：在终端上， cd 进入到脚本所在的文件夹； 然后使用 chmod +x ./yourShellName.sh 命令， 成功之后，就可以正常的运行Xcode工程了。</p>
-<p><strong>5. 指定target</strong></p>
-<p>一般来说我们编译的target名称，跟我们的project工程的名称是一样的，但是，如果我们修改了我们的target名称，需要在我们制定脚本的位置后面跟上我们需要编译的target名称，既:脚本位置+空格+target名称。如下图：</p>
-<p><img src="/imgs/buildparam.png" alt="指定target"></p>
-<p><strong>6. shell脚本源码</strong></p>
-<p>编译library的脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>要build的target名</span><br><span class="line">target_Name=$&#123;PROJECT_NAME&#125;</span><br><span class="line">if [[ $1 ]]</span><br><span class="line">then</span><br><span class="line">target_Name=$1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">UNIVERSAL_OUTPUT_FOLDER="$&#123;SRCROOT&#125;/$&#123;PROJECT_NAME&#125;_Products"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 创建输出目录，并删除之前的文件</span><br><span class="line">rm -rf "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line">mkdir -p "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 分别编译真机和模拟器版本</span><br><span class="line">xcodebuild -target "$&#123;target_Name&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphoneos  BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line">xcodebuild -target "$&#123;target_Name&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphonesimulator BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>复制头文件到目标文件夹</span><br><span class="line">HEADER_FOLDER="$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/include/$&#123;target_Name&#125;"</span><br><span class="line">if [[ -d "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/usr/local/include" ]]</span><br><span class="line">then</span><br><span class="line">    HEADER_FOLDER="$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/usr/local/include"</span><br><span class="line">fi</span><br><span class="line">cp -R "$&#123;HEADER_FOLDER&#125;" "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>合成模拟器和真机.a包</span><br><span class="line">lipo -create "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/lib$&#123;target_Name&#125;.a" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphoneos/lib$&#123;target_Name&#125;.a" -output "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/lib$&#123;target_Name&#125;.a"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 判断build文件夹是否存在，存在则删除</span><br><span class="line">if [ -d "$&#123;SRCROOT&#125;/build" ]</span><br><span class="line">then</span><br><span class="line">rm -rf "$&#123;SRCROOT&#125;/build"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>打开目标文件夹</span><br><span class="line">open "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br></pre></td></tr></table></figure>
-<p>编译framework的shell脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"><span class="meta">#</span>要build的target名</span><br><span class="line">TARGET_NAME=$&#123;PROJECT_NAME&#125;</span><br><span class="line">if [[ $1 ]]</span><br><span class="line">then</span><br><span class="line">TARGET_NAME=$1</span><br><span class="line">fi</span><br><span class="line">UNIVERSAL_OUTPUT_FOLDER="$&#123;SRCROOT&#125;/$&#123;PROJECT_NAME&#125;_Products/"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>创建输出目录，并删除之前的framework文件</span><br><span class="line">mkdir -p "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line">rm -rf "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/$&#123;TARGET_NAME&#125;.framework"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>分别编译模拟器和真机的Framework</span><br><span class="line">xcodebuild -target "$&#123;TARGET_NAME&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphoneos BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line">xcodebuild -target "$&#123;TARGET_NAME&#125;" ONLY_ACTIVE_ARCH=NO -configuration $&#123;CONFIGURATION&#125; -sdk iphonesimulator BUILD_DIR="$&#123;BUILD_DIR&#125;" BUILD_ROOT="$&#123;BUILD_ROOT&#125;" clean build</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>拷贝framework到univer目录</span><br><span class="line">cp -R "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/$&#123;TARGET_NAME&#125;.framework" "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>合并framework，输出最终的framework到build目录</span><br><span class="line">lipo -create -output "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/$&#123;TARGET_NAME&#125;.framework/$&#123;TARGET_NAME&#125;" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator/$&#123;TARGET_NAME&#125;.framework/$&#123;TARGET_NAME&#125;" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphoneos/$&#123;TARGET_NAME&#125;.framework/$&#123;TARGET_NAME&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>删除编译之后生成的无关的配置文件</span><br><span class="line">dir_path="$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;/$&#123;TARGET_NAME&#125;.framework/"</span><br><span class="line">for file in ls $dir_path</span><br><span class="line">do</span><br><span class="line">if [[ $&#123;file&#125; =~ ".xcconfig" ]]</span><br><span class="line">then</span><br><span class="line">rm -f "$&#123;dir_path&#125;/$&#123;file&#125;"</span><br><span class="line">fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>判断build文件夹是否存在，存在则删除</span><br><span class="line">if [ -d "$&#123;SRCROOT&#125;/build" ]</span><br><span class="line">then</span><br><span class="line">rm -rf "$&#123;SRCROOT&#125;/build"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">rm -rf "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphonesimulator" "$&#123;BUILD_DIR&#125;/$&#123;CONFIGURATION&#125;-iphoneos"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>打开合并后的文件夹</span><br><span class="line">open "$&#123;UNIVERSAL_OUTPUT_FOLDER&#125;"</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在iOS开发中，有时候为了项目模块间的相互独立性，降低模块间的耦合，通常将底层相对稳定的模块抽取出来，形成SDK，以静态包或者静态库的形式引入项目。这中间免不了编译打包静态包/库，通常的做法是模拟器和真机分别编译，然后再将两个静态包或者库&lt;code&gt;lipo&lt;/code&gt;合并成一个。这样的工作做多了，难免觉得麻烦，想省事儿，整一脚本变得自然而然了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
-    
-      <category term="脚本" scheme="https://robberjj.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式--单例模式</title>
-    <link href="https://robberjj.github.io/2017/07/16/DesignPattern_Singleton/"/>
-    <id>https://robberjj.github.io/2017/07/16/DesignPattern_Singleton/</id>
-    <published>2017-07-16T07:35:06.000Z</published>
-    <updated>2018-11-08T02:37:01.891Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="单例模式-singleton"><a href="#单例模式-singleton" class="headerlink" title="单例模式(singleton)"></a>单例模式(singleton)</h3><blockquote>
-<p>单例模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
-<p><strong>单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。</strong></p>
-</blockquote>
-<a id="more"></a>
-<p>单例模式几乎是设计模式的最简单形式了，这一模式的意图是使得类的一个对象成为系统中的唯一实例。要实现这一点，可以从客户端对其进行实例化开始。因此需要一种只允许生成对象类的唯一实例的机制，“阻止”所有想要生成对象的访问。我们可以用工厂方法来限制实例化的过程。这个方法应该为静态方法(类方法)，因为我们让类的实例去生成另一个唯一实例毫无意义。</p>
-<p>单例模式的类图如下：<br><img src="/imgs/singleton.png" alt="单例模式类图"></p>
-<p><code>static uniqueInstance</code>是<code>Singleton</code>的唯一实例，<code>static sharedInstance</code>将它返回给客户端。通常，<code>sharedInstance</code>会检查<code>uniqueInstance</code>是否已经被实例化，如果没有，它会生成一个实例后返回<code>uniqueInstance</code>。</p>
-<h6 id="何时使用原型模式？"><a href="#何时使用原型模式？" class="headerlink" title="何时使用原型模式？"></a>何时使用原型模式？</h6><p>在以下情形，会考虑使用原型模式：</p>
-<ol>
-<li>类只有一个实例，而且必须从一个为人熟知的访问点对其进行访问，比如工厂方法；</li>
-<li>这个唯一实例只能通过子类化进行扩展，而且扩展的对象不会破坏客户端代码。</li>
-</ol>
-<h6 id="使用Cocoa-Touch框架中使用单例模式"><a href="#使用Cocoa-Touch框架中使用单例模式" class="headerlink" title="使用Cocoa Touch框架中使用单例模式"></a>使用Cocoa Touch框架中使用单例模式</h6><p>Cocoa Touch框架中使用了大量的单例类。下面讨论其中的几个：</p>
-<p><em>1.UIApplication类</em></p>
-<p>框架中使用最常用的一个类是<code>UIApplication</code>类。它提供了一个控制并协调iOS应用程序的集中点。</p>
-<p>每个应用程序有且仅有一个<code>UIApplication</code>的实例。它由<code>UIApplicationMain</code>函数在应用程序启动时创建为单例对象。之后，对同一<code>UIApplication</code>实例可以通过其sharedApplication类方法进行访问。</p>
-<p><code>UIApplication</code>对象为应用程序处理许多内存管理任务(housekepping task)，包括传入事件的最初路由，以及为<code>UIControl</code>分发动作消息给核实的目标对象。它还维护应用程序中的所有<code>UIWindow</code>对象的列表。。应用程序对象总是被分配一个<code>UIApplicationDelegate</code>对象，应用程序将把重要的运行时状态通知给它，比如iOS应用程序中的应用程序启动、内存不足警告、应用程序终止和后台进行执行。这让委托(<code>delegate</code>)有机会做出适当的响应。</p>
-<p><em>2.UIAcceleremeter类</em></p>
-<p>Cocoa Touch框架中另一个常用的单例是<code>UIAcceleremeter</code>.<code>UIAcceleremeter</code>让应用程序可以注册，以接收来自iOS设备内置的加速度计的加速度的相关数据。应用程序会收到三维空间中沿主轴的线性加速度变化，可以使用这一数据检测设备的当前方向和当前方向的瞬间变化。</p>
-<p><code>UIAcceleremeter</code>是单例，所以不能直接生成它的对象。而是应该调用其<code>sharedAcceleremeter</code>单例类方法以访问它的唯一实例。然后设定它的<code>updateInterval</code>属性，并用自己的<code>delegate</code>对象设定<code>delegate</code>属性，以接收来自单例实例的加速度数据。</p>
-<p><em>3.NSFileManager类</em></p>
-<p>在Mac OS X v10.5和iOS2.0之前，<code>NSFileManager</code>曾经是单例模式的“严格”实现。调用它的init方法是空操作，并且唯一实例可以通过<code>defaultManager</code>类方法创建和访问。然而其单例实现并不是线程安全的。现在推荐生成新的<code>NSFileManager</code>实例以保证线程安全。这一方式被认为是更灵活的单例实现，其中工厂方法总是返回同一实例，但是也可以分配并初始化另外的实例。</p>
-<p><strong>附上单例模式的Demo：<a href="https://github.com/RobberJJ/DesignSingleton" target="_blank" rel="noopener">DesignPattern_Singleton</a></strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;单例模式-singleton&quot;&gt;&lt;a href=&quot;#单例模式-singleton&quot; class=&quot;headerlink&quot; title=&quot;单例模式(singleton)&quot;&gt;&lt;/a&gt;单例模式(singleton)&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;单例模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式--生成器(建造者)</title>
-    <link href="https://robberjj.github.io/2017/07/09/DesignPattern_Builder/"/>
-    <id>https://robberjj.github.io/2017/07/09/DesignPattern_Builder/</id>
-    <published>2017-07-09T02:46:16.000Z</published>
-    <updated>2018-11-08T02:37:01.890Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="生成器模式-Builder"><a href="#生成器模式-Builder" class="headerlink" title="生成器模式(Builder)"></a>生成器模式(Builder)</h3><blockquote>
-<p>生成器模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
-<p><strong>生成器模式：将一个复杂对象的构建与它的表现分离，使得同样的构建过程可以创建不同的表现。</strong></p>
-</blockquote>
-<a id="more"></a>
-<p>生成器模式的类图如下：<br><img src="/imgs/builder.png" alt="生成器类图"></p>
-<p>除了客户与其所要的产品，生成器模式还包含两个重要角色：Director(指导者)和Builder(生成器)。Builder知道究竟如何在缺少某些特定信息的情况下建造产品(什么)。Director知道Builder应该建造什么，以参数向其提供缺少的信息来建造特定产品。尽管Director知道Builder应该建造什么，这并不意味着Director知道具体Builder究竟是什么。他们的静态关系如上图中的类图所示。</p>
-<p>Builder是一个抽象接口，声明了一个<code>buildPart</code>方法，该builder方法由<code>ConcreteBuilder</code>实现，以构造实际产品(Product)。<code>ConcreteBuilder</code>有个<code>getResult</code>方法，向客户端返回构造完毕的Product。Director定义了一个<code>construct</code>方法，命令Builder的实例去<code>builderPart</code>。Director与Builder形成了一种聚合关系。这意味着Builder是一个组成部分，与Director结合，以使整个模式运转，但同时，Director并不负责Builder的生存期。</p>
-<h6 id="何时使用生成器模式？"><a href="#何时使用生成器模式？" class="headerlink" title="何时使用生成器模式？"></a>何时使用生成器模式？</h6><p>在以下情形，你自然会想到使用工厂方法模式：</p>
-<ol>
-<li>需要创建设计各种部件的负责对象。创建对象的算法应该独立于部件的装配方式。</li>
-<li>构建过程需要以不同的方式(例如，部件或者表现的不同组合)构建对象。</li>
-</ol>
-<h6 id="生成器与抽象工厂对比"><a href="#生成器与抽象工厂对比" class="headerlink" title="生成器与抽象工厂对比"></a>生成器与抽象工厂对比</h6><table>
-<thead>
-<tr>
-<th style="text-align:center">生成器</th>
-<th style="text-align:center">抽象工厂</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">构建负责对象</td>
-<td style="text-align:center">构建简单或者复杂对象</td>
-</tr>
-<tr>
-<td style="text-align:center">以多个步骤构建对象</td>
-<td style="text-align:center">以单一步骤构建对象</td>
-</tr>
-<tr>
-<td style="text-align:center">以多种方式构建对象</td>
-<td style="text-align:center">以单一方式构建对象</td>
-</tr>
-<tr>
-<td style="text-align:center">在构建过程的最后一步返回产品</td>
-<td style="text-align:center">立刻返回产品</td>
-</tr>
-<tr>
-<td style="text-align:center">专注一个特定产品</td>
-<td style="text-align:center">强调一套产品</td>
-</tr>
-</tbody>
-</table>
-<p><strong>附生成器模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_Builder</a></strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;生成器模式-Builder&quot;&gt;&lt;a href=&quot;#生成器模式-Builder&quot; class=&quot;headerlink&quot; title=&quot;生成器模式(Builder)&quot;&gt;&lt;/a&gt;生成器模式(Builder)&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;生成器模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;生成器模式：将一个复杂对象的构建与它的表现分离，使得同样的构建过程可以创建不同的表现。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式--抽象工厂</title>
-    <link href="https://robberjj.github.io/2017/07/08/DesignPattern_AbstractFactory/"/>
-    <id>https://robberjj.github.io/2017/07/08/DesignPattern_AbstractFactory/</id>
-    <published>2017-07-08T06:55:06.000Z</published>
-    <updated>2018-11-08T02:37:01.890Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="抽象工厂模式-abstract-factory"><a href="#抽象工厂模式-abstract-factory" class="headerlink" title="抽象工厂模式(abstract factory)"></a>抽象工厂模式(abstract factory)</h3><blockquote>
-<p>抽象工厂模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
-<p><strong>抽象工厂模式：提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。</strong></p>
-</blockquote>
-<a id="more"></a>
-<p>抽象工厂模式的类图如下：<br><img src="/imgs/abstractFactory.png" alt="抽象工厂类图"></p>
-<p>在软件设计中，如果客户端想手工创建一个类的对象，那么客户端需要首先知道这个类的细节。更糟的情况是，一组相关的对象可以在运行时按照不同的标准创建得不一样，此时客户端就需要知道全部细节才能创建他们。这种情况就可以用抽象工厂模式来解决这个问题。</p>
-<p>抽象工厂提供一个固定的接口，用于创建一系列有关联或相互依存的对象，而不必指定其具体类或创建细节。客户端与从工厂得到的具体对象之间没有耦合。</p>
-<p>Client只知道AbstractFactory和AbstractProduct。每个工厂类中，结构与实际操作的细节按黑箱对待。甚至产品也不知道谁将负责创建他们。只有具体工厂知道为客户端创建什么、如何创建。这个模式有趣的一点是，很多时候他都是用哪个工厂方法模式来实现。工厂方法吧实际的创建过程推迟到重载它的子类中。在类图中，方法<code>createProductA</code>和<code>createProductB</code>是工厂方法。最初的抽象方法什么也不创建。这种抽象非常通用，广泛用于任何需要抽象创建过程的场合。</p>
-<p>抽象模式常与原型模式、单例模式、享元模式等其他设计模式一起使用。</p>
-<h6 id="抽象工厂模式与工厂方法模式"><a href="#抽象工厂模式与工厂方法模式" class="headerlink" title="抽象工厂模式与工厂方法模式"></a>抽象工厂模式与工厂方法模式</h6><table>
-<thead>
-<tr>
-<th style="text-align:center">抽象工厂模式</th>
-<th style="text-align:center">工厂方法模式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">通过对象组合创建抽象产品</td>
-<td style="text-align:center">通过类继承创建抽象产品</td>
-</tr>
-<tr>
-<td style="text-align:center">创建多系列产品</td>
-<td style="text-align:center">创建一种产品</td>
-</tr>
-<tr>
-<td style="text-align:center">必须修改父类才能支持新的产品</td>
-<td style="text-align:center">子类化创建者并重载工厂方法以创建新产品</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>软件设计黄金法则：</strong> 变动需要抽象</p>
-</blockquote>
-<h6 id="在Cocoa-Touch框架中使用抽象工厂"><a href="#在Cocoa-Touch框架中使用抽象工厂" class="headerlink" title="在Cocoa Touch框架中使用抽象工厂"></a>在Cocoa Touch框架中使用抽象工厂</h6><p>抽象工厂模式常见于Cocoa Touch框架。有很多基础类采用了这一模式。特别常见的一个就是<code>NSNumber</code>。创建<code>NSNumber</code>实例的方式完全符合抽象工厂模式。</p>
-<p>创建Cocoa Touch对象有两种方式：使用先<code>alloc</code>再<code>init</code>的方法(两步创建过程)，或者使用类中的<code>+className...</code>方法。在Cocoa Touch的基础框架中，<code>NSNumber</code>类有很多类方法用于创建各种类型的<code>NSNumber</code>对象，像下面这样的：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSNumber</span> * boolNumber = [<span class="built_in">NSNumber</span> numberWithBool:<span class="literal">YES</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * charNumber = [<span class="built_in">NSNumber</span> numbberWithChar:<span class="string">'a'</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * intNumber = [<span class="built_in">NSNumber</span> numberWithInt:<span class="number">1</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * floatNumber = [<span class="built_in">NSNumber</span> numberWithFloat:<span class="number">1.0</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> * doubleNumber = [<span class="built_in">NSNumber</span> numberWithDouble:<span class="number">1.0</span>];</span><br></pre></td></tr></table></figure></p>
-<p>每个返回的对象属于代表最初输入值的不同私有子类。可以像这样列出他们的描述：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[boolNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[charNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[intNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[floatNumber <span class="keyword">class</span>] description]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[doubleNumber <span class="keyword">class</span>] description]);</span><br></pre></td></tr></table></figure>
-<p>将看到控制台输出：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSCFBollean</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br><span class="line"><span class="built_in">NSCFNumber</span></span><br></pre></td></tr></table></figure>
-<p>除了<code>boolNumber</code>的实际类型是<code>NSCFBoolean</code>以外，大多数实际类为<code>NSCFNumber</code>类型。尽管这些<code>+className...</code>类工厂方法返回<code>NSNumber</code>具体子类的实例，但是返回的实例确实支持<code>NSNumber</code>的公有接口。</p>
-<p>虽然它们属于<code>NSNumber</code>的不同具体子类，但是其行为由抽象超类<code>NSNumber</code>定义，而且是公有的。若执行以下代码段，就会明白我的意思。</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[boolNumber intValue]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[charNumber boolValue] ? <span class="string">@"YES"</span> : <span class="string">@"NO"</span>);</span><br></pre></td></tr></table></figure>
-<p>将看到控制台输出：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="literal">YES</span></span><br></pre></td></tr></table></figure>
-<p><code>boolNumber</code> 内部保持布尔值<code>YES</code>，但是仍然实现了公有<code>intValue</code>方法，返回反映其内部布尔值的适当整数值。<code>charNumber</code>也是如此，它重载了<code>boolValue</code>方法，返回反映其内部布尔值的适当布尔值。</p>
-<p>接受不同类型的参数并返回<code>NSNumber</code>实例的类方法是类工厂方法(工厂方法模式)。<code>NSNumber</code>的类工厂方法生产各种“数工厂”。<code>numberWithBool:</code>创建<code>NSCFBoolean</code>工厂的实例，而<code>numberWithInt:</code>创建<code>NSCFNumber</code>的实例。<code>NSNumber</code>中的类工厂方法定义了决定实例化何种私有具体子类(比如，<code>NSCFBoolean</code>或<code>NSCFNumber</code>)的默认行为。这一版本的工厂方法是传统工厂方法的一个变体，虽然它达成了返回抽象产品的目的，此处的抽象产品为作为工厂的具体<code>NSNumber</code>子类。<code>NSNumber</code>是抽象工厂实现的一个例子。基础框架中抽象工厂的此种特点被称为“类簇”(Class Cluster)。</p>
-<p>类簇是基础框架中一种常见的设计模式，基于抽象工厂模式的思想，它将若干相关的私有具体工厂子类集合到一个公有的抽象超类之下。类簇是抽象工厂的一种形式。</p>
-<p>创建抽象产品的工厂方法与创建抽象工厂的工厂方法之前有个不同点。显然，像<code>intValue</code>和<code>boolValue</code>这样的工厂方法，应该在具体工厂(<code>NSCFNumber</code>和<code>NSCFBoolean</code>)中重载以返回实际值(产品)。其它像<code>numberWithBool:</code>和<code>numberWithInt:</code>这样的工厂方法并不是为了返回产品，而是为了返回能返回产品的工厂，因此它们不应在具体工厂子类中重载。</p>
-<p>其它实现为类簇的基础类有<code>NSData</code>,<code>NSArray</code>,<code>NSDictionary</code>和<code>NSString</code>。</p>
-<p><strong>附上抽象工厂模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_AbstractFactory</a></strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;抽象工厂模式-abstract-factory&quot;&gt;&lt;a href=&quot;#抽象工厂模式-abstract-factory&quot; class=&quot;headerlink&quot; title=&quot;抽象工厂模式(abstract factory)&quot;&gt;&lt;/a&gt;抽象工厂模式(abstract factory)&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;抽象工厂模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;抽象工厂模式：提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown中插入表格/图表，位置居中/左/右，这一篇就够了！</title>
-    <link href="https://robberjj.github.io/2017/07/08/Markdown_Table/"/>
-    <id>https://robberjj.github.io/2017/07/08/Markdown_Table/</id>
-    <published>2017-07-08T04:56:49.000Z</published>
-    <updated>2018-11-08T02:37:01.892Z</updated>
-    
-    <content type="html"><![CDATA[<p>Markdown中插入表格时只需要复制一下下面<code>【】</code>内的即可(注意：不要复制<code>【】</code>)。</p>
-<blockquote>
-<p>说明：</p>
-<ol>
-<li>两竖线<code>|</code>中间为一个单元格，每行列数即为每行竖线数<code>-1</code>；</li>
-<li>行数<code>-1</code>为表格行数，因为第二行为配置行，配置表格显示用，并不显示出来；</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-<p>【|标题一|标题二|标题三|标题四|<br>|- |:—|—:|:—:|<br>|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx|<br>|xxxxxxxxxxxxxx|xxxxxxxxxxxxxx|xxxxxxxxxxxxxx|xxxxxxxxxxxxxx|<br>|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx|xxxxxxxxx||】</p>
-<table>
-<thead>
-<tr>
-<th>标题一</th>
-<th style="text-align:left">标题二</th>
-<th style="text-align:right">标题三</th>
-<th style="text-align:center">标题四</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>xxxxxxxxx</td>
-<td style="text-align:left">xxxxxxxxx</td>
-<td style="text-align:right">xxxxxxxxx</td>
-<td style="text-align:center">xxxxxxxxx</td>
-</tr>
-<tr>
-<td>xxxxxxxxxxxxxx</td>
-<td style="text-align:left">xxxxxxxxxxxxxx</td>
-<td style="text-align:right">xxxxxxxxxxxxxx</td>
-<td style="text-align:center">xxxxxxxxxxxxxx</td>
-</tr>
-<tr>
-<td>xxxxxxxxx</td>
-<td style="text-align:left">xxxxxxxxx</td>
-<td style="text-align:right">xxxxxxxxx</td>
-<td style="text-align:center">xxxxxxxxx</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Markdown中插入表格时只需要复制一下下面&lt;code&gt;【】&lt;/code&gt;内的即可(注意：不要复制&lt;code&gt;【】&lt;/code&gt;)。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;说明：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;两竖线&lt;code&gt;|&lt;/code&gt;中间为一个单元格，每行列数即为每行竖线数&lt;code&gt;-1&lt;/code&gt;；&lt;/li&gt;
-&lt;li&gt;行数&lt;code&gt;-1&lt;/code&gt;为表格行数，因为第二行为配置行，配置表格显示用，并不显示出来；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="随笔" scheme="https://robberjj.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="Markdown" scheme="https://robberjj.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式--工厂方法</title>
-    <link href="https://robberjj.github.io/2017/07/02/DesignPattern_FactoryMethod/"/>
-    <id>https://robberjj.github.io/2017/07/02/DesignPattern_FactoryMethod/</id>
-    <published>2017-07-02T08:06:01.000Z</published>
-    <updated>2018-11-08T02:37:01.890Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="工厂方法模式-factory-method"><a href="#工厂方法模式-factory-method" class="headerlink" title="工厂方法模式(factory method)"></a>工厂方法模式(factory method)</h3><blockquote>
-<p>工厂方法模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
-<p><strong>工厂方法模式：定义创建对象的接口，让子类决定实例化哪一个类。工厂方法使得一个类的实例化延迟到其子类。</strong></p>
-</blockquote>
-<a id="more"></a>
-<p>工厂方法模式的类图如下：<br><img src="/imgs/factoryMethod.png" alt="工厂方法类图"></p>
-<p>工厂方法也成为虚构造器(virtual constructor)。它适用于这种情况：一个类无法预期需要生成哪个类的对象，想让其子类来指定所生成的对象。</p>
-<p>抽象的Product(产品)定义了工厂方法创建的对象的接口。ConcreteProduct实现了Product接口。Creator定义了返回Product对象的工厂方法。它也可以为工厂方法定义一个默认实现，返回默认ConcreteProduct对象。Creator的其他操作可以调用此工厂方法创建Product对象。ConcreteProduct是creator的子类。它重载了工厂方法，以返回ConcreteProduct的实例。</p>
-<p>工厂方法的最初定义好像专注于让子类决定创建什么对象。有一种变体，抽象类使用工厂方法创建其私有子类或者任何其他类的对象(抽象工厂模式)。(接下来的文章会详细描述抽象工厂模式)</p>
-<h6 id="何时使用工厂方法模式？"><a href="#何时使用工厂方法模式？" class="headerlink" title="何时使用工厂方法模式？"></a>何时使用工厂方法模式？</h6><p>在以下情形，你自然会想到使用工厂方法模式：</p>
-<ol>
-<li>编译时无法确定预期要创建的对象的类；</li>
-<li>类想让其子类决定是在运行时创建什么；</li>
-<li>类有若干辅助类为其子类，而你想将返回哪个子类这一信息局部化。</li>
-</ol>
-<h6 id="在Cocoa-Touch框架中应用工厂方法"><a href="#在Cocoa-Touch框架中应用工厂方法" class="headerlink" title="在Cocoa Touch框架中应用工厂方法"></a>在Cocoa Touch框架中应用工厂方法</h6><p>工厂方法在Cocoa Touch框架中几乎随处可见。大家知道常见的两步对象创建法<code>[[SomeClass alloc] init]</code>。有时，我们会注意到有一些“便利”方法返回类的实例。例如，<code>NSNumber</code>有很多<code>numberWith*</code>方法，其中有两个是<code>numberWithBool:</code>和<code>numbberWithChar:</code>。它们是类方法，也就是说，我们向<code>NSNumber</code>发送<code>[NSNumber numberWithBool:bool]</code>与<code>[NSNumber numbberWithChar:char]</code>,以获得与传入参数同类型的各种<code>NSNumber</code>实例。与如何创建<code>NSNumber</code>的具体实例有关的所有细节，都是 由<code>NSNumber</code>的类工厂方法负责。</p>
-<p><code>[NSNumber numberWithBool:bool]</code>的情况是，方法接受值<code>bool</code>，并把<code>NSNumber</code>的内部子类(实际上是<code>NSCFBoolean</code>类)的一个实例初始化，让他能够反映传入的值<code>bool</code>.</p>
-<p><strong>附上工厂方法模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_FactoryMethod</a></strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;工厂方法模式-factory-method&quot;&gt;&lt;a href=&quot;#工厂方法模式-factory-method&quot; class=&quot;headerlink&quot; title=&quot;工厂方法模式(factory method)&quot;&gt;&lt;/a&gt;工厂方法模式(factory method)&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;工厂方法模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;工厂方法模式：定义创建对象的接口，让子类决定实例化哪一个类。工厂方法使得一个类的实例化延迟到其子类。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式--原型模式</title>
-    <link href="https://robberjj.github.io/2017/07/02/DesignPattern_Prototype/"/>
-    <id>https://robberjj.github.io/2017/07/02/DesignPattern_Prototype/</id>
-    <published>2017-07-02T07:16:06.000Z</published>
-    <updated>2018-11-08T02:37:01.891Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="原型模式-prototype"><a href="#原型模式-prototype" class="headerlink" title="原型模式(prototype)"></a>原型模式(prototype)</h3><blockquote>
-<p>原型模式最初的定义出现于《设计模式》(Addison-Wesley,1994)</p>
-<p><strong>原型模式：使用原型实例指定创建对象的种类。并通过复制这个原型创建新的对象。</strong></p>
-</blockquote>
-<a id="more"></a>
-<p>原型模式的类图如下：<br><img src="/imgs/prototype.png" alt="原型模式类图"></p>
-<p>原型模式是一种非常简单的设计模式。客户端知道抽象Prototype类，在运行时，抽象Prototype子类的任何对象都可以按客户端的意愿被复制。因此，无需手工创建就可以制造同意类型的多个实例。</p>
-<p>Prototype声明了复制自身的接口。作为Prototype的子类，ConcretePrototype实现了Concrete复制自身的clone操作。</p>
-<p>这里，客户端通过请求原型复制其自身，创建了一个新的对象。</p>
-<h6 id="何时使用原型模式？"><a href="#何时使用原型模式？" class="headerlink" title="何时使用原型模式？"></a>何时使用原型模式？</h6><p>在以下情形，会考虑使用原型模式：</p>
-<ol>
-<li>需要创建的对象独立于其类型与创建的方式；</li>
-<li>实例化的类是在运行时决定的；</li>
-<li>不想要与产品层次相对应的工厂层次；</li>
-<li>不同类的实例间的差异仅是状态的若干组合，这样复制相应数量的原型比手工实例化更加方便；</li>
-<li>类不容易创建，比如每个组件可把其他组件作为子节点的组合对象，复制已有的组合对象并对副本进行修改会更加容易。</li>
-</ol>
-<h6 id="使用Cocoa-Touch框架中的对象复制"><a href="#使用Cocoa-Touch框架中的对象复制" class="headerlink" title="使用Cocoa Touch框架中的对象复制"></a>使用Cocoa Touch框架中的对象复制</h6><blockquote>
-<p><strong>值得注意的是：</strong>浅复制与深复制的区别</p>
-<p><strong>浅复制</strong>只是复制了对象的指针，而同时指向相同的对象资源，也就是说只是复制了栈里面的内容，而同时指向相同的堆空间。改变其对象值得时候，复制对象间会相互影响。</p>
-<p><strong>深复制</strong>是同时复制对象的指针跟对象本身，也就是同时复制了堆栈空间的内容。</p>
-</blockquote>
-<p>Cocoa Touch框架为<code>NSObject</code>的派生类提供了实现深复制的协议。<code>NSObject</code>的子类需要实现<code>NSCopying</code>协议及其方法<code>-(id)copyWithZone:(NSZone *)zone</code>。<code>NSObject</code>有一个实例方法叫<code>-(id)copy</code>。默认的<code>copy</code>方法调用<code>[self copyWithZone:nil]</code>。对于采纳了<code>NSCopying</code>协议的子类，需要实现这个方法。否则将引发异常。iOS中，这个方法保持新的副本对象，然后将其返回。</p>
-<p><strong>附上原型模式的Demo：<a href="https://github.com/RobberJJ/DesignPattern" target="_blank" rel="noopener">DesignPattern_Prototype</a></strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;原型模式-prototype&quot;&gt;&lt;a href=&quot;#原型模式-prototype&quot; class=&quot;headerlink&quot; title=&quot;原型模式(prototype)&quot;&gt;&lt;/a&gt;原型模式(prototype)&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;原型模式最初的定义出现于《设计模式》(Addison-Wesley,1994)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;原型模式：使用原型实例指定创建对象的种类。并通过复制这个原型创建新的对象。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="设计模式" scheme="https://robberjj.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
