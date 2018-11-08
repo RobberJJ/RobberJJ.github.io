@@ -99,8 +99,8 @@
       </categories>
       <tags>
         <tag>iOS</tag>
-        <tag>XCode</tag>
         <tag>locked</tag>
+        <tag>XCode</tag>
       </tags>
   </entry>
   <entry>
@@ -112,8 +112,8 @@
       </categories>
       <tags>
         <tag>iOS</tag>
-        <tag>not supported</tag>
         <tag>XCode</tag>
+        <tag>not supported</tag>
       </tags>
   </entry>
   <entry>
@@ -151,8 +151,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>shortcuts</tag>
         <tag>Mac</tag>
+        <tag>shortcuts</tag>
         <tag>KeyCodes</tag>
       </tags>
   </entry>

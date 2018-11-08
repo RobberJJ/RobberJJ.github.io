@@ -878,9 +878,9 @@
     
       <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
     
-      <category term="XCode" scheme="https://robberjj.github.io/tags/XCode/"/>
-    
       <category term="locked" scheme="https://robberjj.github.io/tags/locked/"/>
+    
+      <category term="XCode" scheme="https://robberjj.github.io/tags/XCode/"/>
     
   </entry>
   
@@ -922,9 +922,9 @@
     
       <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
     
-      <category term="not supported" scheme="https://robberjj.github.io/tags/not-supported/"/>
-    
       <category term="XCode" scheme="https://robberjj.github.io/tags/XCode/"/>
+    
+      <category term="not supported" scheme="https://robberjj.github.io/tags/not-supported/"/>
     
   </entry>
   
@@ -1107,9 +1107,9 @@
       <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
     
     
-      <category term="shortcuts" scheme="https://robberjj.github.io/tags/shortcuts/"/>
-    
       <category term="Mac" scheme="https://robberjj.github.io/tags/Mac/"/>
+    
+      <category term="shortcuts" scheme="https://robberjj.github.io/tags/shortcuts/"/>
     
       <category term="KeyCodes" scheme="https://robberjj.github.io/tags/KeyCodes/"/>
     
