@@ -1338,13 +1338,13 @@
     
       <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
     
-      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
-    
-      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
-    
       <category term="NSExtensionActivationRule" scheme="https://robberjj.github.io/tags/NSExtensionActivationRule/"/>
     
       <category term="TRUEPREDICATE" scheme="https://robberjj.github.io/tags/TRUEPREDICATE/"/>
+    
+      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
+    
+      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
     
   </entry>
   
@@ -1386,11 +1386,11 @@
     
       <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
     
-      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
-    
       <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
     
       <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
+    
+      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
     
       <category term="NSScroller" scheme="https://robberjj.github.io/tags/NSScroller/"/>
     
@@ -1428,11 +1428,11 @@
     
       <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
     
-      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
-    
       <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
     
       <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
+    
+      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
     
   </entry>
   
