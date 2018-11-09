@@ -175,6 +175,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -449,11 +456,11 @@
 <a id="more"></a>
 <p>在iOS中我们可以通过UISCrollView的<code>delegate</code>方法<code>- (void)scrollViewDidScroll:(UIScrollView *)scrollView;</code>来在滑动的过程中做一些我们爱做的事儿呢。</p>
 <p>那么在mac中NSScrollView我们有没有同样的东西来做我们爱做的事儿呢？<br>当然是有的，只是跟iOS中有些许的区别，NSScrollView是通过通知来实现的，直接上代码：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找个合适的地儿，注册通知</span></span><br><span class="line"><span class="built_in">NSNotificationCenter</span> *center = [<span class="built_in">NSNotificationCenter</span> defaultCenter] ;</span><br><span class="line">    [center addObserver: <span class="keyword">self</span></span><br><span class="line">               selector: <span class="keyword">@selector</span>(boundsDidChangeNotification:)</span><br><span class="line">                   name: <span class="built_in">NSViewBoundsDidChangeNotification</span></span><br><span class="line">                 object: [<span class="keyword">self</span>.scrollView contentView]];</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//找个合适的地儿，注册通知</span></div><div class="line"><span class="built_in">NSNotificationCenter</span> *center = [<span class="built_in">NSNotificationCenter</span> defaultCenter] ;</div><div class="line">    [center addObserver: <span class="keyword">self</span></div><div class="line">               selector: <span class="keyword">@selector</span>(boundsDidChangeNotification:)</div><div class="line">                   name: <span class="built_in">NSViewBoundsDidChangeNotification</span></div><div class="line">                 object: [<span class="keyword">self</span>.scrollView contentView]];</div></pre></td></tr></table></figure>
 <p>需要注意的是 ，在上面通知注册之前，你需要加上这么一句：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span>.scrollView contentView] setPostsBoundsChangedNotifications: <span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[<span class="keyword">self</span>.scrollView contentView] setPostsBoundsChangedNotifications: <span class="literal">YES</span>];</div></pre></td></tr></table></figure>
 <p>然后在NSScrollView滑动的时候，你就能在你实现下面这个方法的地方，做你想做的爱做的事儿了：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) boundsDidChangeNotification: (<span class="built_in">NSNotification</span> *) notification</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在这里进行处理</span></span><br><span class="line">    <span class="built_in">NSClipView</span> *changedContentView=[notification object];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the origin of the NSClipView of the scroll view that</span></span><br><span class="line">    <span class="comment">// we're watching</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSPoint</span> changedBoundsOrigin = [changedContentView documentVisibleRect].origin;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) boundsDidChangeNotification: (<span class="built_in">NSNotification</span> *) notification</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 在这里进行处理</span></div><div class="line">    <span class="built_in">NSClipView</span> *changedContentView=[notification object];</div><div class="line"></div><div class="line">    <span class="comment">// get the origin of the NSClipView of the scroll view that</span></div><div class="line">    <span class="comment">// we're watching</span></div><div class="line"></div><div class="line">    <span class="built_in">NSPoint</span> changedBoundsOrigin = [changedContentView documentVisibleRect].origin;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>以上，欢迎典藏。</p>
 
       
@@ -757,6 +764,8 @@
   
 
 
+  
+
 
 
 
@@ -784,6 +793,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1209,7 +1221,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

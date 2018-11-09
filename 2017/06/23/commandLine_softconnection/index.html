@@ -175,6 +175,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -446,14 +453,14 @@
       
         <p>比如，想要用命令行指定特定程序打开文件。</p>
 <p>如果文件已被指定默认程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open httpd.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open httpd.conf</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>指定一个特定程序打开文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 用 sublime text 打开 httpd.conf</span><br><span class="line">open -a /Applications/Sublime\ Text.app/ httpd.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 用 sublime text 打开 httpd.conf</div><div class="line">open -a /Applications/Sublime\ Text.app/ httpd.conf</div></pre></td></tr></table></figure>
 <p>如果使用频繁，还可以添加软连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/sublime</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/sublime</div></pre></td></tr></table></figure>
 <p>输入<code>sublime httpd.conf</code>就可以用 <code>sublime text</code> 打开文件</p>
-<p>mac Mac OS X 11之后的版本，上述操作你可能会遇到下面的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln: /usr/bin/sublime: Operation not permitted</span><br></pre></td></tr></table></figure></p>
+<p>mac Mac OS X 11之后的版本，上述操作你可能会遇到下面的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln: /usr/bin/sublime: Operation not permitted</div></pre></td></tr></table></figure></p>
 <p>使用管理员sudo命令,依旧失败!</p>
 <p>原来MacOS 10.11开始apple引入了Rootless机制,你再也不能随心所欲的改写很多关键路径了,就算你是Root用户也不行,除非是Apple自身签名的软件（含命令行工具）才可以!用Apple的话来说:</p>
 <p>Rootless机制将成为对抗恶意程序的最后防线。</p>
@@ -461,7 +468,7 @@
 <p>如果要关闭Rootless必须重启Mac进入恢复模式,然而关闭它意味着你的MacOS安全大门变得有些薄弱,这并不是什么好消息!!!!!</p>
 <p>那么有没有什么办法即可以不用关闭Rootless又可以设置Sublime Text3的快捷方式呢!?</p>
 <p>答案是:必须的!!!</p>
-<p>我们只需要将其路径添加到<code>/usr/local/bin</code>下即可,Rootless并没有限制该目录的修改,而且bash也会从该目录中寻找可执行的bin!YES!!!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime</span><br></pre></td></tr></table></figure></p>
+<p>我们只需要将其路径添加到<code>/usr/local/bin</code>下即可,Rootless并没有限制该目录的修改,而且bash也会从该目录中寻找可执行的bin!YES!!!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -762,6 +769,8 @@
   
 
 
+  
+
 
 
 
@@ -789,6 +798,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1214,7 +1226,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

@@ -175,6 +175,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -451,7 +458,7 @@
 <p>作为一个有强迫症的优秀程序猿，表示不能忍！</p>
 <a id="more"></a>
 <p>文档里面是这么说的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (nullable NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)enc NS_DEPRECATED(10_0, 10_11, 2_0, 9_0, &quot;Use -stringByAddingPercentEncodingWithAllowedCharacters: instead,which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)enc NS_DEPRECATED(10_0, 10_11, 2_0, 9_0, &quot;Use -stringByAddingPercentEncodingWithAllowedCharacters: instead,which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.&quot;);</div></pre></td></tr></table></figure>
 <p>很明白，用<code>stringByAddingPercentEncodingWithAllowedCharacters:</code>方法替换之。</p>
 <p>这个方法官方文档是这么说的：</p>
 <blockquote>
@@ -459,7 +466,7 @@
 </blockquote>
 <p>最后一句<code>Any characters in allowedCharacters outside of the 7-bit ASCII range are ignored.</code>，意思就是说，任何非7-bit ASCII字符搁到<code>allowedCharacters</code>里面也将被忽略，也就是<code>allowedCharacters</code>里面的字符跟7-bit ASCII字符不会被编码，比如中文。</p>
 <p>换句话说，上面方法在处理的时候会编码url的中的非7-bit ASCII字符，如这些【`#%^{}\”[]|\&lt;&gt;】，如果需要忽略之，需要通过<code>(NSCharacterSet *)allowedCharacters</code>这个参数指定。总结如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[aString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">//等价于</span><br><span class="line">[aString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@&quot;`#%^&#123;&#125;\&quot;[]|\\&lt;&gt; &quot;]];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[aString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</div><div class="line"></div><div class="line">//等价于</div><div class="line">[aString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@&quot;`#%^&#123;&#125;\&quot;[]|\\&lt;&gt; &quot;]];</div></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：</p>
 <ol>
@@ -468,7 +475,7 @@
 </ol>
 </blockquote>
 <p>另外，URL中常用的<code>NSCharacterSet</code>类型定义在分类<code>NSCharacterSet (NSURLUtilities)</code>中，包含字符集如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">URLHostAllowedCharacterSet      &quot;#%/&lt;&gt;?@\^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLFragmentAllowedCharacterSet  &quot;#%&lt;&gt;[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLPasswordAllowedCharacterSet  &quot;#%/:&lt;&gt;?@[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLPathAllowedCharacterSet      &quot;#%;&lt;&gt;?[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLQueryAllowedCharacterSet     &quot;#%&lt;&gt;[\]^`&#123;|&#125;</span><br><span class="line"></span><br><span class="line">URLUserAllowedCharacterSet      &quot;#%/:&lt;&gt;?@[\]^`</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">URLHostAllowedCharacterSet      &quot;#%/&lt;&gt;?@\^`&#123;|&#125;</div><div class="line"></div><div class="line">URLFragmentAllowedCharacterSet  &quot;#%&lt;&gt;[\]^`&#123;|&#125;</div><div class="line"></div><div class="line">URLPasswordAllowedCharacterSet  &quot;#%/:&lt;&gt;?@[\]^`&#123;|&#125;</div><div class="line"></div><div class="line">URLPathAllowedCharacterSet      &quot;#%;&lt;&gt;?[\]^`&#123;|&#125;</div><div class="line"></div><div class="line">URLQueryAllowedCharacterSet     &quot;#%&lt;&gt;[\]^`&#123;|&#125;</div><div class="line"></div><div class="line">URLUserAllowedCharacterSet      &quot;#%/:&lt;&gt;?@[\]^`</div></pre></td></tr></table></figure>
 <p>以上，还在等什么，全局搜索替换吧，消灭⚠️！</p>
 
       
@@ -770,6 +777,8 @@
   
 
 
+  
+
 
 
 
@@ -797,6 +806,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1222,7 +1234,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

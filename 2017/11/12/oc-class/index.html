@@ -177,6 +177,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -446,13 +453,13 @@
       
 
       
-        <p>前两天碰到一面试题：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分辨下面res的是非</span></span><br><span class="line"><span class="built_in">BOOL</span> res1 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isKindOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res2 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isMemberOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res3 = [[Sark <span class="keyword">class</span>] isKindOfClass:[Sark <span class="keyword">class</span>]];</span><br><span class="line"><span class="built_in">BOOL</span> res4 = [[Sark <span class="keyword">class</span>] isMemberOfClass:[Sark <span class="keyword">class</span>]];</span><br></pre></td></tr></table></figure></p>
+        <p>前两天碰到一面试题：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//分辨下面res的是非</span></div><div class="line"><span class="built_in">BOOL</span> res1 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isKindOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</div><div class="line"><span class="built_in">BOOL</span> res2 = [[<span class="built_in">NSObject</span> <span class="keyword">class</span>] isMemberOfClass:[<span class="built_in">NSObject</span> <span class="keyword">class</span>]];</div><div class="line"><span class="built_in">BOOL</span> res3 = [[Sark <span class="keyword">class</span>] isKindOfClass:[Sark <span class="keyword">class</span>]];</div><div class="line"><span class="built_in">BOOL</span> res4 = [[Sark <span class="keyword">class</span>] isMemberOfClass:[Sark <span class="keyword">class</span>]];</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>在这之前，我们先了解一下相关的定义：</p>
 <p><strong>Class</strong></p>
-<p>在<code>objc.h</code>中<code>Class</code>是这么定义的：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// An opaque type that represents an Objective-C class.</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>objc.h</code>中<code>Class</code>是这么定义的：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/// An opaque type that represents an Objective-C class.</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;</div></pre></td></tr></table></figure></p>
 <p><code>objc_class</code>又是啥呢？在<code>runtime.h</code>中能看见：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_class &#123;</span><br><span class="line">    Class isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line"><span class="meta">#if !__OBJC2__</span></span><br><span class="line">    Class super_class                                        OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name                                         OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_ivar_list *ivars                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_method_list **methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_cache *cache                                 OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_protocol_list *protocols                     OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> objc_class &#123;</div><div class="line">    Class isa  OBJC_ISA_AVAILABILITY;</div><div class="line"></div><div class="line"><span class="meta">#if !__OBJC2__</span></div><div class="line">    Class super_class                                        OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name                                         OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">long</span> version                                             OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">long</span> info                                                OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">long</span> instance_size                                       OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">struct</span> objc_ivar_list *ivars                             OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">struct</span> objc_method_list **methodLists                    OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">struct</span> objc_cache *cache                                 OBJC2_UNAVAILABLE;</div><div class="line">    <span class="keyword">struct</span> objc_protocol_list *protocols                     OBJC2_UNAVAILABLE;</div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line">&#125; OBJC2_UNAVAILABLE;</div></pre></td></tr></table></figure>
 <p><strong>MetaClass</strong></p>
 <p>上面能看到<code>Class</code>中有个<code>isa</code>参数，它是指向<code>Class</code>的<code>元类（MetaClass）</code>的指针。</p>
 <p>注意到<code>isa</code>也是一个<code>Class</code>的结构体，也就是说<code>MetaClass</code>其本质也是一个<code>Class</code>。</p>
@@ -474,10 +481,10 @@
 <li>最上层的<code>MetaClass</code>的 <code>Super Class</code>指向<code>NSObject</code> <code>Class</code>本身</li>
 <li>最上层的<code>NSObject</code> <code>Class</code>的<code>super class</code>指向 <code>nil</code></li>
 </ul>
-<p>接下来我们看看<code>objc</code>源码中(源码可到<a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">这里下载</a>)，在文件<code>Object.mm</code>内，上面相关方法的定义：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (Class)<span class="keyword">class</span> &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)isKindOf:aClass</span><br><span class="line">&#123;</span><br><span class="line">	Class cls;</span><br><span class="line">	<span class="keyword">for</span> (cls = isa; cls; cls = cls-&gt;superclass)</span><br><span class="line">		<span class="keyword">if</span> (cls == (Class)aClass)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)isMemberOf:aClass</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> isa == (Class)aClass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来我们看看<code>objc</code>源码中(源码可到<a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="external">这里下载</a>)，在文件<code>Object.mm</code>内，上面相关方法的定义：</p>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (Class)<span class="keyword">class</span> &#123;  </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)isKindOf:aClass</div><div class="line">&#123;</div><div class="line">	Class cls;</div><div class="line">	<span class="keyword">for</span> (cls = isa; cls; cls = cls-&gt;superclass)</div><div class="line">		<span class="keyword">if</span> (cls == (Class)aClass)</div><div class="line">			<span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">	<span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)isMemberOf:aClass</div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> isa == (Class)aClass;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>那么，<code>BOOL res1 = [[NSObject class] isKindOfClass:[NSObject class]];</code>就可以这样对应起来理解了：</p>
 <p><code>[NSObject class]</code>拿到的是<code>self</code>，类方法的<code>return self</code>,即上图紫色的<code>NSObject(Class)</code>。</p>
 <p>根据上面<code>- (BOOL)isKindOf:aClass</code>的实现，<code>for</code>循环首先拿到的<code>cls = isa</code>,也就是<code>cls</code>为<code>NSObject(Class)</code>的<code>MetaClass</code>。显然这时候<code>cls == (Class)aClass</code>不成立。</p>
@@ -785,6 +792,8 @@
   
 
 
+  
+
 
 
 
@@ -812,6 +821,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1237,7 +1249,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

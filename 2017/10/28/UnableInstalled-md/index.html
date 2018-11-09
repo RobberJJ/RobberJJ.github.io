@@ -178,6 +178,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -457,7 +464,7 @@
 <p>并不好使。</p>
 <p>这种问题看不见任何其他的问题提示，有点无从查起的赶脚。</p>
 <p><code>stackoverflow</code>上找到下面的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl spawn booted log show</span><br><span class="line"></span><br><span class="line">//或者可以标出这个错误提示相关的，很容易看到相关的错误提示</span><br><span class="line">xcrun simctl spawn booted log show | grep &quot;This app was unable to be installed.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">xcrun simctl spawn booted log show</div><div class="line"></div><div class="line">//或者可以标出这个错误提示相关的，很容易看到相关的错误提示</div><div class="line">xcrun simctl spawn booted log show | grep &quot;This app was unable to be installed.</div></pre></td></tr></table></figure>
 <p>然后，基本就能定位问题了，我这里出现的问题是：<br><img src="/imgs/UnableInstalled2.jpg" alt="reason"></p>
 <p>Info.plist文件中缺少<code>CFBundleExecutable</code>，加上即可。</p>
 
@@ -758,6 +765,8 @@
   
 
 
+  
+
 
 
 
@@ -785,6 +794,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1210,7 +1222,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

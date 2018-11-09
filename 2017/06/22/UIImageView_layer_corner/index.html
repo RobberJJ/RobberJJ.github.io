@@ -175,6 +175,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -444,11 +451,11 @@
       
 
       
-        <p>创建一个UIImageView对象：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> * poImgView = [[<span class="built_in">UIImageView</span> alloc] init];</span><br></pre></td></tr></table></figure></p>
+        <p>创建一个UIImageView对象：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIImageView</span> * poImgView = [[<span class="built_in">UIImageView</span> alloc] init];</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h6>第一种方法</h6>
 
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">poImgView.layer.cornerRadius = poImgView.frame.size.width/<span class="number">2.0</span>;</span><br><span class="line">poImgView.layer.masksToBounds = <span class="literal">YES</span>;</span><br><span class="line">（或者 poImgView.clipsToBounds = <span class="literal">YES</span>;）</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">poImgView.layer.cornerRadius = poImgView.frame.size.width/<span class="number">2.0</span>;</div><div class="line">poImgView.layer.masksToBounds = <span class="literal">YES</span>;</div><div class="line">（或者 poImgView.clipsToBounds = <span class="literal">YES</span>;）</div></pre></td></tr></table></figure>
 <blockquote>
 <p>clipsToBounds是对view的切割，masksToBounds是对layer的切割。</p>
 </blockquote>
@@ -458,14 +465,14 @@
 </blockquote>
 <h6>第二种方法</h6>
 
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CAShapeLayer</span> *layer = [<span class="built_in">CAShapeLayer</span> layer];</span><br><span class="line"><span class="built_in">UIBezierPath</span> *aPath = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:aImageView.bounds];</span><br><span class="line">layer.path = aPath.CGPath;</span><br><span class="line">poImgView.layer.mask = layer;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAShapeLayer</span> *layer = [<span class="built_in">CAShapeLayer</span> layer];</div><div class="line"><span class="built_in">UIBezierPath</span> *aPath = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:aImageView.bounds];</div><div class="line">layer.path = aPath.CGPath;</div><div class="line">poImgView.layer.mask = layer;</div></pre></td></tr></table></figure>
 <p>性能消耗：<br>测试fps大致在20帧左右，比方案A的消耗更大。</p>
 <h6>第三种方法</h6>
 
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)imageWithCornerRadius:(<span class="built_in">CGFloat</span>)radius &#123;</span><br><span class="line">    <span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="number">0.</span>f, <span class="number">0.</span>f, <span class="keyword">self</span>.size&#125;;</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="built_in">UIScreen</span>.mainScreen.scale);</span><br><span class="line">    <span class="built_in">CGContextAddPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(),[<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);</span><br><span class="line">    <span class="built_in">CGContextClip</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>());</span><br><span class="line">    [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UIImage</span> *)imageWithCornerRadius:(<span class="built_in">CGFloat</span>)radius &#123;</div><div class="line">    <span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="number">0.</span>f, <span class="number">0.</span>f, <span class="keyword">self</span>.size&#125;;</div><div class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="built_in">UIScreen</span>.mainScreen.scale);</div><div class="line">    <span class="built_in">CGContextAddPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(),[<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);</div><div class="line">    <span class="built_in">CGContextClip</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>());</div><div class="line">    [<span class="keyword">self</span> drawInRect:rect];</div><div class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">    <span class="keyword">return</span> image;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>性能消耗：<br>这个是on-screen-rendering<br>相当于时时去做渲染，相比于A.B方案的离线渲染，此方法对性能消耗最低，推荐用此方案。</p>
 <p></p><h6>值得一提</h6><br>第一种跟第二种方法都是比较常见的方式，但是都不推荐，对此的优化方案是是用第三种方式，但是如果非要使用第一种跟第二种，补救措施是：<p></p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.layer.shouldRasterize = <span class="literal">YES</span>;</span><br><span class="line"><span class="keyword">self</span>.layer.rasterizationScale = [<span class="built_in">UIScreen</span> mainScreen].scale;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.layer.shouldRasterize = <span class="literal">YES</span>;</div><div class="line"><span class="keyword">self</span>.layer.rasterizationScale = [<span class="built_in">UIScreen</span> mainScreen].scale;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>当shouldRasterize设成true时，layer被渲染成一个bitmap，并缓存起来，等下次使用时不会再重新去渲染了。</p>
 <p>实现圆角本身就是在做颜色混合（blending），如果每次页面出来时都blending，消耗太大，这时shouldRasterize = yes，下次就只是简单的从渲染引擎的cache里读取那张bitmap，节约系统资源。</p>
@@ -794,6 +801,8 @@
   
 
 
+  
+
 
 
 
@@ -821,6 +830,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1246,7 +1258,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

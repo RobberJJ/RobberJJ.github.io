@@ -177,6 +177,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -503,10 +510,10 @@
 <p>值得注意的是，除了上述快捷键之外，右键快捷菜单也是很有用处的，举个栗子：</p>
 <p>光标置于类名中，右键(或者触摸板两手指头单击)显示快捷菜单，选择<code>Refactor -- Rename</code>，全局替换类名。</p>
 <h3 id="XVim"><a href="#XVim" class="headerlink" title="XVim"></a>XVim</h3><p>最后，我想说的是，想要快捷键运用的炉火纯青，而且不会因为软件间系统间的各种差异出现很大的变化，vim！！</p>
-<p>这个绝对是神器，xcode可以安装vim插件<a href="https://github.com/XVimProject/XVim" target="_blank" rel="noopener">XVim</a>。</p>
-<p><strong>注意：</strong> xcode 8之后，需要先<a href="https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md" target="_blank" rel="noopener">安装证书</a>.</p>
+<p>这个绝对是神器，xcode可以安装vim插件<a href="https://github.com/XVimProject/XVim" target="_blank" rel="external">XVim</a>。</p>
+<p><strong>注意：</strong> xcode 8之后，需要先<a href="https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md" target="_blank" rel="external">安装证书</a>.</p>
 <p>下载下来编译不过的话，是因为类<code>IDEPlaygroundEditor</code>没实现(IDEPlaygroundEditor+XVim.h中)，加上实现<code>@implementation</code>即可，或者直接删除报错的文件以及引用此文件头文件的地方。</p>
-<p>XVim快捷键使用见<a href="https://github.com/XVimProject/XVim/blob/master/Documents/Users/FeatureList.md" target="_blank" rel="noopener">这里</a>。</p>
+<p>XVim快捷键使用见<a href="https://github.com/XVimProject/XVim/blob/master/Documents/Users/FeatureList.md" target="_blank" rel="external">这里</a>。</p>
 <p>放出一张vim命令图解：</p>
 <p><img src="/imgs/vimCommod.png" alt="vim命令图解"></p>
 
@@ -832,6 +839,8 @@
   
 
 
+  
+
 
 
 
@@ -859,6 +868,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1284,7 +1296,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

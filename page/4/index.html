@@ -174,6 +174,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -604,7 +611,7 @@
         
           <p>比如，想要用命令行指定特定程序打开文件。</p>
 <p>如果文件已被指定默认程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open httpd.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open httpd.conf</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/23/commandLine_softconnection/#more" rel="contents">
@@ -763,7 +770,7 @@
 
       
         
-          <p>创建一个UIImageView对象：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> * poImgView = [[<span class="built_in">UIImageView</span> alloc] init];</span><br></pre></td></tr></table></figure></p>
+          <p>创建一个UIImageView对象：<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIImageView</span> * poImgView = [[<span class="built_in">UIImageView</span> alloc] init];</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/22/UIImageView_layer_corner/#more" rel="contents">
@@ -922,7 +929,7 @@
 
       
         
-          <p>GCD中获取各种类型的队列：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取串行的队列  </span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> singalQueue = dispatch_queue_create(<span class="string">"single"</span>,DISPATCH_QUEUE_SERIAL);</span><br><span class="line"><span class="comment">//获取并发执行的队列</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> concrtQueue = dispatch_queue_create(<span class="string">"queue"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line"><span class="comment">//获取主队列</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</span><br><span class="line"><span class="comment">//获取全局的队列（并发的）</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> gobalqueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+          <p>GCD中获取各种类型的队列：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取串行的队列  </span></div><div class="line"><span class="built_in">dispatch_queue_t</span> singalQueue = dispatch_queue_create(<span class="string">"single"</span>,DISPATCH_QUEUE_SERIAL);</div><div class="line"><span class="comment">//获取并发执行的队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> concrtQueue = dispatch_queue_create(<span class="string">"queue"</span>, DISPATCH_QUEUE_CONCURRENT);</div><div class="line"><span class="comment">//获取主队列</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> mainQueue =  dispatch_get_main_queue();</div><div class="line"><span class="comment">//获取全局的队列（并发的）</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> gobalqueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/22/GCD_syn_asyn/#more" rel="contents">
@@ -1182,6 +1189,8 @@
   
 
 
+  
+
 
 
 
@@ -1209,6 +1218,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1622,7 +1634,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

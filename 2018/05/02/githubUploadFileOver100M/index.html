@@ -177,6 +177,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -448,15 +455,15 @@
       
         <p>通常我们commit完成之后，往Github上push的时候，单个文件大小不会超过100M，所以基本不会遇到这种情况。<br>但是，总会遇到的，当单个文件超过100M的时候，push的时候会出现下面这样的Error：</p>
 <blockquote>
-<p>remote: Resolving deltas: 100% (472/472), done.<br>remote: error: GH001: Large files detected.<br>You may want to try Git Large File Storage - <a href="https://git-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a>.</p>
+<p>remote: Resolving deltas: 100% (472/472), done.<br>remote: error: GH001: Large files detected.<br>You may want to try Git Large File Storage - <a href="https://git-lfs.github.com" target="_blank" rel="external">https://git-lfs.github.com</a>.</p>
 </blockquote>
 <a id="more"></a>
 <p>或者：</p>
 <blockquote>
-<p>Total 3007 (delta 664), reused 0 (delta 0)<br>remote: error: GH001: Large files detected.<br>remote: error: Trace: 7b7de6b9372ee392e0f3961b05ea6f33<br>remote: error: See <a href="http://git.io/iEPt8g" target="_blank" rel="noopener">http://git.io/iEPt8g</a> for more information.<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB。</p>
+<p>Total 3007 (delta 664), reused 0 (delta 0)<br>remote: error: GH001: Large files detected.<br>remote: error: Trace: 7b7de6b9372ee392e0f3961b05ea6f33<br>remote: error: See <a href="http://git.io/iEPt8g" target="_blank" rel="external">http://git.io/iEPt8g</a> for more information.<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB<br>remote: error: File  XXX/XXX/XXX is 234 MB; this exceeds GitHub‘s file size limit of 100.00 MB。</p>
 </blockquote>
 <!-- more --> 
-<p>上面错误的原因很好理解就是GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库：<a href="https://link.jianshu.com/?t=https%3A%2F%2Fgit-lfs.github.com" target="_blank" rel="noopener">https://git-lfs.github.com</a><br>LFS使用的简单步骤：</p>
+<p>上面错误的原因很好理解就是GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库：<a href="https://link.jianshu.com/?t=https%3A%2F%2Fgit-lfs.github.com" target="_blank" rel="external">https://git-lfs.github.com</a><br>LFS使用的简单步骤：</p>
 <ul>
 <li>安装git - lfs到本机<br>这里没有什么难度，根据官网安装就好。</li>
 </ul>
@@ -789,6 +796,8 @@
   
 
 
+  
+
 
 
 
@@ -816,6 +825,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1241,7 +1253,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

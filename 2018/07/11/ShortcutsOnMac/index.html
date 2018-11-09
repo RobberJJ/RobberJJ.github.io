@@ -175,6 +175,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -449,12 +456,12 @@
 <blockquote>
 <p>⌘（command）<br>⌥（option/alt）<br>⇧（shift）<br>⇪（caps lock）<br>⌃（control/ctrl）<br>⇤/⇥(Tab)</p>
 </blockquote>
-<p>在这里官方给出了快捷键的说明。<a href="https://support.apple.com/zh-cn/ht201236" target="_blank" rel="noopener">点我直达</a><br>显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。</p>
+<p>在这里官方给出了快捷键的说明。<a href="https://support.apple.com/zh-cn/ht201236" target="_blank" rel="external">点我直达</a><br>显然，快捷键量很大，全部记住并熟练应用不太可能，可以根据自己的习惯，逐渐的形成自己的套路，然后替身自己的工作(娱乐)效率。</p>
 <a id="more"></a> 
 <p>当然，<code>⌘ + Q(W/O/N)</code>、<code>⌘ + X(C/V/F/S/A)</code>之流就不说了，太常用，大家都知道。<br>下面主要列举一下我自己感觉比较效率，但是又容易被忽视的快捷键：<br><code>⌘ + ` </code>在同一个应用的各个标签页中切换。<br><code>⌘ + ⇤(⇥)</code>在打开的应用中切换到下一个最近使用的应用,按住可切换到其他应用，亦可配合触摸板或者鼠标选中某个应用<br><code>⌘ + T</code>打开新的标签<br><code>⌘ + H</code>隐藏当前应用<br><code>⌘ + Alt + H</code>隐藏除了当前应用外的其他应用<br><code>⌘ + M</code>最小化当前应用<br><code>⌘ + Alt + M</code>最小化除了当前应用外的其他应用<br><code>⌘ + Shift + 3</code> 截取整个屏幕，并保存图片到桌面<br><code>⌘ + Shift + 4</code> 自定义截图大小，按下 Space 键，可以选择窗口截图<br><code>⌃ + ←(→)</code>可以切换屏幕<br><code>⌘ + ,</code>打开偏好设置<br>……</p>
 <p>类似的快捷键其实还有很多很多，根据自身的习惯取舍吧。</p>
 <p>快捷键的初衷，其实是想让效率能够提升，是想工作(娱乐)起来更有效率。<br>但是问题来了，快捷键记少了总感觉不够用，而想要记更多的快捷键，难免成为一种负担。</p>
-<p><code>CheatSheet</code>，一款App，一键查看所有快捷键的App。<a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">点我速度装备</a></p>
+<p><code>CheatSheet</code>，一款App，一键查看所有快捷键的App。<a href="https://mediaatelier.com/CheatSheet/" target="_blank" rel="external">点我速度装备</a></p>
 <p>其实在Mac上还要一些隐藏的或者说是并没有明说的快捷键。(Apple经常干这事儿，发现的时候总有些喜怒交加)。</p>
 <p>在mac上，很多时候在文本输入时，总想着能有一些快捷键，能让光标快速移动，殊不知，mac本身就自带这个能力。</p>
 <p>如：iTerm2, 终端, safari, Chrome, QQ, SourceTree, Xcode, MindNode Pro, Pages, Keynote, 便签,  邮件等，几乎有文本输入的地方似乎都是支持的~~~</p>
@@ -779,6 +786,8 @@
   
 
 
+  
+
 
 
 
@@ -806,6 +815,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1231,7 +1243,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->

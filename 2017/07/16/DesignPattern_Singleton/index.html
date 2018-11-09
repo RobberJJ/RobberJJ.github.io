@@ -177,6 +177,13 @@
 
 </head>
 
+<!-- 爆炸效果 -->
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -469,7 +476,7 @@
 <p><code>UIAcceleremeter</code>是单例，所以不能直接生成它的对象。而是应该调用其<code>sharedAcceleremeter</code>单例类方法以访问它的唯一实例。然后设定它的<code>updateInterval</code>属性，并用自己的<code>delegate</code>对象设定<code>delegate</code>属性，以接收来自单例实例的加速度数据。</p>
 <p><em>3.NSFileManager类</em></p>
 <p>在Mac OS X v10.5和iOS2.0之前，<code>NSFileManager</code>曾经是单例模式的“严格”实现。调用它的init方法是空操作，并且唯一实例可以通过<code>defaultManager</code>类方法创建和访问。然而其单例实现并不是线程安全的。现在推荐生成新的<code>NSFileManager</code>实例以保证线程安全。这一方式被认为是更灵活的单例实现，其中工厂方法总是返回同一实例，但是也可以分配并初始化另外的实例。</p>
-<p><strong>附上单例模式的Demo：<a href="https://github.com/RobberJJ/DesignSingleton" target="_blank" rel="noopener">DesignPattern_Singleton</a></strong></p>
+<p><strong>附上单例模式的Demo：<a href="https://github.com/RobberJJ/DesignSingleton" target="_blank" rel="external">DesignPattern_Singleton</a></strong></p>
 
       
     </div>
@@ -791,6 +798,8 @@
   
 
 
+  
+
 
 
 
@@ -818,6 +827,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -1243,7 +1255,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":150},"mobile":{"show":true}});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->
