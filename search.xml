@@ -230,10 +230,10 @@
       </categories>
       <tags>
         <tag>mac</tag>
-        <tag>NSExtensionActivationRule</tag>
-        <tag>TRUEPREDICATE</tag>
         <tag>osx</tag>
         <tag>mac os</tag>
+        <tag>NSExtensionActivationRule</tag>
+        <tag>TRUEPREDICATE</tag>
       </tags>
   </entry>
   <entry>
@@ -245,9 +245,9 @@
       </categories>
       <tags>
         <tag>mac</tag>
+        <tag>NSScrollView</tag>
         <tag>osx</tag>
         <tag>mac os</tag>
-        <tag>NSScrollView</tag>
         <tag>NSScroller</tag>
       </tags>
   </entry>
@@ -260,9 +260,9 @@
       </categories>
       <tags>
         <tag>mac</tag>
+        <tag>NSScrollView</tag>
         <tag>osx</tag>
         <tag>mac os</tag>
-        <tag>NSScrollView</tag>
       </tags>
   </entry>
   <entry>
