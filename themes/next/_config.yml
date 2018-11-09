@@ -22,6 +22,9 @@ authoricon: heart
 # Footer `powered-by` and `theme-info` copyright
 copyright: true
 
+# Fireworks
+fireworks: true
+
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -519,7 +522,7 @@ pace: true
 pace_theme: pace-theme-bounce
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
 
 # three_waves
 three_waves: false
