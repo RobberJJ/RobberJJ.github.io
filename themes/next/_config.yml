@@ -25,6 +25,10 @@ copyright: true
 # Fireworks
 fireworks: true
 
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+  enabled: true
+
 
 # ---------------------------------------------------------------
 # SEO Settings

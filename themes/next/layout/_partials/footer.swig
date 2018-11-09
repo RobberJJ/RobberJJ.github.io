@@ -6,9 +6,13 @@
     <i class="fa fa-{{ theme.authoricon }}"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">{{ config.author }}</span>
+  <span class="with-love">
+    <i class="fa fa-{{ theme.authoricon }}"></i>
+  </span>
+  <span class="post-count"> Ro.bber's Blog 全站共{{ totalcount(site) }}字</span>
 </div>
 
-{% if theme.copyright %}
+<!--{% if theme.copyright %}
 <div class="powered-by">
   {{ __('footer.powered', '<a class="theme-link" href="https://hexo.io">Hexo</a>') }}
 </div>
@@ -20,3 +24,4 @@
   </a>
 </div>
 {% endif %}
+-->
