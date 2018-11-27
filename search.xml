@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Swift - as、as!、as?三种类型转换操作符区别]]></title>
+    <url>%2F2018%2F11%2F27%2FSwift-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。 as使用场合 从派生类转换为基类，向上转型（upcasts） 1234567class Animal &#123;&#125;class Cat: Animal &#123;&#125;let cat = Cat()let animal = cat as Animal 消除二义性，数值类型转换 1234let num1 = 42 as CGFloatlet num2 = 42 as Intlet num3 = 42.5 as Intlet num4 = (42 / 2) as Double switch 语句中进行模式匹配如果不知道一个对象是什么类型，你可以通过switch语法检测它的类型，并且尝试在不同的情况下使用对应的类型进行相应的处理。 1234567switch animal &#123;case let cat as Cat: print("如果是Cat类型对象，则做相应处理")case let dog as Dog: print("如果是Dog类型对象，则做相应处理")default: break&#125; as!使用场合向下转型（Downcasting）时使用。由于是强制类型转换，如果转换失败会报 runtime 运行错误。1234class Animal &#123;&#125;class Cat: Animal &#123;&#125;let animal :Animal = Cat()let cat = animal as! Cat as?使用场合as? 和 as! 操作符的转换规则完全一样。但 as? 如果转换不成功的时候便会返回一个 nil 对象。成功的话返回可选类型值（optional），需要我们拆包使用。由于 as? 在转换失败的时候也不会出现错误，所以对于如果能确保100%会成功的转换则可使用 as!，否则使用 as?1234567let animal:Animal = Cat() if let cat = animal as? Cat&#123; print("cat is not nil")&#125; else &#123; print("cat is nil")&#125;]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[grep命令常用参数]]></title>
     <url>%2F2018%2F09%2F26%2FGrepCommonParams%2F</url>
     <content type="text"><![CDATA[-A num, --after-context=num - 打印出找到的匹配行后num行。这个跟-B，-C类似功能，主要用于查看上下文。 -B num, --before-context=num - 打印出找到的匹配行前num行。 -C[num, --context=num] - 打印出找到的匹配行前后num行，相当于-A num -B num。 -c, --count - 统计出匹配的总行数，同一行有两个匹配也只算一行。 --colour=[when, --color=[when]] - 将匹配的字符标记为彩色，when可以是’never’，‘auto’或’always’。 -e pattern, --regexp=pattern - 制定在搜索中使用的匹配模式，多用于指定多个匹配模式的情况。 -H - 在每一行前面打印出匹配的文件名，在多个文件的情况下这个是默认选项。 -h - 在多个文件的情况下不打印出匹配的文件名。 -n - 打印出匹配所在行的行数。 -i, --ignore-case - 查找时忽略大小写。 -R, -r, --recursive - 递归的去查找子目录下的文件。 -v, --invert-match - 打印出不匹配的行。 -w, --word-regexp - 只匹配整个单词。]]></content>
@@ -68,7 +80,7 @@
   <entry>
     <title><![CDATA[Mac上的那些效率神器]]></title>
     <url>%2F2018%2F07%2F16%2FArtifactsOnMac%2F</url>
-    <content type="text"><![CDATA[####No.1 Alfred 点我装备 这顶神奇的魔法帽到底能干啥？这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。 哈哈~~是不是很夸张？！ 一会儿再来下定论 在这里我只是举一个简单的栗子，通常我们遇到不懂的英文单词，基本是这么一个操作过程： copy单词 打开翻译应用（比如自带词典） 输入或粘贴查询单词 翻译应用输出查询结果 查询过后，一般都需要 Cmd+Q 退出应用（或者 Cmd+H 隐藏词典，亦或 Cmd+Tab 切换回上一个应用） 或者是下面的步骤： copy单词 手动打开浏览器 进入谷歌首页 选中输入框 输入或粘贴查询单词，然后空格并加上「翻译」两个字，然后再回车 等待浏览器展示查询结果; 而用Alfred是只需要： 选中单词 CMD+Y（假如快捷键你设置的是这个） Done！！ 那么问题来了，Alfred到底具体能做什么？默认情况下，Alfred 至少能胜任 15 项工作： 应用搜索 文件或目录搜索 文本内容搜索 标记搜索 快捷网页搜索 书签搜索 计算器 词典搜索 通讯录搜索 剪切板搜索 代码片段搜索 iTunes 管理 1Password 搜索 系统常用命令快捷操作 直接唤起指定终端并执行命令 这里做了很详细的说明。 当然，Alfred真正核心的功能在于——Workflow 。 Alfred 几乎可以做任何自动化工作流的事情（只要能用代码描述这个工作流就行），它能彻底改变了你对 Mac 的认知。 网上有很多大神们写好的workflow，可以搜一搜，然后体验体验，在我们可以自己为所欲为之前，坚定一下信心。 No.2 Things 3 点我装备一句话总结：GTD神器，简洁但不简单。 No.3 Moom 点我装备一款窗口布局的神器。支持自定义快捷键实现相应的窗口布局。 No.3 CheatSheet 点我装备一键直观查看App的快捷键列表。 说道快捷键，是的，快捷键会很大程度上提高你的效率，Mac上就自带了很多的快捷键，记住这些快捷键招式，就能立马神装出山了。具体可以参见这里。 No.4 Vim细心一些我们会发现，当前主流的IDE，或者以前曾经主流过的，或者未来即将成为主流的，总会有一套Vim相关的插件。其实，这就已经很能说明问题了。 Vim在手，天下我有的赶脚，有木有？！ Vim各类IDE的插件安装在这里就不详细阐述了，推荐几个Atom上神装吧，仅供参考： Vim Mode Plus Vim主要功能插件，不多说，究竟怎么爽，谁用谁知道。 relative-numbers 相对行数在Vim中的重要地位不言而喻了，这款插件能够直观的看出彼此的相对行数。 minimap Sublime 右侧的mini视图，对，就是这货。 activate-power-mode 这款插件绝对会让你有一种敲代码如同跳舞的动感，呃，提醒一句，注意休息眼睛。哈哈~~ 当然，Atom的插件还有很多，可以去他的官网淘出你需要的。 No.5 iTerm 点击装备iTerm2+ oh my zsh的组合，为你打造最强Mac终端便不只是梦。个性化的主题，私人订制属于自己的格调。一堆定义好的alias，省心省力，爽的飞起！ No.6 Vimium chrome下的Vim插件，让你浏览网页也能有Vim操作的快感。点击这里了解 No.7 Surfingkeys chrome下的Vim插件，Vimium的强化版本。点击这里了解 最后，放上Vim快捷键的几张图，欢迎收藏：]]></content>
+    <content type="text"><![CDATA[No.1 Alfred 点我装备这顶神奇的魔法帽到底能干啥？这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。 哈哈~~是不是很夸张？！ 一会儿再来下定论 在这里我只是举一个简单的栗子，通常我们遇到不懂的英文单词，基本是这么一个操作过程： copy单词 打开翻译应用（比如自带词典） 输入或粘贴查询单词 翻译应用输出查询结果 查询过后，一般都需要 Cmd+Q 退出应用（或者 Cmd+H 隐藏词典，亦或 Cmd+Tab 切换回上一个应用） 或者是下面的步骤： copy单词 手动打开浏览器 进入谷歌首页 选中输入框 输入或粘贴查询单词，然后空格并加上「翻译」两个字，然后再回车 等待浏览器展示查询结果; 而用Alfred是只需要： 选中单词 CMD+Y（假如快捷键你设置的是这个） Done！！ 那么问题来了，Alfred到底具体能做什么？默认情况下，Alfred 至少能胜任 15 项工作： 应用搜索 文件或目录搜索 文本内容搜索 标记搜索 快捷网页搜索 书签搜索 计算器 词典搜索 通讯录搜索 剪切板搜索 代码片段搜索 iTunes 管理 1Password 搜索 系统常用命令快捷操作 直接唤起指定终端并执行命令 这里做了很详细的说明。 当然，Alfred真正核心的功能在于——Workflow 。 Alfred 几乎可以做任何自动化工作流的事情（只要能用代码描述这个工作流就行），它能彻底改变了你对 Mac 的认知。 网上有很多大神们写好的workflow，可以搜一搜，然后体验体验，在我们可以自己为所欲为之前，坚定一下信心。 No.2 Things 3 点我装备一句话总结：GTD神器，简洁但不简单。 No.3 Moom 点我装备一款窗口布局的神器。支持自定义快捷键实现相应的窗口布局。 No.3 CheatSheet 点我装备一键直观查看App的快捷键列表。 说道快捷键，是的，快捷键会很大程度上提高你的效率，Mac上就自带了很多的快捷键，记住这些快捷键招式，就能立马神装出山了。具体可以参见这里。 No.4 Vim细心一些我们会发现，当前主流的IDE，或者以前曾经主流过的，或者未来即将成为主流的，总会有一套Vim相关的插件。其实，这就已经很能说明问题了。 Vim在手，天下我有的赶脚，有木有？！ Vim各类IDE的插件安装在这里就不详细阐述了，推荐几个Atom上神装吧，仅供参考： Vim Mode Plus Vim主要功能插件，不多说，究竟怎么爽，谁用谁知道。 relative-numbers 相对行数在Vim中的重要地位不言而喻了，这款插件能够直观的看出彼此的相对行数。 minimap Sublime 右侧的mini视图，对，就是这货。 activate-power-mode 这款插件绝对会让你有一种敲代码如同跳舞的动感，呃，提醒一句，注意休息眼睛。哈哈~~ 当然，Atom的插件还有很多，可以去他的官网淘出你需要的。 No.5 iTerm 点击装备iTerm2+ oh my zsh的组合，为你打造最强Mac终端便不只是梦。个性化的主题，私人订制属于自己的格调。一堆定义好的alias，省心省力，爽的飞起！ No.6 Vimium chrome下的Vim插件，让你浏览网页也能有Vim操作的快感。点击这里了解 No.7 Surfingkeys chrome下的Vim插件，Vimium的强化版本。点击这里了解 最后，放上Vim快捷键的几张图，欢迎收藏：]]></content>
       <categories>
         <category>mac</category>
       </categories>

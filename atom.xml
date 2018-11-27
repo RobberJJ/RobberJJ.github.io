@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-11-08T04:18:54.498Z</updated>
+  <updated>2018-11-27T07:55:31.338Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift - as、as!、as?三种类型转换操作符区别</title>
+    <link href="https://robberjj.github.io/2018/11/27/Swift-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB/"/>
+    <id>https://robberjj.github.io/2018/11/27/Swift-as、as-、as-三种类型转换操作符区别/</id>
+    <published>2018-11-27T07:51:51.000Z</published>
+    <updated>2018-11-27T07:55:31.338Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。</p>
+<h4 id="as使用场合"><a href="#as使用场合" class="headerlink" title="as使用场合"></a>as使用场合</h4><ul>
+<li>从派生类转换为基类，向上转型（upcasts）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">Animal</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> cat = <span class="type">Cat</span>()</div><div class="line"></div><div class="line"><span class="keyword">let</span> animal = cat <span class="keyword">as</span> <span class="type">Animal</span></div></pre></td></tr></table></figure>
+<ul>
+<li>消除二义性，数值类型转换</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num1 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">CGFloat</span></div><div class="line"><span class="keyword">let</span> num2 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num3 = <span class="number">42.5</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num4 = (<span class="number">42</span> / <span class="number">2</span>) <span class="keyword">as</span> <span class="type">Double</span></div></pre></td></tr></table></figure>
+<ul>
+<li>switch 语句中进行模式匹配<br>如果不知道一个对象是什么类型，你可以通过switch语法检测它的类型，并且尝试在不同的情况下使用对应的类型进行相应的处理。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> animal &#123;</div><div class="line"><span class="keyword">case</span> <span class="keyword">let</span> cat <span class="keyword">as</span> <span class="type">Cat</span>:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"如果是Cat类型对象，则做相应处理"</span>)</div><div class="line"><span class="keyword">case</span> <span class="keyword">let</span> dog <span class="keyword">as</span> <span class="type">Dog</span>:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"如果是Dog类型对象，则做相应处理"</span>)</div><div class="line"><span class="keyword">default</span>: <span class="keyword">break</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="as-使用场合"><a href="#as-使用场合" class="headerlink" title="as!使用场合"></a>as!使用场合</h4><p>向下转型（Downcasting）时使用。由于是强制类型转换，如果转换失败会报 runtime 运行错误。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">Animal</span> </span>&#123;&#125;</div><div class="line"><span class="keyword">let</span> animal :<span class="type">Animal</span>  = <span class="type">Cat</span>()</div><div class="line"><span class="keyword">let</span> cat = animal <span class="keyword">as</span>! <span class="type">Cat</span></div></pre></td></tr></table></figure></p>
+<h4 id="as-使用场合-1"><a href="#as-使用场合-1" class="headerlink" title="as?使用场合"></a>as?使用场合</h4><p>as? 和 as! 操作符的转换规则完全一样。但 as? 如果转换不成功的时候便会返回一个 nil 对象。成功的话返回可选类型值（optional），需要我们拆包使用。<br>由于 as? 在转换失败的时候也不会出现错误，所以对于如果能确保100%会成功的转换则可使用 as!，否则使用 as?<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> animal:<span class="type">Animal</span> = <span class="type">Cat</span>()</div><div class="line"> </div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> cat = animal <span class="keyword">as</span>? <span class="type">Cat</span>&#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"cat is not nil"</span>)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"cat is nil"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。&lt;/p&gt;
+&lt;h4 id=&quot;as使用场合&quot;&gt;&lt;a href=&quot;#as使用场合&quot; class=&quot;headerlink&quot; title=&quot;as使用场合&quot;&gt;&lt;/a&gt;as使用场合&lt;/h4&gt;&lt;ul&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="Swift" scheme="https://robberjj.github.io/tags/Swift/"/>
+    
+  </entry>
   
   <entry>
     <title>grep命令常用参数</title>
@@ -655,10 +696,9 @@
     <link href="https://robberjj.github.io/2018/07/16/ArtifactsOnMac/"/>
     <id>https://robberjj.github.io/2018/07/16/ArtifactsOnMac/</id>
     <published>2018-07-16T08:56:50.000Z</published>
-    <updated>2018-11-08T04:19:46.760Z</updated>
+    <updated>2018-11-27T07:29:18.558Z</updated>
     
-    <content type="html"><![CDATA[<p>####No.1  <em>Alfred</em> <a href="https://www.alfredapp.com/" target="_blank" rel="external">点我装备</a></p>
-<p>这顶神奇的魔法帽到底能干啥？<br>这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。</p>
+    <content type="html"><![CDATA[<h4 id="No-1-Alfred-点我装备"><a href="#No-1-Alfred-点我装备" class="headerlink" title="No.1  Alfred 点我装备"></a>No.1  <em>Alfred</em> <a href="https://www.alfredapp.com/" target="_blank" rel="external">点我装备</a></h4><p>这顶神奇的魔法帽到底能干啥？<br>这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。</p>
 <p>哈哈~~是不是很夸张？！  一会儿再来下定论</p>
 <a id="more"></a> 
 <p>在这里我只是举一个简单的栗子，通常我们遇到不懂的英文单词，基本是这么一个操作过程：</p>
@@ -748,8 +788,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;####No.1  &lt;em&gt;Alfred&lt;/em&gt; &lt;a href=&quot;https://www.alfredapp.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点我装备&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这顶神奇的魔法帽到底能干啥？&lt;br&gt;这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。&lt;/p&gt;
+      &lt;h4 id=&quot;No-1-Alfred-点我装备&quot;&gt;&lt;a href=&quot;#No-1-Alfred-点我装备&quot; class=&quot;headerlink&quot; title=&quot;No.1  Alfred 点我装备&quot;&gt;&lt;/a&gt;No.1  &lt;em&gt;Alfred&lt;/em&gt; &lt;a href=&quot;https://www.alfredapp.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点我装备&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;这顶神奇的魔法帽到底能干啥？&lt;br&gt;这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。&lt;/p&gt;
 &lt;p&gt;哈哈~~是不是很夸张？！  一会儿再来下定论&lt;/p&gt;
     
     </summary>
@@ -1393,46 +1432,6 @@
       <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
     
       <category term="NSScroller" scheme="https://robberjj.github.io/tags/NSScroller/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac中NSScrollView滑动监测</title>
-    <link href="https://robberjj.github.io/2017/09/24/NSScrollViewSliding/"/>
-    <id>https://robberjj.github.io/2017/09/24/NSScrollViewSliding/</id>
-    <published>2017-09-24T00:30:33.000Z</published>
-    <updated>2018-11-08T02:37:01.893Z</updated>
-    
-    <content type="html"><![CDATA[<p>不同于iOS中的UIScrollView，mac中的NSScrollView并没有一堆靠谱好用的delegate来帮助我们方便的监控ScrollView的状态。</p>
-<p>iOS中我们可以通过UIScrollView的<code>contentOffset</code>属性来获知滑动的位置，而在mac中我们是通过NSScrollView的<code>contentView</code>(NSClipView的实例)的<code>documentVisibleRect.origin</code>来获知滑动的相对位置。</p>
-<a id="more"></a>
-<p>在iOS中我们可以通过UISCrollView的<code>delegate</code>方法<code>- (void)scrollViewDidScroll:(UIScrollView *)scrollView;</code>来在滑动的过程中做一些我们爱做的事儿呢。</p>
-<p>那么在mac中NSScrollView我们有没有同样的东西来做我们爱做的事儿呢？<br>当然是有的，只是跟iOS中有些许的区别，NSScrollView是通过通知来实现的，直接上代码：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//找个合适的地儿，注册通知</span></div><div class="line"><span class="built_in">NSNotificationCenter</span> *center = [<span class="built_in">NSNotificationCenter</span> defaultCenter] ;</div><div class="line">    [center addObserver: <span class="keyword">self</span></div><div class="line">               selector: <span class="keyword">@selector</span>(boundsDidChangeNotification:)</div><div class="line">                   name: <span class="built_in">NSViewBoundsDidChangeNotification</span></div><div class="line">                 object: [<span class="keyword">self</span>.scrollView contentView]];</div></pre></td></tr></table></figure>
-<p>需要注意的是 ，在上面通知注册之前，你需要加上这么一句：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[<span class="keyword">self</span>.scrollView contentView] setPostsBoundsChangedNotifications: <span class="literal">YES</span>];</div></pre></td></tr></table></figure>
-<p>然后在NSScrollView滑动的时候，你就能在你实现下面这个方法的地方，做你想做的爱做的事儿了：</p>
-<figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) boundsDidChangeNotification: (<span class="built_in">NSNotification</span> *) notification</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 在这里进行处理</span></div><div class="line">    <span class="built_in">NSClipView</span> *changedContentView=[notification object];</div><div class="line"></div><div class="line">    <span class="comment">// get the origin of the NSClipView of the scroll view that</span></div><div class="line">    <span class="comment">// we're watching</span></div><div class="line"></div><div class="line">    <span class="built_in">NSPoint</span> changedBoundsOrigin = [changedContentView documentVisibleRect].origin;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以上，欢迎典藏。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;不同于iOS中的UIScrollView，mac中的NSScrollView并没有一堆靠谱好用的delegate来帮助我们方便的监控ScrollView的状态。&lt;/p&gt;
-&lt;p&gt;iOS中我们可以通过UIScrollView的&lt;code&gt;contentOffset&lt;/code&gt;属性来获知滑动的位置，而在mac中我们是通过NSScrollView的&lt;code&gt;contentView&lt;/code&gt;(NSClipView的实例)的&lt;code&gt;documentVisibleRect.origin&lt;/code&gt;来获知滑动的相对位置。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
-    
-    
-      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
-    
-      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
-    
-      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
-    
-      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
     
   </entry>
   
