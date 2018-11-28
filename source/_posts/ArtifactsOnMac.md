@@ -8,7 +8,7 @@ tags:
 categories: "mac"
 ---
 
-####No.1  _Alfred_ [点我装备](https://www.alfredapp.com/)
+#### No.1  _Alfred_ [点我装备](https://www.alfredapp.com/)
 
 这顶神奇的魔法帽到底能干啥？
 这绝对可以称得上一款神器，简单的一句话概括就是——只有你想不到的，没有Alfred做不到的。

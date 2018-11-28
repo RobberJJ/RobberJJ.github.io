@@ -1,17 +1,24 @@
 ---
-title: 关于我
 date: 2017-07-29 18:09:53
 type: "about"
 comments: false
 ---
 
-# iOS开发攻城狮
+<center>__iOS开发攻城狮__</center>
 
 
-### ro_bber@126.com
 
-__Blog:[https://robberjj.github.io](https://robberjj.github.io)__
 
-__jianshu:[http://www.jianshu.com/u/ddb6b7f61f04](http://www.jianshu.com/u/ddb6b7f61f04)__
 
-__GitHub:[https://github.com/RobberJJ](https://github.com/RobberJJ)__
+
+
+<center>__@gmail:robber.cj@gmail.com__</center>
+
+<center>__@126:ro_bber@126.com__</center>
+
+<center>__Blog:https://robberjj.github.io__</center>
+
+<center>__简书:http://www.jianshu.com/u/ddb6b7f61f04__</center>
+
+<center>__GitHub:https://github.com/RobberJJ__</center>
+
