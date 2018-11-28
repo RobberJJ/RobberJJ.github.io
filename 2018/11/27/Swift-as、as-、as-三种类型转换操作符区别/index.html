@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Ro.bber">
 <meta property="og:description" content="这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。 as使用场合 从派生类转换为基类，向上转型（upcasts）  1234567class Animal &amp;#123;&amp;#125;class Cat: Animal &amp;#123;&amp;#125;let cat = Cat()let animal = cat as Animal  消除二义性，数值类型转换  1234l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T07:58:10.496Z">
+<meta property="og:updated_time" content="2018-11-28T01:34:42.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift - as、as!、as?三种类型转换操作符区别">
 <meta name="twitter:description" content="这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。 as使用场合 从派生类转换为基类，向上转型（upcasts）  1234567class Animal &amp;#123;&amp;#125;class Cat: Animal &amp;#123;&amp;#125;let cat = Cat()let animal = cat as Animal  消除二义性，数值类型转换  1234l">
@@ -460,6 +460,7 @@
 <li>消除二义性，数值类型转换</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num1 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">CGFloat</span></div><div class="line"><span class="keyword">let</span> num2 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num3 = <span class="number">42.5</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num4 = (<span class="number">42</span> / <span class="number">2</span>) <span class="keyword">as</span> <span class="type">Double</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
 <li>switch 语句中进行模式匹配<br>如果不知道一个对象是什么类型，你可以通过switch语法检测它的类型，并且尝试在不同的情况下使用对应的类型进行相应的处理。</li>
 </ul>

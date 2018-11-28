@@ -450,8 +450,7 @@
 
       
         
-          
-            <p>这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。</p>
+          <p>这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。</p>
 <h4 id="as使用场合"><a href="#as使用场合" class="headerlink" title="as使用场合"></a>as使用场合</h4><ul>
 <li>从派生类转换为基类，向上转型（upcasts）</li>
 </ul>
@@ -460,14 +459,13 @@
 <li>消除二义性，数值类型转换</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num1 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">CGFloat</span></div><div class="line"><span class="keyword">let</span> num2 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num3 = <span class="number">42.5</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num4 = (<span class="number">42</span> / <span class="number">2</span>) <span class="keyword">as</span> <span class="type">Double</span></div></pre></td></tr></table></figure>
-<ul>
-<li>switch 语句中进行模式匹配<br>如果不知道一个对象是什么类型，你可以通过switch语法检测它的类型，并且尝试在不同的情况下使用对应的类型进行相应的处理。</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> animal &#123;</div><div class="line"><span class="keyword">case</span> <span class="keyword">let</span> cat <span class="keyword">as</span> <span class="type">Cat</span>:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"如果是Cat类型对象，则做相应处理"</span>)</div><div class="line"><span class="keyword">case</span> <span class="keyword">let</span> dog <span class="keyword">as</span> <span class="type">Dog</span>:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"如果是Dog类型对象，则做相应处理"</span>)</div><div class="line"><span class="keyword">default</span>: <span class="keyword">break</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="as-使用场合"><a href="#as-使用场合" class="headerlink" title="as!使用场合"></a>as!使用场合</h4><p>向下转型（Downcasting）时使用。由于是强制类型转换，如果转换失败会报 runtime 运行错误。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>: <span class="title">Animal</span> </span>&#123;&#125;</div><div class="line"><span class="keyword">let</span> animal :<span class="type">Animal</span>  = <span class="type">Cat</span>()</div><div class="line"><span class="keyword">let</span> cat = animal <span class="keyword">as</span>! <span class="type">Cat</span></div></pre></td></tr></table></figure></p>
-<h4 id="as-使用场合-1"><a href="#as-使用场合-1" class="headerlink" title="as?使用场合"></a>as?使用场合</h4><p>as? 和 as! 操作符的转换规则完全一样。但 as? 如果转换不成功的时候便会返回一个 nil 对象。成功的话返回可选类型值（optional），需要我们拆包使用。<br>由于 as? 在转换失败的时候也不会出现错误，所以对于如果能确保100%会成功的转换则可使用 as!，否则使用 as?<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> animal:<span class="type">Animal</span> = <span class="type">Cat</span>()</div><div class="line"> </div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> cat = animal <span class="keyword">as</span>? <span class="type">Cat</span>&#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"cat is not nil"</span>)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"cat is nil"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/27/Swift-as、as-、as-三种类型转换操作符区别/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

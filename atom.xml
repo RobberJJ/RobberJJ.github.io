@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-11-27T07:58:10.496Z</updated>
+  <updated>2018-11-28T01:34:42.809Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://robberjj.github.io/2018/11/27/Swift-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB/"/>
     <id>https://robberjj.github.io/2018/11/27/Swift-as、as-、as-三种类型转换操作符区别/</id>
     <published>2018-11-27T07:51:51.000Z</published>
-    <updated>2018-11-27T07:58:10.496Z</updated>
+    <updated>2018-11-28T01:34:42.809Z</updated>
     
     <content type="html"><![CDATA[<p>这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。</p>
 <h4 id="as使用场合"><a href="#as使用场合" class="headerlink" title="as使用场合"></a>as使用场合</h4><ul>
@@ -31,6 +31,7 @@
 <li>消除二义性，数值类型转换</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num1 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">CGFloat</span></div><div class="line"><span class="keyword">let</span> num2 = <span class="number">42</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num3 = <span class="number">42.5</span> <span class="keyword">as</span> <span class="type">Int</span></div><div class="line"><span class="keyword">let</span> num4 = (<span class="number">42</span> / <span class="number">2</span>) <span class="keyword">as</span> <span class="type">Double</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
 <li>switch 语句中进行模式匹配<br>如果不知道一个对象是什么类型，你可以通过switch语法检测它的类型，并且尝试在不同的情况下使用对应的类型进行相应的处理。</li>
 </ul>
@@ -43,7 +44,13 @@
     
       &lt;p&gt;这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。&lt;/p&gt;
 &lt;h4 id=&quot;as使用场合&quot;&gt;&lt;a href=&quot;#as使用场合&quot; class=&quot;headerlink&quot; title=&quot;as使用场合&quot;&gt;&lt;/a&gt;as使用场合&lt;/h4&gt;&lt;ul&gt;
-&lt;
+&lt;li&gt;从派生类转换为基类，向上转型（upcasts）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Animal&lt;/span&gt; &lt;/span&gt;&amp;#123;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Cat&lt;/span&gt;: &lt;span class=&quot;title&quot;&gt;Animal&lt;/span&gt; &lt;/span&gt;&amp;#123;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; cat = &lt;span class=&quot;type&quot;&gt;Cat&lt;/span&gt;()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; animal = cat &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Animal&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;消除二义性，数值类型转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; num1 = &lt;span class=&quot;number&quot;&gt;42&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; num2 = &lt;span class=&quot;number&quot;&gt;42&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; num3 = &lt;span class=&quot;number&quot;&gt;42.5&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; num4 = (&lt;span class=&quot;number&quot;&gt;42&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Double&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
