@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-11-28T01:34:42.809Z</updated>
+  <updated>2018-11-29T01:41:08.789Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -16,11 +16,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Swift - as、as!、as?三种类型转换操作符区别</title>
-    <link href="https://robberjj.github.io/2018/11/27/Swift-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB/"/>
-    <id>https://robberjj.github.io/2018/11/27/Swift-as、as-、as-三种类型转换操作符区别/</id>
+    <title>Swift Tips - 访问控制(private &amp; fileprivate &amp; internal &amp; public &amp; open)</title>
+    <link href="https://robberjj.github.io/2018/11/29/Swift-Tips-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-private-fileprivate-internal-public-open/"/>
+    <id>https://robberjj.github.io/2018/11/29/Swift-Tips-访问控制-private-fileprivate-internal-public-open/</id>
+    <published>2018-11-29T01:34:30.000Z</published>
+    <updated>2018-11-29T01:41:08.789Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 Swift 语言中，访问修饰符有五种，分别为 <strong>private</strong>，<strong>fileprivate</strong>，<strong>internal</strong>，<strong>public</strong> 和 <strong>open</strong>。</p>
+<blockquote>
+<p>其中 <strong>fileprivate</strong> 和 <strong>open</strong> 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 <strong>private</strong>、<strong>public</strong> 进行细分。</p>
+</blockquote>
+<a id="more"></a>
+<p>下面分别说说各种修饰符的范围&amp;区别：</p>
+<ol>
+<li><p><strong>private</strong>（<em>Class级别</em>）<br><em>private</em> 访问级别所修饰的 <strong>属性</strong> 或者 <strong>方法</strong> 只能在 <strong>当前类</strong> 里访问。<br><strong>注意</strong>：Swift4 中，<strong>extension</strong> 里也可以访问 <em>private</em> 的属性。</p>
+</li>
+<li><p><strong>fileprivate</strong>（<em>File级别</em>）<br><em>fileprivate</em> 访问级别所修饰的 <strong>属性</strong> 或者 <strong>方法</strong> 在 <strong>当前的 Swift 源文件</strong> 里可以访问。</p>
+</li>
+<li><p><strong>internal</strong>（<em>Module级别，Default</em>，internal修饰符可写可不写）</p>
+</li>
+</ol>
+<ul>
+<li><em>internal</em> 访问级别所修饰的 <strong>属性</strong> 或 <strong>方法</strong> 在源代码所在的 <strong>整个模块</strong> 都可以访问。</li>
+<li>如果是框架或者库代码，则在整个 <strong>框架内部</strong> 都可以访问，框架由外部代码所引用时，则不可以访问。</li>
+<li>如果是 App 代码，也是在 <strong>整个 App 代码</strong>，也是在 <strong>整个 App 内部</strong> 可以访问。</li>
+</ul>
+<ol>
+<li><p><strong>public</strong>（<em>开放级别，但是有些限制</em>）<br>可以被 <strong>任何人</strong> 访问。<br><strong>但</strong>，其他 module 中不可以被 <strong>override</strong> &amp; <strong>继承</strong> ，而在 <strong>module</strong> 内可以被 <strong>override</strong> &amp; <strong>继承</strong> 。</p>
+</li>
+<li><p><strong>open</strong>（<em>开放级别，无限制</em>）<br>可以被 <strong>任何人</strong> 使用，包括 <strong>override</strong> &amp; <strong>继承</strong> 。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 Swift 语言中，访问修饰符有五种，分别为 &lt;strong&gt;private&lt;/strong&gt;，&lt;strong&gt;fileprivate&lt;/strong&gt;，&lt;strong&gt;internal&lt;/strong&gt;，&lt;strong&gt;public&lt;/strong&gt; 和 &lt;strong&gt;open&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其中 &lt;strong&gt;fileprivate&lt;/strong&gt; 和 &lt;strong&gt;open&lt;/strong&gt; 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 &lt;strong&gt;private&lt;/strong&gt;、&lt;strong&gt;public&lt;/strong&gt; 进行细分。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="swift" scheme="https://robberjj.github.io/categories/swift/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="Swift" scheme="https://robberjj.github.io/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift Tips - as、as!、as?三种类型转换操作符区别</title>
+    <link href="https://robberjj.github.io/2018/11/27/Swift-Tips-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB/"/>
+    <id>https://robberjj.github.io/2018/11/27/Swift-Tips-as、as-、as-三种类型转换操作符区别/</id>
     <published>2018-11-27T07:51:51.000Z</published>
-    <updated>2018-11-28T01:34:42.809Z</updated>
+    <updated>2018-11-29T01:35:14.871Z</updated>
     
     <content type="html"><![CDATA[<p>这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。</p>
 <h4 id="as使用场合"><a href="#as使用场合" class="headerlink" title="as使用场合"></a>as使用场合</h4><ul>
@@ -1391,54 +1443,6 @@
       <category term="NSExtensionActivationRule" scheme="https://robberjj.github.io/tags/NSExtensionActivationRule/"/>
     
       <category term="TRUEPREDICATE" scheme="https://robberjj.github.io/tags/TRUEPREDICATE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac中NSScrollView自定义滑动条NSScroller</title>
-    <link href="https://robberjj.github.io/2017/09/24/NSScroller/"/>
-    <id>https://robberjj.github.io/2017/09/24/NSScroller/</id>
-    <published>2017-09-24T01:00:15.000Z</published>
-    <updated>2018-11-08T02:37:01.893Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>最近在捣鼓mac上开发app，本以为iOS、mac开发本是同根生，弄起来应该差不多，上手之后才发现iOS是多么的优雅自在，而mac是干啥都觉得不太顺手，UIKit跟AppKit差别还真是不一般的大。</p>
-</blockquote>
-<p>最近，感觉NSScrollView右侧的滑动条长得不好看，想把滑动条的背景去掉，本想着设置个某个属性就能轻而易举的搞定，谁不知捣鼓半天没弄出来，mac开发的相关资料也着实太少，在这里记一笔，加深一下印象。</p>
-<a id="more"></a>
-<blockquote>
-<p>Tips：需要的同学，可以直接前往<a href="https://github.com/RobberJJ/JJScroller" target="_blank" rel="external">这里</a>指点批评，或者为我转身点亮一颗小星星。</p>
-</blockquote>
-<p>滑动条需要瞒住一下几个方面的需求：</p>
-<ul>
-<li>滑动页面时候，显现滑动条，跟随滑动；</li>
-<li>停止滑动页面的时候，自动隐藏滑动条；</li>
-<li>任何时候滑动条背景色为透明；</li>
-</ul>
-<p>下面直接上一下，NSScroller子类 JJScroller的<code>.m</code>文件<br><figure class="highlight mm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">JJScroller</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">id</span>)initWithFrame:(<span class="built_in">NSRect</span>)frameRect</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frameRect];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> == <span class="literal">nil</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">self</span> commonInitializer];</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)awakeFromNib</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">super</span> awakeFromNib];</div><div class="line">    [<span class="keyword">self</span> commonInitializer];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)commonInitializer</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSTrackingArea</span> *trackingArea = [[<span class="built_in">NSTrackingArea</span> alloc] initWithRect:<span class="keyword">self</span>.bounds options:(</div><div class="line"><span class="built_in">NSTrackingMouseEnteredAndExited</span> | <span class="built_in">NSTrackingActiveInActiveApp</span> | <span class="built_in">NSTrackingMouseMoved</span></div><div class="line">) owner:<span class="keyword">self</span> userInfo:<span class="literal">nil</span>];</div><div class="line">    [<span class="keyword">self</span> addTrackingArea:trackingArea];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">NSRect</span>)dirtyRect &#123;</div><div class="line"></div><div class="line">    <span class="comment">// Do some custom drawing...</span></div><div class="line"></div><div class="line">    <span class="comment">// Call NSScroller's drawKnob method (or your own if you overrode it)</span></div><div class="line">    [<span class="keyword">self</span> drawKnob];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawKnobSlotInRect:(<span class="built_in">NSRect</span>)slotRect highlight:(<span class="built_in">BOOL</span>)flag</div><div class="line">&#123;</div><div class="line">    <span class="comment">// Don't draw the background. Should only be invoked when using overlay scrollers</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)mouseExited:(<span class="built_in">NSEvent</span> *)theEvent</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">super</span> mouseExited:theEvent];</div><div class="line">    [<span class="keyword">self</span> fadeOut];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)mouseEntered:(<span class="built_in">NSEvent</span> *)theEvent</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">super</span> mouseEntered:theEvent];</div><div class="line">    [<span class="built_in">NSAnimationContext</span> runAnimationGroup:^(<span class="built_in">NSAnimationContext</span> *context) &#123;</div><div class="line">        context.duration = <span class="number">0.1</span>f;</div><div class="line">        [<span class="keyword">self</span>.animator setAlphaValue:<span class="number">1.0</span>f];</div><div class="line">    &#125; completionHandler:^&#123;</div><div class="line">    &#125;];</div><div class="line">    [<span class="built_in">NSObject</span> cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(fadeOut) object:<span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)mouseMoved:(<span class="built_in">NSEvent</span> *)theEvent</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">super</span> mouseMoved:theEvent];</div><div class="line">    <span class="keyword">self</span>.alphaValue = <span class="number">1.0</span>f;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setFloatValue:(<span class="keyword">float</span>)aFloat</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">super</span> setFloatValue:aFloat];</div><div class="line">    [<span class="keyword">self</span>.animator setAlphaValue:<span class="number">1.0</span>f];</div><div class="line">    [<span class="built_in">NSObject</span> cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(fadeOut) object:<span class="literal">nil</span>];</div><div class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(fadeOut) withObject:<span class="literal">nil</span> afterDelay:<span class="number">1.5</span>f];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)fadeOut</div><div class="line">&#123;</div><div class="line">    [<span class="built_in">NSAnimationContext</span> runAnimationGroup:^(<span class="built_in">NSAnimationContext</span> *context) &#123;</div><div class="line">        context.duration = <span class="number">0.3</span>f;</div><div class="line">        [<span class="keyword">self</span>.animator setAlphaValue:<span class="number">0.0</span>f];</div><div class="line">    &#125; completionHandler:^&#123;</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">+(<span class="built_in">CGFloat</span>)scrollerWidthForControlSize:(<span class="built_in">NSControlSize</span>)controlSize scrollerStyle:(<span class="built_in">NSScrollerStyle</span>)scrollerStyle&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">15</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (<span class="built_in">BOOL</span>)isCompatibleWithOverlayScrollers</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span> == [JJScroller <span class="keyword">class</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近在捣鼓mac上开发app，本以为iOS、mac开发本是同根生，弄起来应该差不多，上手之后才发现iOS是多么的优雅自在，而mac是干啥都觉得不太顺手，UIKit跟AppKit差别还真是不一般的大。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最近，感觉NSScrollView右侧的滑动条长得不好看，想把滑动条的背景去掉，本想着设置个某个属性就能轻而易举的搞定，谁不知捣鼓半天没弄出来，mac开发的相关资料也着实太少，在这里记一笔，加深一下印象。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
-    
-    
-      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
-    
-      <category term="NSScrollView" scheme="https://robberjj.github.io/tags/NSScrollView/"/>
-    
-      <category term="NSScroller" scheme="https://robberjj.github.io/tags/NSScroller/"/>
-    
-      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
-    
-      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
     
   </entry>
   

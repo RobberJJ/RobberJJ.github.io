@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Swift - as、as!、as?三种类型转换操作符区别]]></title>
-    <url>%2F2018%2F11%2F27%2FSwift-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB%2F</url>
+    <title><![CDATA[Swift Tips - 访问控制(private & fileprivate & internal & public & open)]]></title>
+    <url>%2F2018%2F11%2F29%2FSwift-Tips-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-private-fileprivate-internal-public-open%2F</url>
+    <content type="text"><![CDATA[在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。 其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。 下面分别说说各种修饰符的范围&amp;区别： private（Class级别）private 访问级别所修饰的 属性 或者 方法 只能在 当前类 里访问。注意：Swift4 中，extension 里也可以访问 private 的属性。 fileprivate（File级别）fileprivate 访问级别所修饰的 属性 或者 方法 在 当前的 Swift 源文件 里可以访问。 internal（Module级别，Default，internal修饰符可写可不写） internal 访问级别所修饰的 属性 或 方法 在源代码所在的 整个模块 都可以访问。 如果是框架或者库代码，则在整个 框架内部 都可以访问，框架由外部代码所引用时，则不可以访问。 如果是 App 代码，也是在 整个 App 代码，也是在 整个 App 内部 可以访问。 public（开放级别，但是有些限制）可以被 任何人 访问。但，其他 module 中不可以被 override &amp; 继承 ，而在 module 内可以被 override &amp; 继承 。 open（开放级别，无限制）可以被 任何人 使用，包括 override &amp; 继承 。]]></content>
+      <categories>
+        <category>swift</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Swift Tips - as、as!、as?三种类型转换操作符区别]]></title>
+    <url>%2F2018%2F11%2F27%2FSwift-Tips-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。 as使用场合 从派生类转换为基类，向上转型（upcasts） 1234567class Animal &#123;&#125;class Cat: Animal &#123;&#125;let cat = Cat()let animal = cat as Animal 消除二义性，数值类型转换 1234let num1 = 42 as CGFloatlet num2 = 42 as Intlet num3 = 42.5 as Intlet num4 = (42 / 2) as Double switch 语句中进行模式匹配如果不知道一个对象是什么类型，你可以通过switch语法检测它的类型，并且尝试在不同的情况下使用对应的类型进行相应的处理。 1234567switch animal &#123;case let cat as Cat: print("如果是Cat类型对象，则做相应处理")case let dog as Dog: print("如果是Dog类型对象，则做相应处理")default: break&#125; as!使用场合向下转型（Downcasting）时使用。由于是强制类型转换，如果转换失败会报 runtime 运行错误。1234class Animal &#123;&#125;class Cat: Animal &#123;&#125;let animal :Animal = Cat()let cat = animal as! Cat as?使用场合as? 和 as! 操作符的转换规则完全一样。但 as? 如果转换不成功的时候便会返回一个 nil 对象。成功的话返回可选类型值（optional），需要我们拆包使用。由于 as? 在转换失败的时候也不会出现错误，所以对于如果能确保100%会成功的转换则可使用 as!，否则使用 as?1234567let animal:Animal = Cat() if let cat = animal as? Cat&#123; print("cat is not nil")&#125; else &#123; print("cat is nil")&#125;]]></content>
       <categories>
         <category>swift</category>
@@ -258,9 +270,9 @@
       <tags>
         <tag>mac</tag>
         <tag>NSScrollView</tag>
-        <tag>NSScroller</tag>
         <tag>osx</tag>
         <tag>mac os</tag>
+        <tag>NSScroller</tag>
       </tags>
   </entry>
   <entry>
