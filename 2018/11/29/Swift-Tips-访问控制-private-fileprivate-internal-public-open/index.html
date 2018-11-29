@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。  其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。">
+<meta name="description" content="在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。  其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。  下面分别">
 <meta name="keywords" content="iOS,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift Tips - 访问控制(private &amp; fileprivate &amp; internal &amp; public &amp; open)">
 <meta property="og:url" content="https://robberjj.github.io/2018/11/29/Swift-Tips-访问控制-private-fileprivate-internal-public-open/index.html">
 <meta property="og:site_name" content="Ro.bber">
-<meta property="og:description" content="在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。  其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。">
+<meta property="og:description" content="在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。  其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。  下面分别">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T01:41:08.789Z">
+<meta property="og:updated_time" content="2018-11-29T02:10:40.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift Tips - 访问控制(private &amp; fileprivate &amp; internal &amp; public &amp; open)">
-<meta name="twitter:description" content="在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。  其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。">
+<meta name="twitter:description" content="在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。  其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。  下面分别">
 
 
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  356
+                  380
                 </span>
               
 
@@ -455,27 +455,30 @@
 <blockquote>
 <p>其中 <strong>fileprivate</strong> 和 <strong>open</strong> 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 <strong>private</strong>、<strong>public</strong> 进行细分。</p>
 </blockquote>
-<a id="more"></a>
 <p>下面分别说说各种修饰符的范围&amp;区别：</p>
-<ol>
-<li><p><strong>private</strong>（<em>Class级别</em>）<br><em>private</em> 访问级别所修饰的 <strong>属性</strong> 或者 <strong>方法</strong> 只能在 <strong>当前类</strong> 里访问。<br><strong>注意</strong>：Swift4 中，<strong>extension</strong> 里也可以访问 <em>private</em> 的属性。</p>
-</li>
+<ul>
+<li><strong>private</strong>（<em>Class级别</em>）<br><em>private</em> 访问级别所修饰的 <strong>属性</strong> 或者 <strong>方法</strong> 只能在 <strong>当前类</strong> 里访问。<br><strong>注意</strong>：Swift4 中，<strong>extension</strong> 里也可以访问 <em>private</em> 的属性。</li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p><strong>fileprivate</strong>（<em>File级别</em>）<br><em>fileprivate</em> 访问级别所修饰的 <strong>属性</strong> 或者 <strong>方法</strong> 在 <strong>当前的 Swift 源文件</strong> 里可以访问。</p>
 </li>
 <li><p><strong>internal</strong>（<em>Module级别，Default</em>，internal修饰符可写可不写）</p>
-</li>
-</ol>
 <ul>
 <li><em>internal</em> 访问级别所修饰的 <strong>属性</strong> 或 <strong>方法</strong> 在源代码所在的 <strong>整个模块</strong> 都可以访问。</li>
 <li>如果是框架或者库代码，则在整个 <strong>框架内部</strong> 都可以访问，框架由外部代码所引用时，则不可以访问。</li>
 <li>如果是 App 代码，也是在 <strong>整个 App 代码</strong>，也是在 <strong>整个 App 内部</strong> 可以访问。</li>
 </ul>
-<ol>
+</li>
+</ul>
+<ul>
 <li><p><strong>public</strong>（<em>开放级别，但是有些限制</em>）<br>可以被 <strong>任何人</strong> 访问。<br><strong>但</strong>，其他 module 中不可以被 <strong>override</strong> &amp; <strong>继承</strong> ，而在 <strong>module</strong> 内可以被 <strong>override</strong> &amp; <strong>继承</strong> 。</p>
 </li>
 <li><p><strong>open</strong>（<em>开放级别，无限制</em>）<br>可以被 <strong>任何人</strong> 使用，包括 <strong>override</strong> &amp; <strong>继承</strong> 。</p>
 </li>
-</ol>
+</ul>
+<p><strong>总结</strong>，5种修饰符访问权限排序如下：</p>
+<p><em><strong>open</strong> &gt; <strong>public</strong> &gt; <strong>interal</strong> &gt; <strong>fileprivate</strong> &gt; <strong>private</strong></em></p>
 
       
     </div>
