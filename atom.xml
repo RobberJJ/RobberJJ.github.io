@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-11-29T02:26:25.699Z</updated>
+  <updated>2018-11-30T07:00:21.738Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -16,11 +16,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Swift Tips - if let/var &amp; guard let/var 全解析</title>
+    <link href="https://robberjj.github.io/2018/11/30/Swift-Tips-if-let-var-guard-let-var-%E5%85%A8%E8%A7%A3%E6%9E%90/"/>
+    <id>https://robberjj.github.io/2018/11/30/Swift-Tips-if-let-var-guard-let-var-全解析/</id>
+    <published>2018-11-30T05:57:39.000Z</published>
+    <updated>2018-11-30T07:00:21.738Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="问题引出："><a href="#问题引出：" class="headerlink" title="问题引出："></a>问题引出：</h3><p><em>swift</em> 神奇的引入了一个类型——<em><strong>可选类型（optionals）</strong></em>。</p>
+<p>但是，我们要是按照以往（比如OC）的套路在使用可选类型定义的常量的时候，又会让你崩溃抓狂。</p>
+<p>因为 <em>swift</em> 是类型安全的语言，所以可选类型的常量在 <code>if</code> 判断之后仍然需要 <em>解包(<code>!</code>)</em> 。如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> name != <span class="literal">nil</span> &amp;&amp; age != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="built_in">print</span>(name! + <span class="type">String</span>(age!))     <span class="comment">// 输出:老王10</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>倘若，你不加上 <code>!</code> ，根本就不会让你编译通过，而，加上呢？又会如此的麻烦。难道优雅的 <em>swift</em> 就没有解决办法吗？</p>
+<a id="more"></a>
+<p>答案，显然是有的—— <em><strong><code>if let</code></strong></em> 。</p>
+<h3 id="if-let"><a href="#if-let" class="headerlink" title="if let"></a><code>if let</code></h3><p> <code>if let</code> 的标准套路：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> constantName = someOptional &#123;</div><div class="line">   <span class="comment">//statements using 'constantName' </span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="comment">// the value of someOptional is not set (or nil).</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>诚如上面的栗子，倘若通过 <code>if let</code> 加以实现，就不需要 <em>解包(<code>!</code>)</em> 的操作了,甚至可以添加多个条件，<code>,</code> 隔开即可:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="comment">// if let 连用,判断对象的值是否为'nil'</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 进入分支后,nameNew 和 ageNew 一定有值</span></div><div class="line">    <span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew)) <span class="comment">// 输出:老王10</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>需要注意的是：</strong><code>if let</code> 转换的 <em>常量</em> 的作用于只是在 <code>if let {}</code>中。</p>
+<h3 id="if-var"><a href="#if-var" class="headerlink" title="if var"></a><code>if var</code></h3><p><code>if var</code> 与 <code>if let</code> 的用法、语法都是基本相同的，唯一的区别是 <code>if var</code> 转换出来是 <em>变量</em> ，并且，这个 <em>变量</em>  在其作用域 <code>{}</code> 内是可以修改其值的。如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="keyword">var</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age &#123;</div><div class="line">    <span class="comment">// 'var'修饰,可以修改'nameNew'的值,'let'修改的不可以修改</span></div><div class="line">    nameNew = <span class="string">"老李"</span></div><div class="line">    <span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老李10</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>虽然 <code>if var</code> 在其作用域 <code>{}</code> 内是可以修改其值的，但是问题是，更改的值出了作用域之后就失效了，所以通常在实际开发中，并没有太常用。</p>
+<p>到这里，文章开始的问题已经被优雅的 <code>swift</code> 化解了，但是依旧不是很完美，正如上面提到的 <code>if let/var</code> 的缺点：作用域太狭窄。</p>
+<p>所以， <code>swift</code> 当然不可能止步于此。</p>
+<p><strong>良心推荐：</strong> <em><strong><code>guard let/var</code></strong></em></p>
+<h3 id="guard-let-var"><a href="#guard-let-var" class="headerlink" title="guard let/var"></a><code>guard let/var</code></h3><p>我们通常说 <code>guard</code> 是为了守护一定有值。套路如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span>/<span class="keyword">var</span> constantName = expression <span class="keyword">else</span> &#123; </div><div class="line">    <span class="keyword">return</span> value</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>比如，上面的栗子我们就可以这么写了：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"姓名 或 年龄 为nil"</span>)</div><div class="line">        <span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 代码执行至此, nameNew 和 ageNew 一定有值</span></div><div class="line"><span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老王10</span></div></pre></td></tr></table></figure>
+<p><code>guard</code> 就保证了它之后的代码相关值是肯定有的。</p>
+<p><code>guard</code> 仅在条件为假时运行，并且将通过诸如return，break，continue或thrown之类的控制转移语句退出代码块。它提供的这种 <em>提前退出</em> 意味着更快的执行。</p>
+<p>而且，语法上少了一层括号，更简洁一些，不是吗？</p>
+<p><strong>更重要的是：</strong> <code>guard let/var</code> 弥补了 <code>if let/var</code> 的缺陷，可以在 <code>{}</code> 以外的地方继续使用甚至修改（<code>var</code>）。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">guard</span> <span class="keyword">var</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// 'var'修饰,可以修改'nameNew'的值,'let'修改的不可以修改</span></div><div class="line">    nameNew = <span class="string">"老李"</span></div><div class="line">    <span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老李10</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老李10</span></div><div class="line"></div><div class="line">nameNew = <span class="string">"老张"</span></div><div class="line"><span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老张10</span></div></pre></td></tr></table></figure>
+<p>搞定收工！</p>
+<p>至此，有没有解决你的疑问了？评论告诉我。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;问题引出：&quot;&gt;&lt;a href=&quot;#问题引出：&quot; class=&quot;headerlink&quot; title=&quot;问题引出：&quot;&gt;&lt;/a&gt;问题引出：&lt;/h3&gt;&lt;p&gt;&lt;em&gt;swift&lt;/em&gt; 神奇的引入了一个类型——&lt;em&gt;&lt;strong&gt;可选类型（optionals）&lt;/strong&gt;&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;但是，我们要是按照以往（比如OC）的套路在使用可选类型定义的常量的时候，又会让你崩溃抓狂。&lt;/p&gt;
+&lt;p&gt;因为 &lt;em&gt;swift&lt;/em&gt; 是类型安全的语言，所以可选类型的常量在 &lt;code&gt;if&lt;/code&gt; 判断之后仍然需要 &lt;em&gt;解包(&lt;code&gt;!&lt;/code&gt;)&lt;/em&gt; 。如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; name: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;? = &lt;span class=&quot;string&quot;&gt;&quot;老王&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; age: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;? = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; name != &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; &amp;amp;&amp;amp; age != &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(name! + &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(age!))     &lt;span class=&quot;comment&quot;&gt;// 输出:老王10&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;倘若，你不加上 &lt;code&gt;!&lt;/code&gt; ，根本就不会让你编译通过，而，加上呢？又会如此的麻烦。难道优雅的 &lt;em&gt;swift&lt;/em&gt; 就没有解决办法吗？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift" scheme="https://robberjj.github.io/categories/swift/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="Swift" scheme="https://robberjj.github.io/tags/Swift/"/>
+    
+      <category term="Swift Tips" scheme="https://robberjj.github.io/tags/Swift-Tips/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Swift Tips - 访问控制(private &amp; fileprivate &amp; internal &amp; public &amp; open)</title>
     <link href="https://robberjj.github.io/2018/11/29/Swift-Tips-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-private-fileprivate-internal-public-open/"/>
     <id>https://robberjj.github.io/2018/11/29/Swift-Tips-访问控制-private-fileprivate-internal-public-open/</id>
     <published>2018-11-29T01:34:30.000Z</published>
-    <updated>2018-11-29T02:26:25.699Z</updated>
+    <updated>2018-11-30T05:59:00.212Z</updated>
     
     <content type="html"><![CDATA[<p>在 Swift 语言中，访问修饰符有五种，分别为 <strong>private</strong>，<strong>fileprivate</strong>，<strong>internal</strong>，<strong>public</strong> 和 <strong>open</strong>。</p>
 <blockquote>
@@ -68,6 +127,8 @@
     
       <category term="Swift" scheme="https://robberjj.github.io/tags/Swift/"/>
     
+      <category term="Swift Tips" scheme="https://robberjj.github.io/tags/Swift-Tips/"/>
+    
   </entry>
   
   <entry>
@@ -75,7 +136,7 @@
     <link href="https://robberjj.github.io/2018/11/27/Swift-Tips-as%E3%80%81as-%E3%80%81as-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8C%BA%E5%88%AB/"/>
     <id>https://robberjj.github.io/2018/11/27/Swift-Tips-as、as-、as-三种类型转换操作符区别/</id>
     <published>2018-11-27T07:51:51.000Z</published>
-    <updated>2018-11-29T01:35:14.871Z</updated>
+    <updated>2018-11-30T05:58:50.610Z</updated>
     
     <content type="html"><![CDATA[<p>这里整理总结下 as、as!、as? 这三种类型转换操作符的异同，以及各自的使用场景。</p>
 <h4 id="as使用场合"><a href="#as使用场合" class="headerlink" title="as使用场合"></a>as使用场合</h4><ul>
@@ -115,6 +176,8 @@
       <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
     
       <category term="Swift" scheme="https://robberjj.github.io/tags/Swift/"/>
+    
+      <category term="Swift Tips" scheme="https://robberjj.github.io/tags/Swift-Tips/"/>
     
   </entry>
   
@@ -1399,53 +1462,6 @@
       <category term="resource fork" scheme="https://robberjj.github.io/tags/resource-fork/"/>
     
       <category term="Finder information" scheme="https://robberjj.github.io/tags/Finder-information/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Compile warning:Embedded binary&#39;s NSExtensionActivationRule is TRUEPREDICATE</title>
-    <link href="https://robberjj.github.io/2017/09/24/NSExtensionActivationRule/"/>
-    <id>https://robberjj.github.io/2017/09/24/NSExtensionActivationRule/</id>
-    <published>2017-09-24T01:19:58.000Z</published>
-    <updated>2018-11-08T02:37:01.892Z</updated>
-    
-    <content type="html"><![CDATA[<p>上传AppStore的时候出现如下BUG：</p>
-<blockquote>
-<p>warning: Embedded binary’s NSExtensionActivationRule is TRUEPREDICATE. Before you submit your containing app to the App Store, be sure to replace all uses of TRUEPREDICATE with specific predicate statements or NSExtensionActivationRule keys. If any extensions in your containing app include TRUEPREDICATE, the app will be rejected.</p>
-</blockquote>
-<a id="more"></a>
-<p>ShareExtnesion的plist文件中 NSExtensionActivationRule属性值为TRUEPREDICATE。</p>
-<p>官方文档中提到：</p>
-<blockquote>
-<p>During development only, you can use the TRUEPREDICATE constant (which always evaluates to true) as a stub predicate statement, to test your code path before you implement your predicate statement.</p>
-<p>注意: development only,所以上架的时候不能用。</p>
-</blockquote>
-<p>可以参考下图修改</p>
-<p><img src="/imgs/NSExtension.png" alt="NSExtension"></p>
-<p>NSExtensionActivationRule的属性值可以参考<a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW12" target="_blank" rel="external">这里</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;上传AppStore的时候出现如下BUG：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;warning: Embedded binary’s NSExtensionActivationRule is TRUEPREDICATE. Before you submit your containing app to the App Store, be sure to replace all uses of TRUEPREDICATE with specific predicate statements or NSExtensionActivationRule keys. If any extensions in your containing app include TRUEPREDICATE, the app will be rejected.&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
-    
-    
-      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
-    
-      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
-    
-      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
-    
-      <category term="NSExtensionActivationRule" scheme="https://robberjj.github.io/tags/NSExtensionActivationRule/"/>
-    
-      <category term="TRUEPREDICATE" scheme="https://robberjj.github.io/tags/TRUEPREDICATE/"/>
     
   </entry>
   

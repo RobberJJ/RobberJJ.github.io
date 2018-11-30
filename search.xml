@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Swift Tips - if let/var & guard let/var 全解析]]></title>
+    <url>%2F2018%2F11%2F30%2FSwift-Tips-if-let-var-guard-let-var-%E5%85%A8%E8%A7%A3%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[问题引出：swift 神奇的引入了一个类型——可选类型（optionals）。 但是，我们要是按照以往（比如OC）的套路在使用可选类型定义的常量的时候，又会让你崩溃抓狂。 因为 swift 是类型安全的语言，所以可选类型的常量在 if 判断之后仍然需要 解包(!) 。如下： 123456let name: String? = "老王"let age: Int? = 10if name != nil &amp;&amp; age != nil &#123; print(name! + String(age!)) // 输出:老王10&#125; 倘若，你不加上 ! ，根本就不会让你编译通过，而，加上呢？又会如此的麻烦。难道优雅的 swift 就没有解决办法吗？ 答案，显然是有的—— if let 。 if let if let 的标准套路： 12345if let constantName = someOptional &#123; //statements using 'constantName' &#125; else &#123;// the value of someOptional is not set (or nil).&#125; 诚如上面的栗子，倘若通过 if let 加以实现，就不需要 解包(!) 的操作了,甚至可以添加多个条件，, 隔开即可: 12345678910let name: String? = "老王"let age: Int? = 10// if let 连用,判断对象的值是否为'nil'if let nameNew = name, let ageNew = age &#123; // 进入分支后,nameNew 和 ageNew 一定有值 print(nameNew + String(ageNew)) // 输出:老王10&#125; 需要注意的是：if let 转换的 常量 的作用于只是在 if let {}中。 if varif var 与 if let 的用法、语法都是基本相同的，唯一的区别是 if var 转换出来是 变量 ，并且，这个 变量 在其作用域 {} 内是可以修改其值的。如下： 123456789let name: String? = "老王"let age: Int? = 10if var nameNew = name, let ageNew = age &#123; // 'var'修饰,可以修改'nameNew'的值,'let'修改的不可以修改 nameNew = "老李" print(nameNew + String(ageNew)) // 输出:老李10&#125; 虽然 if var 在其作用域 {} 内是可以修改其值的，但是问题是，更改的值出了作用域之后就失效了，所以通常在实际开发中，并没有太常用。 到这里，文章开始的问题已经被优雅的 swift 化解了，但是依旧不是很完美，正如上面提到的 if let/var 的缺点：作用域太狭窄。 所以， swift 当然不可能止步于此。 良心推荐： guard let/var guard let/var我们通常说 guard 是为了守护一定有值。套路如下： 123guard let/var constantName = expression else &#123; return value&#125; 比如，上面的栗子我们就可以这么写了： 12345678910let name: String? = "老王"let age: Int? = 10guard let nameNew = name, let ageNew = age else &#123; print("姓名 或 年龄 为nil") return&#125;// 代码执行至此, nameNew 和 ageNew 一定有值print(nameNew + String(ageNew)) // 输出:老王10 guard 就保证了它之后的代码相关值是肯定有的。 guard 仅在条件为假时运行，并且将通过诸如return，break，continue或thrown之类的控制转移语句退出代码块。它提供的这种 提前退出 意味着更快的执行。 而且，语法上少了一层括号，更简洁一些，不是吗？ 更重要的是： guard let/var 弥补了 if let/var 的缺陷，可以在 {} 以外的地方继续使用甚至修改（var）。 12345678910111213let name: String? = "老王"let age: Int? = 10guard var nameNew = name, let ageNew = age else &#123; // 'var'修饰,可以修改'nameNew'的值,'let'修改的不可以修改 nameNew = "老李" print(nameNew + String(ageNew)) // 输出:老李10&#125;print(nameNew + String(ageNew)) // 输出:老李10nameNew = "老张"print(nameNew + String(ageNew)) // 输出:老张10 搞定收工！ 至此，有没有解决你的疑问了？评论告诉我。]]></content>
+      <categories>
+        <category>swift</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>Swift</tag>
+        <tag>Swift Tips</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Swift Tips - 访问控制(private & fileprivate & internal & public & open)]]></title>
     <url>%2F2018%2F11%2F29%2FSwift-Tips-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-private-fileprivate-internal-public-open%2F</url>
     <content type="text"><![CDATA[在 Swift 语言中，访问修饰符有五种，分别为 private，fileprivate，internal，public 和 open。 其中 fileprivate 和 open 是 Swift 3 新添加的。由于过去 Swift 对于访问权限的控制，不是基于类的，而是基于文件的。这样会有问题，所以 Swift 3 新增了两个修饰符对原来的 private、public 进行细分。 下面分别说说各种修饰符的范围&amp;区别： private（Class级别）private 访问级别所修饰的 属性 或者 方法 只能在 当前类 里访问。注意：Swift4 中，extension 里也可以访问 private 的属性。 fileprivate（File级别）fileprivate 访问级别所修饰的 属性 或者 方法 在 当前的 Swift 源文件 里可以访问。 internal（Module级别，Default，internal修饰符可写可不写） internal 访问级别所修饰的 属性 或 方法 在源代码所在的 整个模块 都可以访问。 如果是框架或者库代码，则在整个 框架内部 都可以访问，框架由外部代码所引用时，则不可以访问。 如果是 App 代码，也是在 整个 App 代码，也是在 整个 App 内部 可以访问。 public（开放级别，但是有些限制）可以被 任何人 访问。但，其他 module 中不可以被 override &amp; 继承 ，而在 module 内可以被 override &amp; 继承 。 open（开放级别，无限制）可以被 任何人 使用，包括 override &amp; 继承 。 总结，5种修饰符访问权限排序如下： open &gt; public &gt; interal &gt; fileprivate &gt; private]]></content>
@@ -10,6 +23,7 @@
       <tags>
         <tag>iOS</tag>
         <tag>Swift</tag>
+        <tag>Swift Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -22,6 +36,7 @@
       <tags>
         <tag>iOS</tag>
         <tag>Swift</tag>
+        <tag>Swift Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -254,10 +269,10 @@
       </categories>
       <tags>
         <tag>mac</tag>
-        <tag>osx</tag>
-        <tag>mac os</tag>
         <tag>NSExtensionActivationRule</tag>
         <tag>TRUEPREDICATE</tag>
+        <tag>osx</tag>
+        <tag>mac os</tag>
       </tags>
   </entry>
   <entry>
@@ -269,9 +284,9 @@
       </categories>
       <tags>
         <tag>mac</tag>
-        <tag>NSScrollView</tag>
         <tag>osx</tag>
         <tag>mac os</tag>
+        <tag>NSScrollView</tag>
         <tag>NSScroller</tag>
       </tags>
   </entry>
@@ -284,9 +299,9 @@
       </categories>
       <tags>
         <tag>mac</tag>
-        <tag>NSScrollView</tag>
         <tag>osx</tag>
         <tag>mac os</tag>
+        <tag>NSScrollView</tag>
       </tags>
   </entry>
   <entry>

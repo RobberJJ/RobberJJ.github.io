@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,Swift,Swift Tips," />
 
 
 
@@ -102,17 +102,18 @@
 
 
 
-<meta name="description" content="路漫漫其修远兮，吾将上下而求索。 Road endless its long and far, I will seek up and down.">
-<meta name="keywords" content="iOS,oc,object-c,swift,mac,ipad,前端,js,,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ro.bber">
-<meta property="og:url" content="https://robberjj.github.io/tags/resource-fork/index.html">
+<meta name="description" content="问题引出：swift 神奇的引入了一个类型——可选类型（optionals）。 但是，我们要是按照以往（比如OC）的套路在使用可选类型定义的常量的时候，又会让你崩溃抓狂。 因为 swift 是类型安全的语言，所以可选类型的常量在 if 判断之后仍然需要 解包(!) 。如下： 123456let name: String? = &quot;老王&quot;let age: Int? = 10if name != nil">
+<meta name="keywords" content="iOS,Swift,Swift Tips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift Tips - if let&#x2F;var &amp; guard let&#x2F;var 全解析">
+<meta property="og:url" content="https://robberjj.github.io/2018/11/30/Swift-Tips-if-let-var-guard-let-var-全解析/index.html">
 <meta property="og:site_name" content="Ro.bber">
-<meta property="og:description" content="路漫漫其修远兮，吾将上下而求索。 Road endless its long and far, I will seek up and down.">
+<meta property="og:description" content="问题引出：swift 神奇的引入了一个类型——可选类型（optionals）。 但是，我们要是按照以往（比如OC）的套路在使用可选类型定义的常量的时候，又会让你崩溃抓狂。 因为 swift 是类型安全的语言，所以可选类型的常量在 if 判断之后仍然需要 解包(!) 。如下： 123456let name: String? = &quot;老王&quot;let age: Int? = 10if name != nil">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-30T07:00:21.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ro.bber">
-<meta name="twitter:description" content="路漫漫其修远兮，吾将上下而求索。 Road endless its long and far, I will seek up and down.">
+<meta name="twitter:title" content="Swift Tips - if let&#x2F;var &amp; guard let&#x2F;var 全解析">
+<meta name="twitter:description" content="问题引出：swift 神奇的引入了一个类型——可选类型（optionals）。 但是，我们要是按照以往（比如OC）的套路在使用可选类型定义的常量的时候，又会让你崩溃抓狂。 因为 swift 是类型安全的语言，所以可选类型的常量在 if 判断之后仍然需要 解包(!) 。如下： 123456let name: String? = &quot;老王&quot;let age: Int? = 10if name != nil">
 
 
 
@@ -140,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://robberjj.github.io/tags/resource-fork/"/>
+  <link rel="canonical" href="https://robberjj.github.io/2018/11/30/Swift-Tips-if-let-var-guard-let-var-全解析/"/>
 
 
 
 
 
-  <title>标签: resource fork | Ro.bber</title>
+  <title>Swift Tips - if let/var & guard let/var 全解析 | Ro.bber</title>
   
 
 
@@ -197,7 +198,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
 <a href="https://github.com/RobberJJ" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
@@ -337,44 +338,235 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>resource fork<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://robberjj.github.io/2018/11/30/Swift-Tips-if-let-var-guard-let-var-全解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ro.bber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ro.bber">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift Tips - if let/var & guard let/var 全解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T13:57:39+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>人次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  853
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h3 id="问题引出："><a href="#问题引出：" class="headerlink" title="问题引出："></a>问题引出：</h3><p><em>swift</em> 神奇的引入了一个类型——<em><strong>可选类型（optionals）</strong></em>。</p>
+<p>但是，我们要是按照以往（比如OC）的套路在使用可选类型定义的常量的时候，又会让你崩溃抓狂。</p>
+<p>因为 <em>swift</em> 是类型安全的语言，所以可选类型的常量在 <code>if</code> 判断之后仍然需要 <em>解包(<code>!</code>)</em> 。如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> name != <span class="literal">nil</span> &amp;&amp; age != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="built_in">print</span>(name! + <span class="type">String</span>(age!))     <span class="comment">// 输出:老王10</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>倘若，你不加上 <code>!</code> ，根本就不会让你编译通过，而，加上呢？又会如此的麻烦。难道优雅的 <em>swift</em> 就没有解决办法吗？</p>
+<a id="more"></a>
+<p>答案，显然是有的—— <em><strong><code>if let</code></strong></em> 。</p>
+<h3 id="if-let"><a href="#if-let" class="headerlink" title="if let"></a><code>if let</code></h3><p> <code>if let</code> 的标准套路：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> constantName = someOptional &#123;</div><div class="line">   <span class="comment">//statements using 'constantName' </span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="comment">// the value of someOptional is not set (or nil).</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>诚如上面的栗子，倘若通过 <code>if let</code> 加以实现，就不需要 <em>解包(<code>!</code>)</em> 的操作了,甚至可以添加多个条件，<code>,</code> 隔开即可:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="comment">// if let 连用,判断对象的值是否为'nil'</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 进入分支后,nameNew 和 ageNew 一定有值</span></div><div class="line">    <span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew)) <span class="comment">// 输出:老王10</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>需要注意的是：</strong><code>if let</code> 转换的 <em>常量</em> 的作用于只是在 <code>if let {}</code>中。</p>
+<h3 id="if-var"><a href="#if-var" class="headerlink" title="if var"></a><code>if var</code></h3><p><code>if var</code> 与 <code>if let</code> 的用法、语法都是基本相同的，唯一的区别是 <code>if var</code> 转换出来是 <em>变量</em> ，并且，这个 <em>变量</em>  在其作用域 <code>{}</code> 内是可以修改其值的。如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="keyword">var</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age &#123;</div><div class="line">    <span class="comment">// 'var'修饰,可以修改'nameNew'的值,'let'修改的不可以修改</span></div><div class="line">    nameNew = <span class="string">"老李"</span></div><div class="line">    <span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老李10</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>虽然 <code>if var</code> 在其作用域 <code>{}</code> 内是可以修改其值的，但是问题是，更改的值出了作用域之后就失效了，所以通常在实际开发中，并没有太常用。</p>
+<p>到这里，文章开始的问题已经被优雅的 <code>swift</code> 化解了，但是依旧不是很完美，正如上面提到的 <code>if let/var</code> 的缺点：作用域太狭窄。</p>
+<p>所以， <code>swift</code> 当然不可能止步于此。</p>
+<p><strong>良心推荐：</strong> <em><strong><code>guard let/var</code></strong></em></p>
+<h3 id="guard-let-var"><a href="#guard-let-var" class="headerlink" title="guard let/var"></a><code>guard let/var</code></h3><p>我们通常说 <code>guard</code> 是为了守护一定有值。套路如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span>/<span class="keyword">var</span> constantName = expression <span class="keyword">else</span> &#123; </div><div class="line">    <span class="keyword">return</span> value</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>比如，上面的栗子我们就可以这么写了：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"姓名 或 年龄 为nil"</span>)</div><div class="line">        <span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 代码执行至此, nameNew 和 ageNew 一定有值</span></div><div class="line"><span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老王10</span></div></pre></td></tr></table></figure>
+<p><code>guard</code> 就保证了它之后的代码相关值是肯定有的。</p>
+<p><code>guard</code> 仅在条件为假时运行，并且将通过诸如return，break，continue或thrown之类的控制转移语句退出代码块。它提供的这种 <em>提前退出</em> 意味着更快的执行。</p>
+<p>而且，语法上少了一层括号，更简洁一些，不是吗？</p>
+<p><strong>更重要的是：</strong> <code>guard let/var</code> 弥补了 <code>if let/var</code> 的缺陷，可以在 <code>{}</code> 以外的地方继续使用甚至修改（<code>var</code>）。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name: <span class="type">String</span>? = <span class="string">"老王"</span></div><div class="line"><span class="keyword">let</span> age: <span class="type">Int</span>? = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">guard</span> <span class="keyword">var</span> nameNew = name,</div><div class="line">    <span class="keyword">let</span> ageNew = age <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// 'var'修饰,可以修改'nameNew'的值,'let'修改的不可以修改</span></div><div class="line">    nameNew = <span class="string">"老李"</span></div><div class="line">    <span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老李10</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老李10</span></div><div class="line"></div><div class="line">nameNew = <span class="string">"老张"</span></div><div class="line"><span class="built_in">print</span>(nameNew + <span class="type">String</span>(ageNew))     <span class="comment">// 输出:老张10</span></div></pre></td></tr></table></figure>
+<p>搞定收工！</p>
+<p>至此，有没有解决你的疑问了？评论告诉我。</p>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/09/24/ResourceFork/" itemprop="url">
-              
-                <span itemprop="name">resource fork, Finder information, or similar detritus not allowed</span>
-              
-            </a>
+
+      
+    </div>
+
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-24T09:29:37+08:00"
-              content="2017-09-24" >
-          09-24
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/Swift-Tips/" rel="tag"><i class="fa fa-tag"></i> Swift Tips</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/29/Swift-Tips-访问控制-private-fileprivate-internal-public-open/" rel="next" title="Swift Tips - 访问控制(private & fileprivate & internal & public & open)">
+                <i class="fa fa-chevron-right"></i> Swift Tips - 访问控制(private & fileprivate & internal & public & open)
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -382,6 +574,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -404,8 +607,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -494,6 +706,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题引出："><span class="nav-number">1.</span> <span class="nav-text">问题引出：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-let"><span class="nav-number">2.</span> <span class="nav-text">if let</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-var"><span class="nav-number">3.</span> <span class="nav-text">if var</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#guard-let-var"><span class="nav-number">4.</span> <span class="nav-text">guard let/var</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -640,10 +868,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -659,6 +887,18 @@
 
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://robberjj.github.io/2018/11/30/Swift-Tips-if-let-var-guard-let-var-全解析/';
+          this.page.identifier = '2018/11/30/Swift-Tips-if-let-var-guard-let-var-全解析/';
+          this.page.title = 'Swift Tips - if let/var & guard let/var 全解析';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://robberjj.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
