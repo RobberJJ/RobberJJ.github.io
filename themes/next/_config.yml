@@ -145,17 +145,17 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
-  #position: right
+  # position: left
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
+  # display: post
   #display: always
-  #display: hide
+  display: hide
   #display: remove
 
   # Sidebar offset from top menubar in pixels.
@@ -352,7 +352,7 @@ changyan:
 #google_site_verification:
 
 # Google Analytics
-#google_analytics:
+google_analytics: 'UA-130195782-1'
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/

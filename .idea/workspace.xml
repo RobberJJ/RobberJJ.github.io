@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="693c033b-f48f-4d6b-9978-111b2e9fa401" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/source/about/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/about/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/categories/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/categories/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/tags/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/tags/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_custom/custom.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_custom/custom.styl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Swift-as、as-、as-三种类型转换操作符区别.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/_config.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +32,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -61,6 +59,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -91,14 +90,16 @@
       <updated>1543288949012</updated>
       <workItem from="1543288952071" duration="103000" />
       <workItem from="1543289073427" duration="213000" />
+      <workItem from="1543570216044" duration="426000" />
+      <workItem from="1543570660843" duration="62000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316000" />
+    <option name="totallyTimeSpent" value="804000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20735383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
