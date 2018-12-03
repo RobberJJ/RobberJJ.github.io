@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-11-30T10:28:30.687Z</updated>
+  <updated>2018-12-03T07:04:51.857Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift Tips - 简单实用的特殊标记（MAKE &amp; TODO &amp; FIXME）</title>
+    <link href="https://robberjj.github.io/2018/12/03/Swift-Tips-%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8%E7%9A%84%E7%89%B9%E6%AE%8A%E6%A0%87%E8%AE%B0-MAKE-TODO-FIXME/"/>
+    <id>https://robberjj.github.io/2018/12/03/Swift-Tips-简单实用的特殊标记-MAKE-TODO-FIXME/</id>
+    <published>2018-12-03T06:45:23.000Z</published>
+    <updated>2018-12-03T07:04:51.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>通常我们在代码编写过程中，为了更好的理解，亦或是为了其他的目的，而希望可以通过简单的方式，迅速的完成标记。</p>
+<p>在我们熟悉的 <code>OC</code> 中我们有两种标记方式：</p>
+<p>其中一种是 <code>#pragram mark - xxx</code> 方式。</p>
+<a id="more"></a>
+<p>而另一种是下面这种：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// <span class="doctag">TODO:</span> 标示处有功能代码待编写，使用方法：// <span class="doctag">TODO:</span></span></div><div class="line"><span class="comment">// <span class="doctag">FIXME:</span> 标示处代码需要修正，使用方法：// <span class="doctag">FIXME:</span></span></div><div class="line"><span class="comment">// !!!: 标示处代码需要注意，使用方法：// !!!:</span></div><div class="line"><span class="comment">// ???: 标示处代码有疑问，使用方法：// ???:</span></div><div class="line"><span class="comment">// MARK: 标记，和#pragma mark效果相同，使用方法：// MARK:</span></div></pre></td></tr></table></figure>
+<p>当然，我们也是可以加上分割线<code>-</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// <span class="doctag">TODO:</span> - 标示处有功能代码待编写，使用方法：// <span class="doctag">TODO:</span></span></div><div class="line"><span class="comment">// <span class="doctag">FIXME:</span> - 标示处代码需要修正，使用方法：// <span class="doctag">FIXME:</span></span></div><div class="line"><span class="comment">// !!!: - 标示处代码需要注意，使用方法：// !!!:</span></div><div class="line"><span class="comment">// ???: - 标示处代码有疑问，使用方法：// ???:</span></div><div class="line"><span class="comment">// MARK: - 标记，和#pragma mark效果相同，使用方法：// MARK:</span></div><div class="line"></div><div class="line"><span class="comment">// MARK: -</span></div></pre></td></tr></table></figure>
+<p>在Xcode 10上展示可谓是由很好的颜值&amp;清晰度：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-bb1ae0741489ab84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="6944660C-17FF-4ADB-B5FF-D4AA694C2633.png"></p>
+<p>但是，在swift中，<code>#pragram mark - xxx</code> 的方式并不能被编译器识别，万幸的是另外一种中的 <code>MARK:</code> &amp; <code>TODO:</code> &amp; <code>FIXME:</code> 依旧还是可以使用的。（包括可以加上分割线 <code>-</code> ）</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-9708ac3a3d3728ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="41F87AD0-34E6-4B0E-8308-386D5B49CABC.png"></p>
+<p>可以看到，根据在代码中标记的位置，可以清晰的显示出对应的层次。</p>
+<p>啊哈！以上。</p>
+<p>希望以上可以对你有些帮助。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通常我们在代码编写过程中，为了更好的理解，亦或是为了其他的目的，而希望可以通过简单的方式，迅速的完成标记。&lt;/p&gt;
+&lt;p&gt;在我们熟悉的 &lt;code&gt;OC&lt;/code&gt; 中我们有两种标记方式：&lt;/p&gt;
+&lt;p&gt;其中一种是 &lt;code&gt;#pragram mark - xxx&lt;/code&gt; 方式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift" scheme="https://robberjj.github.io/categories/swift/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="Swift" scheme="https://robberjj.github.io/tags/Swift/"/>
+    
+      <category term="Swift Tips" scheme="https://robberjj.github.io/tags/Swift-Tips/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift Tips - if let/var &amp; guard let/var 全解析</title>
@@ -1420,48 +1463,6 @@
       <category term="autosaved" scheme="https://robberjj.github.io/tags/autosaved/"/>
     
       <category term="exist" scheme="https://robberjj.github.io/tags/exist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>resource fork, Finder information, or similar detritus not allowed</title>
-    <link href="https://robberjj.github.io/2017/09/24/ResourceFork/"/>
-    <id>https://robberjj.github.io/2017/09/24/ResourceFork/</id>
-    <published>2017-09-24T01:29:37.000Z</published>
-    <updated>2018-11-08T02:37:01.893Z</updated>
-    
-    <content type="html"><![CDATA[<p>XCode 8之后，上传AppStore可能会出现下面的错误：</p>
-<p><img src="/imgs/resourceFork.png" alt="CodeSignError.png"></p>
-<a id="more"></a>
-<blockquote>
-<p>CodeSign /Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Products/Debug-iphoneos/Super\ Flow\ Flip.app<br>    cd “/Volumes/Development/Project/Top Best Games/19. Lets Flow/35/let’s FLOW - source/proj.ios_mac”<br>    export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate<br>    export PATH=”/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin”<br>Signing Identity:     “iPhone Distribution: New Free Games (2CHN583K4J)”<br>Provisioning Profile: “Super Flow Flipp AppStore”<br>                      (c6c30d2a-1025-4a23-8d12-1863ff684a05)</p>
-</blockquote>
-<pre><code>/usr/bin/codesign --force --sign E48B98966150110E55EAA9B149F731901A41B37F --entitlements /Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Intermediates/Flow.build/Debug-iphoneos/Super\ Flow\ Flip.build/Super\ Flow\ Flip.app.xcent --timestamp=none /Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Products/Debug-iphoneos/Super\ Flow\ Flip.app
-</code></pre><p>/Users/gururajtallur/Library/Developer/Xcode/DerivedData/Flow-bkqjkvtmvjovpyepfjeyqmjpintj/Build/Products/Debug-iphoneos/Super Flow Flip.app: resource fork, Finder information, or similar detritus not allowed<br>Command /usr/bin/codesign failed with exit code 1</p>
-<p>用下面的方法解决：<br>终端，cd 到项目的根目录，然后依次执行下面的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">find . -type f -name &apos;*.jpeg&apos; -exec xattr -c &#123;&#125; \;</div><div class="line">find . -type f -name &apos;*.jpg&apos; -exec xattr -c &#123;&#125; \;</div><div class="line">find . -type f -name &apos;*.png&apos; -exec xattr -c &#123;&#125; \;</div><div class="line">find . -type f -name &apos;*.json&apos; -exec xattr -c &#123;&#125; \;</div></pre></td></tr></table></figure></p>
-<p>Clean Xcode and Re Build. Done.</p>
-<p>如果还是未解决，请参考<a href="https://stackoverflow.com/questions/39652867/code-sign-error-in-macos-sierra-xcode-8-3-3-resource-fork-finder-information" target="_blank" rel="external">这里</a>Â</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;XCode 8之后，上传AppStore可能会出现下面的错误：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/imgs/resourceFork.png&quot; alt=&quot;CodeSignError.png&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="mac" scheme="https://robberjj.github.io/categories/mac/"/>
-    
-    
-      <category term="mac" scheme="https://robberjj.github.io/tags/mac/"/>
-    
-      <category term="osx" scheme="https://robberjj.github.io/tags/osx/"/>
-    
-      <category term="mac os" scheme="https://robberjj.github.io/tags/mac-os/"/>
-    
-      <category term="resource fork" scheme="https://robberjj.github.io/tags/resource-fork/"/>
-    
-      <category term="Finder information" scheme="https://robberjj.github.io/tags/Finder-information/"/>
     
   </entry>
   
