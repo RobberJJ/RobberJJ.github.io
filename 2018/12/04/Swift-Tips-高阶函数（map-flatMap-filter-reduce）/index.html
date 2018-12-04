@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="常用命令,node.js," />
+  <meta name="keywords" content="iOS,Swift,Swift Tips," />
 
 
 
@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="node有一个模块叫n，是专门用来管理node.js的版本的。">
-<meta name="keywords" content="常用命令,node.js">
+<meta name="description" content="官方提供的高阶函数，不仅可以大大的简化我们的代码，而且一般来讲会比传统(我们自己实现)的实现更好更快。PS：可能是我自己能力不足，哈哈~ 可能有过这样的苦恼：费劲巴拉的终于实现了，猛然发现官方原本提供了现成的方法，而且比自己实现的更好。 内心仿佛一万只草泥马飘过。。。 总之，你用或者不用，它们就在那里！ 今天主要介绍一下 swift 提供的几个高阶函数 —— map &amp;amp; flatMap &amp;">
+<meta name="keywords" content="iOS,Swift,Swift Tips">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一行命令搞定node.js升级">
-<meta property="og:url" content="https://robberjj.github.io/2017/06/25/node_update/index.html">
+<meta property="og:title" content="Swift Tips - 高阶函数（map &amp; flatMap &amp; filter &amp; reduce）">
+<meta property="og:url" content="https://robberjj.github.io/2018/12/04/Swift-Tips-高阶函数（map-flatMap-filter-reduce）/index.html">
 <meta property="og:site_name" content="Ro.bber">
-<meta property="og:description" content="node有一个模块叫n，是专门用来管理node.js的版本的。">
+<meta property="og:description" content="官方提供的高阶函数，不仅可以大大的简化我们的代码，而且一般来讲会比传统(我们自己实现)的实现更好更快。PS：可能是我自己能力不足，哈哈~ 可能有过这样的苦恼：费劲巴拉的终于实现了，猛然发现官方原本提供了现成的方法，而且比自己实现的更好。 内心仿佛一万只草泥马飘过。。。 总之，你用或者不用，它们就在那里！ 今天主要介绍一下 swift 提供的几个高阶函数 —— map &amp;amp; flatMap &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-08T02:37:01.897Z">
+<meta property="og:updated_time" content="2018-12-04T10:22:26.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一行命令搞定node.js升级">
-<meta name="twitter:description" content="node有一个模块叫n，是专门用来管理node.js的版本的。">
+<meta name="twitter:title" content="Swift Tips - 高阶函数（map &amp; flatMap &amp; filter &amp; reduce）">
+<meta name="twitter:description" content="官方提供的高阶函数，不仅可以大大的简化我们的代码，而且一般来讲会比传统(我们自己实现)的实现更好更快。PS：可能是我自己能力不足，哈哈~ 可能有过这样的苦恼：费劲巴拉的终于实现了，猛然发现官方原本提供了现成的方法，而且比自己实现的更好。 内心仿佛一万只草泥马飘过。。。 总之，你用或者不用，它们就在那里！ 今天主要介绍一下 swift 提供的几个高阶函数 —— map &amp;amp; flatMap &amp;">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://robberjj.github.io/2017/06/25/node_update/"/>
+  <link rel="canonical" href="https://robberjj.github.io/2018/12/04/Swift-Tips-高阶函数（map-flatMap-filter-reduce）/"/>
 
 
 
 
 
-  <title>一行命令搞定node.js升级 | Ro.bber</title>
+  <title>Swift Tips - 高阶函数（map & flatMap & filter & reduce） | Ro.bber</title>
   
 
 
@@ -348,7 +348,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://robberjj.github.io/2017/06/25/node_update/">
+    <link itemprop="mainEntityOfPage" href="https://robberjj.github.io/2018/12/04/Swift-Tips-高阶函数（map-flatMap-filter-reduce）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ro.bber">
@@ -365,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一行命令搞定node.js升级</h1>
+          <h1 class="post-title" itemprop="name headline">Swift Tips - 高阶函数（map & flatMap & filter & reduce）</h1>
         
 
         <div class="post-meta">
@@ -377,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T17:00:06+08:00">
-                2017-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-04T17:41:43+08:00">
+                2018-12-04
               </time>
             
 
@@ -400,8 +400,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
                   </a>
                 </span>
 
@@ -438,7 +438,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  80
+                  1.1k
                 </span>
               
 
@@ -460,15 +460,49 @@
       
 
       
-        <p>node有一个模块叫n，是专门用来管理node.js的版本的。</p>
+        <p>官方提供的高阶函数，不仅可以大大的简化我们的代码，而且一般来讲会比传统(我们自己实现)的实现更好更快。PS：可能是我自己能力不足，哈哈~</p>
+<p>可能有过这样的苦恼：费劲巴拉的终于实现了，猛然发现官方原本提供了现成的方法，而且比自己实现的更好。</p>
+<p>内心仿佛一万只草泥马飘过。。。</p>
+<p>总之，<strong>你用或者不用，它们就在那里！</strong></p>
+<p>今天主要介绍一下 <code>swift</code> 提供的几个高阶函数 —— <strong><em>map</em></strong> &amp; <strong><em>flatMap</em></strong> &amp; <strong><em>filter</em></strong> &amp; <strong><em>reduce</em></strong> 。</p>
 <a id="more"></a>
-<p>首先安装n模块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g n</div></pre></td></tr></table></figure>
-<p>第二步：<br>升级node.js到最新稳定版</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">n stable</div></pre></td></tr></table></figure>
-<p>完工！是不是很简单？！<br>n后面也可以跟随版本号比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">n v0.10.26</div><div class="line">或</div><div class="line">n 0.10.26</div></pre></td></tr></table></figure>
-<p>就这么简单…</p>
+<h4 id="map-函数"><a href="#map-函数" class="headerlink" title="map 函数"></a><code>map</code> 函数</h4><p><code>map</code> 方法获取一个闭包表达式作为其唯一参数。 数组中的每一个元素调用一次该闭包函数，并返回该元素所映射的值。</p>
+<p>简单说就是数组中每个元素通过某个方法进行转换，最后返回一个新的数组。</p>
+<p>比如下面这个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将 Int 类型数组（各个商品的金额），转换成 String 类型的数组（在金额前加上 $ 符号）</span></div><div class="line"><span class="keyword">let</span> prices = [<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>]</div><div class="line"><span class="keyword">let</span> strs = prices.<span class="built_in">map</span>(&#123; <span class="string">"$\($0)"</span> &#125;)</div><div class="line"><span class="built_in">print</span>(strs) <span class="comment">//["$20", "$30", "$40"]</span></div></pre></td></tr></table></figure>
+<p>这样的操作是不是更让你觉的爽歪歪呢？？</p>
+<h4 id="flatMap-函数"><a href="#flatMap-函数" class="headerlink" title="flatMap 函数"></a><code>flatMap</code> 函数</h4><p><code>flatMap</code> 方法同 <code>map</code> 方法比较类似，只不过它返回后的数组中不存在 <code>nil</code>（自动把 <code>nil</code> 给剔除掉），同时它会把 <code>Optional</code> 解包。</p>
+<p>这里我们也通过个栗子来直观的理解：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//比较 map 和 flatMap 这两个方法</span></div><div class="line"><span class="keyword">let</span> array = [<span class="string">"Apple"</span>, <span class="string">"Orange"</span>, <span class="string">"Grape"</span>, <span class="string">""</span>]</div><div class="line"> </div><div class="line"><span class="keyword">let</span> arr1 = array.<span class="built_in">map</span> &#123; a -&gt; <span class="type">Int</span>? <span class="keyword">in</span></div><div class="line">    <span class="keyword">let</span> length = a.<span class="built_in">count</span></div><div class="line">    <span class="keyword">guard</span> length &gt; <span class="number">0</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</div><div class="line">    <span class="keyword">return</span> length</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"arr1:\(arr1)"</span>)  <span class="comment">//arr1:[Opitional(5), Opitional(6), Opitional(5), nil]</span></div><div class="line"> </div><div class="line"><span class="keyword">let</span> arr2 = array.flatMap &#123; a-&gt; <span class="type">Int</span>? <span class="keyword">in</span></div><div class="line">    <span class="keyword">let</span> length = a.<span class="built_in">count</span></div><div class="line">    <span class="keyword">guard</span> length &gt; <span class="number">0</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</div><div class="line">    <span class="keyword">return</span> length</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"arr2:\(arr2)"</span>)  <span class="comment">//arr2:[5, 6, 5]</span></div></pre></td></tr></table></figure>
+<p>除此之外，<code>flatMap</code> 还能把数组中存有数组的数组（二维数组、N维数组）一同打开变成一个新的数组。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</div><div class="line"><span class="keyword">let</span> arr1 = array.<span class="built_in">map</span>&#123; $<span class="number">0</span> &#125;   <span class="comment">// [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span></div><div class="line"><span class="keyword">let</span> arr2 = array.flatMap&#123; $<span class="number">0</span> &#125; <span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9]</span></div></pre></td></tr></table></figure>
+<p>是不是很优秀？？</p>
+<h4 id="filter-函数"><a href="#filter-函数" class="headerlink" title="filter 函数"></a><code>filter</code> 函数</h4><p><code>filter</code> 方法用于过滤元素，即筛选出数组元素中满足某种条件的元素。</p>
+<p>来来来，举个简单的栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//筛选出金额大于 25 的元素。</span></div><div class="line"><span class="keyword">let</span> prices = [<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>]</div><div class="line"><span class="keyword">let</span> result = prices.<span class="built_in">filter</span>(&#123; $<span class="number">0</span> &gt; <span class="number">25</span> &#125;)</div><div class="line"><span class="built_in">print</span>(result)  <span class="comment">//[30, 40]</span></div></pre></td></tr></table></figure>
+<p>这样就不用 <code>for</code> 里面再去 <code>if</code> 判断了不是？</p>
+<h4 id="reduce-函数"><a href="#reduce-函数" class="headerlink" title="reduce 函数"></a><code>reduce</code> 函数</h4><p><code>reduce</code> 方法把数组元素组合计算为一个值，并且会接受一个初始值，这个初始值的类型可以和数组元素类型不同。</p>
+<p>可能不好理解，来个经典的求和栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> prices = [<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>]</div><div class="line"><span class="keyword">let</span> sum = prices.<span class="built_in">reduce</span>(<span class="number">0</span>) &#123; $<span class="number">0</span> + $<span class="number">1</span> &#125;</div><div class="line"><span class="built_in">print</span>(sum)  <span class="comment">// 90</span></div></pre></td></tr></table></figure>
+<p><strong>甚至，</strong>上面的代码还能简化成下面这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> sum = prices.<span class="built_in">reduce</span>(<span class="number">0</span>, +)</div></pre></td></tr></table></figure>
+<p>哈哈~ 是不是有点儿意思了？？</p>
+<p>显然，<code>reduce</code> 不仅仅是能求和，比如它还能这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [<span class="string">"Apple"</span>, <span class="string">"Orange"</span>, <span class="string">"Grape"</span>]</div><div class="line"><span class="keyword">let</span> str = array.<span class="built_in">reduce</span>(<span class="string">""</span>, &#123;</div><div class="line">    <span class="keyword">return</span> $<span class="number">0</span> == <span class="string">""</span> ? $<span class="number">1</span> : $<span class="number">0</span> + <span class="string">"、"</span> + $<span class="number">1</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">print</span>(str)  <span class="comment">// Apple、Orange、Grape</span></div></pre></td></tr></table></figure>
+<p>当然，上面我们只是可以举个栗子，字符串的拼接我们可能会选择这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str = array.joined(separator: <span class="string">"、"</span>)</div></pre></td></tr></table></figure>
+<p>平常的需求如此的丰富多彩，总有适合的场景，择机使用就好~~</p>
+<p><strong>而，</strong>下面要说的是：<strong>其实在各个高阶函数之间也是并不孤单的！</strong></p>
+<h4 id="组合使用"><a href="#组合使用" class="headerlink" title="组合使用"></a>组合使用</h4><p>话不多说，举个 <code>flatMap &amp; filter</code> 组合的栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> collections = [[<span class="number">5</span>,<span class="number">2</span>,<span class="number">7</span>],[<span class="number">4</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">1</span>,<span class="number">3</span>]]</div><div class="line"><span class="keyword">let</span> onlyEven = collections.flatMap &#123;</div><div class="line">    $<span class="number">0</span>.<span class="built_in">filter</span> &#123; $<span class="number">0</span> % <span class="number">2</span> == <span class="number">0</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(onlyEven)  <span class="comment">//[2, 4, 8]</span></div></pre></td></tr></table></figure>
+<p>这样的栗子还有更好，等你在撸代码的过程中不断的去发现惊喜吧！！</p>
+<h4 id="链式组合"><a href="#链式组合" class="headerlink" title="链式组合"></a>链式组合</h4><p><strong>map</strong> &amp; <strong>flatMap</strong> &amp; <strong>filter</strong> 这三个函数的返回值仍旧是一个数组，所以我们当然对其返回值继续进行一些操作，不是么？</p>
+<p>一个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将数组中大于 7 的所有数字进行求和操作。</span></div><div class="line"><span class="keyword">let</span> marks = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">7</span>]</div><div class="line"><span class="keyword">let</span> totalPass = marks.<span class="built_in">filter</span>&#123;$<span class="number">0</span> &gt; <span class="number">7</span>&#125;.<span class="built_in">reduce</span>(<span class="number">0</span>,+)  <span class="comment">// 17</span></div></pre></td></tr></table></figure>
+<p>再一个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对某一个数组里面的数字进行平方操作然后再筛选出偶数值。</span></div><div class="line"><span class="keyword">let</span> numbers = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">7</span>]</div><div class="line"><span class="keyword">let</span> evenSquares = numbers.<span class="built_in">map</span>&#123;$<span class="number">0</span> * $<span class="number">0</span>&#125;.<span class="built_in">filter</span>&#123;$<span class="number">0</span> % <span class="number">2</span> == <span class="number">0</span>&#125;  <span class="comment">// [16, 64, 4]</span></div></pre></td></tr></table></figure>
+<p>以上。</p>
+<p>希望可以对你有所帮助！！嘎嘎~</p>
 
       
     </div>
@@ -504,9 +538,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/常用命令/" rel="tag"><i class="fa fa-tag"></i> 常用命令</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/node-js/" rel="tag"><i class="fa fa-tag"></i> node.js</a>
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/Swift-Tips/" rel="tag"><i class="fa fa-tag"></i> Swift Tips</a>
           
         </div>
       
@@ -520,18 +556,14 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/02/DesignPattern_Prototype/" rel="prev" title="设计模式--原型模式">
-                设计模式--原型模式 <i class="fa fa-chevron-left"></i>
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/23/commandLine_softconnection/" rel="next" title="命令行常用命令--软连接">
-                <i class="fa fa-chevron-right"></i> 命令行常用命令--软连接
+              <a href="/2018/12/04/Swift-Tips-Defer关键字/" rel="next" title="Swift Tips - Defer关键字">
+                <i class="fa fa-chevron-right"></i> Swift Tips - Defer关键字
               </a>
             
           </div>
@@ -589,8 +621,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -679,6 +720,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#map-函数"><span class="nav-number">1.</span> <span class="nav-text">map 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flatMap-函数"><span class="nav-number">2.</span> <span class="nav-text">flatMap 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter-函数"><span class="nav-number">3.</span> <span class="nav-text">filter 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce-函数"><span class="nav-number">4.</span> <span class="nav-text">reduce 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合使用"><span class="nav-number">5.</span> <span class="nav-text">组合使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链式组合"><span class="nav-number">6.</span> <span class="nav-text">链式组合</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -847,9 +904,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://robberjj.github.io/2017/06/25/node_update/';
-          this.page.identifier = '2017/06/25/node_update/';
-          this.page.title = '一行命令搞定node.js升级';
+          this.page.url = 'https://robberjj.github.io/2018/12/04/Swift-Tips-高阶函数（map-flatMap-filter-reduce）/';
+          this.page.identifier = '2018/12/04/Swift-Tips-高阶函数（map-flatMap-filter-reduce）/';
+          this.page.title = 'Swift Tips - 高阶函数（map & flatMap & filter & reduce）';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://robberjj.disqus.com/embed.js';
