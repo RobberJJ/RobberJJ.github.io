@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-12-19T10:03:56.930Z</updated>
+  <updated>2018-12-19T10:07:07.997Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://robberjj.github.io/2018/12/19/Swift-Tips-%E6%9E%9A%E4%B8%BE-Enumerations/"/>
     <id>https://robberjj.github.io/2018/12/19/Swift-Tips-枚举-Enumerations/</id>
     <published>2018-12-19T08:11:50.000Z</published>
-    <updated>2018-12-19T10:03:56.930Z</updated>
+    <updated>2018-12-19T10:07:07.997Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="何谓枚举-Enumerations-？"><a href="#何谓枚举-Enumerations-？" class="headerlink" title="何谓枚举(Enumerations)？"></a>何谓枚举(Enumerations)？</h4><p>通常来说，枚举是为一组有限中可能性的相关值提供的通用类型。</p>
+    <content type="html"><![CDATA[<h4 id="何谓枚举-Enumerations-？"><a href="#何谓枚举-Enumerations-？" class="headerlink" title="何谓枚举(Enumerations)？"></a>何谓枚举(Enumerations)？</h4><p>通常来说，枚举是为一组有限种可能性的相关值提供的通用类型。</p>
 <p>在 <code>C/C++/Objective C</code> 中，这种 <em>通用集合</em> 被限定为一组整型常数。</p>
 <p>而 <code>Swift</code> 却将它真正的发扬了光大，灵活且强大：</p>
 <ul>
@@ -91,7 +91,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;何谓枚举-Enumerations-？&quot;&gt;&lt;a href=&quot;#何谓枚举-Enumerations-？&quot; class=&quot;headerlink&quot; title=&quot;何谓枚举(Enumerations)？&quot;&gt;&lt;/a&gt;何谓枚举(Enumerations)？&lt;/h4&gt;&lt;p&gt;通常来说，枚举是为一组有限中可能性的相关值提供的通用类型。&lt;/p&gt;
+      &lt;h4 id=&quot;何谓枚举-Enumerations-？&quot;&gt;&lt;a href=&quot;#何谓枚举-Enumerations-？&quot; class=&quot;headerlink&quot; title=&quot;何谓枚举(Enumerations)？&quot;&gt;&lt;/a&gt;何谓枚举(Enumerations)？&lt;/h4&gt;&lt;p&gt;通常来说，枚举是为一组有限种可能性的相关值提供的通用类型。&lt;/p&gt;
 &lt;p&gt;在 &lt;code&gt;C/C++/Objective C&lt;/code&gt; 中，这种 &lt;em&gt;通用集合&lt;/em&gt; 被限定为一组整型常数。&lt;/p&gt;
 &lt;p&gt;而 &lt;code&gt;Swift&lt;/code&gt; 却将它真正的发扬了光大，灵活且强大：&lt;/p&gt;
 &lt;ul&gt;
