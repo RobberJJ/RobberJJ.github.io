@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,Swift,Swift Tips," />
 
 
 
@@ -102,17 +102,21 @@
 
 
 
-<meta name="description" content="路漫漫其修远兮，吾将上下而求索。 Road endless its long and far, I will seek up and down.">
-<meta name="keywords" content="iOS,oc,object-c,swift,mac,ipad,前端,js,,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ro.bber">
-<meta property="og:url" content="https://robberjj.github.io/archives/2018/page/2/index.html">
+<meta name="description" content="事实上，结构体 &amp;amp; 类 我们并不是很陌生，在我们各种熟悉语言中均是存在，比如，C、C++、OC等。 前面我们已经知道 Swift 将 枚举 着实丰富了很多，具体可以参见这篇文章。 而对于 结构体 , Swift 也是对其宠爱有加。 有句话是这么说的来着：Swift 中，能用 结构体 就不要用 类 ，除非需要 类 的那些特有的特性。 那么， Swift 中怎么定义 结构体 跟 类 呢？">
+<meta name="keywords" content="iOS,Swift,Swift Tips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift Tips - 结构体(Struct) &amp; 类(Class)">
+<meta property="og:url" content="https://robberjj.github.io/2018/12/29/Swift-Tips-结构体-Struct-类-Class/index.html">
 <meta property="og:site_name" content="Ro.bber">
-<meta property="og:description" content="路漫漫其修远兮，吾将上下而求索。 Road endless its long and far, I will seek up and down.">
+<meta property="og:description" content="事实上，结构体 &amp;amp; 类 我们并不是很陌生，在我们各种熟悉语言中均是存在，比如，C、C++、OC等。 前面我们已经知道 Swift 将 枚举 着实丰富了很多，具体可以参见这篇文章。 而对于 结构体 , Swift 也是对其宠爱有加。 有句话是这么说的来着：Swift 中，能用 结构体 就不要用 类 ，除非需要 类 的那些特有的特性。 那么， Swift 中怎么定义 结构体 跟 类 呢？">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6080248-ad268e394e06061c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6080248-7f45cb21c26260ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-29T06:53:17.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ro.bber">
-<meta name="twitter:description" content="路漫漫其修远兮，吾将上下而求索。 Road endless its long and far, I will seek up and down.">
+<meta name="twitter:title" content="Swift Tips - 结构体(Struct) &amp; 类(Class)">
+<meta name="twitter:description" content="事实上，结构体 &amp;amp; 类 我们并不是很陌生，在我们各种熟悉语言中均是存在，比如，C、C++、OC等。 前面我们已经知道 Swift 将 枚举 着实丰富了很多，具体可以参见这篇文章。 而对于 结构体 , Swift 也是对其宠爱有加。 有句话是这么说的来着：Swift 中，能用 结构体 就不要用 类 ，除非需要 类 的那些特有的特性。 那么， Swift 中怎么定义 结构体 跟 类 呢？">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6080248-ad268e394e06061c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -140,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="https://robberjj.github.io/archives/2018/page/2/"/>
+  <link rel="canonical" href="https://robberjj.github.io/2018/12/29/Swift-Tips-结构体-Struct-类-Class/"/>
 
 
 
 
 
-  <title>归档 | Ro.bber</title>
+  <title>Swift Tips - 结构体(Struct) & 类(Class) | Ro.bber</title>
   
 
 
@@ -197,7 +201,7 @@
     
   
 
-  <div class="container sidebar-position-right  page-archive  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
 <a href="https://github.com/RobberJJ" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
@@ -337,328 +341,269 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 42 篇文章。 Day day up ~~
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://robberjj.github.io/2018/12/29/Swift-Tips-结构体-Struct-类-Class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ro.bber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ro.bber">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift Tips - 结构体(Struct) & 类(Class)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T10:37:15+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>人次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>事实上，<strong>结构体</strong> &amp; <strong>类</strong> 我们并不是很陌生，在我们各种熟悉语言中均是存在，比如，C、C++、OC等。</p>
+<p>前面我们已经知道 <strong>Swift</strong> 将 <strong>枚举</strong> 着实丰富了很多，具体可以参见<strong><a href="https://robberjj.github.io/2018/12/19/Swift-Tips-%E6%9E%9A%E4%B8%BE-Enumerations/">这篇</a></strong>文章。</p>
+<p>而对于 <strong>结构体</strong> , <strong>Swift</strong> 也是对其宠爱有加。</p>
+<p>有句话是这么说的来着：<strong>Swift</strong> 中，能用 <strong>结构体</strong> 就不要用 <strong>类</strong> ，除非需要 <strong>类</strong> 的那些特有的特性。</p>
+<p>那么， <strong>Swift</strong> 中怎么定义 <strong>结构体</strong> 跟 <strong>类</strong> 呢？</p>
+<a id="more"></a>
+<h4 id="什么是-结构体-amp-类-？"><a href="#什么是-结构体-amp-类-？" class="headerlink" title="什么是 结构体 &amp; 类 ？"></a>什么是 <em>结构体</em> &amp; <em>类</em> ？</h4><p><strong>结构体 &amp; 类</strong> 是一种用于构建程序代码块的类灵活的稳定的结构。可以使用与<em>定义常量</em>，<em>变量</em> 和 <em>函数</em> 相同的语法来定义 <strong>属性</strong> 和 <strong>方法</strong> ，以向 <strong>结构体</strong> 和 <strong>类</strong> 添加功能。（来自官网的翻译）</p>
+<p>诚如你所见，看似还是这么熟悉，却又有一点不寻常，是的，我们可以向 <strong>结构体</strong> 中添加 <strong>属性&amp;方法</strong> ，就跟向 <strong>类</strong> 里面添加一样一样的！</p>
+<p>所以，在 <strong>Swift</strong> 中 <strong>结构体</strong> 已经扩展到跟 <strong>类</strong> 灰常神似的地步。</p>
+<p>那么问题来了，这两者到底还有什么区别呢？</p>
+<h4 id="异同-In-结构体-amp-类-？"><a href="#异同-In-结构体-amp-类-？" class="headerlink" title="异同 In 结构体 &amp; 类 ？"></a>异同 In <em>结构体</em> &amp; <em>类</em> ？</h4><p><strong>Swift</strong> 中 <strong>类</strong> 和 <strong>结构体</strong> 的共同处在于：</p>
+<ul>
+<li>定义属性用于存储值</li>
+<li>定义方法用于提供功能</li>
+<li>定义下标脚本用于访问值</li>
+<li>定义构造器用于生成初始化值</li>
+<li>通过扩展以增加默认实现的功能</li>
+<li>实现协议以提供某种标准功能</li>
+</ul>
+<p><strong>Swift</strong> 中 <strong>类</strong> 和 <strong>结构体</strong> 的不同处在于：</p>
+<ul>
+<li>结构体不具有继承性</li>
+<li>结构体不具备运行时强制类型转换</li>
+<li>结构体不具备使用析构器的能力</li>
+<li>结构体不具备使用引用计数的能力</li>
+</ul>
+<p>综上所述，如果我们需要构建的代码块，只是需要 <strong>共同处</strong> 就能满足，那么我们就选择 <strong>结构体</strong> ；要是还需要 <strong>不同处</strong> 的特有功能，再选择 <strong>类</strong> 。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><strong>枚举</strong>、<strong>结构体</strong>、<strong>类</strong> 的语法非常类似，分别使用 <code>enum</code>、<code>struct</code>、<code>class</code>关键字来定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</div><div class="line">    <span class="comment">// structure definition goes here</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="comment">// class definition goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>举个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用于描述基于像素的显示分辨率。此结构有两个存储的属性，称为width和height。</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Resolution</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> height = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//用于描述视频显示的特定视频模式。</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VideoMode</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> resolution = <span class="type">Resolution</span>()</div><div class="line">    <span class="keyword">var</span> interlaced = <span class="literal">false</span></div><div class="line">    <span class="keyword">var</span> frameRate = <span class="number">0.0</span></div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以像下面这样创建实例，以及访问：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> someResolution = <span class="type">Resolution</span>()</div><div class="line"><span class="keyword">let</span> someVideoMode = <span class="type">VideoMode</span>()</div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"The width of someResolution is <span class="subst">\(someResolution.width)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The width of someResolution is 0"</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"The width of someVideoMode is <span class="subst">\(someVideoMode.resolution.width)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The width of someVideoMode is 0"</span></div><div class="line"></div><div class="line">someVideoMode.resolution.width = <span class="number">1280</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"The width of someVideoMode is now <span class="subst">\(someVideoMode.resolution.width)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The width of someVideoMode is now 1280"</span></div></pre></td></tr></table></figure>
+<p>这里需要了解的是，所有 <strong>结构体</strong> 都有一个自动生成的<em>成员初始化程序</em>，可以使用它初始化新结构实例的成员属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> vga = <span class="type">Resolution</span>(width: <span class="number">640</span>, height: <span class="number">480</span>)</div></pre></td></tr></table></figure>
+<p>而，<strong>类实例</strong>不接收默认的成员初始值设定项。</p>
+<p>其实，<strong>枚举&amp;结构体</strong> 与 <strong>类</strong> 之间有一个很本质的区别在于：<strong>枚举&amp;结构体</strong> 是<strong><em>值类型</em></strong>，而 <strong>类</strong> 是<strong><em>引用类型</em></strong>。</p>
+<h4 id="枚举-amp-结构体-是-值类型"><a href="#枚举-amp-结构体-是-值类型" class="headerlink" title="枚举&amp;结构体 是 值类型"></a>枚举&amp;结构体 是 值类型</h4><p>首先，什么是 <strong>值类型</strong> ？</p>
+<p><strong>值类型</strong> 是一种最简单的类型，为什么这么说了？因为常见，比如各种语言里面的Int、Float、Double之流都是。</p>
+<p>进一步可以理解为 <strong>值类型</strong> 是一种没有指针概念的类型。</p>
+<p>那么问题来了，何为没有指针概念呢？</p>
+<p>从存储上看可以这么理解：<strong>值类型</strong> 都是存放在 <strong>栈</strong> 中，而与之对应的 <strong>引用类型</strong> 是在 <strong>栈</strong> 中存储 <strong>指针</strong>，数据存在 <strong>堆</strong> 中，且栈中的指针指向对应的数据的堆地址。</p>
+<p>值得一说的是，<strong>Swift</strong> 中出了 <strong>枚举、结构体</strong> 是值类型，甚至连 <strong>String</strong>，<strong>Array</strong> 以及 <strong>Dictionary</strong> 等都是值类型的。</p>
+<p>为什么呢？因为  <strong>String</strong>，<strong>Array</strong> 以及 <strong>Dictionary</strong> 其实都是通过 <strong>结构体</strong> 实现的。</p>
+<p>下面举个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//实例化</span></div><div class="line"><span class="keyword">let</span> hd = <span class="type">Resolution</span>(width: <span class="number">1920</span>, height: <span class="number">1080</span>)</div><div class="line"><span class="keyword">var</span> cinema = hd</div><div class="line"><span class="comment">//修改 width</span></div><div class="line">cinema.width = <span class="number">2048</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"cinema is now <span class="subst">\(cinema.width)</span> pixels wide"</span>)</div><div class="line"><span class="comment">// Prints "cinema is now 2048 pixels wide"</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"hd is still <span class="subst">\(hd.width)</span> pixels wide"</span>)</div><div class="line"><span class="comment">// Prints "hd is still 1920 pixels wide"</span></div></pre></td></tr></table></figure>
+<p>当<code>cinema</code>给出当前值时<code>hd</code>，存储的<em>值</em><code>hd</code>被复制到新<code>cinema</code>实例中。最终结果是两个完全独立的实例，它们包含相同的数值。但是，因为它们是单独的实例，所以设置宽度<code>cinema</code>to <code>2048</code>不会影响存储的宽度<code>hd</code>，内存情况如下图所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-ad268e394e06061c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="内存示意图"></p>
+<h4 id="类-是-引用类型"><a href="#类-是-引用类型" class="headerlink" title="类 是 引用类型"></a>类 是 引用类型</h4><p> <strong>引用类型</strong>，与值类型不同，<strong><em>引用类型</em></strong> 在分配给变量或常量时或者传递给函数时其值不会被复制。而不是副本，使用对同一现有实例的引用。</p>
+<p>其实就是所谓的 <strong>浅拷贝</strong> ：只复制指针，而不复制其值；</p>
+<p>换一种说法就是，<strong>浅拷贝</strong> 只是复制栈内存，而指向同一块儿堆内存。</p>
+<p>还是举个栗子直观的理解一下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//实例化，VideoMode是上面定义的类，hd是上面实例化的实例</span></div><div class="line"><span class="keyword">let</span> tenEighty = <span class="type">VideoMode</span>()</div><div class="line">tenEighty.resolution = hd</div><div class="line">tenEighty.interlaced = <span class="literal">true</span></div><div class="line">tenEighty.name = <span class="string">"1080i"</span></div><div class="line">tenEighty.frameRate = <span class="number">25.0</span></div></pre></td></tr></table></figure>
+<p><code>tenEighty</code>分配一个名为的新常量<code>alsoTenEighty</code>，并<code>alsoTenEighty</code>修改帧速率：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> alsoTenEighty = tenEighty</div><div class="line">alsoTenEighty.frameRate = <span class="number">30.0</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"The frameRate property of tenEighty is now <span class="subst">\(tenEighty.frameRate)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The frameRate property of tenEighty is now 30.0"</span></div></pre></td></tr></table></figure>
+<p>内存如下图所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-7f45cb21c26260ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="内存示意图"></p>
+<p>需要注意的是，<code>tenEighty</code> 并将 <code>alsoTenEighty</code> 其声明为<strong><em>常量</em></strong>，而不是 <strong>变量</strong>。</p>
+<p>但是，您仍然可以更改 <code>tenEighty.frameRate</code>，<code>alsoTenEighty.frameRate</code>，因为 <code>tenEighty</code> 和 <code>alsoTenEighty</code> 本身（栈中的指针）并未更改。<code>tenEighty</code> 并且 <code>alsoTenEighty</code> 他们自己不“存储” <code>VideoMode</code>实例 （ <code>VideoMode</code>实例存储在堆中）。</p>
+<p>那么又一个来了，<strong>类</strong> 既然是引用类型，怎么判断两个实例是不是同一个呢？也就是说两个不同的指针是不是指向同一块堆内存呢？</p>
+<p><strong>Swift</strong> 提供了一组操作符来方便的解决这个问题：<strong><code>===</code>、<code>!==</code></strong>  。</p>
+<p>看着就很好理解，举个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> tenEighty === alsoTenEighty &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"tenEighty and alsoTenEighty refer to the same VideoMode instance."</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// Prints "tenEighty and alsoTenEighty refer to the same VideoMode instance."</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
+
+      
+    </div>
+
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/Swift-Tips/" rel="tag"><i class="fa fa-tag"></i> Swift Tips</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/08/VimOneCopyMutablePaste/" itemprop="url">
-              
-                <span itemprop="name">Vim一次复制，多次粘贴</span>
-              
-            </a>
-        
-      </h2>
+          <span class="post-nav-divider"></span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-08T14:09:50+08:00"
-              content="2018-09-08" >
-          09-08
-        </time>
-      </div>
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/19/Swift-Tips-枚举-Enumerations/" rel="next" title="Swift Tips - 枚举(Enumerations)">
+                <i class="fa fa-chevron-right"></i> Swift Tips - 枚举(Enumerations)
+              </a>
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/29/CharTransferred/" itemprop="url">
-              
-                <span itemprop="name">Html/Xml中的转义字符</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-29T18:06:50+08:00"
-              content="2018-08-29" >
-          08-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/08/iOSEncoding/" itemprop="url">
-              
-                <span itemprop="name">iOS编码规范</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-08T17:25:50+08:00"
-              content="2018-08-08" >
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/16/ArtifactsOnMac/" itemprop="url">
-              
-                <span itemprop="name">Mac上的那些效率神器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-16T16:56:50+08:00"
-              content="2018-07-16" >
-          07-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/11/ShortcutsOnMac/" itemprop="url">
-              
-                <span itemprop="name">Mac上的那些个快捷键们</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-11T14:47:50+08:00"
-              content="2018-07-11" >
-          07-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/16/DevelopmentNotEnabledWhileLocked/" itemprop="url">
-              
-                <span itemprop="name">Development cannot be enabled while your device is locked.</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-16T12:15:50+08:00"
-              content="2018-05-16" >
-          05-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/16/iosRunningNotSupported/" itemprop="url">
-              
-                <span itemprop="name">This iPhone xxx is running iOS xxx, which may not be supported by this version of Xcode.</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-16T12:02:06+08:00"
-              content="2018-05-16" >
-          05-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/02/githubUploadFileOver100M/" itemprop="url">
-              
-                <span itemprop="name">Github超过100M的大文件上传</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-02T14:13:50+08:00"
-              content="2018-05-02" >
-          05-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2018/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -666,6 +611,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -688,8 +644,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -778,6 +743,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是-结构体-amp-类-？"><span class="nav-number">1.</span> <span class="nav-text">什么是 结构体 & 类 ？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异同-In-结构体-amp-类-？"><span class="nav-number">2.</span> <span class="nav-text">异同 In 结构体 & 类 ？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">3.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举-amp-结构体-是-值类型"><span class="nav-number">4.</span> <span class="nav-text">枚举&结构体 是 值类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类-是-引用类型"><span class="nav-number">5.</span> <span class="nav-text">类 是 引用类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -924,11 +905,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -945,6 +924,18 @@
 
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://robberjj.github.io/2018/12/29/Swift-Tips-结构体-Struct-类-Class/';
+          this.page.identifier = '2018/12/29/Swift-Tips-结构体-Struct-类-Class/';
+          this.page.title = 'Swift Tips - 结构体(Struct) & 类(Class)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://robberjj.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

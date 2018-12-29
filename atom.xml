@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://robberjj.github.io/"/>
-  <updated>2018-12-19T10:07:07.997Z</updated>
+  <updated>2018-12-29T06:53:17.136Z</updated>
   <id>https://robberjj.github.io/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift Tips - 结构体(Struct) &amp; 类(Class)</title>
+    <link href="https://robberjj.github.io/2018/12/29/Swift-Tips-%E7%BB%93%E6%9E%84%E4%BD%93-Struct-%E7%B1%BB-Class/"/>
+    <id>https://robberjj.github.io/2018/12/29/Swift-Tips-结构体-Struct-类-Class/</id>
+    <published>2018-12-29T02:37:15.000Z</published>
+    <updated>2018-12-29T06:53:17.136Z</updated>
+    
+    <content type="html"><![CDATA[<p>事实上，<strong>结构体</strong> &amp; <strong>类</strong> 我们并不是很陌生，在我们各种熟悉语言中均是存在，比如，C、C++、OC等。</p>
+<p>前面我们已经知道 <strong>Swift</strong> 将 <strong>枚举</strong> 着实丰富了很多，具体可以参见<strong><a href="https://robberjj.github.io/2018/12/19/Swift-Tips-%E6%9E%9A%E4%B8%BE-Enumerations/">这篇</a></strong>文章。</p>
+<p>而对于 <strong>结构体</strong> , <strong>Swift</strong> 也是对其宠爱有加。</p>
+<p>有句话是这么说的来着：<strong>Swift</strong> 中，能用 <strong>结构体</strong> 就不要用 <strong>类</strong> ，除非需要 <strong>类</strong> 的那些特有的特性。</p>
+<p>那么， <strong>Swift</strong> 中怎么定义 <strong>结构体</strong> 跟 <strong>类</strong> 呢？</p>
+<a id="more"></a>
+<h4 id="什么是-结构体-amp-类-？"><a href="#什么是-结构体-amp-类-？" class="headerlink" title="什么是 结构体 &amp; 类 ？"></a>什么是 <em>结构体</em> &amp; <em>类</em> ？</h4><p><strong>结构体 &amp; 类</strong> 是一种用于构建程序代码块的类灵活的稳定的结构。可以使用与<em>定义常量</em>，<em>变量</em> 和 <em>函数</em> 相同的语法来定义 <strong>属性</strong> 和 <strong>方法</strong> ，以向 <strong>结构体</strong> 和 <strong>类</strong> 添加功能。（来自官网的翻译）</p>
+<p>诚如你所见，看似还是这么熟悉，却又有一点不寻常，是的，我们可以向 <strong>结构体</strong> 中添加 <strong>属性&amp;方法</strong> ，就跟向 <strong>类</strong> 里面添加一样一样的！</p>
+<p>所以，在 <strong>Swift</strong> 中 <strong>结构体</strong> 已经扩展到跟 <strong>类</strong> 灰常神似的地步。</p>
+<p>那么问题来了，这两者到底还有什么区别呢？</p>
+<h4 id="异同-In-结构体-amp-类-？"><a href="#异同-In-结构体-amp-类-？" class="headerlink" title="异同 In 结构体 &amp; 类 ？"></a>异同 In <em>结构体</em> &amp; <em>类</em> ？</h4><p><strong>Swift</strong> 中 <strong>类</strong> 和 <strong>结构体</strong> 的共同处在于：</p>
+<ul>
+<li>定义属性用于存储值</li>
+<li>定义方法用于提供功能</li>
+<li>定义下标脚本用于访问值</li>
+<li>定义构造器用于生成初始化值</li>
+<li>通过扩展以增加默认实现的功能</li>
+<li>实现协议以提供某种标准功能</li>
+</ul>
+<p><strong>Swift</strong> 中 <strong>类</strong> 和 <strong>结构体</strong> 的不同处在于：</p>
+<ul>
+<li>结构体不具有继承性</li>
+<li>结构体不具备运行时强制类型转换</li>
+<li>结构体不具备使用析构器的能力</li>
+<li>结构体不具备使用引用计数的能力</li>
+</ul>
+<p>综上所述，如果我们需要构建的代码块，只是需要 <strong>共同处</strong> 就能满足，那么我们就选择 <strong>结构体</strong> ；要是还需要 <strong>不同处</strong> 的特有功能，再选择 <strong>类</strong> 。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><strong>枚举</strong>、<strong>结构体</strong>、<strong>类</strong> 的语法非常类似，分别使用 <code>enum</code>、<code>struct</code>、<code>class</code>关键字来定义：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</div><div class="line">    <span class="comment">// structure definition goes here</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="comment">// class definition goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>举个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用于描述基于像素的显示分辨率。此结构有两个存储的属性，称为width和height。</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Resolution</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> height = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//用于描述视频显示的特定视频模式。</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VideoMode</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> resolution = <span class="type">Resolution</span>()</div><div class="line">    <span class="keyword">var</span> interlaced = <span class="literal">false</span></div><div class="line">    <span class="keyword">var</span> frameRate = <span class="number">0.0</span></div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以像下面这样创建实例，以及访问：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> someResolution = <span class="type">Resolution</span>()</div><div class="line"><span class="keyword">let</span> someVideoMode = <span class="type">VideoMode</span>()</div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"The width of someResolution is <span class="subst">\(someResolution.width)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The width of someResolution is 0"</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"The width of someVideoMode is <span class="subst">\(someVideoMode.resolution.width)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The width of someVideoMode is 0"</span></div><div class="line"></div><div class="line">someVideoMode.resolution.width = <span class="number">1280</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"The width of someVideoMode is now <span class="subst">\(someVideoMode.resolution.width)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The width of someVideoMode is now 1280"</span></div></pre></td></tr></table></figure>
+<p>这里需要了解的是，所有 <strong>结构体</strong> 都有一个自动生成的<em>成员初始化程序</em>，可以使用它初始化新结构实例的成员属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> vga = <span class="type">Resolution</span>(width: <span class="number">640</span>, height: <span class="number">480</span>)</div></pre></td></tr></table></figure>
+<p>而，<strong>类实例</strong>不接收默认的成员初始值设定项。</p>
+<p>其实，<strong>枚举&amp;结构体</strong> 与 <strong>类</strong> 之间有一个很本质的区别在于：<strong>枚举&amp;结构体</strong> 是<strong><em>值类型</em></strong>，而 <strong>类</strong> 是<strong><em>引用类型</em></strong>。</p>
+<h4 id="枚举-amp-结构体-是-值类型"><a href="#枚举-amp-结构体-是-值类型" class="headerlink" title="枚举&amp;结构体 是 值类型"></a>枚举&amp;结构体 是 值类型</h4><p>首先，什么是 <strong>值类型</strong> ？</p>
+<p><strong>值类型</strong> 是一种最简单的类型，为什么这么说了？因为常见，比如各种语言里面的Int、Float、Double之流都是。</p>
+<p>进一步可以理解为 <strong>值类型</strong> 是一种没有指针概念的类型。</p>
+<p>那么问题来了，何为没有指针概念呢？</p>
+<p>从存储上看可以这么理解：<strong>值类型</strong> 都是存放在 <strong>栈</strong> 中，而与之对应的 <strong>引用类型</strong> 是在 <strong>栈</strong> 中存储 <strong>指针</strong>，数据存在 <strong>堆</strong> 中，且栈中的指针指向对应的数据的堆地址。</p>
+<p>值得一说的是，<strong>Swift</strong> 中出了 <strong>枚举、结构体</strong> 是值类型，甚至连 <strong>String</strong>，<strong>Array</strong> 以及 <strong>Dictionary</strong> 等都是值类型的。</p>
+<p>为什么呢？因为  <strong>String</strong>，<strong>Array</strong> 以及 <strong>Dictionary</strong> 其实都是通过 <strong>结构体</strong> 实现的。</p>
+<p>下面举个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//实例化</span></div><div class="line"><span class="keyword">let</span> hd = <span class="type">Resolution</span>(width: <span class="number">1920</span>, height: <span class="number">1080</span>)</div><div class="line"><span class="keyword">var</span> cinema = hd</div><div class="line"><span class="comment">//修改 width</span></div><div class="line">cinema.width = <span class="number">2048</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"cinema is now <span class="subst">\(cinema.width)</span> pixels wide"</span>)</div><div class="line"><span class="comment">// Prints "cinema is now 2048 pixels wide"</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"hd is still <span class="subst">\(hd.width)</span> pixels wide"</span>)</div><div class="line"><span class="comment">// Prints "hd is still 1920 pixels wide"</span></div></pre></td></tr></table></figure>
+<p>当<code>cinema</code>给出当前值时<code>hd</code>，存储的<em>值</em><code>hd</code>被复制到新<code>cinema</code>实例中。最终结果是两个完全独立的实例，它们包含相同的数值。但是，因为它们是单独的实例，所以设置宽度<code>cinema</code>to <code>2048</code>不会影响存储的宽度<code>hd</code>，内存情况如下图所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-ad268e394e06061c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="内存示意图"></p>
+<h4 id="类-是-引用类型"><a href="#类-是-引用类型" class="headerlink" title="类 是 引用类型"></a>类 是 引用类型</h4><p> <strong>引用类型</strong>，与值类型不同，<strong><em>引用类型</em></strong> 在分配给变量或常量时或者传递给函数时其值不会被复制。而不是副本，使用对同一现有实例的引用。</p>
+<p>其实就是所谓的 <strong>浅拷贝</strong> ：只复制指针，而不复制其值；</p>
+<p>换一种说法就是，<strong>浅拷贝</strong> 只是复制栈内存，而指向同一块儿堆内存。</p>
+<p>还是举个栗子直观的理解一下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//实例化，VideoMode是上面定义的类，hd是上面实例化的实例</span></div><div class="line"><span class="keyword">let</span> tenEighty = <span class="type">VideoMode</span>()</div><div class="line">tenEighty.resolution = hd</div><div class="line">tenEighty.interlaced = <span class="literal">true</span></div><div class="line">tenEighty.name = <span class="string">"1080i"</span></div><div class="line">tenEighty.frameRate = <span class="number">25.0</span></div></pre></td></tr></table></figure>
+<p><code>tenEighty</code>分配一个名为的新常量<code>alsoTenEighty</code>，并<code>alsoTenEighty</code>修改帧速率：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> alsoTenEighty = tenEighty</div><div class="line">alsoTenEighty.frameRate = <span class="number">30.0</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"The frameRate property of tenEighty is now <span class="subst">\(tenEighty.frameRate)</span>"</span>)</div><div class="line"><span class="comment">// Prints "The frameRate property of tenEighty is now 30.0"</span></div></pre></td></tr></table></figure>
+<p>内存如下图所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6080248-7f45cb21c26260ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="内存示意图"></p>
+<p>需要注意的是，<code>tenEighty</code> 并将 <code>alsoTenEighty</code> 其声明为<strong><em>常量</em></strong>，而不是 <strong>变量</strong>。</p>
+<p>但是，您仍然可以更改 <code>tenEighty.frameRate</code>，<code>alsoTenEighty.frameRate</code>，因为 <code>tenEighty</code> 和 <code>alsoTenEighty</code> 本身（栈中的指针）并未更改。<code>tenEighty</code> 并且 <code>alsoTenEighty</code> 他们自己不“存储” <code>VideoMode</code>实例 （ <code>VideoMode</code>实例存储在堆中）。</p>
+<p>那么又一个来了，<strong>类</strong> 既然是引用类型，怎么判断两个实例是不是同一个呢？也就是说两个不同的指针是不是指向同一块堆内存呢？</p>
+<p><strong>Swift</strong> 提供了一组操作符来方便的解决这个问题：<strong><code>===</code>、<code>!==</code></strong>  。</p>
+<p>看着就很好理解，举个栗子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> tenEighty === alsoTenEighty &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"tenEighty and alsoTenEighty refer to the same VideoMode instance."</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// Prints "tenEighty and alsoTenEighty refer to the same VideoMode instance."</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;事实上，&lt;strong&gt;结构体&lt;/strong&gt; &amp;amp; &lt;strong&gt;类&lt;/strong&gt; 我们并不是很陌生，在我们各种熟悉语言中均是存在，比如，C、C++、OC等。&lt;/p&gt;
+&lt;p&gt;前面我们已经知道 &lt;strong&gt;Swift&lt;/strong&gt; 将 &lt;strong&gt;枚举&lt;/strong&gt; 着实丰富了很多，具体可以参见&lt;strong&gt;&lt;a href=&quot;https://robberjj.github.io/2018/12/19/Swift-Tips-%E6%9E%9A%E4%B8%BE-Enumerations/&quot;&gt;这篇&lt;/a&gt;&lt;/strong&gt;文章。&lt;/p&gt;
+&lt;p&gt;而对于 &lt;strong&gt;结构体&lt;/strong&gt; , &lt;strong&gt;Swift&lt;/strong&gt; 也是对其宠爱有加。&lt;/p&gt;
+&lt;p&gt;有句话是这么说的来着：&lt;strong&gt;Swift&lt;/strong&gt; 中，能用 &lt;strong&gt;结构体&lt;/strong&gt; 就不要用 &lt;strong&gt;类&lt;/strong&gt; ，除非需要 &lt;strong&gt;类&lt;/strong&gt; 的那些特有的特性。&lt;/p&gt;
+&lt;p&gt;那么， &lt;strong&gt;Swift&lt;/strong&gt; 中怎么定义 &lt;strong&gt;结构体&lt;/strong&gt; 跟 &lt;strong&gt;类&lt;/strong&gt; 呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="swift" scheme="https://robberjj.github.io/categories/swift/"/>
+    
+    
+      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
+    
+      <category term="Swift" scheme="https://robberjj.github.io/tags/Swift/"/>
+    
+      <category term="Swift Tips" scheme="https://robberjj.github.io/tags/Swift-Tips/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift Tips - 枚举(Enumerations)</title>
@@ -1559,44 +1652,6 @@
       <category term="shortcuts" scheme="https://robberjj.github.io/tags/shortcuts/"/>
     
       <category term="KeyCodes" scheme="https://robberjj.github.io/tags/KeyCodes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>This app was unable to be installed.</title>
-    <link href="https://robberjj.github.io/2017/10/28/UnableInstalled-md/"/>
-    <id>https://robberjj.github.io/2017/10/28/UnableInstalled-md/</id>
-    <published>2017-10-28T12:31:36.000Z</published>
-    <updated>2018-11-08T02:37:01.894Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天升级XCode 9.1 beta，编译项目正常，模拟器运行出现以下错误弹框：</p>
-<p><img src="/imgs/UnableInstalled.jpg" alt="UnableInstalled"></p>
-<a id="more"></a>
-<p>APP无法安装到模拟器上，也看不见任何提示，由于mac中存在多个XCode 版本，尝试下面命令：</p>
-<blockquote>
-<p>sudo xcode-select -s /Applications/Xcode-beta.app</p>
-</blockquote>
-<p>并不好使。</p>
-<p>这种问题看不见任何其他的问题提示，有点无从查起的赶脚。</p>
-<p><code>stackoverflow</code>上找到下面的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">xcrun simctl spawn booted log show</div><div class="line"></div><div class="line">//或者可以标出这个错误提示相关的，很容易看到相关的错误提示</div><div class="line">xcrun simctl spawn booted log show | grep &quot;This app was unable to be installed.</div></pre></td></tr></table></figure>
-<p>然后，基本就能定位问题了，我这里出现的问题是：<br><img src="/imgs/UnableInstalled2.jpg" alt="reason"></p>
-<p>Info.plist文件中缺少<code>CFBundleExecutable</code>，加上即可。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天升级XCode 9.1 beta，编译项目正常，模拟器运行出现以下错误弹框：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/imgs/UnableInstalled.jpg&quot; alt=&quot;UnableInstalled&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://robberjj.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://robberjj.github.io/tags/iOS/"/>
-    
-      <category term="xcode" scheme="https://robberjj.github.io/tags/xcode/"/>
     
   </entry>
   
